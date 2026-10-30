@@ -15,21 +15,32 @@ export function VideoTile({ video }: { video: Video }) {
     `https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`;
 
   return (
-    <Link href={`/watch/${video.id}`} className="video-tile">
-      <div className="video-thumb-wrap">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={thumb}
-          alt=""
-          className="video-thumb"
-          loading="lazy"
-        />
-        {duration ? <span className="video-duration">{duration}</span> : null}
-      </div>
-      <div className="video-meta">
+    <article className="video-tile">
+      <Link href={`/watch/${video.id}`} className="video-tile-main">
+        <div className="video-thumb-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb} alt="" className="video-thumb" loading="lazy" />
+          {duration ? <span className="video-duration">{duration}</span> : null}
+        </div>
         <h3 className="video-title">{video.title}</h3>
-        <p className="video-channel">{video.channel_name}</p>
+      </Link>
+      <div className="video-meta">
+        {video.channel_slug ? (
+          <Link href={`/channels/${video.channel_slug}`} className="video-channel">
+            {video.channel_name}
+          </Link>
+        ) : (
+          <p className="video-channel">{video.channel_name}</p>
+        )}
+        {video.category_slug ? (
+          <Link
+            href={`/categories/${video.category_slug}`}
+            className="video-category"
+          >
+            {video.category_name || video.category_slug}
+          </Link>
+        ) : null}
       </div>
-    </Link>
+    </article>
   );
 }

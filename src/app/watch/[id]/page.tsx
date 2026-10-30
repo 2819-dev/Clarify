@@ -24,8 +24,21 @@ export default async function WatchPage({
       />
 
       <div className="watch-copy">
-        <p className="channel">{video.channel_name}</p>
+        {video.channel_slug ? (
+          <Link href={`/channels/${video.channel_slug}`} className="channel">
+            {video.channel_name}
+          </Link>
+        ) : (
+          <p className="channel">{video.channel_name}</p>
+        )}
         <h1>{video.title}</h1>
+        {video.category_slug ? (
+          <p className="watch-category">
+            <Link href={`/categories/${video.category_slug}`}>
+              {video.category_name || video.category_slug}
+            </Link>
+          </p>
+        ) : null}
         {video.description ? <p className="desc">{video.description}</p> : null}
       </div>
 

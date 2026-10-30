@@ -8,13 +8,36 @@ export function getSql() {
   return neon(url);
 }
 
+export type Category = {
+  slug: string;
+  name: string;
+  description: string;
+  sort_order: number;
+  video_count?: number;
+};
+
+export type Channel = {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  youtube_url: string | null;
+  avatar_url: string | null;
+  created_at: string;
+  video_count?: number;
+};
+
 export type Video = {
   id: string;
   youtube_id: string;
   title: string;
   description: string;
   channel_name: string;
+  channel_id: string | null;
+  channel_slug?: string | null;
   category: string;
+  category_slug: string | null;
+  category_name?: string | null;
   thumbnail_url: string | null;
   duration_seconds: number | null;
   embeddable: boolean;

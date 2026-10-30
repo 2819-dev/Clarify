@@ -1,0 +1,82 @@
+import { neon } from "@neondatabase/serverless";
+import { readFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const payload = JSON.parse(readFileSync(resolve(root, "data/catalog-seed.json"), "utf8"));
+const env = readFileSync(resolve(root, ".env.local"), "utf8");
+const databaseUrl = process.env.DATABASE_URL || env.match(/^DATABASE_URL=(.*)$/m)?.[1]?.trim();
+if (!databaseUrl) throw new Error("DATABASE_URL required");
+const sql = neon(databaseUrl);
+
+const cats = [
+  ["holidays", "Holidays", "Hanukkah, Purim, Passover, and other celebrations.", 10],
+  ["songs", "Songs", "Jewish and family-friendly music to sing along with.", 20],
+  ["shabbat", "Shabbat", "Shabbat welcome songs and peaceful Friday vibes.", 30],
+  ["prayer", "Prayer", "Modeh Ani, Oseh Shalom, and other gentle liturgy for kids.", 40],
+  ["hebrew", "Learning Hebrew", "Aleph-bet and beginner Hebrew learning.", 50],
+  ["torah", "Torah & Stories", "Parsha-friendly kids stories and Torah teachings.", 60],
+  ["stories", "Stories", "Kind, calm stories for shared family viewing.", 70],
+  ["family", "Family & Calm", "Peaceful nature and calm shared watching.", 80],
+];
+
+for (const [slug, name, description, sort] of cats) {
+  await sql`INSERT INTO categories (slug,name,description,sort_order)
+    VALUES (${slug},${name},${description},${sort})
+    ON CONFLICT (slug) DO UPDATE SET name=EXCLUDED.name, description=EXCLUDED.description, sort_order=EXCLUDED.sort_order`;
+}
+
+const channelIdBySlug = {};
+for (const ch of payload.channels) {
+  const rows = await sql`
+    INSERT INTO channels (slug, name, description, youtube_url, avatar_url)
+    VALUES (${ch.slug}, ${ch.name}, ${ch.description}, ${ch.youtube_url}, ${ch.avatar_url})
+    ON CONFLICT (slug) DO UPDATE SET
+      name = EXCLUDED.name,
+      description = EXCLUDED.description,
+      youtube_url = COALESCE(EXCLUDED.youtube_url, channels.youtube_url),
+      avatar_url = COALESCE(EXCLUDED.avatar_url, channels.avatar_url)
+    RETURNING id, slug`;
+  channelIdBySlug[rows[0].slug] = rows[0].id;
+}
+
+const kept = [];
+for (const v of payload.videos) {
+  const channelId = channelIdBySlug[v.channel_slug];
+  const rows = await sql`
+    INSERT INTO videos (
+      youtube_id, title, description, channel_name, channel_id,
+      category, category_slug, thumbnail_url, embeddable, is_active, updated_at
+    ) VALUES (
+      ${v.youtube_id}, ${v.title}, ${v.description}, ${v.channel_name}, ${channelId}::uuid,
+      ${v.category}, ${v.category_slug}, ${v.thumbnail_url}, TRUE, TRUE, NOW()
+    )
+    ON CONFLICT (youtube_id) DO UPDATE SET
+      title = EXCLUDED.title,
+      description = EXCLUDED.description,
+      channel_name = EXCLUDED.channel_name,
+      channel_id = EXCLUDED.channel_id,
+      category = EXCLUDED.category,
+      category_slug = EXCLUDED.category_slug,
+      thumbnail_url = EXCLUDED.thumbnail_url,
+      embeddable = TRUE,
+      is_active = TRUE,
+      updated_at = NOW()
+    RETURNING youtube_id`;
+  kept.push(rows[0].youtube_id);
+}
+
+const active = await sql`SELECT youtube_id FROM videos WHERE is_active = TRUE`;
+const keep = new Set(kept);
+for (const row of active) {
+  if (!keep.has(row.youtube_id)) {
+    await sql`UPDATE videos SET is_active = FALSE, updated_at = NOW() WHERE youtube_id = ${row.youtube_id}`;
+  }
+}
+
+const counts = await sql`SELECT
+  (SELECT COUNT(*) FROM videos WHERE is_active) AS videos,
+  (SELECT COUNT(*) FROM channels) AS channels,
+  (SELECT COUNT(*) FROM categories) AS categories`;
+console.log(counts[0]);

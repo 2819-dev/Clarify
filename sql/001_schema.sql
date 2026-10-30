@@ -1,5 +1,22 @@
--- Clarify schema (videos + community reports)
+-- Clarify schema: channels, categories, videos, reports
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+CREATE TABLE IF NOT EXISTS categories (
+  slug TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL DEFAULT '',
+  sort_order INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS channels (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  slug TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL DEFAULT '',
+  youtube_url TEXT,
+  avatar_url TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
 CREATE TABLE IF NOT EXISTS videos (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -7,7 +24,9 @@ CREATE TABLE IF NOT EXISTS videos (
   title TEXT NOT NULL,
   description TEXT NOT NULL DEFAULT '',
   channel_name TEXT NOT NULL DEFAULT '',
+  channel_id UUID REFERENCES channels(id),
   category TEXT NOT NULL DEFAULT 'family',
+  category_slug TEXT REFERENCES categories(slug),
   thumbnail_url TEXT,
   duration_seconds INTEGER,
   embeddable BOOLEAN NOT NULL DEFAULT TRUE,
@@ -28,5 +47,7 @@ CREATE TABLE IF NOT EXISTS reports (
 );
 
 CREATE INDEX IF NOT EXISTS idx_videos_active ON videos(is_active, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_videos_category ON videos(category_slug) WHERE is_active;
+CREATE INDEX IF NOT EXISTS idx_videos_channel ON videos(channel_id) WHERE is_active;
 CREATE INDEX IF NOT EXISTS idx_reports_status ON reports(status, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_reports_video ON reports(video_id);

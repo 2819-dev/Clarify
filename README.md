@@ -30,9 +30,21 @@ npm run dev
 - Catalog: [http://localhost:3000](http://localhost:3000)
 - Admin login: [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
 
+## Catalog
+
+Seed a large embed-verified library:
+
+```bash
+# Apply sql/001_schema.sql once, then:
+npm run seed:catalog
+```
+
+`data/catalog-seed.json` holds verified YouTube IDs plus channel/category metadata.
+
 ## Product notes
 
 - Browse/watch only **active** videos.
+- **Categories** (`/categories`) and **channels** (`/channels`) for browsing; home supports `?q=` search across title, channel, and category.
 - Catalog seed only includes YouTube IDs verified to play in an iframe from Clarify.
 - The watch player uses the YouTube IFrame API. On embed failure (`onError` codes 2/5/100/101/150, or no `onReady`), Clarify replaces the player with a custom overlay (logo + “This video is not available on Clarify” + YouTube link) — never YouTube’s unavailable / embedding-disabled chrome.
 - **Report** asks “What is wrong with this video?” and stores free-text in Neon.

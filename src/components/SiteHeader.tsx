@@ -9,6 +9,8 @@ export function SiteHeader() {
       </Link>
       <nav className="site-nav" aria-label="Primary">
         <Link href="/#catalog">Browse</Link>
+        <Link href="/categories">Categories</Link>
+        <Link href="/channels">Channels</Link>
         <Link href="/admin/login" className="nav-quiet">
           Admin
         </Link>
