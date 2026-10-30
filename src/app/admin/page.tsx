@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminLogoutButton } from "@/components/AdminLogoutButton";
 import { AdminReportActions } from "@/components/AdminReportActions";
+import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { isAdminAuthenticated } from "@/lib/auth";
 import { listPendingReports } from "@/lib/reports";
 
@@ -16,6 +17,7 @@ export default async function AdminPage() {
 
   return (
     <section className="admin-shell">
+      <ClarifyLogo href="/" size="md" />
       <div className="admin-top">
         <div>
           <h1>Report review</h1>

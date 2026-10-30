@@ -1,12 +1,10 @@
 import Link from "next/link";
+import { ClarifyLogo } from "@/components/ClarifyLogo";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link href="/" className="brand-mark" aria-label="Clarify home">
-        <span className="brand-orb" aria-hidden />
-        <span className="brand-word">Clarify</span>
-      </Link>
+      <ClarifyLogo size="md" />
       <nav className="site-nav" aria-label="Primary">
         <Link href="/#catalog">Browse</Link>
         <Link href="/categories">Categories</Link>

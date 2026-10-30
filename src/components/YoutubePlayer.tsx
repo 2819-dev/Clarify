@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { ClarifyLogo } from "@/components/ClarifyLogo";
 
 type Props = {
   youtubeId: string;
@@ -160,29 +161,11 @@ export function YoutubePlayer({
 
   if (failed) {
     return (
-      <div
-        className="player-frame clarify-unavailable"
-        role="status"
-        style={{
-          display: "grid",
-          placeItems: "center",
-          background:
-            "radial-gradient(circle at 20% 15%, rgba(228,180,90,0.28), transparent 40%), radial-gradient(circle at 85% 80%, rgba(61,130,214,0.35), transparent 45%), linear-gradient(160deg, #0f2f63 0%, #123a74 55%, #0b2a57 100%)",
-          color: "#fff",
-          padding: "1.5rem",
-        }}
-      >
+      <div className="player-frame clarify-unavailable" role="status">
         <div className="clarify-unavailable-inner">
-          <div className="clarify-unavailable-brand">
-            <span className="brand-orb" aria-hidden />
-            <span className="brand-word" style={{ color: "#fff" }}>
-              Clarify
-            </span>
-          </div>
-          <h2 style={{ color: "#fff", margin: 0 }}>
-            This video is not available on Clarify
-          </h2>
-          <p style={{ color: "rgba(255,255,255,0.86)", margin: 0 }}>
+          <ClarifyLogo href={null} size="md" variant="on-dark" />
+          <h2>This video is not available on Clarify</h2>
+          <p>
             YouTube isn’t allowing playback here. You can still open the original
             video on YouTube.
           </p>

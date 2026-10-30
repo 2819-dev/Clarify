@@ -2,10 +2,11 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { CatalogSearch } from "@/components/CatalogSearch";
 import { CategoryChips } from "@/components/CategoryChips";
+import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
-import { countActiveVideos, listActiveVideos } from "@/lib/videos";
 import { listChannels } from "@/lib/channels";
+import { countActiveVideos, listActiveVideos } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
 
@@ -25,7 +26,9 @@ export default async function HomePage({
   return (
     <>
       <section className="hero" aria-label="Welcome">
-        <h1 className="hero-brand">Clarify</h1>
+        <h1 className="hero-brand-lockup">
+          <ClarifyLogo href={null} size="hero" />
+        </h1>
         <p className="hero-line">
           Jewish &amp; family-safe videos, curated with care.
         </p>
@@ -42,8 +45,7 @@ export default async function HomePage({
           </Link>
         </div>
         <p className="hero-stats">
-          {total} videos · {categories.length} categories · {channels.length}{" "}
-          channels
+          {`${total} videos · ${categories.length} categories · ${channels.length} channels`}
         </p>
       </section>
 
