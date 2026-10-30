@@ -17,6 +17,7 @@ export type Video = {
   category: string;
   thumbnail_url: string | null;
   duration_seconds: number | null;
+  embeddable: boolean;
   is_active: boolean;
   created_at: string;
 };

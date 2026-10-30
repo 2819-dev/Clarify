@@ -33,5 +33,7 @@ npm run dev
 ## Product notes
 
 - Browse/watch only **active** videos.
+- Catalog seed only includes YouTube IDs verified to play in an iframe from Clarify.
+- The watch player uses the YouTube IFrame API. On embed failure (`onError` codes 2/5/100/101/150, or no `onReady`), Clarify replaces the player with a custom overlay (logo + “This video is not available on Clarify” + YouTube link) — never YouTube’s unavailable / embedding-disabled chrome.
 - **Report** asks “What is wrong with this video?” and stores free-text in Neon.
 - Admin **approve** → video removed from the catalog; **deny** → video stays.

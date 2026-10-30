@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReportForm } from "@/components/ReportForm";
+import { YoutubePlayer } from "@/components/YoutubePlayer";
 import { getActiveVideo } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
@@ -16,15 +17,11 @@ export default async function WatchPage({
 
   return (
     <article className="watch-layout">
-      <div className="player-frame">
-        <iframe
-          src={`https://www.youtube.com/embed/${video.youtube_id}?rel=0`}
-          title={video.title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      </div>
+      <YoutubePlayer
+        youtubeId={video.youtube_id}
+        title={video.title}
+        embeddable={video.embeddable}
+      />
 
       <div className="watch-copy">
         <p className="channel">{video.channel_name}</p>
