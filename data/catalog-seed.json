@@ -3,233 +3,299 @@
     {
       "slug": "the-maccabeats",
       "name": "The Maccabeats",
-      "description": "Curated videos from The Maccabeats.",
+      "description": "A cappella Jewish pop from Yeshiva University alumni — holiday mashups, Shabbat songs, and sing-along favorites for the whole family.",
       "youtube_url": "https://www.youtube.com/@TheMaccabeats",
-      "avatar_url": "https://i.ytimg.com/vi/fg51la8Yayc/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/fg51la8Yayc/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/fg51la8Yayc/hqdefault.jpg",
+      "subscriber_count": 842100
     },
     {
       "slug": "shaboom",
       "name": "Shaboom!",
-      "description": "Curated videos from Shaboom!.",
+      "description": "Colorful kids Torah and prayer songs with big energy, friendly characters, and easy-to-follow lyrics.",
       "youtube_url": "https://www.youtube.com/@Shaboom",
-      "avatar_url": "https://i.ytimg.com/vi/eNdwdn9uSBE/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/eNdwdn9uSBE/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/BUv0BTdUNPo/hqdefault.jpg",
+      "subscriber_count": 786191
     },
     {
       "slug": "six13",
       "name": "Six13",
-      "description": "Curated videos from Six13.",
+      "description": "Jewish a cappella comedy and musical parodies — Passover, Purim, Hanukkah, and holiday hits with a Broadway wink.",
       "youtube_url": "https://www.youtube.com/@Six13Sings",
-      "avatar_url": "https://i.ytimg.com/vi/qervY5HSzqM/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/qervY5HSzqM/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/qervY5HSzqM/hqdefault.jpg",
+      "subscriber_count": 392260
     },
     {
       "slug": "sing-it-with-ms-sara",
       "name": "Sing It! with Ms. Sara",
-      "description": "Curated videos from Sing It! with Ms. Sara.",
+      "description": "Warm classroom sing-alongs for Hebrew, Shabbat, holidays, and everyday Jewish joy — perfect for little voices.",
       "youtube_url": "https://www.youtube.com/@singitwithsara",
-      "avatar_url": "https://i.ytimg.com/vi/rL02K-Hf2uM/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/rL02K-Hf2uM/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/jcX8h2CK7a4/hqdefault.jpg",
+      "subscriber_count": 716025
     },
     {
       "slug": "torah-town",
       "name": "Torah Town",
-      "description": "Curated videos from Torah Town.",
+      "description": "Story-driven Torah lessons and Jewish values for kids, told with patience and sparkle.",
       "youtube_url": "https://www.youtube.com/@TorahTown",
-      "avatar_url": "https://i.ytimg.com/vi/2MXib3FH3f4/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/2MXib3FH3f4/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/2MXib3FH3f4/hqdefault.jpg",
+      "subscriber_count": 177905
     },
     {
       "slug": "relaxation-film",
       "name": "Relaxation Film",
-      "description": "Curated videos from Relaxation Film.",
+      "description": "Calm nature visuals and peaceful music for shared family wind-down time.",
       "youtube_url": "https://www.youtube.com/@RelaxationFilm",
-      "avatar_url": "https://i.ytimg.com/vi/ZPyQh7jjbpE/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/ZPyQh7jjbpE/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/ZPyQh7jjbpE/hqdefault.jpg",
+      "subscriber_count": 561924
     },
     {
       "slug": "the-learning-station",
       "name": "The Learning Station",
-      "description": "Curated videos from The Learning Station.",
+      "description": "Upbeat educational kids songs — movement, manners, and merry sing-alongs that travel well into Jewish homes.",
       "youtube_url": "https://www.youtube.com/@Learningstationmusic",
-      "avatar_url": "https://i.ytimg.com/vi/swGzOpoSHNw/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/swGzOpoSHNw/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/swGzOpoSHNw/hqdefault.jpg",
+      "subscriber_count": 204873
     },
     {
       "slug": "kita",
       "name": "KITA",
-      "description": "Curated videos from KITA.",
+      "description": "Jewish kids music and mitzvah moments with catchy hooks and joyful classroom energy.",
       "youtube_url": "https://www.youtube.com/@KITA-Kids",
-      "avatar_url": "https://i.ytimg.com/vi/QON2JYjWMxY/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/QON2JYjWMxY/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/0xk-lBzYmBs/hqdefault.jpg",
+      "subscriber_count": 706235
     },
     {
       "slug": "bimbam",
       "name": "BimBam",
-      "description": "Curated videos from BimBam.",
+      "description": "Animated Jewish learning — holidays, Hebrew, and heartfelt stories for kids and parents watching together.",
       "youtube_url": "https://www.youtube.com/@BimBam",
-      "avatar_url": "https://i.ytimg.com/vi/8p1pabOX3fc/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/8p1pabOX3fc/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/8p1pabOX3fc/hqdefault.jpg",
+      "subscriber_count": 265016
     },
     {
       "slug": "congregation-of-israel",
       "name": "Congregation of Israel",
-      "description": "Curated videos from Congregation of Israel.",
+      "description": "Traditional Jewish prayer and song recordings for shared listening and learning.",
       "youtube_url": "https://www.youtube.com/@congregationofisrael",
-      "avatar_url": "https://i.ytimg.com/vi/c_DrhnlZyKQ/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/c_DrhnlZyKQ/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/c_DrhnlZyKQ/hqdefault.jpg",
+      "subscriber_count": 62623
     },
     {
       "slug": "jewjoy-jewish-kids-songs-stories",
       "name": "JewJoy - Jewish Kids Songs & Stories",
-      "description": "Curated videos from JewJoy - Jewish Kids Songs & Stories.",
+      "description": "Jewish kids songs and stories that make holidays and Hebrew feel playful and approachable.",
       "youtube_url": "https://www.youtube.com/@JewJoyEnglish",
-      "avatar_url": "https://i.ytimg.com/vi/JdBBKeRQ5vY/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/JdBBKeRQ5vY/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/JdBBKeRQ5vY/hqdefault.jpg",
+      "subscriber_count": 268130
     },
     {
       "slug": "jewish-kids-music",
       "name": "Jewish Kids Music",
-      "description": "Curated videos from Jewish Kids Music.",
+      "description": "Family-friendly Jewish music for holidays, Hebrew practice, and everyday singing.",
       "youtube_url": "https://www.youtube.com/@jewishkidsmusic",
-      "avatar_url": "https://i.ytimg.com/vi/aFZvP2ns3HE/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/aFZvP2ns3HE/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/aFZvP2ns3HE/hqdefault.jpg",
+      "subscriber_count": 117800
     },
     {
       "slug": "chabad-org",
       "name": "Chabad.org",
-      "description": "Curated videos from Chabad.org.",
+      "description": "Jewish learning, stories, and holiday inspiration from Chabad.org — gentle for family viewing.",
       "youtube_url": "https://www.youtube.com/@chabadorg",
-      "avatar_url": "https://i.ytimg.com/vi/jhRH8b4CVu4/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/jhRH8b4CVu4/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/jhRH8b4CVu4/hqdefault.jpg",
+      "subscriber_count": 77080
     },
     {
       "slug": "hebrew-fairy-tales-rhymes",
       "name": "Hebrew Fairy Tales & Rhymes",
-      "description": "Curated videos from Hebrew Fairy Tales & Rhymes.",
+      "description": "Hebrew fairy tales, rhymes, and gentle language practice for young listeners.",
       "youtube_url": "https://www.youtube.com/@hebrewfairytalesrhymes4244",
-      "avatar_url": "https://i.ytimg.com/vi/QyRL_D_RueM/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/QyRL_D_RueM/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/QyRL_D_RueM/hqdefault.jpg",
+      "subscriber_count": 828550
     },
     {
       "slug": "jewish-holiday-songs",
       "name": "Jewish Holiday Songs",
-      "description": "Curated videos from Jewish Holiday Songs.",
+      "description": "Classic and contemporary Jewish holiday songs for singing around the table.",
       "youtube_url": "https://www.youtube.com/@JewishHolidaySongs",
-      "avatar_url": "https://i.ytimg.com/vi/VtLKOcFwct4/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/VtLKOcFwct4/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/VtLKOcFwct4/hqdefault.jpg",
+      "subscriber_count": 848566
     },
     {
       "slug": "chabad-palm-beach",
       "name": "Chabad Palm Beach",
-      "description": "Curated videos from Chabad Palm Beach.",
+      "description": "Community Jewish songs and holiday celebrations from Chabad Palm Beach.",
       "youtube_url": "https://www.youtube.com/@ChabadPalmBeach",
-      "avatar_url": "https://i.ytimg.com/vi/toRZ_7lXPP0/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/toRZ_7lXPP0/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/toRZ_7lXPP0/hqdefault.jpg",
+      "subscriber_count": 290612
     },
     {
       "slug": "chabad-kids-videos",
       "name": "Chabad Kids Videos",
-      "description": "Curated videos from Chabad Kids Videos.",
+      "description": "Kid-friendly Chabad videos — stories, songs, and mitzvah inspiration.",
       "youtube_url": "https://www.youtube.com/@ChabadKidsVideos",
-      "avatar_url": "https://i.ytimg.com/vi/xOIAYQlBzpY/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/xOIAYQlBzpY/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/xOIAYQlBzpY/hqdefault.jpg",
+      "subscriber_count": 496876
     },
     {
       "slug": "shabbat-shalom-songs-for-kids",
       "name": "Shabbat Shalom songs for kids",
-      "description": "Curated videos from Shabbat Shalom songs for kids.",
+      "description": "Family-safe Jewish and kids videos from Shabbat Shalom songs for kids, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@ShabbatShalomForKids",
-      "avatar_url": "https://i.ytimg.com/vi/wDK39GCBO6I/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/wDK39GCBO6I/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/wDK39GCBO6I/hqdefault.jpg",
+      "subscriber_count": 270705
     },
     {
       "slug": "jammin-with-you-kids-songs-family-jams",
       "name": "Jammin With You | Kids Songs & Family Jams",
-      "description": "Curated videos from Jammin With You | Kids Songs & Family Jams.",
+      "description": "Family-safe Jewish and kids videos from Jammin With You | Kids Songs & Family Jams, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@jamminwithyoumusic",
-      "avatar_url": "https://i.ytimg.com/vi/xNF6vzGmsp8/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/xNF6vzGmsp8/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/xNF6vzGmsp8/hqdefault.jpg",
+      "subscriber_count": 858371
     },
     {
       "slug": "nature-vibes-escape",
       "name": "NATURE VIBES ESCAPE",
-      "description": "Curated videos from NATURE VIBES ESCAPE.",
+      "description": "Family-safe Jewish and kids videos from NATURE VIBES ESCAPE, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@NatureVibesEscape",
-      "avatar_url": "https://i.ytimg.com/vi/a4tYuLwYsTM/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/a4tYuLwYsTM/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/a4tYuLwYsTM/hqdefault.jpg",
+      "subscriber_count": 285695
     },
     {
       "slug": "pj-library",
       "name": "PJ Library",
-      "description": "Curated videos from PJ Library.",
+      "description": "Family-safe Jewish and kids videos from PJ Library, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@PJLibraryOfficial",
-      "avatar_url": "https://i.ytimg.com/vi/VTN-b5h7BvA/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/VTN-b5h7BvA/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/VTN-b5h7BvA/hqdefault.jpg",
+      "subscriber_count": 526208
     },
     {
       "slug": "congregation-temple-israel",
       "name": "Congregation Temple Israel",
-      "description": "Curated videos from Congregation Temple Israel.",
+      "description": "Family-safe Jewish and kids videos from Congregation Temple Israel, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@TIstl",
-      "avatar_url": "https://i.ytimg.com/vi/1VFrg0tAM0k/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/1VFrg0tAM0k/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/1VFrg0tAM0k/hqdefault.jpg",
+      "subscriber_count": 517377
     },
     {
       "slug": "the-jewish-nation",
       "name": "The Jewish Nation",
-      "description": "Curated videos from The Jewish Nation.",
+      "description": "Family-safe Jewish and kids videos from The Jewish Nation, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@TheJewishNationUnited",
-      "avatar_url": "https://i.ytimg.com/vi/UYB5wz_ZWFM/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/UYB5wz_ZWFM/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/UYB5wz_ZWFM/hqdefault.jpg",
+      "subscriber_count": 240254
     },
     {
       "slug": "israeli-dance-revolution",
       "name": "Israeli Dance Revolution",
-      "description": "Curated videos from Israeli Dance Revolution.",
+      "description": "Family-safe Jewish and kids videos from Israeli Dance Revolution, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@israelidancerevolution",
-      "avatar_url": "https://i.ytimg.com/vi/aCbht4Ehne0/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/aCbht4Ehne0/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/aCbht4Ehne0/hqdefault.jpg",
+      "subscriber_count": 169335
     },
     {
       "slug": "messianic-jewish-alliance-of-israel",
       "name": "Messianic Jewish Alliance of Israel",
-      "description": "Curated videos from Messianic Jewish Alliance of Israel.",
+      "description": "Family-safe Jewish and kids videos from Messianic Jewish Alliance of Israel, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@messianicjewishallianceofi7358",
-      "avatar_url": "https://i.ytimg.com/vi/t7Uk0hflDoY/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/t7Uk0hflDoY/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/t7Uk0hflDoY/hqdefault.jpg",
+      "subscriber_count": 814558
     },
     {
       "slug": "jewish-interactive",
       "name": "Jewish Interactive",
-      "description": "Curated videos from Jewish Interactive.",
+      "description": "Family-safe Jewish and kids videos from Jewish Interactive, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@JewishInteractive",
-      "avatar_url": "https://i.ytimg.com/vi/Qcfzn5D_Vn4/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/Qcfzn5D_Vn4/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/Qcfzn5D_Vn4/hqdefault.jpg",
+      "subscriber_count": 391487
     },
     {
       "slug": "jewishlife",
       "name": "JewishLife",
-      "description": "Curated videos from JewishLife.",
+      "description": "Family-safe Jewish and kids videos from JewishLife, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@JewishLife",
-      "avatar_url": "https://i.ytimg.com/vi/-52MWBzal2c/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/-52MWBzal2c/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/-52MWBzal2c/hqdefault.jpg",
+      "subscriber_count": 712614
     },
     {
       "slug": "israelhomeofhope",
       "name": "IsraelHomeofHope",
-      "description": "Curated videos from IsraelHomeofHope.",
+      "description": "Family-safe Jewish and kids videos from IsraelHomeofHope, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@IsraelHomeofHope",
-      "avatar_url": "https://i.ytimg.com/vi/qVM6x4BechI/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/qVM6x4BechI/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/qVM6x4BechI/hqdefault.jpg",
+      "subscriber_count": 676282
     },
     {
       "slug": "deepsleepnature",
       "name": "DeepSleepNature",
-      "description": "Curated videos from DeepSleepNature.",
+      "description": "Family-safe Jewish and kids videos from DeepSleepNature, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@DeepSleepNatureRelax",
-      "avatar_url": "https://i.ytimg.com/vi/Ts_uWr9-lAU/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/Ts_uWr9-lAU/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/Ts_uWr9-lAU/hqdefault.jpg",
+      "subscriber_count": 187546
     },
     {
       "slug": "online-videos-from-israel-middle-east-jewish-world",
       "name": "Online videos from Israel, Middle East & Jewish World",
-      "description": "Curated videos from Online videos from Israel, Middle East & Jewish World.",
+      "description": "Family-safe Jewish and kids videos from Online videos from Israel, Middle East & Jewish World, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@Israelvideosfeed",
-      "avatar_url": "https://i.ytimg.com/vi/O9NZAA0wPIs/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/O9NZAA0wPIs/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/O9NZAA0wPIs/hqdefault.jpg",
+      "subscriber_count": 563308
     },
     {
       "slug": "chabadofbocaraton",
       "name": "ChabadofBocaRaton",
-      "description": "Curated videos from ChabadofBocaRaton.",
+      "description": "Family-safe Jewish and kids videos from ChabadofBocaRaton, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@ChabadofBocaRaton",
-      "avatar_url": "https://i.ytimg.com/vi/YUf_7ZJC3KQ/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/YUf_7ZJC3KQ/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/YUf_7ZJC3KQ/hqdefault.jpg",
+      "subscriber_count": 651649
     },
     {
       "slug": "jewish-tales-of-the-singing-librarian",
       "name": "Jewish Tales of the Singing Librarian",
-      "description": "Curated videos from Jewish Tales of the Singing Librarian.",
+      "description": "Family-safe Jewish and kids videos from Jewish Tales of the Singing Librarian, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@jewishtales",
-      "avatar_url": "https://i.ytimg.com/vi/hVOUX9yCBW0/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/hVOUX9yCBW0/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/hVOUX9yCBW0/hqdefault.jpg",
+      "subscriber_count": 250047
     },
     {
       "slug": "the-shabbat-project",
       "name": "The Shabbat Project",
-      "description": "Curated videos from The Shabbat Project.",
+      "description": "Family-safe Jewish and kids videos from The Shabbat Project, curated into Clarify for shared watching.",
       "youtube_url": "https://www.youtube.com/@TheShabbosProject",
-      "avatar_url": "https://i.ytimg.com/vi/5Y9jPvnV5B8/hqdefault.jpg"
+      "avatar_url": "https://i.ytimg.com/vi/5Y9jPvnV5B8/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/5Y9jPvnV5B8/hqdefault.jpg",
+      "subscriber_count": 457815
     }
   ],
   "videos": [
@@ -257,7 +323,7 @@
     },
     {
       "youtube_id": "CZgDNPGZ9Sg",
-      "title": "The Maccabeats - Dayenu - Passover - \u05d3\u05d9\u05d9\u05e0\u05d5",
+      "title": "The Maccabeats - Dayenu - Passover - דיינו",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -334,7 +400,7 @@
     },
     {
       "youtube_id": "ZPyQh7jjbpE",
-      "title": "Cute Animal Families 4K \u2022 Relaxation Film with Peaceful Music | Nature 4K Ultra HD",
+      "title": "Cute Animal Families 4K • Relaxation Film with Peaceful Music | Nature 4K Ultra HD",
       "description": "Family-friendly viewing from Relaxation Film.",
       "channel_slug": "relaxation-film",
       "channel_name": "Relaxation Film",
@@ -389,7 +455,7 @@
     },
     {
       "youtube_id": "9KpHb4IHYLY",
-      "title": "The Maccabeats - Nirtzah: The Seder Finale - Passover - \u05e0\u05e8\u05e6\u05d4",
+      "title": "The Maccabeats - Nirtzah: The Seder Finale - Passover - נרצה",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -400,7 +466,7 @@
     },
     {
       "youtube_id": "qmthKpnTHYQ",
-      "title": "The Maccabeats - Les Mis\u00e9rables - Passover",
+      "title": "The Maccabeats - Les Misérables - Passover",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -411,7 +477,7 @@
     },
     {
       "youtube_id": "RmabziV1LiY",
-      "title": "The Maccabeats - Mah Nishtanah - Passover - \u05de\u05d4 \u05e0\u05e9\u05ea\u05e0\u05d4\u200e",
+      "title": "The Maccabeats - Mah Nishtanah - Passover - מה נשתנה‎",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -433,7 +499,7 @@
     },
     {
       "youtube_id": "fZEpGrrYrRU",
-      "title": "\"Break Free (Avadim Hayinu)\" Lyric Video | The Maccabeats | Original Passover Song | \u05e2\u05d1\u05d3\u05d9\u05dd \u05d4\u05d9\u05d9\u05e0\u05d5",
+      "title": "\"Break Free (Avadim Hayinu)\" Lyric Video | The Maccabeats | Original Passover Song | עבדים היינו",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -466,7 +532,7 @@
     },
     {
       "youtube_id": "PAmdS9AnUts",
-      "title": "The Maccabeats - We're Still Here (Am Yisrael Chai) - Hanukkah 2023 - \u05e2\u05dd \u05d9\u05e9\u05e8\u05d0\u05dc \u05d7\u05d9",
+      "title": "The Maccabeats - We're Still Here (Am Yisrael Chai) - Hanukkah 2023 - עם ישראל חי",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -499,7 +565,7 @@
     },
     {
       "youtube_id": "u6PvoWmHiUs",
-      "title": "The Maccabeats - Candlelight 2020 - Hanukkah (\ubc29\ud0c4\uc18c\ub144\ub2e8 BTS cover)",
+      "title": "The Maccabeats - Candlelight 2020 - Hanukkah (방탄소년단 BTS cover)",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -642,7 +708,7 @@
     },
     {
       "youtube_id": "copuiawkyCY",
-      "title": "A Six13 Purim ft. Simcha Leiner, Eli Marcus & Avi Perets | \u05e2\u05dd \u05d9\u05e9\u05e8\u05d0\u05dc \u05d7\u05d9 | \u05d0\u05dd \u05e2\u05dc \u05d4\u05de\u05dc\u05da \u05d8\u05d5\u05d1 | \u05dc\u05d9\u05d4\u05d5\u05d3\u05d9\u05dd",
+      "title": "A Six13 Purim ft. Simcha Leiner, Eli Marcus & Avi Perets | עם ישראל חי | אם על המלך טוב | ליהודים",
       "description": "Family-friendly viewing from Six13.",
       "channel_slug": "six13",
       "channel_name": "Six13",
@@ -752,7 +818,7 @@
     },
     {
       "youtube_id": "N_iu2GuC_Q4",
-      "title": "What if we just brought Jewish stories to life\u2026 for kids!",
+      "title": "What if we just brought Jewish stories to life… for kids!",
       "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
       "channel_slug": "sing-it-with-ms-sara",
       "channel_name": "Sing It! with Ms. Sara",
@@ -950,7 +1016,7 @@
     },
     {
       "youtube_id": "qri8zyk9J7M",
-      "title": "When the Torah makes you want to DANCE! And clap\u2026 and march\u2026 and sing! #jewishkids #torahsongs",
+      "title": "When the Torah makes you want to DANCE! And clap… and march… and sing! #jewishkids #torahsongs",
       "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
       "channel_slug": "sing-it-with-ms-sara",
       "channel_name": "Sing It! with Ms. Sara",
@@ -972,7 +1038,7 @@
     },
     {
       "youtube_id": "RkyWjBfGlfA",
-      "title": "Sing & Learn! Brachos Song for Jewish Kids \u2013 Thank Hashem Every Day",
+      "title": "Sing & Learn! Brachos Song for Jewish Kids – Thank Hashem Every Day",
       "description": "Family-friendly viewing from KITA.",
       "channel_slug": "kita",
       "channel_name": "KITA",
@@ -983,7 +1049,7 @@
     },
     {
       "youtube_id": "t5z0VUt-WdY",
-      "title": "Modeh Ani & Morning Mitzvos! | Jewish Wake-Up Song for Kids \u05e9\u05d9\u05e8 \u05de\u05d5\u05d3\u05d4 \u05d0\u05e0\u05d9 \u05dc\u05d9\u05dc\u05d3\u05d9\u05dd |",
+      "title": "Modeh Ani & Morning Mitzvos! | Jewish Wake-Up Song for Kids שיר מודה אני לילדים |",
       "description": "Family-friendly viewing from KITA.",
       "channel_slug": "kita",
       "channel_name": "KITA",
@@ -1005,7 +1071,7 @@
     },
     {
       "youtube_id": "ah48V5tRQUs",
-      "title": "Sing & Learn: Bal Tashchis Smashy Dashy \u2014 Fun Jewish Kids Song on Bal Tashchis (Save Don\u2019t Waste!)",
+      "title": "Sing & Learn: Bal Tashchis Smashy Dashy — Fun Jewish Kids Song on Bal Tashchis (Save Don’t Waste!)",
       "description": "Family-friendly viewing from KITA.",
       "channel_slug": "kita",
       "channel_name": "KITA",
@@ -1016,7 +1082,7 @@
     },
     {
       "youtube_id": "bHy7_FXqANs",
-      "title": "\ud83c\udfb6 Sing & Learn: Modeh Ani & Morning Mitzvos! | Jewish Wake-Up Song for Kids",
+      "title": "🎶 Sing & Learn: Modeh Ani & Morning Mitzvos! | Jewish Wake-Up Song for Kids",
       "description": "Family-friendly viewing from KITA.",
       "channel_slug": "kita",
       "channel_name": "KITA",
@@ -1071,7 +1137,7 @@
     },
     {
       "youtube_id": "0-rg7EIt1x4",
-      "title": "Herman the Worm \u266b Camp Songs for Children \u266b Kids Brain Breaks Songs by The Learning Station",
+      "title": "Herman the Worm ♫ Camp Songs for Children ♫ Kids Brain Breaks Songs by The Learning Station",
       "description": "Family-friendly viewing from The Learning Station.",
       "channel_slug": "the-learning-station",
       "channel_name": "The Learning Station",
@@ -1093,7 +1159,7 @@
     },
     {
       "youtube_id": "QyRL_D_RueM",
-      "title": "\u05d4\u05d1\u05d4 \u05e0\u05d2\u05d9\u05dc\u05d4 | \u05d4\u05d1\u05d4 \u05e0\u05e8\u05e0\u05e0\u05d4 | \u05d9\u05dc\u05d3\u05d5\u05ea \u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea | Hebrew Nursery Rhymes | Hava Nagila | \u05d4\u05d1\u05d4 \u05e0\u05d2\u05d9\u05dc\u05d4 \u05d4\u05d1\u05d4",
+      "title": "הבה נגילה | הבה נרננה | ילדות ישראלית | Hebrew Nursery Rhymes | Hava Nagila | הבה נגילה הבה",
       "description": "Family-friendly viewing from Hebrew Fairy Tales & Rhymes.",
       "channel_slug": "hebrew-fairy-tales-rhymes",
       "channel_name": "Hebrew Fairy Tales & Rhymes",
@@ -1258,7 +1324,7 @@
     },
     {
       "youtube_id": "wDK39GCBO6I",
-      "title": "Shalom Aleichem \ud83d\udd6f\ufe0f Welcoming the Shabbat Angels | Hebrew English | Kids Song",
+      "title": "Shalom Aleichem 🕯️ Welcoming the Shabbat Angels | Hebrew English | Kids Song",
       "description": "Family-friendly viewing from Shabbat Shalom songs for kids.",
       "channel_slug": "shabbat-shalom-songs-for-kids",
       "channel_name": "Shabbat Shalom songs for kids",
@@ -1335,7 +1401,7 @@
     },
     {
       "youtube_id": "RhOwyHWGqWg",
-      "title": "Cute Baby Animals \ud83d\udc3b 4K - Relaxation Film with Peaceful Relaxing Music and Animals Video Ultra HD",
+      "title": "Cute Baby Animals 🐻 4K - Relaxation Film with Peaceful Relaxing Music and Animals Video Ultra HD",
       "description": "Family-friendly viewing from Relaxation Film.",
       "channel_slug": "relaxation-film",
       "channel_name": "Relaxation Film",
@@ -1346,7 +1412,7 @@
     },
     {
       "youtube_id": "a4tYuLwYsTM",
-      "title": "Calming \ud83c\udf34 Ocean Waves & Nature Sounds for Study & Focus 12H 4K \ud83c\udf0a",
+      "title": "Calming 🌴 Ocean Waves & Nature Sounds for Study & Focus 12H 4K 🌊",
       "description": "Family-friendly viewing from NATURE VIBES ESCAPE.",
       "channel_slug": "nature-vibes-escape",
       "channel_name": "NATURE VIBES ESCAPE",
@@ -1434,7 +1500,7 @@
     },
     {
       "youtube_id": "Cwgsw22YbNw",
-      "title": "Jewish Kids Story About Telling the Truth \u2013  Yiddy Learns to be Honest!  #jewishkids  #middos",
+      "title": "Jewish Kids Story About Telling the Truth –  Yiddy Learns to be Honest!  #jewishkids  #middos",
       "description": "Family-friendly viewing from KITA.",
       "channel_slug": "kita",
       "channel_name": "KITA",
@@ -1478,7 +1544,7 @@
     },
     {
       "youtube_id": "mJjU401Zglw",
-      "title": "Candle Lighting Blessing for Kids \ud83d\udd6f\ufe0f | Shabbat Shalom | Hebrew English Spanish",
+      "title": "Candle Lighting Blessing for Kids 🕯️ | Shabbat Shalom | Hebrew English Spanish",
       "description": "Family-friendly viewing from Shabbat Shalom songs for kids.",
       "channel_slug": "shabbat-shalom-songs-for-kids",
       "channel_name": "Shabbat Shalom songs for kids",
@@ -1709,7 +1775,7 @@
     },
     {
       "youtube_id": "Qcfzn5D_Vn4",
-      "title": "01: Alef (\u05d0) loses her voice",
+      "title": "01: Alef (א) loses her voice",
       "description": "Family-friendly viewing from Jewish Interactive.",
       "channel_slug": "jewish-interactive",
       "channel_name": "Jewish Interactive",
@@ -1786,7 +1852,7 @@
     },
     {
       "youtube_id": "Ts_uWr9-lAU",
-      "title": "\ud83d\udd34LIVE Relaxing Ocean Waves for Sleep \ud83c\udf19 Peaceful Beach Sounds All Night",
+      "title": "🔴LIVE Relaxing Ocean Waves for Sleep 🌙 Peaceful Beach Sounds All Night",
       "description": "Family-friendly viewing from DeepSleepNature.",
       "channel_slug": "deepsleepnature",
       "channel_name": "DeepSleepNature",
@@ -1863,7 +1929,7 @@
     },
     {
       "youtube_id": "kZeuh1Y7yV8",
-      "title": "Kiddush - The Maccabeats and IsraWines - \u05e7\u05d9\u05d3\u05d5\u05e9\u200e",
+      "title": "Kiddush - The Maccabeats and IsraWines - קידוש‎",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",
@@ -1874,7 +1940,7 @@
     },
     {
       "youtube_id": "Qv9FOIGDbAY",
-      "title": "The Maccabeats - Tamid Ohev Oti - \u05ea\u05de\u05d9\u05d3 \u05d0\u05d5\u05d4\u05d1 \u05d0\u05d5\u05ea\u05d9",
+      "title": "The Maccabeats - Tamid Ohev Oti - תמיד אוהב אותי",
       "description": "Family-friendly viewing from The Maccabeats.",
       "channel_slug": "the-maccabeats",
       "channel_name": "The Maccabeats",

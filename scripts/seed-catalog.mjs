@@ -29,14 +29,22 @@ for (const [slug, name, description, sort] of cats) {
 
 const channelIdBySlug = {};
 for (const ch of payload.channels) {
+  const banner = ch.banner_url ?? null;
+  const subs = ch.subscriber_count ?? null;
   const rows = await sql`
-    INSERT INTO channels (slug, name, description, youtube_url, avatar_url)
-    VALUES (${ch.slug}, ${ch.name}, ${ch.description}, ${ch.youtube_url}, ${ch.avatar_url})
+    INSERT INTO channels (
+      slug, name, description, youtube_url, avatar_url, banner_url, subscriber_count
+    ) VALUES (
+      ${ch.slug}, ${ch.name}, ${ch.description}, ${ch.youtube_url}, ${ch.avatar_url},
+      ${banner}, ${subs}
+    )
     ON CONFLICT (slug) DO UPDATE SET
       name = EXCLUDED.name,
       description = EXCLUDED.description,
       youtube_url = COALESCE(EXCLUDED.youtube_url, channels.youtube_url),
-      avatar_url = COALESCE(EXCLUDED.avatar_url, channels.avatar_url)
+      avatar_url = COALESCE(EXCLUDED.avatar_url, channels.avatar_url),
+      banner_url = COALESCE(EXCLUDED.banner_url, channels.banner_url),
+      subscriber_count = COALESCE(EXCLUDED.subscriber_count, channels.subscriber_count)
     RETURNING id, slug`;
   channelIdBySlug[rows[0].slug] = rows[0].id;
 }

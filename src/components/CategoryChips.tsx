@@ -1,32 +1,53 @@
 import Link from "next/link";
 import type { Category } from "@/lib/db";
 
+function withParams(
+  basePath: string,
+  params: Record<string, string | undefined | null>,
+) {
+  const sp = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value) sp.set(key, value);
+  }
+  const qs = sp.toString();
+  return qs ? `${basePath}?${qs}` : basePath;
+}
+
 export function CategoryChips({
   categories,
   activeSlug,
   basePath = "/",
   preserveQuery,
+  mode = "path",
 }: {
   categories: Category[];
   activeSlug?: string | null;
   basePath?: string;
   preserveQuery?: string;
+  /** path: /categories/[slug]. query: ?category= on basePath (for channel pages). */
+  mode?: "path" | "query";
 }) {
-  const qs = preserveQuery ? `?q=${encodeURIComponent(preserveQuery)}` : "";
+  const allHref =
+    mode === "query"
+      ? withParams(basePath, { q: preserveQuery })
+      : withParams("/", { q: preserveQuery });
 
   return (
     <div className="category-chips" role="navigation" aria-label="Categories">
       <Link
-        href={`${basePath}${qs}`}
+        href={allHref}
         className={`category-chip ${!activeSlug ? "is-active" : ""}`}
       >
         All
       </Link>
       {categories.map((cat) => {
         const href =
-          basePath === "/"
-            ? `/categories/${cat.slug}${qs}`
-            : `/categories/${cat.slug}${qs}`;
+          mode === "query"
+            ? withParams(basePath, {
+                category: cat.slug,
+                q: preserveQuery,
+              })
+            : withParams(`/categories/${cat.slug}`, { q: preserveQuery });
         return (
           <Link
             key={cat.slug}

@@ -23,6 +23,8 @@ export type Channel = {
   description: string;
   youtube_url: string | null;
   avatar_url: string | null;
+  banner_url: string | null;
+  subscriber_count: number | null;
   created_at: string;
   video_count?: number;
 };

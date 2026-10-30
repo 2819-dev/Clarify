@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS channels (
   description TEXT NOT NULL DEFAULT '',
   youtube_url TEXT,
   avatar_url TEXT,
+  banner_url TEXT,
+  subscriber_count INTEGER,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
