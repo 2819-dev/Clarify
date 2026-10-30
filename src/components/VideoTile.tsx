@@ -1,0 +1,35 @@
+import Link from "next/link";
+import type { Video } from "@/lib/db";
+
+function formatDuration(seconds: number | null) {
+  if (!seconds || seconds <= 0) return null;
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+export function VideoTile({ video }: { video: Video }) {
+  const duration = formatDuration(video.duration_seconds);
+  const thumb =
+    video.thumbnail_url ??
+    `https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`;
+
+  return (
+    <Link href={`/watch/${video.id}`} className="video-tile">
+      <div className="video-thumb-wrap">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumb}
+          alt=""
+          className="video-thumb"
+          loading="lazy"
+        />
+        {duration ? <span className="video-duration">{duration}</span> : null}
+      </div>
+      <div className="video-meta">
+        <h3 className="video-title">{video.title}</h3>
+        <p className="video-channel">{video.channel_name}</p>
+      </div>
+    </Link>
+  );
+}
