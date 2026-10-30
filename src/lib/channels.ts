@@ -10,7 +10,10 @@ export async function listChannels(): Promise<Channel[]> {
     LEFT JOIN videos v ON v.channel_id = ch.id AND v.is_active = TRUE
     GROUP BY ch.id
     HAVING COUNT(v.id) > 0
-    ORDER BY COUNT(v.id) DESC, ch.name ASC
+    ORDER BY
+      CASE WHEN ch.slug = 'bighappysmiley' THEN 0 ELSE 1 END,
+      COUNT(v.id) DESC,
+      ch.name ASC
   `;
   return rows as Channel[];
 }

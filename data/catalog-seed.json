@@ -296,6 +296,33 @@
       "avatar_url": "https://i.ytimg.com/vi/5Y9jPvnV5B8/hqdefault.jpg",
       "banner_url": "https://i.ytimg.com/vi/5Y9jPvnV5B8/hqdefault.jpg",
       "subscriber_count": 457815
+    },
+    {
+      "slug": "jewish-kids-favorites",
+      "name": "Jewish Kids Favorites",
+      "description": "A Clarify-curated mix of Jewish kids songs, stories, and holiday favorites from trusted family-safe uploads.",
+      "youtube_url": null,
+      "avatar_url": "https://i.ytimg.com/vi/W-EyNyy2qqw/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/W-EyNyy2qqw/hqdefault.jpg",
+      "subscriber_count": 65744
+    },
+    {
+      "slug": "shalom-sesame",
+      "name": "Shalom Sesame",
+      "description": "From the Sesame Street world — Hebrew letters, Jewish holidays, and gentle introductions to Israel for kids.",
+      "youtube_url": "https://www.youtube.com/@shalomsesame",
+      "avatar_url": "https://i.ytimg.com/vi/ucEIPOxR-bs/hqdefault.jpg",
+      "banner_url": "https://i.ytimg.com/vi/ucEIPOxR-bs/hqdefault.jpg",
+      "subscriber_count": 372560
+    },
+    {
+      "slug": "bighappysmiley",
+      "name": "BigHappySmiley",
+      "description": "Official BigHappySmiley channel — cheerful, family-friendly music and moments. Calm electronic tracks and smile-forward shorts for shared viewing.",
+      "youtube_url": "https://www.youtube.com/@bighappysmiley",
+      "avatar_url": "/channels/bighappysmiley.jpg",
+      "banner_url": "/channels/bighappysmiley-banner.jpg",
+      "subscriber_count": 9
     }
   ],
   "videos": [
@@ -1948,6 +1975,1866 @@
       "category": "songs",
       "thumbnail_url": "https://i.ytimg.com/vi/Qv9FOIGDbAY/hqdefault.jpg",
       "embeddable": true
+    },
+    {
+      "youtube_id": "kgJInVvJSZg",
+      "title": "The Maccabeats - Purim Song",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/kgJInVvJSZg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "gIBNPGva5iY",
+      "title": "The Story of Creation | Torah Stories with Ms. Sara",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/gIBNPGva5iY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "W-EyNyy2qqw",
+      "title": "Girls Like You - Purim Parody | Purim Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/W-EyNyy2qqw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "d-fxul734ZY",
+      "title": "Learn About Israel With Ms. Sara | Visit Israel | Learn Hebrew | Israel for Kids",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/d-fxul734ZY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "62P7YoB7NFs",
+      "title": "PART 2 - SINGALONG SPECIAL EPISODE | Compilation, Sing with Ms. Sara | #Jewish Songs #Nursery Rhymes",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/62P7YoB7NFs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "ucEIPOxR-bs",
+      "title": "Shalom Sesame: Shabbat Shalom, Grover! (Full Studio)",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/ucEIPOxR-bs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "X1RWebhnhU8",
+      "title": "Learn Parts of Our Day and Hebrew with Ms. Sara | What Comes Next | Hebrew Learning and Songs",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/X1RWebhnhU8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "pb-j3svRQLI",
+      "title": "Animals Of The World 4K - Scenic Wildlife Film With Calming Music",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/pb-j3svRQLI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "uz4MOaIKUGM",
+      "title": "Joy and Honor | A Purim Song for Jewish Children | Jewish Holiday Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/uz4MOaIKUGM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "bn9F19Hi1Lk",
+      "title": "Sleep For 11 Hours Straight, High Quality Stereo Ocean Sounds Of Rolling Waves For Deep Sleeping",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/bn9F19Hi1Lk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-bWVoyw9OU8",
+      "title": "Animals of America 4K - Scenic Wildlife Film With Calming Music",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/-bWVoyw9OU8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "YzjHjXe-2XU",
+      "title": "Shalom Sesame: Aleph Bet Song",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/YzjHjXe-2XU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "k5UQXz_wHmQ",
+      "title": "Shalom Sesame: Celebrating Shabbat",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/k5UQXz_wHmQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Y0oW_YVEqOU",
+      "title": "The Passover Story in 10 Scenes",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/Y0oW_YVEqOU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "vPhg6sc1Mk4",
+      "title": "The Most Relaxing Waves Ever - Ocean Sounds to Sleep, Study and Chill",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/vPhg6sc1Mk4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "s2fXwrC1H2E",
+      "title": "The Tower of Babel - Sleepy time Bible/Torah stories for children",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/s2fXwrC1H2E/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "lqwGyOtLDOE",
+      "title": "013: The Passover Story For Kids (mini-sode)",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/lqwGyOtLDOE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "okhEHHMnMRs",
+      "title": "Rejoice and Be Happy | Shavuot & Simchat Torah Song for Kids",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/okhEHHMnMRs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "nP6QvCGKsAg",
+      "title": "Shake That Lulav! Singalong and Lesson for Sukkot",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/nP6QvCGKsAg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "wpDID7jGrjM",
+      "title": "Hasidic Simcha  -  Simchat Torah",
+      "description": "Family-friendly viewing from Jewish Holiday Songs.",
+      "channel_slug": "jewish-holiday-songs",
+      "channel_name": "Jewish Holiday Songs",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/wpDID7jGrjM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "SGjlZjGi8vw",
+      "title": "The Purim Story in Miniature",
+      "description": "Family-friendly viewing from Chabad.org.",
+      "channel_slug": "chabad-org",
+      "channel_name": "Chabad.org",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/SGjlZjGi8vw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "y16IXTWkaAk",
+      "title": "Simchat Torah Medley  - Simchat Torah",
+      "description": "Family-friendly viewing from Jewish Holiday Songs.",
+      "channel_slug": "jewish-holiday-songs",
+      "channel_name": "Jewish Holiday Songs",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/y16IXTWkaAk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "daQozUHX2Yo",
+      "title": "The Rosh Hashanah Shaboom! Special: Be the Best Me",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/daQozUHX2Yo/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "nxgfddo1a18",
+      "title": "Shalom Sesame: Rosh Hashanah Hannah",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/nxgfddo1a18/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "fW8aFiJVvzI",
+      "title": "Jewish Kids Club  Purim Shpiel",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/fW8aFiJVvzI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "iRXc8vjAHz4",
+      "title": "Aleph Beit - The Hebrew Alphabet Song by Naomi Shemer",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/iRXc8vjAHz4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "o1q6YaoiIzQ",
+      "title": "Modeh Ani Song for Kids | מוֹדֶה אֲנִי Morning Gratitude",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/o1q6YaoiIzQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "1YlWv59eoMQ",
+      "title": "Little Rachel's Hanukkah Miracle | Cartoon for children and adults",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/1YlWv59eoMQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "c-0GWlvl71c",
+      "title": "Sing Ms. Sara's Favorite Passover Songs! | Pesach Singalongs | Songs for Passover",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/c-0GWlvl71c/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "mYGqOMe-DqQ",
+      "title": "The Purim Story in 4 minutes: Go Esther!",
+      "description": "Family-friendly viewing from BimBam.",
+      "channel_slug": "bimbam",
+      "channel_name": "BimBam",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/mYGqOMe-DqQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "etz_BQ-_wUc",
+      "title": "Betzet Yisrael Mimitzrayim  -  Passover Songs",
+      "description": "Family-friendly viewing from Jewish Holiday Songs.",
+      "channel_slug": "jewish-holiday-songs",
+      "channel_name": "Jewish Holiday Songs",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/etz_BQ-_wUc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "KsYeJK_RZlI",
+      "title": "Ms. Sara at a Seder with Friends | Passover Seder for Kids and Families | Get Ready for Passover",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/KsYeJK_RZlI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "W_QV5-MHWPQ",
+      "title": "Chad Gadya -   Passover Songs",
+      "description": "Family-friendly viewing from Jewish Holiday Songs.",
+      "channel_slug": "jewish-holiday-songs",
+      "channel_name": "Jewish Holiday Songs",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/W_QV5-MHWPQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "zpxsH3i_zGc",
+      "title": "The Four Questions for Kids! Learn them this Passover",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/zpxsH3i_zGc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "grKRcd7c0a8",
+      "title": "Sing & Learn: At The Pesach Seder Song for Kids | Sing Along Passover Song",
+      "description": "Family-friendly viewing from KITA.",
+      "channel_slug": "kita",
+      "channel_name": "KITA",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/grKRcd7c0a8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "CubkTpkqV1A",
+      "title": "Shabbat Shalom🕊️ Do yall remember this song? #shabbat #shalom",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/CubkTpkqV1A/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "RBCvLYC5HQc",
+      "title": "Dayenu - A Passover Sing Along",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/RBCvLYC5HQc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "KCYl2eC_ShM",
+      "title": "Animals 4K • Relaxation Film with Peaceful Music | Nature 4K Relaxation Film",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/KCYl2eC_ShM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "HtaTLfAZSEU",
+      "title": "African Animals 4K - Cute Moments of Baby Animals With Relaxing Nature Sounds",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/HtaTLfAZSEU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "_kvEuReNgsw",
+      "title": "Aquarium 4K Ultra HD - Stunning Coral Reef Fish with Relaxing Meditation Music for Sleep",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/_kvEuReNgsw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-CDH2fN7XXA",
+      "title": "Calm Marimba Music & Water Sounds in Aquarium • Sleep, Relax, Spa, Yoga, Zen Meditation",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/-CDH2fN7XXA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "vbec3WSPanw",
+      "title": "The Maccabeats - Burn - Hanukkah",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/vbec3WSPanw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "QCL7VXuO35g",
+      "title": "Music of Underwater Wonders + Relaxing Music - The Best 4K Sea Animals for Relaxation",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/QCL7VXuO35g/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "x1jRAf0u9Kc",
+      "title": "The Maccabeats - Justin Bieber Passover Mashup - Let My People Go, Story, Why Do We Lean",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/x1jRAf0u9Kc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "n4ShxU1MEOM",
+      "title": "The Maccabeats - Brave",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/n4ShxU1MEOM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "2wi1H3UnKhk",
+      "title": "The Maccabeats - All About That Neis - Hanukkah",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/2wi1H3UnKhk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "tAmTMT0c4v0",
+      "title": "Six13 - PSVR. (a Passover adaptation of \"APT.\" by Bruno Mars and Rosé)",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/tAmTMT0c4v0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "7Q7Jo7FkLH4",
+      "title": "Six13 - Uptown Passover (an \"Uptown Funk\" adaptation for Pesach)",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/7Q7Jo7FkLH4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "QZV0FSExI7w",
+      "title": "The Maccabeats - Candlelight Official",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/QZV0FSExI7w/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "t1k6HmUY6Zk",
+      "title": "Six13 - A Billy Joel Passover",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/t1k6HmUY6Zk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "5qSXrnkSeKs",
+      "title": "Six13 - P-A-S-S-O-V-E-R (a Pesach adaptation of \"We R Who We R\" and more)",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/5qSXrnkSeKs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "NoHp2Rq8sMI",
+      "title": "Six13 - Chanukah (\"Shake It Off\")",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/NoHp2Rq8sMI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "QY-h65HwWPw",
+      "title": "Six13 - A Wicked Chanukah",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/QY-h65HwWPw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "4SMUMz1SlC0",
+      "title": "Modeh Ani, It's a Day of Possibility!",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/4SMUMz1SlC0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "VF4vbUlmgUk",
+      "title": "Oh, Dreidel!",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/VF4vbUlmgUk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "x6v3pXHG40k",
+      "title": "Six13 - Who Is This Haman! (A \"Where Is My Husband\" adaptation for Purim)",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/x6v3pXHG40k/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "qfcCp5bKUfE",
+      "title": "Learn the Hebrew letter BET",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/qfcCp5bKUfE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Njv3SsfLVEw",
+      "title": "Learn the Hebrew letter ALEPH",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/Njv3SsfLVEw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "rerbKUIcGhs",
+      "title": "Shalom Sesame: The Hebrew Letter Aleph",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/rerbKUIcGhs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "APIwomDn9Nc",
+      "title": "Grover Aleph Bet Disco: The letter Mem!",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/APIwomDn9Nc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "CoT5uk8j8Fk",
+      "title": "Get With the Giving - Gabi and Rafi Talk About Tzedakah | Shaboom!",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/CoT5uk8j8Fk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "6LA35K09hK4",
+      "title": "Hachnasat Orchim: How to Make People Feel Welcome | Shaboom!",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/6LA35K09hK4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "smJb6WyJTLM",
+      "title": "Brachos Every Day",
+      "description": "Family-friendly viewing from KITA.",
+      "channel_slug": "kita",
+      "channel_name": "KITA",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/smJb6WyJTLM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "l4kPFT86lu4",
+      "title": "Special Episode | Ms. Sara's Songs for Peace",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/l4kPFT86lu4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Kbj_k27iztM",
+      "title": "Finders Returners: The Lost and Found Episode | Shaboom!",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/Kbj_k27iztM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "yj_TH_5NIyE",
+      "title": "Animated Read-Aloud: One, Two, Three, Tu B'Shevat!",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/yj_TH_5NIyE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "LdEJ1NNZnoM",
+      "title": "06: Vav (ו) stands up straight",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/LdEJ1NNZnoM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "yYr7eRCeG1E",
+      "title": "Shalom Sesame: Mitzvah on the Street",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/yYr7eRCeG1E/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "d3JeXLu63Gw",
+      "title": "Shalom Sesame: Grover in Jerusalem",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/d3JeXLu63Gw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "b4f3swZmLiI",
+      "title": "Shalom Sesame: Classic Shalom Sesame Opening",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/b4f3swZmLiI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "NV-ddVH-iiM",
+      "title": "Shalom Sesame: The Missing Menorah",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/NV-ddVH-iiM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "DiMUYnhDYDo",
+      "title": "Shalom Sesame: Making a Mezuzah",
+      "description": "Family-friendly viewing from Shalom Sesame.",
+      "channel_slug": "shalom-sesame",
+      "channel_name": "Shalom Sesame",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/DiMUYnhDYDo/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Oubn_EbImq0",
+      "title": "The Story of Creation",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/Oubn_EbImq0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "mgdnvMMnDLY",
+      "title": "In Every Generation: A PJ Library Family Haggadah, Chapter 2",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/mgdnvMMnDLY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "fhG-2xhdOAQ",
+      "title": "Animated Read Aloud: The Missing Ingredient",
+      "description": "Family-friendly viewing from PJ Library.",
+      "channel_slug": "pj-library",
+      "channel_name": "PJ Library",
+      "category": "Stories",
+      "category_slug": "stories",
+      "thumbnail_url": "https://i.ytimg.com/vi/fhG-2xhdOAQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Bsup35Xixtk",
+      "title": "King David: Warrior - Part 2 - David and Goliath",
+      "description": "Family-friendly viewing from BimBam.",
+      "channel_slug": "bimbam",
+      "channel_name": "BimBam",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/Bsup35Xixtk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "jGJHGoR2LFE",
+      "title": "Tu BiShvat Higia - Tu Bishvat is here!",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/jGJHGoR2LFE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Yuhn1SXdYBQ",
+      "title": "The Four Questions Explained",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/Yuhn1SXdYBQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "fn3FNA4Ar40",
+      "title": "Ma Nishtana (The Four Questions) - Learn what they mean and how to sing them",
+      "description": "Family-friendly viewing from BimBam.",
+      "channel_slug": "bimbam",
+      "channel_name": "BimBam",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/fn3FNA4Ar40/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "GXr4gDRF6LE",
+      "title": "Hevenu Shalom Aleichem - lyrics video for the Jewish camp song",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/GXr4gDRF6LE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "03zGQcYWc1Q",
+      "title": "A Birthday Party for the Trees | Celebrate Tu B'Shevat with Ms. Sara | Jewish Holidays for Kids",
+      "description": "Family-friendly viewing from Sing It! with Ms. Sara.",
+      "channel_slug": "sing-it-with-ms-sara",
+      "channel_name": "Sing It! with Ms. Sara",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/03zGQcYWc1Q/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "n-fKLhs-j4A",
+      "title": "🎶 My Family in Hebrew 🎶",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/n-fKLhs-j4A/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "aYTly0SeIKI",
+      "title": "Israel Solidarity: \"Am Yisrael Chai\" by the Palm Beach Jewish Children's Choir",
+      "description": "Family-friendly viewing from Chabad Palm Beach.",
+      "channel_slug": "chabad-palm-beach",
+      "channel_name": "Chabad Palm Beach",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/aYTly0SeIKI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-8IkIpNWQVI",
+      "title": "Shalom Aleichem שלום עליכם | Shabbat Song for Kids | שיר שבת לילדים | Tooli",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/-8IkIpNWQVI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "pnk4MVL7iSE",
+      "title": "Break Free (Avadim Hayinu)",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/pnk4MVL7iSE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "1asE0LL_R9s",
+      "title": "Candlelight",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/1asE0LL_R9s/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "WRoE4pp3UWY",
+      "title": "Guess the soloist!",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/WRoE4pp3UWY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "IEBxXKp-dcs",
+      "title": "Can you guess who the Al ha Nissim soloist is?",
+      "description": "Family-friendly viewing from Six13.",
+      "channel_slug": "six13",
+      "channel_name": "Six13",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/IEBxXKp-dcs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "s8TwH2bhHhA",
+      "title": "Breisheet 3rd Episode",
+      "description": "Family-friendly viewing from Torah Town.",
+      "channel_slug": "torah-town",
+      "channel_name": "Torah Town",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/s8TwH2bhHhA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "5xL3_uL4Ft8",
+      "title": "Dradel, Dradel, Dradel",
+      "description": "Family-friendly viewing from The Learning Station.",
+      "channel_slug": "the-learning-station",
+      "channel_name": "The Learning Station",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/5xL3_uL4Ft8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "UwKk8dacaqw",
+      "title": "Breisheet 2nd Episode",
+      "description": "Family-friendly viewing from Torah Town.",
+      "channel_slug": "torah-town",
+      "channel_name": "Torah Town",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/UwKk8dacaqw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "zHAeXbwKNwU",
+      "title": "Prime Minister Netanyahu sings Oseh Shalom",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/zHAeXbwKNwU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "k30-AJPxGTs",
+      "title": "Am Yisrael Chai | English Translation and Transliteration Lyrics | עם ישראל חי – Eyal Golan",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/k30-AJPxGTs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "W3g8Zw7k1fE",
+      "title": "Tu BiShvat Tree Check!",
+      "description": "Family-friendly viewing from Jewish Kids Music.",
+      "channel_slug": "jewish-kids-music",
+      "channel_name": "Jewish Kids Music",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/W3g8Zw7k1fE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "o-b2dFY5HLw",
+      "title": "Oseh Shalom (Hirsch)",
+      "description": "Family-friendly viewing from The Maccabeats.",
+      "channel_slug": "the-maccabeats",
+      "channel_name": "The Maccabeats",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/o-b2dFY5HLw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "TtnMMmIqfLU",
+      "title": "The Maccabeats - Purim Song- LYRICS HQ!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/TtnMMmIqfLU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "UwEQfDNjgTM",
+      "title": "Hinei Ma Tov with Isaac Zones and Shaboom!",
+      "description": "Family-friendly viewing from Shaboom!.",
+      "channel_slug": "shaboom",
+      "channel_name": "Shaboom!",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/UwEQfDNjgTM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Wy0r9e0ETvE",
+      "title": "DAYENU Passover Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/Wy0r9e0ETvE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "hVvXMQzdohk",
+      "title": "Dayenu (Passover song)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/hVvXMQzdohk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "x8ZH0qZ-TI8",
+      "title": "How to make latkes ✨ easy Hanukkah latkes recipe | cooking for kids! #kidfriendly",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/x8ZH0qZ-TI8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "gq1xffk16fM",
+      "title": "DYSFUNCTIONAL FAMILY DAYENU - A Passover Parody by Menschions",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/gq1xffk16fM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "eWN_zemG2rI",
+      "title": "7 Days of Creation Song for Kids 🌎 🎶 | Jewish Torah Song | Bereshit Creation Story",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/eWN_zemG2rI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "NdnhdzEhhbM",
+      "title": "Move Like Graggers Remix (Purim Song) by Temple Israel",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/NdnhdzEhhbM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "J8uC_cxiL1M",
+      "title": "Simchat Torah Song for Kids | Sing Along in English | Sing with WIN",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/J8uC_cxiL1M/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "NDED2tr0l5A",
+      "title": "SIMCHAT TORAH FOR KIDS | Jewish Holiday Song for Children",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/NDED2tr0l5A/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "j26jMM6iYYI",
+      "title": "Jewish denominations explained 🤓",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/j26jMM6iYYI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "NPti_-iiB-o",
+      "title": "Jewish Kids Morning Medley | Modeh Ani + Alef Beis Song | Fun Hebrew Songs for Children",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/NPti_-iiB-o/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "ZgQmpPSoAR0",
+      "title": "Jewish Prayers, Davening and Tfilah for Preschool Kids",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/ZgQmpPSoAR0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "271YZsbm4IU",
+      "title": "Modeh Ani Texas Style",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/271YZsbm4IU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "dxtEOarCVGs",
+      "title": "Say Hello and Thank You to Police, Firefighter, Doctor, Teacher | Jewish Kids Song | by Morah Music",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/dxtEOarCVGs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "uhdaaubtZTs",
+      "title": "Mode Ani - מודה אני Song + More! | Fun and Educational songs for Kids | Torah Tots TV",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/uhdaaubtZTs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "nAOsZ1bw0cs",
+      "title": "Aleph Beis",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/nAOsZ1bw0cs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "mqvrwqIOIy0",
+      "title": "The Broflovskis Sing \"The Dreidel Song\" - SOUTH PARK",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/mqvrwqIOIy0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "nSmsTBNeyrM",
+      "title": "Rabbi B - I Have a Little Dreidel",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/nSmsTBNeyrM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "N9u6pXCor10",
+      "title": "Sea of Miracles VBX 2018  Shabbat Shalom",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/N9u6pXCor10/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "2G8xxpyHdcI",
+      "title": "Jewish kids danced like stars | Hava Nagila in Los Angeles | Dangel",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/2G8xxpyHdcI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "AssWSzRCmdQ",
+      "title": "KLM: Dayenu Mitzvah Song with Rabbi Asher Baruch Wegbreit",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/AssWSzRCmdQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "CT0H8rvxyJ0",
+      "title": "Dreidel",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/CT0H8rvxyJ0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "yTtWfc7QUQY",
+      "title": "Dayenu - Israeli Passover Songs - copia",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/yTtWfc7QUQY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "aZcdS-L7mcE",
+      "title": "Dayeinu – Passover Song for Kids | Pesach Seder Song (Traditional Melody – Children Singing)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/aZcdS-L7mcE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "lEblyWODV_s",
+      "title": "DAYENU (Passover Songs)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/lEblyWODV_s/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "FdQVRry7Rzc",
+      "title": "Dayenu Why This One Song Unites All of God's Children",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/FdQVRry7Rzc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "vfAFleXyVqw",
+      "title": " PASSOVER SONG for Kids  | God Brought Us Through! (Bible Story Animation)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/vfAFleXyVqw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "KnSoG-VQmJM",
+      "title": "🎶 Passover Song for Kids! 🕊️ Matzo, Moses & The Red Sea – Fun & Educational!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/KnSoG-VQmJM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "pDaJkGTsynI",
+      "title": "Gotta Get the Leaven Out - Passover Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/pDaJkGTsynI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "iGhU8jgapRQ",
+      "title": "The Passover Song - Learn the Bible Through Music",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/iGhU8jgapRQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "2KKNnECMKbg",
+      "title": "Hanukkah Oh Hanukkah - The Kiboomers Preschool Songs for Circle Time - Chanukah Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/2KKNnECMKbg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "P9tPP-ABSxk",
+      "title": "Ary the Lion - Chanuka, Chanuka (Hanukkah song with Lyrics)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/P9tPP-ABSxk/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "r8h1VPuaqyY",
+      "title": "Hanukkah, oh Hanukkah song song along",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/r8h1VPuaqyY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "baFhDHOoWRA",
+      "title": "Hanukkah Dance for Kids | Easy Repetitive Hanukkah Song & Fun Movements | Chanukah Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/baFhDHOoWRA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "ry64DzC1wHQ",
+      "title": "Sweet Hanukkah Gelt - The Kiboomers Preschool Songs for Jewish Holidays - Chanukah Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/ry64DzC1wHQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "PRHy5vQ3AL0",
+      "title": "The 4 Mitzvos of Purim - song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/PRHy5vQ3AL0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "JKxQ4_LRBkI",
+      "title": "Purim Medley with Micha Gamerman (Official Animation Video)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/JKxQ4_LRBkI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "GfkE5ESDMY4",
+      "title": "Siddur Song For Children. Jewish Prayer. Stars Of Promise",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/GfkE5ESDMY4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "0dLt-Uca3Z4",
+      "title": "The Purim Story Song 🎭 | Megillah for Kids | Chodesh Adar Jewish Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/0dLt-Uca3Z4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "JKK6HSbAs3U",
+      "title": "Sukkot for Kids – English / Hebrew",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/JKK6HSbAs3U/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "8aV3dzQe2ec",
+      "title": "SUKKOT Songs  for kids- 20 minutes With REUTI",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/8aV3dzQe2ec/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "abQjLLJh-SQ",
+      "title": "Dip the Apple in the Honey 2 - Morah Leah - Rosh Hashana - ראש השנה",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/abQjLLJh-SQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "pKd5lx1jxdg",
+      "title": "Why Do Jewish People Celebrate Simchat Torah? For Kids",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/pKd5lx1jxdg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "7Nlr2makHgc",
+      "title": "🍋🌿 Sukkot Teaching for Kids! 🌿🍋",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/7Nlr2makHgc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "GlrpyjOjgJ0",
+      "title": "Simchat Torah - Exploring Its Meaning and Traditions",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/GlrpyjOjgJ0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "ZahQsxCHftg",
+      "title": "Simchat Torah the Joy of the Word",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/ZahQsxCHftg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "8zxpr_zwZ-o",
+      "title": "Simchat Torah: Joyful Torah Celebration for Kids!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/8zxpr_zwZ-o/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "J_Zlg0ymaQg",
+      "title": "Adira's Sing Along Countdown | Top 12 Torah Kids Songs 🎶🧒🏿👧🏿",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/J_Zlg0ymaQg/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "--fU9qnMT6c",
+      "title": "Hebrew Letters",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/--fU9qnMT6c/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Rbf06CiDg6c",
+      "title": "Simchat Torah for kids - Get ready to dance and celebrate * @JewSong",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/Rbf06CiDg6c/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "iLLpfiLgdsI",
+      "title": "שיר האלף-בית | Aleph-Bet Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/iLLpfiLgdsI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "rfRwuOSsw68",
+      "title": "The ShevonYah Show \"Alef Bet\" (Official Hebrew Alphabet Video)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/rfRwuOSsw68/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "u_EvzURStlc",
+      "title": "Easy Hebrew Alphabet Song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/u_EvzURStlc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "yUxCdy_5K9E",
+      "title": "Learn The Aleph Beis Game | Hebrew Alphabet Song for Kids by Morah Music",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/yUxCdy_5K9E/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "UiCzoTs1AdE",
+      "title": "Aleph-Bet Video",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/UiCzoTs1AdE/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "_kfSHI1XiVQ",
+      "title": "The Aleph Beis Song - Official Video",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/_kfSHI1XiVQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-0LSBeX5uYw",
+      "title": "The ShevonYah Show \"The Hebrew Alef Bet Song\" (Official Lyric Video)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/-0LSBeX5uYw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "oQ-BHb0134Y",
+      "title": "The Hebrew Alef Bet (Song) by BritYah",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/oQ-BHb0134Y/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "MKoB4XWWHG4",
+      "title": "Aleph Bet Song by Debbie Friedman",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/MKoB4XWWHG4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Bl1epz3tSSA",
+      "title": "Victoria Hanna - The Aleph-bet song (Hosha'ana) Official video",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/Bl1epz3tSSA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "95YxG2rTEWc",
+      "title": "🐘🦁Parashat Noach: The Story of Noah’s Ark🌈",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/95YxG2rTEWc/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "a6EnyQ0Dy50",
+      "title": "Aleph Bass — an aleph bet song by Darshan :: אלף בית – דרשן",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Learning Hebrew",
+      "category_slug": "hebrew",
+      "thumbnail_url": "https://i.ytimg.com/vi/a6EnyQ0Dy50/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "nWF45CdUJdI",
+      "title": "The Sukkot Story / Feast of Tabernacles / Torah for Kids / Bible Stories (5787) ",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Holidays",
+      "category_slug": "holidays",
+      "thumbnail_url": "https://i.ytimg.com/vi/nWF45CdUJdI/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "G6YGkIqlmMM",
+      "title": "David the Shepherd🐑 Vs. Goliath the Giant😱🛡️ | TORAH FOR KIDS AI",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/G6YGkIqlmMM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "s7-lHtsi3R4",
+      "title": "📜\"The Story of Shavuot – Torah for Kids | TorahKids\"",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/s7-lHtsi3R4/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "3m0ABkmcIl0",
+      "title": "10 שעות ברצף של ניגוני חב״ד לתינוקות ★  Chabad Melodies for Infants ★ 10 HOURS ★",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/3m0ABkmcIl0/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "quLUsRow5mQ",
+      "title": "Lullabies from Around the World - Israel Jewish",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/quLUsRow5mQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "kHB5DQBSwfA",
+      "title": "Jewish Lullabies for Babies (No Mid-Roll Ads) 2 Hours of Music",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/kHB5DQBSwfA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "EEhZEUWNK3Y",
+      "title": "Bim Bam / Az Der Rebbe Zingt - JEWBALAYA (Jewish Party Song)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/EEhZEUWNK3Y/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "0sM9lupwx6Q",
+      "title": "Jewish Lullabies and calming instrumental music נעימות יהודיות של רוגע",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/0sM9lupwx6Q/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "aRhco4fXDoA",
+      "title": "Bim Bam (Shabbat Shalom)",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/aRhco4fXDoA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-9oGWlmNq1Y",
+      "title": "Shabbat Shalom",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/-9oGWlmNq1Y/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "zA-k_YlrYzw",
+      "title": "\"Bim Bam (Shabbat Shalom)\"",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/zA-k_YlrYzw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "VcREmz9twLQ",
+      "title": "Tot Shabbat Song for Kids Shabbat Shalom Bim Bom",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/VcREmz9twLQ/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "mMCSMeHv1f8",
+      "title": "Shema for Little Ones",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/mMCSMeHv1f8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "pGh66Y0s318",
+      "title": "Shema",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/pGh66Y0s318/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "1l56WJoApWw",
+      "title": "Shabbat Shalom Hey!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/1l56WJoApWw/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "-7HZPIVg1yA",
+      "title": "שמע ישראל-   Shema Yisrael Prayer | שירי תפילה לילדים",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/-7HZPIVg1yA/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "81HSXFtYMRs",
+      "title": "Shema | A Prayer For Israel (Official Lyric Video) - Misha Goetz & Shae Wilbur",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/81HSXFtYMRs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "p9HpbwiXz1Y",
+      "title": "Shema Yisrael for kids in Hebrew and English. Sing along and have fun learning!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/p9HpbwiXz1Y/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "2Cs0GxnGOSY",
+      "title": "BEDTIME SHEMA PRAYER המלאך הגואל Family Fave Learn #Hebrew with Israel #Songs & full English lyrics",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/2Cs0GxnGOSY/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "3Rf0dIk_Eec",
+      "title": "8 Minutes of Baby Animals: Pure Joy and Cuteness | Nat Geo Animals",
+      "description": "Family-friendly viewing from Relaxation Film.",
+      "channel_slug": "relaxation-film",
+      "channel_name": "Relaxation Film",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/3Rf0dIk_Eec/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Kcp-9vin_CU",
+      "title": "Shema Yisrael",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Prayer",
+      "category_slug": "prayer",
+      "thumbnail_url": "https://i.ytimg.com/vi/Kcp-9vin_CU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "RurVGOarMww",
+      "title": "Friday night, we celebrate shabbat, children's shabbat song",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Shabbat",
+      "category_slug": "shabbat",
+      "thumbnail_url": "https://i.ytimg.com/vi/RurVGOarMww/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "w5qBnlKFQFs",
+      "title": "613 torah avenue six days of creation song with pictures",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/w5qBnlKFQFs/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "cJvO0MQlUlo",
+      "title": "ניגוני חב''ד לתינוקות   Chabad melodies for baby",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Songs",
+      "category_slug": "songs",
+      "thumbnail_url": "https://i.ytimg.com/vi/cJvO0MQlUlo/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "7HPhhHWiDB8",
+      "title": "🛡️David vs Goliath 🛡️ | The Epic Torah Story for Kids!",
+      "description": "Family-friendly viewing from Jewish Kids Favorites.",
+      "channel_slug": "jewish-kids-favorites",
+      "channel_name": "Jewish Kids Favorites",
+      "category": "Torah & Stories",
+      "category_slug": "torah",
+      "thumbnail_url": "https://i.ytimg.com/vi/7HPhhHWiDB8/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "Dd_FotVReOU",
+      "title": "Whispering Tides By BigHappySmiley",
+      "description": "From BigHappySmiley — family-friendly listening on Clarify.",
+      "channel_slug": "bighappysmiley",
+      "channel_name": "BigHappySmiley",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/Dd_FotVReOU/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "gbDdejdZCmM",
+      "title": "Endless Flow",
+      "description": "From BigHappySmiley — family-friendly listening on Clarify.",
+      "channel_slug": "bighappysmiley",
+      "channel_name": "BigHappySmiley",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/gbDdejdZCmM/hqdefault.jpg"
+    },
+    {
+      "youtube_id": "R5KsFZt5HCE",
+      "title": "Electronic Echoes",
+      "description": "From BigHappySmiley — family-friendly listening on Clarify.",
+      "channel_slug": "bighappysmiley",
+      "channel_name": "BigHappySmiley",
+      "category": "Family & Calm",
+      "category_slug": "family",
+      "thumbnail_url": "https://i.ytimg.com/vi/R5KsFZt5HCE/hqdefault.jpg"
     }
   ],
   "counts": {

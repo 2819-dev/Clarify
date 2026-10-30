@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>embed probe</title>
+<style>html,body{margin:0;background:#111;color:#fff;font:14px sans-serif}#s{padding:8px}</style>
+</head><body>
+<div id="s">loading</div>
+<div id="player"></div>
+<script>
+const id = new URLSearchParams(location.search).get('v');
+const s = document.getElementById('s');
+s.textContent = 'probe ' + id;
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.body.appendChild(tag);
+let done = false;
+function finish(msg){ if(done) return; done=true; s.textContent = msg; document.title = msg.slice(0,80); }
+window.onYouTubeIframeAPIReady = function(){
+  new YT.Player('player', {
+    width: 640, height: 360, videoId: id,
+    playerVars: { autoplay: 0, playsinline: 1, rel: 0, origin: location.origin },
+    events: {
+      onReady(){ finish('READY ' + id); },
+      onError(e){ finish('ERROR ' + e.data + ' ' + id); }
+    }
+  });
+  setTimeout(()=>{ finish('TIMEOUT ' + id); }, 8000);
+};
+</script>
+</body></html>

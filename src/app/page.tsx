@@ -33,8 +33,8 @@ export default async function HomePage({
           Jewish &amp; family-safe videos, curated with care.
         </p>
         <p className="hero-support">
-          A growing hand-picked library — browse by category or channel, search
-          the catalog, and report anything that doesn’t belong.
+          Hand-picked Jewish and family-safe watching — search the catalog,
+          browse channels, and report anything that doesn’t belong.
         </p>
         <div className="hero-actions">
           <Link href="#catalog" className="btn-primary">
