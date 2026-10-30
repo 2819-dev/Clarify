@@ -8,6 +8,8 @@ type Props = {
   title: string;
   /** When false, skip the iframe and show the Clarify overlay immediately. */
   embeddable?: boolean;
+  /** Vertical Shorts-friendly player frame. */
+  isShort?: boolean;
 };
 
 type YtPlayer = { destroy: () => void };
@@ -80,6 +82,7 @@ export function YoutubePlayer({
   youtubeId,
   title,
   embeddable = true,
+  isShort = false,
 }: Props) {
   const reactId = useId().replace(/:/g, "");
   const elementId = `clarify-yt-${reactId}`;
@@ -159,9 +162,17 @@ export function YoutubePlayer({
 
   const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
 
+  const frameClass = [
+    "player-frame",
+    isShort ? "is-short" : "",
+    failed ? "clarify-unavailable" : ready ? "is-ready" : "is-loading",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   if (failed) {
     return (
-      <div className="player-frame clarify-unavailable" role="status">
+      <div className={frameClass} role="status">
         <div className="clarify-unavailable-inner">
           <ClarifyLogo href={null} size="md" variant="on-dark" />
           <h2>This video is not available on Clarify</h2>
@@ -183,10 +194,7 @@ export function YoutubePlayer({
   }
 
   return (
-    <div
-      className={`player-frame ${ready ? "is-ready" : "is-loading"}`}
-      aria-label={title}
-    >
+    <div className={frameClass} aria-label={title}>
       <div id={elementId} className="yt-mount" />
     </div>
   );

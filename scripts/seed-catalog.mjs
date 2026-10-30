@@ -12,7 +12,8 @@ const sql = neon(databaseUrl);
 
 const cats = [
   ["holidays", "Holidays", "Hanukkah, Purim, Passover, and other celebrations.", 10],
-  ["songs", "Songs", "Jewish and family-friendly music to sing along with.", 20],
+  ["music", "Music", "Songs, a cappella, and family-friendly music videos.", 15],
+  ["songs", "Songs", "Sing-along favorites (legacy label; prefer Music).", 20],
   ["shabbat", "Shabbat", "Shabbat welcome songs and peaceful Friday vibes.", 30],
   ["prayer", "Prayer", "Modeh Ani, Oseh Shalom, and other gentle liturgy for kids.", 40],
   ["hebrew", "Learning Hebrew", "Aleph-bet and beginner Hebrew learning.", 50],
@@ -46,19 +47,30 @@ for (const ch of payload.channels) {
       banner_url = COALESCE(EXCLUDED.banner_url, channels.banner_url),
       subscriber_count = COALESCE(EXCLUDED.subscriber_count, channels.subscriber_count)
     RETURNING id, slug`;
+  // Force-refresh art/description when seed has synced values
+  if (ch.avatar_url || ch.banner_url || ch.description) {
+    await sql`
+      UPDATE channels SET
+        avatar_url = COALESCE(${ch.avatar_url ?? null}, avatar_url),
+        banner_url = COALESCE(${ch.banner_url ?? null}, banner_url),
+        description = COALESCE(NULLIF(${ch.description ?? ""}, ''), description),
+        subscriber_count = COALESCE(${subs}, subscriber_count)
+      WHERE slug = ${ch.slug}`;
+  }
   channelIdBySlug[rows[0].slug] = rows[0].id;
 }
 
 const kept = [];
 for (const v of payload.videos) {
   const channelId = channelIdBySlug[v.channel_slug];
+  const isShort = Boolean(v.is_short);
   const rows = await sql`
     INSERT INTO videos (
       youtube_id, title, description, channel_name, channel_id,
-      category, category_slug, thumbnail_url, embeddable, is_active, updated_at
+      category, category_slug, thumbnail_url, is_short, embeddable, is_active, updated_at
     ) VALUES (
       ${v.youtube_id}, ${v.title}, ${v.description}, ${v.channel_name}, ${channelId}::uuid,
-      ${v.category}, ${v.category_slug}, ${v.thumbnail_url}, TRUE, TRUE, NOW()
+      ${v.category}, ${v.category_slug}, ${v.thumbnail_url}, ${isShort}, TRUE, TRUE, NOW()
     )
     ON CONFLICT (youtube_id) DO UPDATE SET
       title = EXCLUDED.title,
@@ -68,6 +80,7 @@ for (const v of payload.videos) {
       category = EXCLUDED.category,
       category_slug = EXCLUDED.category_slug,
       thumbnail_url = EXCLUDED.thumbnail_url,
+      is_short = EXCLUDED.is_short,
       embeddable = TRUE,
       is_active = TRUE,
       updated_at = NOW()

@@ -18,19 +18,25 @@ export function CategoryChips({
   activeSlug,
   basePath = "/",
   preserveQuery,
+  preserveFormat,
   mode = "path",
 }: {
   categories: Category[];
   activeSlug?: string | null;
   basePath?: string;
   preserveQuery?: string;
+  preserveFormat?: string;
   /** path: /categories/[slug]. query: ?category= on basePath (for channel pages). */
   mode?: "path" | "query";
 }) {
+  const extras = {
+    q: preserveQuery,
+    format: preserveFormat && preserveFormat !== "all" ? preserveFormat : null,
+  };
   const allHref =
     mode === "query"
-      ? withParams(basePath, { q: preserveQuery })
-      : withParams("/", { q: preserveQuery });
+      ? withParams(basePath, extras)
+      : withParams("/", extras);
 
   return (
     <div className="category-chips" role="navigation" aria-label="Categories">
@@ -45,9 +51,9 @@ export function CategoryChips({
           mode === "query"
             ? withParams(basePath, {
                 category: cat.slug,
-                q: preserveQuery,
+                ...extras,
               })
-            : withParams(`/categories/${cat.slug}`, { q: preserveQuery });
+            : withParams(`/categories/${cat.slug}`, extras);
         return (
           <Link
             key={cat.slug}

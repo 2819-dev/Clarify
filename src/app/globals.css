@@ -313,10 +313,13 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  aspect-ratio: 16 / 9;
   display: block;
 }
 
-.video-duration {
+.video-duration,
+.video-badge {
   position: absolute;
   right: 0.55rem;
   bottom: 0.55rem;
@@ -326,6 +329,46 @@ a {
   font-weight: 700;
   padding: 0.15rem 0.4rem;
   border-radius: 0.4rem;
+}
+
+.video-badge {
+  left: 0.55rem;
+  right: auto;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-950));
+}
+
+.video-tile.is-short .video-thumb-wrap {
+  aspect-ratio: 9 / 16;
+  max-height: 280px;
+}
+
+.shorts-grid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.format-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+}
+
+.format-tab {
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--blue-900);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(29, 95, 184, 0.14);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.format-tab.is-active,
+.format-tab:hover {
+  background: var(--blue-950);
+  border-color: var(--blue-950);
+  color: white;
 }
 
 .video-tile-main {
@@ -703,13 +746,41 @@ a {
   margin-bottom: 1.25rem;
 }
 
+.watch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
 .watch-category {
-  margin: 0.35rem 0 0;
+  margin: 0;
 }
 
 .watch-category a {
   color: var(--blue-700);
   font-weight: 800;
+}
+
+.watch-short-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(26, 91, 179, 0.12);
+  color: var(--blue-900);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.watch-layout.is-short {
+  justify-items: center;
+}
+
+.watch-layout.is-short .watch-copy,
+.watch-layout.is-short .watch-toolbar {
+  width: min(100%, 420px);
 }
 
 .watch-copy .channel {
@@ -758,6 +829,13 @@ a {
   border-radius: 1.2rem;
   background: var(--blue-950);
   box-shadow: var(--shadow);
+}
+
+.player-frame.is-short {
+  width: min(100%, 360px);
+  aspect-ratio: 9 / 16;
+  margin-inline: auto;
+  border-radius: 1.35rem;
 }
 
 .player-frame iframe,

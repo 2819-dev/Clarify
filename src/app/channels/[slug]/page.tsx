@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CatalogSearch } from "@/components/CatalogSearch";
 import { CategoryChips } from "@/components/CategoryChips";
+import { FormatTabs } from "@/components/FormatTabs";
 import { VideoTile } from "@/components/VideoTile";
 import {
   formatSubscriberCount,
   getChannel,
   listChannelCategories,
 } from "@/lib/channels";
-import { listActiveVideos } from "@/lib/videos";
+import { countShorts, listActiveVideos } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
 
@@ -18,18 +19,21 @@ export default async function ChannelPage({
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ q?: string; category?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; format?: string }>;
 }) {
   const { slug } = await params;
-  const { q, category } = await searchParams;
+  const { q, category, format: formatRaw } = await searchParams;
+  const format =
+    formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
   const channel = await getChannel(slug);
   if (!channel || !(channel.video_count && channel.video_count > 0)) {
     notFound();
   }
 
-  const [videos, categories] = await Promise.all([
-    listActiveVideos({ channelSlug: slug, q, category }),
+  const [videos, categories, shortsCount] = await Promise.all([
+    listActiveVideos({ channelSlug: slug, q, category, format }),
     listChannelCategories(slug),
+    countShorts(slug),
   ]);
 
   const subs = formatSubscriberCount(channel.subscriber_count);
@@ -74,6 +78,12 @@ export default async function ChannelPage({
                   <span>{subs}</span>
                 </>
               ) : null}
+              {shortsCount > 0 ? (
+                <>
+                  <span aria-hidden>·</span>
+                  <span>{shortsCount} Shorts</span>
+                </>
+              ) : null}
             </div>
             <p className="channel-bio">{channel.description}</p>
             <div className="hero-actions channel-profile-actions">
@@ -101,9 +111,17 @@ export default async function ChannelPage({
           <p>
             {category
               ? `Showing ${categories.find((c) => c.slug === category)?.name ?? category} from this channel.`
-              : "Browse this channel’s Clarify collection — filter by category or search."}
+              : "Browse this channel’s Clarify collection — filter by format or category."}
           </p>
         </div>
+
+        <FormatTabs
+          basePath={`/channels/${slug}`}
+          active={format}
+          q={q}
+          category={category}
+          shortsCount={shortsCount}
+        />
 
         <Suspense fallback={null}>
           <CatalogSearch
@@ -118,6 +136,7 @@ export default async function ChannelPage({
             activeSlug={category}
             basePath={`/channels/${slug}`}
             preserveQuery={q}
+            preserveFormat={format}
             mode="query"
           />
         ) : null}
@@ -125,7 +144,7 @@ export default async function ChannelPage({
         {videos.length === 0 ? (
           <p className="empty-state">No videos matched on this channel.</p>
         ) : (
-          <div className="video-grid">
+          <div className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}>
             {videos.map((video) => (
               <VideoTile key={video.id} video={video} />
             ))}

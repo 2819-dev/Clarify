@@ -3,24 +3,32 @@ import { Suspense } from "react";
 import { CatalogSearch } from "@/components/CatalogSearch";
 import { CategoryChips } from "@/components/CategoryChips";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
+import { FormatTabs } from "@/components/FormatTabs";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
 import { listChannels } from "@/lib/channels";
-import { countActiveVideos, listActiveVideos } from "@/lib/videos";
+import {
+  countActiveVideos,
+  countShorts,
+  listActiveVideos,
+} from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; format?: string }>;
 }) {
-  const { q } = await searchParams;
-  const [videos, categories, channels, total] = await Promise.all([
-    listActiveVideos({ q }),
+  const { q, format: formatRaw } = await searchParams;
+  const format =
+    formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
+  const [videos, categories, channels, total, shortsCount] = await Promise.all([
+    listActiveVideos({ q, format }),
     listCategories(),
     listChannels(),
     countActiveVideos(),
+    countShorts(),
   ]);
 
   return (
@@ -56,15 +64,28 @@ export default async function HomePage({
           </p>
         </div>
 
+        <FormatTabs
+          basePath="/"
+          active={format}
+          q={q}
+          shortsCount={shortsCount}
+        />
+
         <Suspense fallback={null}>
           <CatalogSearch />
         </Suspense>
-        <CategoryChips categories={categories} preserveQuery={q} />
+        <CategoryChips
+          categories={categories}
+          preserveQuery={q}
+          preserveFormat={format}
+        />
 
         {videos.length === 0 ? (
           <p className="empty-state">No videos matched that search.</p>
         ) : (
-          <div className="video-grid">
+          <div
+            className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}
+          >
             {videos.map((video) => (
               <VideoTile key={video.id} video={video} />
             ))}

@@ -16,11 +16,12 @@ export default async function WatchPage({
   if (!video) notFound();
 
   return (
-    <article className="watch-layout">
+    <article className={`watch-layout ${video.is_short ? "is-short" : ""}`}>
       <YoutubePlayer
         youtubeId={video.youtube_id}
         title={video.title}
         embeddable={video.embeddable}
+        isShort={Boolean(video.is_short)}
       />
 
       <div className="watch-copy">
@@ -32,13 +33,16 @@ export default async function WatchPage({
           <p className="channel">{video.channel_name}</p>
         )}
         <h1>{video.title}</h1>
-        {video.category_slug ? (
-          <p className="watch-category">
-            <Link href={`/categories/${video.category_slug}`}>
-              {video.category_name || video.category_slug}
-            </Link>
-          </p>
-        ) : null}
+        <div className="watch-tags">
+          {video.is_short ? <span className="watch-short-pill">Shorts</span> : null}
+          {video.category_slug ? (
+            <p className="watch-category">
+              <Link href={`/categories/${video.category_slug}`}>
+                {video.category_name || video.category}
+              </Link>
+            </p>
+          ) : null}
+        </div>
         {video.description ? <p className="desc">{video.description}</p> : null}
       </div>
 

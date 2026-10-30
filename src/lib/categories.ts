@@ -9,6 +9,7 @@ export async function listCategories(): Promise<Category[]> {
     LEFT JOIN videos v
       ON v.category_slug = cat.slug AND v.is_active = TRUE
     GROUP BY cat.slug, cat.name, cat.description, cat.sort_order
+    HAVING COUNT(v.id) > 0
     ORDER BY cat.sort_order ASC, cat.name ASC
   `;
   return rows as Category[];

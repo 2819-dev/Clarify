@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS videos (
   category_slug TEXT REFERENCES categories(slug),
   thumbnail_url TEXT,
   duration_seconds INTEGER,
+  is_short BOOLEAN NOT NULL DEFAULT FALSE,
   embeddable BOOLEAN NOT NULL DEFAULT TRUE,
   is_active BOOLEAN NOT NULL DEFAULT TRUE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
