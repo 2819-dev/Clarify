@@ -44,9 +44,6 @@ export default async function HomePage({
             Explore channels
           </Link>
         </div>
-        <p className="hero-stats">
-          {`${total} videos · ${categories.length} categories · ${channels.length} channels`}
-        </p>
       </section>
 
       <section id="catalog" className="section" aria-labelledby="catalog-title">
@@ -55,7 +52,7 @@ export default async function HomePage({
           <p>
             {q
               ? `${videos.length} match${videos.length === 1 ? "" : "es"}.`
-              : "Search, filter by category, or open a channel."}
+              : `${total} videos · ${categories.length} categories · ${channels.length} channels — search, filter, or open a channel.`}
           </p>
         </div>
 
