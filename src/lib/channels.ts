@@ -67,3 +67,14 @@ export function formatSubscriberCount(n: number | null | undefined): string | nu
   }
   return `${n} subscribers`;
 }
+
+/** Extract @handle from a YouTube channel URL when present. */
+export function channelHandle(youtubeUrl: string | null | undefined, slug: string): string {
+  if (youtubeUrl) {
+    const at = youtubeUrl.match(/youtube\.com\/@([^/?#]+)/i);
+    if (at?.[1]) return `@${decodeURIComponent(at[1])}`;
+    const c = youtubeUrl.match(/youtube\.com\/(?:c|channel)\/([^/?#]+)/i);
+    if (c?.[1] && c[1].startsWith("@")) return c[1];
+  }
+  return `@${slug}`;
+}

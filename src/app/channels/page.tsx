@@ -14,8 +14,8 @@ export default async function ChannelsIndexPage() {
       <div className="section-heading channels-index-heading">
         <h2>Channels</h2>
         <p>
-          Creators in the Clarify catalog — open a channel for its full
-          collection, bio, and category filters.
+          Creators in the Clarify catalog — open a channel for its YouTube-style
+          page with banner, bio, Home shelves, Videos, Shorts, and About.
         </p>
       </div>
 
