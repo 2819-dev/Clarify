@@ -8,6 +8,7 @@ import {
   getChannel,
   listChannelCategories,
 } from "@/lib/channels";
+import { getContentMode } from "@/lib/content-mode-server";
 import { countShorts, listActiveVideos } from "@/lib/videos";
 import type { Video } from "@/lib/db";
 
@@ -67,16 +68,17 @@ export default async function ChannelPage({
 }) {
   const { slug } = await params;
   const { tab: tabRaw } = await searchParams;
-  const channel = await getChannel(slug);
+  const mode = await getContentMode();
+  const channel = await getChannel(slug, mode);
   if (!channel || !(channel.video_count && channel.video_count > 0)) {
     notFound();
   }
 
   const [longVideos, shortVideos, categories, shortsCount] = await Promise.all([
-    listActiveVideos({ channelSlug: slug, format: "videos", limit: 48 }),
-    listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24 }),
-    listChannelCategories(slug),
-    countShorts(slug),
+    listActiveVideos({ channelSlug: slug, format: "videos", limit: 48, mode }),
+    listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24, mode }),
+    listChannelCategories(slug, mode),
+    countShorts(slug, mode),
   ]);
 
   const tab = parseTab(tabRaw, shortsCount > 0);
@@ -97,6 +99,7 @@ export default async function ChannelPage({
           category: cat.slug,
           format: "videos",
           limit: 8,
+          mode,
         })
       ).slice(0, 6),
     })),

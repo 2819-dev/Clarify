@@ -3,19 +3,22 @@ import {
   formatSubscriberCount,
   listChannels,
 } from "@/lib/channels";
+import { contentModeLabel } from "@/lib/content-mode";
+import { getContentMode } from "@/lib/content-mode-server";
 
 export const dynamic = "force-dynamic";
 
 export default async function ChannelsIndexPage() {
-  const channels = await listChannels();
+  const mode = await getContentMode();
+  const channels = await listChannels(mode);
 
   return (
     <section className="section catalog-page">
       <div className="section-heading channels-index-heading">
         <h2>Channels</h2>
         <p>
-          Creators in the Clarify catalog — open a channel for its YouTube-style
-          page with banner, bio, Home shelves, Videos, Shorts, and About.
+          {contentModeLabel(mode)} — open a channel for its YouTube-style page
+          with banner, bio, Home shelves, Videos, Shorts, and About.
         </p>
       </div>
 
@@ -58,6 +61,12 @@ export default async function ChannelsIndexPage() {
                     <span>{videoLabel}</span>
                     {subs ? <span aria-hidden>·</span> : null}
                     {subs ? <span>{subs}</span> : null}
+                    {!channel.is_jewish ? (
+                      <>
+                        <span aria-hidden>·</span>
+                        <span>Filtered</span>
+                      </>
+                    ) : null}
                   </div>
                 </div>
               </div>

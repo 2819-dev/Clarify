@@ -7,6 +7,8 @@ import { FormatTabs } from "@/components/FormatTabs";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
 import { listChannels } from "@/lib/channels";
+import { contentModeDescription, contentModeLabel } from "@/lib/content-mode";
+import { getContentMode } from "@/lib/content-mode-server";
 import {
   countActiveVideos,
   countShorts,
@@ -23,12 +25,13 @@ export default async function HomePage({
   const { q, format: formatRaw } = await searchParams;
   const format =
     formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
+  const mode = await getContentMode();
   const [videos, categories, channels, total, shortsCount] = await Promise.all([
-    listActiveVideos({ q, format }),
-    listCategories(),
-    listChannels(),
-    countActiveVideos(),
-    countShorts(),
+    listActiveVideos({ q, format, mode }),
+    listCategories(mode),
+    listChannels(mode),
+    countActiveVideos(mode),
+    countShorts(undefined, mode),
   ]);
 
   return (
@@ -38,11 +41,15 @@ export default async function HomePage({
           <ClarifyLogo href={null} size="hero" />
         </h1>
         <p className="hero-line">
-          Jewish &amp; family-safe videos, curated with care.
+          {mode === "filtered"
+            ? "Family-safe watching, curated with care."
+            : "Jewish & family-safe videos, curated with care."}
         </p>
         <p className="hero-support">
-          Hand-picked Jewish and family-safe watching — search the catalog,
-          browse channels, and report anything that doesn’t belong.
+          {contentModeDescription(mode)} Toggle{" "}
+          <strong>Jewish Content</strong> or <strong>Filtered Content</strong>{" "}
+          anytime — search, browse channels, and report anything that doesn’t
+          belong.
         </p>
         <div className="hero-actions">
           <Link href="#catalog" className="btn-primary">
@@ -59,8 +66,8 @@ export default async function HomePage({
           <h2 id="catalog-title">{q ? `Results for “${q}”` : "Catalog"}</h2>
           <p>
             {q
-              ? `${videos.length} match${videos.length === 1 ? "" : "es"}.`
-              : `${total} videos · ${categories.length} categories · ${channels.length} channels — search, filter, or open a channel.`}
+              ? `${videos.length} match${videos.length === 1 ? "" : "es"} in ${contentModeLabel(mode)}.`
+              : `${total} videos · ${categories.length} categories · ${channels.length} channels — ${contentModeLabel(mode)}.`}
           </p>
         </div>
 

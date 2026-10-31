@@ -1,3 +1,4 @@
+import type { ContentMode } from "./content-mode";
 import { getSql, type Video } from "./db";
 
 export type VideoQuery = {
@@ -6,8 +7,14 @@ export type VideoQuery = {
   channelSlug?: string;
   /** all | videos | shorts */
   format?: "all" | "videos" | "shorts";
+  /** jewish = Jewish-only; filtered = Jewish + family-safe */
+  mode?: ContentMode;
   limit?: number;
 };
+
+function jewishOnly(mode?: ContentMode): boolean {
+  return mode !== "filtered";
+}
 
 export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]> {
   const sql = getSql();
@@ -17,6 +24,7 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
   const format = query.format || "all";
   const shortsOnly = format === "shorts";
   const longOnly = format === "videos";
+  const onlyJewish = jewishOnly(query.mode);
   const limit = Math.min(Math.max(query.limit ?? 200, 1), 300);
   const like = q ? `%${q}%` : null;
 
@@ -25,6 +33,7 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
       v.id, v.youtube_id, v.title, v.description, v.channel_name, v.channel_id,
       c.slug AS channel_slug, v.category, v.category_slug, cat.name AS category_name,
       v.thumbnail_url, v.duration_seconds, COALESCE(v.is_short, FALSE) AS is_short,
+      COALESCE(v.is_jewish, TRUE) AS is_jewish,
       v.embeddable, v.is_active, v.created_at
     FROM videos v
     LEFT JOIN channels c ON c.id = v.channel_id
@@ -32,6 +41,10 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
     WHERE v.is_active = TRUE
       AND (${category}::text IS NULL OR v.category_slug = ${category})
       AND (${channelSlug}::text IS NULL OR c.slug = ${channelSlug})
+      AND (
+        ${!onlyJewish}::boolean
+        OR COALESCE(v.is_jewish, TRUE) = TRUE
+      )
       AND (
         ${!shortsOnly && !longOnly}::boolean
         OR (${shortsOnly}::boolean AND COALESCE(v.is_short, FALSE) = TRUE)
@@ -59,6 +72,7 @@ export async function getActiveVideo(id: string): Promise<Video | null> {
       v.id, v.youtube_id, v.title, v.description, v.channel_name, v.channel_id,
       c.slug AS channel_slug, v.category, v.category_slug, cat.name AS category_name,
       v.thumbnail_url, v.duration_seconds, COALESCE(v.is_short, FALSE) AS is_short,
+      COALESCE(v.is_jewish, TRUE) AS is_jewish,
       v.embeddable, v.is_active, v.created_at
     FROM videos v
     LEFT JOIN channels c ON c.id = v.channel_id
@@ -69,9 +83,13 @@ export async function getActiveVideo(id: string): Promise<Video | null> {
   return (rows[0] as Video | undefined) ?? null;
 }
 
-export async function countShorts(channelSlug?: string): Promise<number> {
+export async function countShorts(
+  channelSlug?: string,
+  mode?: ContentMode,
+): Promise<number> {
   const sql = getSql();
   const slug = channelSlug || null;
+  const onlyJewish = jewishOnly(mode);
   const rows = await sql`
     SELECT COUNT(*)::int AS n
     FROM videos v
@@ -79,6 +97,10 @@ export async function countShorts(channelSlug?: string): Promise<number> {
     WHERE v.is_active = TRUE
       AND COALESCE(v.is_short, FALSE) = TRUE
       AND (${slug}::text IS NULL OR c.slug = ${slug})
+      AND (
+        ${!onlyJewish}::boolean
+        OR COALESCE(v.is_jewish, TRUE) = TRUE
+      )
   `;
   return Number(rows[0]?.n ?? 0);
 }
@@ -92,8 +114,17 @@ export async function deactivateVideo(videoId: string): Promise<void> {
   `;
 }
 
-export async function countActiveVideos(): Promise<number> {
+export async function countActiveVideos(mode?: ContentMode): Promise<number> {
   const sql = getSql();
-  const rows = await sql`SELECT COUNT(*)::int AS n FROM videos WHERE is_active = TRUE`;
+  const onlyJewish = jewishOnly(mode);
+  const rows = await sql`
+    SELECT COUNT(*)::int AS n
+    FROM videos
+    WHERE is_active = TRUE
+      AND (
+        ${!onlyJewish}::boolean
+        OR COALESCE(is_jewish, TRUE) = TRUE
+      )
+  `;
   return Number(rows[0]?.n ?? 0);
 }

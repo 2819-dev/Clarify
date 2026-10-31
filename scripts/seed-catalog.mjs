@@ -17,9 +17,16 @@ const cats = [
   ["shabbat", "Shabbat", "Shabbat welcome songs and peaceful Friday vibes.", 30],
   ["prayer", "Prayer", "Modeh Ani, Oseh Shalom, and other gentle liturgy for kids.", 40],
   ["hebrew", "Learning Hebrew", "Aleph-bet and beginner Hebrew learning.", 50],
+  ["learning", "Kids Learning", "Jewish and general kids education that stays family-safe.", 55],
   ["torah", "Torah & Stories", "Parsha-friendly kids stories and Torah teachings.", 60],
   ["stories", "Stories", "Kind, calm stories for shared family viewing.", 70],
   ["family", "Family & Calm", "Peaceful nature and calm shared watching.", 80],
+  ["cooking", "Cooking", "Kosher and family-friendly cooking & recipes.", 85],
+  ["history", "History", "Jewish history and heritage explained for families.", 86],
+  ["comedy", "Clean Comedy", "Light, clean humor suitable for shared viewing.", 87],
+  ["community", "Community", "Community life, gentle Israel/culture, and wholesome shorts.", 88],
+  ["nature", "Nature", "Calm nature and wildlife for shared family watching.", 90],
+  ["science", "Science & How-To", "Gentle science and how-to videos for curious kids.", 91],
 ];
 
 for (const [slug, name, description, sort] of cats) {
@@ -32,12 +39,13 @@ const channelIdBySlug = {};
 for (const ch of payload.channels) {
   const banner = ch.banner_url ?? null;
   const subs = ch.subscriber_count ?? null;
+  const isJewish = ch.is_jewish !== false;
   const rows = await sql`
     INSERT INTO channels (
-      slug, name, description, youtube_url, avatar_url, banner_url, subscriber_count
+      slug, name, description, youtube_url, avatar_url, banner_url, subscriber_count, is_jewish
     ) VALUES (
       ${ch.slug}, ${ch.name}, ${ch.description}, ${ch.youtube_url}, ${ch.avatar_url},
-      ${banner}, ${subs}
+      ${banner}, ${subs}, ${isJewish}
     )
     ON CONFLICT (slug) DO UPDATE SET
       name = EXCLUDED.name,
@@ -45,16 +53,17 @@ for (const ch of payload.channels) {
       youtube_url = COALESCE(EXCLUDED.youtube_url, channels.youtube_url),
       avatar_url = COALESCE(EXCLUDED.avatar_url, channels.avatar_url),
       banner_url = COALESCE(EXCLUDED.banner_url, channels.banner_url),
-      subscriber_count = COALESCE(EXCLUDED.subscriber_count, channels.subscriber_count)
+      subscriber_count = COALESCE(EXCLUDED.subscriber_count, channels.subscriber_count),
+      is_jewish = EXCLUDED.is_jewish
     RETURNING id, slug`;
-  // Force-refresh art/description when seed has synced values
   if (ch.avatar_url || ch.banner_url || ch.description) {
     await sql`
       UPDATE channels SET
         avatar_url = COALESCE(${ch.avatar_url ?? null}, avatar_url),
         banner_url = COALESCE(${ch.banner_url ?? null}, banner_url),
         description = COALESCE(NULLIF(${ch.description ?? ""}, ''), description),
-        subscriber_count = COALESCE(${subs}, subscriber_count)
+        subscriber_count = COALESCE(${subs}, subscriber_count),
+        is_jewish = ${isJewish}
       WHERE slug = ${ch.slug}`;
   }
   channelIdBySlug[rows[0].slug] = rows[0].id;
@@ -64,13 +73,16 @@ const kept = [];
 for (const v of payload.videos) {
   const channelId = channelIdBySlug[v.channel_slug];
   const isShort = Boolean(v.is_short);
+  const isJewish = v.is_jewish !== false;
   const rows = await sql`
     INSERT INTO videos (
       youtube_id, title, description, channel_name, channel_id,
-      category, category_slug, thumbnail_url, is_short, embeddable, is_active, updated_at
+      category, category_slug, thumbnail_url, is_short, is_jewish,
+      embeddable, is_active, updated_at
     ) VALUES (
       ${v.youtube_id}, ${v.title}, ${v.description}, ${v.channel_name}, ${channelId}::uuid,
-      ${v.category}, ${v.category_slug}, ${v.thumbnail_url}, ${isShort}, TRUE, TRUE, NOW()
+      ${v.category}, ${v.category_slug}, ${v.thumbnail_url}, ${isShort}, ${isJewish},
+      TRUE, TRUE, NOW()
     )
     ON CONFLICT (youtube_id) DO UPDATE SET
       title = EXCLUDED.title,
@@ -81,6 +93,7 @@ for (const v of payload.videos) {
       category_slug = EXCLUDED.category_slug,
       thumbnail_url = EXCLUDED.thumbnail_url,
       is_short = EXCLUDED.is_short,
+      is_jewish = EXCLUDED.is_jewish,
       embeddable = TRUE,
       is_active = TRUE,
       updated_at = NOW()
@@ -98,6 +111,8 @@ for (const row of active) {
 
 const counts = await sql`SELECT
   (SELECT COUNT(*) FROM videos WHERE is_active) AS videos,
+  (SELECT COUNT(*) FROM videos WHERE is_active AND is_jewish) AS jewish_videos,
+  (SELECT COUNT(*) FROM videos WHERE is_active AND NOT is_jewish) AS filtered_only,
   (SELECT COUNT(*) FROM channels) AS channels,
   (SELECT COUNT(*) FROM categories) AS categories`;
 console.log(counts[0]);

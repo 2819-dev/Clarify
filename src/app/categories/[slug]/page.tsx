@@ -5,6 +5,7 @@ import { CatalogSearch } from "@/components/CatalogSearch";
 import { CategoryChips } from "@/components/CategoryChips";
 import { VideoTile } from "@/components/VideoTile";
 import { getCategory, listCategories } from "@/lib/categories";
+import { getContentMode } from "@/lib/content-mode-server";
 import { listActiveVideos } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
@@ -18,12 +19,15 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const { q } = await searchParams;
+  const mode = await getContentMode();
   const [category, categories, videos] = await Promise.all([
-    getCategory(slug),
-    listCategories(),
-    listActiveVideos({ category: slug, q }),
+    getCategory(slug, mode),
+    listCategories(mode),
+    listActiveVideos({ category: slug, q, mode }),
   ]);
-  if (!category) notFound();
+  if (!category || !(category.video_count && category.video_count > 0)) {
+    notFound();
+  }
 
   return (
     <section className="section catalog-page">
@@ -43,7 +47,7 @@ export default async function CategoryPage({
       />
 
       {videos.length === 0 ? (
-        <p className="empty-state">No videos in this category yet.</p>
+        <p className="empty-state">No videos in this category for this mode.</p>
       ) : (
         <div className="video-grid">
           {videos.map((video) => (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito } from "next/font/google";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { SiteHeader } from "@/components/SiteHeader";
+import { getContentMode } from "@/lib/content-mode-server";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -25,7 +26,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const contentMode = await getContentMode();
+
   return (
     <html
       lang="en"
@@ -33,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <div className="shell">
-          <SiteHeader />
+          <SiteHeader initialMode={contentMode} />
           <main className="flex-1">{children}</main>
           <footer className="site-footer">
             <ClarifyLogo size="sm" href="/" />

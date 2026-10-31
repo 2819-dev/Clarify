@@ -25,6 +25,7 @@ export type Channel = {
   avatar_url: string | null;
   banner_url: string | null;
   subscriber_count: number | null;
+  is_jewish: boolean;
   created_at: string;
   video_count?: number;
 };
@@ -43,6 +44,7 @@ export type Video = {
   thumbnail_url: string | null;
   duration_seconds: number | null;
   is_short: boolean;
+  is_jewish: boolean;
   embeddable: boolean;
   is_active: boolean;
   created_at: string;

@@ -1,16 +1,19 @@
 import Link from "next/link";
 import { listCategories } from "@/lib/categories";
+import { contentModeLabel } from "@/lib/content-mode";
+import { getContentMode } from "@/lib/content-mode-server";
 
 export const dynamic = "force-dynamic";
 
 export default async function CategoriesIndexPage() {
-  const categories = await listCategories();
+  const mode = await getContentMode();
+  const categories = await listCategories(mode);
 
   return (
     <section className="section catalog-page">
       <div className="section-heading">
         <h2>Categories</h2>
-        <p>Browse the library by theme.</p>
+        <p>Browse {contentModeLabel(mode).toLowerCase()} by theme.</p>
       </div>
       <div className="entity-grid">
         {categories.map((cat) => (
