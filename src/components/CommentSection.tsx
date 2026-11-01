@@ -97,9 +97,7 @@ export function CommentSection({
         </p>
       )}
 
-      {comments.length === 0 ? (
-        <p className="empty-state">Be the first to comment.</p>
-      ) : (
+      {comments.length === 0 ? null : (
         <ul className="comment-list">
           {comments.map((comment) => (
             <li key={comment.id} className="comment-item">

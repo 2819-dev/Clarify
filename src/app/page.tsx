@@ -187,18 +187,6 @@ export default async function HomePage({
               videos={subsFresh}
               href="/subscriptions"
             />
-          ) : user ? (
-            <section className="yt-shelf yt-shelf-empty-subs">
-              <div className="yt-shelf-head">
-                <h2 className="yt-shelf-title">Subscriptions</h2>
-                <Link href="/channels" className="yt-shelf-more">
-                  Browse channels
-                </Link>
-              </div>
-              <p className="yt-home-sub">
-                Subscribe to channels you enjoy — they’ll appear here.
-              </p>
-            </section>
           ) : null}
 
           {recommendedFresh.length > 0 ? (

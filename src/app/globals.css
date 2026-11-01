@@ -5220,3 +5220,151 @@ html.yt-page-watch .site-footer,
     display: none;
   }
 }
+
+/* ——— Cleaner YT declutter ——— */
+.yt-made-by {
+  display: none;
+}
+
+.yt-sidebar-made {
+  opacity: 0.55;
+  font-size: 0.7rem;
+  letter-spacing: 0.01em;
+}
+
+.yt-home-meta.is-minimal {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.yt-shelves {
+  gap: 1.1rem;
+}
+
+.yt-shelf-empty-subs {
+  display: none;
+}
+
+.search-results {
+  gap: 1.15rem;
+  padding-top: 0.15rem;
+}
+
+.search-result {
+  gap: 0.75rem;
+}
+
+.search-result-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.search-result-channel {
+  margin-top: 0.35rem;
+}
+
+.search-result-avatar-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  gap: 0.35rem;
+}
+
+.search-result-avatar {
+  width: 22px;
+  height: 22px;
+  font-size: 0.65rem;
+}
+
+.search-result-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+}
+
+.search-result-desc {
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  -webkit-line-clamp: 2;
+  opacity: 0.92;
+}
+
+.watch-title-meta {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.watch-desc-card.is-meta-only {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+
+.watch-desc-card.is-meta-only .watch-tags {
+  margin: 0;
+}
+
+.watch-tags {
+  gap: 0.35rem;
+}
+
+.watch-category {
+  font-size: 0.78rem;
+  font-weight: 550;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.4rem;
+}
+
+.comment-section {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+}
+
+.comment-heading {
+  font-size: 1rem;
+  font-weight: 650;
+  margin: 0 0 0.65rem;
+}
+
+.comment-signin-cta {
+  margin: 0 0 0.5rem;
+}
+
+.btn-comment-signin {
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+
+.watch-related-heading {
+  font-size: 0.9rem;
+  font-weight: 650;
+  margin: 0 0 0.4rem;
+}
+
+.watch-related-list {
+  gap: 0.3rem;
+}
+
+.yt-chip-rail {
+  padding: 0.15rem 0 0.2rem;
+  gap: 0.4rem;
+}
+
+@media (max-width: 960px) {
+  .search-result {
+    gap: 0.55rem;
+  }
+
+  .search-result-title {
+    font-size: 0.95rem;
+  }
+
+  .search-result-desc {
+    display: none;
+  }
+}
