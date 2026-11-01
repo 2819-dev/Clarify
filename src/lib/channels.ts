@@ -11,7 +11,7 @@ export async function listChannels(mode?: ContentMode): Promise<Channel[]> {
   const rows = await sql`
     SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
            ch.avatar_url, ch.banner_url, ch.subscriber_count,
-           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.created_at,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.username, ch.created_at,
            COUNT(v.id)::int AS video_count
     FROM channels ch
     LEFT JOIN videos v
@@ -21,7 +21,8 @@ export async function listChannels(mode?: ContentMode): Promise<Channel[]> {
        ${!onlyJewish}::boolean
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
-    WHERE (
+    WHERE COALESCE(ch.is_active, TRUE) = TRUE
+      AND (
       ${!onlyJewish}::boolean
       OR COALESCE(ch.is_jewish, TRUE) = TRUE
       OR EXISTS (
@@ -55,7 +56,7 @@ export async function listChannelsBySlugs(
   const rows = await sql`
     SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
            ch.avatar_url, ch.banner_url, ch.subscriber_count,
-           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.created_at,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.username, ch.created_at,
            COUNT(v.id)::int AS video_count
     FROM channels ch
     LEFT JOIN videos v
@@ -66,6 +67,7 @@ export async function listChannelsBySlugs(
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
     WHERE ch.slug = ANY(${normalized})
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     GROUP BY ch.id
     HAVING COUNT(v.id) > 0
   `;
@@ -82,7 +84,7 @@ export async function getChannel(
   const rows = await sql`
     SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
            ch.avatar_url, ch.banner_url, ch.subscriber_count,
-           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.created_at,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.username, ch.created_at,
            COUNT(v.id)::int AS video_count
     FROM channels ch
     LEFT JOIN videos v
@@ -93,6 +95,36 @@ export async function getChannel(
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
     WHERE ch.slug = ${slug}
+      AND COALESCE(ch.is_active, TRUE) = TRUE
+    GROUP BY ch.id
+    LIMIT 1
+  `;
+  return (rows[0] as Channel | undefined) ?? null;
+}
+
+export async function getChannelByUsername(
+  usernameRaw: string,
+  mode?: ContentMode,
+): Promise<Channel | null> {
+  const username = usernameRaw.trim().replace(/^@+/, "").toLowerCase();
+  if (!username) return null;
+  const sql = getSql();
+  const onlyJewish = jewishOnly(mode);
+  const rows = await sql`
+    SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
+           ch.avatar_url, ch.banner_url, ch.subscriber_count,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.username, ch.created_at,
+           COUNT(v.id)::int AS video_count
+    FROM channels ch
+    LEFT JOIN videos v
+      ON v.channel_id = ch.id
+     AND v.is_active = TRUE
+     AND (
+       ${!onlyJewish}::boolean
+       OR COALESCE(v.is_jewish, TRUE) = TRUE
+     )
+    WHERE lower(ch.username) = ${username}
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     GROUP BY ch.id
     LIMIT 1
   `;
@@ -140,13 +172,18 @@ export function formatSubscriberCount(n: number | null | undefined): string | nu
   return `${n} subscribers`;
 }
 
-/** Extract @handle from a YouTube channel URL when present. */
-export function channelHandle(youtubeUrl: string | null | undefined, slug: string): string {
-  if (youtubeUrl) {
-    const at = youtubeUrl.match(/youtube\.com\/@([^/?#]+)/i);
+/** Prefer stored Clarify username, then YouTube @handle, then slug. */
+export function channelHandle(
+  channel: {
+    username?: string | null;
+    youtube_url?: string | null;
+    slug: string;
+  },
+): string {
+  if (channel.username) return `@${channel.username.replace(/^@+/, "")}`;
+  if (channel.youtube_url) {
+    const at = channel.youtube_url.match(/youtube\.com\/@([^/?#]+)/i);
     if (at?.[1]) return `@${decodeURIComponent(at[1])}`;
-    const c = youtubeUrl.match(/youtube\.com\/(?:c|channel)\/([^/?#]+)/i);
-    if (c?.[1] && c[1].startsWith("@")) return c[1];
   }
-  return `@${slug}`;
+  return `@${channel.slug.replace(/-/g, "")}`;
 }

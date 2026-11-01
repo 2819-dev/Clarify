@@ -1,7 +1,7 @@
-import Link from "next/link";
+import { Suspense } from "react";
 import { CategoryRail } from "@/components/CategoryRail";
 import { CatalogSearch } from "@/components/CatalogSearch";
-import { Suspense } from "react";
+import { ChannelCard } from "@/components/ChannelCard";
 import { listCategories } from "@/lib/categories";
 import {
   formatSubscriberCount,
@@ -63,50 +63,14 @@ export default async function ChannelsIndexPage({
             const subs = formatSubscriberCount(channel.subscriber_count);
             const videoLabel = `${channel.video_count ?? 0} video${
               (channel.video_count ?? 0) === 1 ? "" : "s"
-            }`;
+            }${!channel.is_jewish ? " · Filtered" : ""}`;
             return (
-              <Link
+              <ChannelCard
                 key={channel.id}
-                href={`/channels/${channel.slug}`}
-                className="channel-card"
-              >
-                <div
-                  className="channel-card-banner"
-                  style={
-                    channel.banner_url
-                      ? { backgroundImage: `url(${channel.banner_url})` }
-                      : undefined
-                  }
-                  aria-hidden
-                />
-                <div className="channel-card-body">
-                  {channel.avatar_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={channel.avatar_url}
-                      alt=""
-                      className="channel-avatar"
-                    />
-                  ) : (
-                    <span className="channel-avatar placeholder" aria-hidden />
-                  )}
-                  <div className="channel-card-copy">
-                    <h3>{channel.name}</h3>
-                    <p className="channel-card-bio">{channel.description}</p>
-                    <div className="channel-card-meta">
-                      <span>{videoLabel}</span>
-                      {subs ? <span aria-hidden>·</span> : null}
-                      {subs ? <span>{subs}</span> : null}
-                      {!channel.is_jewish ? (
-                        <>
-                          <span aria-hidden>·</span>
-                          <span>Filtered</span>
-                        </>
-                      ) : null}
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                channel={channel}
+                subs={subs}
+                videoLabel={videoLabel}
+              />
             );
           })}
         </div>
