@@ -111,6 +111,69 @@ async function fetchChannelFeed(channelId: string): Promise<FeedEntry[]> {
   return parseAtomFeed(await res.text());
 }
 
+function parseVideosFromChannelHtml(html: string, channelName: string): FeedEntry[] {
+  const entries: FeedEntry[] = [];
+  const seen = new Set<string>();
+  const titleById = new Map<string, string>();
+
+  for (const m of html.matchAll(
+    /"videoId":"([\w-]{11})"[^]{0,400}?"text":"([^"]{1,200})"/g,
+  )) {
+    if (!titleById.has(m[1])) titleById.set(m[1], m[2]);
+  }
+
+  for (const m of html.matchAll(/"videoId":"([\w-]{11})"/g)) {
+    const youtubeId = m[1];
+    if (seen.has(youtubeId)) continue;
+    seen.add(youtubeId);
+    const rawTitle = titleById.get(youtubeId) || youtubeId;
+    entries.push({
+      youtubeId,
+      title: rawTitle
+        .replace(/\\u0026/g, "&")
+        .replace(/\\"/g, '"')
+        .replace(/\\n/g, " "),
+      publishedAt: new Date().toISOString(),
+      channelName,
+      thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`,
+    });
+    if (entries.length >= 15) break;
+  }
+  return entries;
+}
+
+async function fetchChannelUploads(channel: ChannelRow): Promise<FeedEntry[]> {
+  if (channel.youtube_channel_id) {
+    try {
+      return await fetchChannelFeed(channel.youtube_channel_id);
+    } catch {
+      // Atom feeds are often blocked from cloud IPs — fall through to HTML.
+    }
+  }
+  if (!channel.youtube_url) {
+    throw new Error("No YouTube URL");
+  }
+  const videosUrl = `${channel.youtube_url.replace(/\/$/, "")}/videos`;
+  const res = await fetch(videosUrl, {
+    headers: {
+      "User-Agent": UA,
+      Accept: "text/html",
+      "Accept-Language": "en-US,en;q=0.9",
+    },
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Channel page HTTP ${res.status}`);
+  const html = await res.text();
+  const channelId = channel.youtube_channel_id || extractChannelId(html);
+  if (channelId && channelId !== channel.youtube_channel_id) {
+    // caller persists id
+    channel.youtube_channel_id = channelId;
+  }
+  const entries = parseVideosFromChannelHtml(html, channel.name);
+  if (entries.length === 0) throw new Error("No uploads found on channel page");
+  return entries;
+}
+
 async function backfillUsernames(sql: ReturnType<typeof getSql>) {
   let n = 0;
   const channels = (await sql`
@@ -183,23 +246,19 @@ export async function syncCatalogFromYoutube(options?: {
   for (const channel of channels) {
     summary.channelsScanned += 1;
     try {
-      let channelId = channel.youtube_channel_id;
-      if (!channelId && channel.youtube_url) {
-        channelId = await resolveYoutubeChannelId(channel.youtube_url);
-        if (channelId) {
-          await sql`
-            UPDATE channels
-            SET youtube_channel_id = ${channelId}
-            WHERE id = ${channel.id}::uuid
-          `;
-        }
-      }
-      if (!channelId) {
-        summary.errors.push(`${channel.slug}: could not resolve YouTube channel id`);
-        continue;
+      if (!channel.youtube_channel_id && channel.youtube_url) {
+        const resolved = await resolveYoutubeChannelId(channel.youtube_url);
+        if (resolved) channel.youtube_channel_id = resolved;
       }
 
-      const feed = await fetchChannelFeed(channelId);
+      const feed = await fetchChannelUploads(channel);
+      if (channel.youtube_channel_id) {
+        await sql`
+          UPDATE channels
+          SET youtube_channel_id = ${channel.youtube_channel_id}
+          WHERE id = ${channel.id}::uuid
+        `;
+      }
       for (const entry of feed.slice(0, 15)) {
         const existing = await sql`
           SELECT id, title, thumbnail_url FROM videos
