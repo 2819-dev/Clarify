@@ -14,8 +14,8 @@ export default async function AccountPage() {
       <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Settings</h1>
       <p className="yt-home-sub">
-        Photo, display name, and @username — shown on comments and your
-        profile.
+        Update your photo, display name, and @username. These appear on your
+        profile and comments.
       </p>
       <AccountSettingsForm
         initial={{
@@ -26,7 +26,7 @@ export default async function AccountPage() {
         }}
       />
       <p className="auth-foot">
-        <Link href="/account/security">Security / 2FA</Link>
+        <Link href="/account/security">Security</Link>
         {" · "}
         <Link href="/">Home</Link>
       </p>

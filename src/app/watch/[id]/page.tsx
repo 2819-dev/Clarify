@@ -167,7 +167,7 @@ export default async function WatchPage({
             {video.description ? (
               <p className="desc">{video.description}</p>
             ) : (
-              <p className="desc is-muted">No description.</p>
+              <p className="desc is-muted">No description available.</p>
             )}
           </div>
         </div>

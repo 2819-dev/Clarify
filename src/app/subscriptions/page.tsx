@@ -35,10 +35,10 @@ export default async function SubscriptionsPage() {
           <h1 className="yt-home-title">Subscriptions</h1>
           <p className="yt-home-sub">
             {!user
-              ? "Sign in to subscribe to channels and see them here."
+              ? "Sign in to follow channels and see them here."
               : channels.length === 0
-                ? `No subscriptions yet in ${contentModeLabel(mode)}. Subscribe on any channel page.`
-                : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent videos — ${contentModeLabel(mode)}.`}
+                ? `You haven’t subscribed to any ${contentModeLabel(mode).toLowerCase()} channels yet. Open a channel and tap Subscribe.`
+                : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent video${videos.length === 1 ? "" : "s"} — ${contentModeLabel(mode)}.`}
           </p>
         </div>
       </div>

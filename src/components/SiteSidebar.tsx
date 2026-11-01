@@ -129,11 +129,11 @@ export function SiteSidebar({
             <Link href={`/signin?next=${encodeURIComponent(pathname)}`}>
               Sign in
             </Link>{" "}
-            to see subscriptions.
+            to see your subscriptions.
           </p>
         ) : visibleSubs.length === 0 ? (
           <p className="yt-sidebar-empty">
-            Subscribe on a channel page to pin it here.
+            Subscribe to a channel to keep it here.
           </p>
         ) : (
           <nav className="yt-sidebar-cats" aria-label="Subscriptions">
@@ -212,7 +212,7 @@ export function SiteSidebar({
       ) : null}
 
       <p className="yt-sidebar-made">
-        Made by{" "}
+        From{" "}
         <a href="https://guidelearning.org" rel="noopener noreferrer">
           Guide
         </a>

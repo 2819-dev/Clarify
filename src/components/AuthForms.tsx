@@ -181,7 +181,7 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         autoComplete="nickname"
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
-        placeholder="Optional"
+        placeholder="Your name"
       />
       <label htmlFor="signup-username">Username</label>
       <input
@@ -190,7 +190,7 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         autoComplete="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="@handle (optional)"
+        placeholder="@username"
         minLength={2}
         maxLength={30}
         pattern="[A-Za-z0-9._]+"
@@ -215,8 +215,8 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         onChange={(e) => setPassword(e.target.value)}
       />
       <p className="auth-hint">
-        At least 8 characters. You can turn on authenticator 2FA after signing
-        up under Account → Security.
+        Use at least 8 characters. You can add two-factor authentication later
+        in Account → Security.
       </p>
       {error ? <p className="form-error">{error}</p> : null}
       <div className="auth-actions">

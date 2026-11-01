@@ -25,7 +25,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, totp_enabled: false });
   } catch (err) {
     const message =
-      err instanceof Error ? err.message : "Could not disable 2FA.";
+      err instanceof Error
+        ? err.message
+        : "Could not turn off two-factor authentication.";
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }

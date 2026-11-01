@@ -42,8 +42,8 @@ export default async function ChannelsIndexPage({
           <h1 className="yt-home-title">Channels</h1>
           <p className="yt-home-sub">
             {contentModeLabel(mode)} — {filtered.length} channel
-            {filtered.length === 1 ? "" : "s"} with real banners, avatars, and
-            video shelves. Subscribe on a channel to pin it in your sidebar.
+            {filtered.length === 1 ? "" : "s"}. Subscribe to keep favorites in
+            your sidebar.
           </p>
         </div>
       </div>
@@ -56,14 +56,16 @@ export default async function ChannelsIndexPage({
       </Suspense>
 
       {filtered.length === 0 ? (
-        <p className="empty-state">No channels matched that search.</p>
+        <p className="empty-state">
+          No channels matched your search. Try a different name.
+        </p>
       ) : (
         <div className="channel-directory">
           {filtered.map((channel) => {
             const subs = formatSubscriberCount(channel.subscriber_count);
             const videoLabel = `${channel.video_count ?? 0} video${
               (channel.video_count ?? 0) === 1 ? "" : "s"
-            }${!channel.is_jewish ? " · Filtered" : ""}`;
+            }${!channel.is_jewish ? " · Family-Friendly" : ""}`;
             return (
               <ChannelCard
                 key={channel.id}

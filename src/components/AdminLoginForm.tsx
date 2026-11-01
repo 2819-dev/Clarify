@@ -27,12 +27,12 @@ export function AdminLoginForm({ needsTotp = false }: { needsTotp?: boolean }) {
       const data = await res.json();
       if (!res.ok) {
         if (data.needsTotp) setShowTotp(true);
-        throw new Error(data.error || "Login failed");
+        throw new Error(data.error || "Could not sign in.");
       }
       router.replace("/admin");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      setError(err instanceof Error ? err.message : "Could not sign in.");
       setSaving(false);
     }
   }

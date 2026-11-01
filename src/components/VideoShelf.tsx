@@ -6,7 +6,7 @@ export function VideoShelf({
   title,
   href,
   videos,
-  emptyLabel = "No videos yet.",
+  emptyLabel = "No videos to show yet.",
 }: {
   title: string;
   href?: string;

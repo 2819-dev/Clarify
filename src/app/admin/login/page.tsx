@@ -27,14 +27,14 @@ export default async function AdminLoginPage() {
       <ClarifyLogo href="/" size="lg" />
       <h1>Admin sign-in</h1>
       <p className="lede">
-        Elevate the Guide account ({ADMIN_ACCOUNT_EMAIL}) with the admin
+        Sign in as the Guide account ({ADMIN_ACCOUNT_EMAIL}) with the admin
         password
-        {needsTotp ? " and authenticator code" : ""}. Viewer sign-in stays
-        separate from this step.
+        {needsTotp ? " and authenticator code" : ""}. This is separate from
+        regular viewer sign-in.
       </p>
       <AdminLoginForm needsTotp={needsTotp} />
       <p className="auth-foot">
-        <Link href="/account/security">Manage 2FA</Link>
+        <Link href="/account/security">Security settings</Link>
       </p>
     </section>
   );

@@ -16,9 +16,8 @@ export default async function AccountSecurityPage() {
       <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Security</h1>
       <p className="yt-home-sub">
-        Signed in as <strong>{user.email}</strong>. Protect subscribe, like,
-        comment, and (for the Guide account) admin elevation with an
-        authenticator app.
+        Signed in as <strong>{user.email}</strong>. Add an authenticator app
+        for an extra layer of protection on your account.
       </p>
       <TwoFactorSetup initiallyEnabled={user.totp_enabled} />
       <p className="auth-foot">

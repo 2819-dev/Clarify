@@ -22,13 +22,15 @@ export function ReportForm({ videoId }: { videoId: string }) {
       });
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Could not send report");
+        throw new Error(data.error || "Could not submit your report.");
       }
       setStatus("done");
       setReason("");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Could not send report");
+      setError(
+        err instanceof Error ? err.message : "Could not submit your report.",
+      );
     }
   }
 
@@ -42,13 +44,13 @@ export function ReportForm({ videoId }: { videoId: string }) {
 
   return (
     <div className="report-panel" role="dialog" aria-labelledby="report-title">
-      <h2 id="report-title">What is wrong with this video?</h2>
+      <h2 id="report-title">Report this video</h2>
       <p className="report-help">
-        Tell us what feels unsafe or out of place. An admin will review it.
+        Tell us what feels unsafe or out of place. Our team will review it.
       </p>
       {status === "done" ? (
         <div className="report-thanks">
-          <p>Thanks — your report was saved.</p>
+          <p>Thank you. Your report has been submitted.</p>
           <button
             type="button"
             className="btn-secondary"

@@ -76,15 +76,15 @@ export function HeaderActions() {
         onClose={() => setNotifOpen(false)}
       >
         <p className="yt-header-panel-empty">
-          No new notifications. Subscribe to channels to keep up with safe
-          uploads in your catalog.
+          You’re all caught up. Subscribe to channels to hear about new videos
+          in your library.
         </p>
         <Link
           href="/subscriptions"
           className="yt-header-panel-item"
           onClick={() => setNotifOpen(false)}
         >
-          Go to subscriptions
+          View subscriptions
         </Link>
       </Popover>
     </div>

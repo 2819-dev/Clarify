@@ -46,16 +46,16 @@ export function ModeratorMenu(props: ModTarget) {
 
   const actionLabel =
     props.target === "video"
-      ? "Remove from catalog"
+      ? "Remove video"
       : props.target === "channel"
         ? "Hide channel"
         : "Delete comment";
 
   const confirmMessage =
     props.target === "video"
-      ? "Remove this video from Clarify’s catalog?"
+      ? "Remove this video from Clarify?"
       : props.target === "channel"
-        ? "Hide this channel and remove its videos from the catalog?"
+        ? "Hide this channel and remove its videos from Clarify?"
         : "Delete this comment permanently?";
 
   async function runAction() {
@@ -87,7 +87,7 @@ export function ModeratorMenu(props: ModTarget) {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Moderation failed.");
+        setError(data.error || "Could not complete that action.");
         return;
       }
       setOpen(false);
@@ -97,7 +97,7 @@ export function ModeratorMenu(props: ModTarget) {
       }
       router.refresh();
     } catch {
-      setError("Moderation failed.");
+      setError("Could not complete that action.");
     } finally {
       setPending(false);
     }
@@ -126,7 +126,7 @@ export function ModeratorMenu(props: ModTarget) {
             disabled={pending}
             onClick={runAction}
           >
-            {pending ? "Working…" : actionLabel}
+            {pending ? "Removing…" : actionLabel}
           </button>
           {error ? <p className="form-error">{error}</p> : null}
         </div>

@@ -20,7 +20,8 @@ export default async function SignUpPage({
       <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Create account</h1>
       <p className="yt-home-sub">
-        Email and password — stored in Neon. No public profiles.
+        Create an account with email and password to subscribe, like, and
+        comment.
       </p>
       <SignUpForm nextPath={nextPath} />
       <p className="auth-foot">

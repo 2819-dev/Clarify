@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://clarify.guidelearning.org"),
   title: "Clarify — Safe videos for Jewish & family viewing",
   description:
-    "A curated video catalog focused on Jewish content and otherwise family-safe viewing. Made by Guide. Report anything that doesn’t belong.",
+    "A carefully selected video library for Jewish and family-friendly viewing. Built by Guide. Report anything that doesn’t belong.",
   icons: {
     icon: [{ url: "/clarify-mark.svg", type: "image/svg+xml" }],
   },
@@ -80,14 +80,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
                 <footer className="site-footer">
                   <ClarifyLogo size="sm" href="/" />
                   <p>
-                    Clarify keeps a hand-curated catalog. Made by{" "}
+                    Clarify is a carefully selected video library from{" "}
                     <a
                       href="https://guidelearning.org"
                       rel="noopener noreferrer"
                     >
                       Guide
                     </a>
-                    . Spot something off? Use Report.
+                    . See something that doesn’t belong? Use Report.
                   </p>
                 </footer>
               </div>

@@ -141,17 +141,22 @@ export default async function HomePage({
         ) : (
           <div />
         )}
-        <FormatTabs
-          basePath="/"
-          active={format}
-          q={q}
-          shortsCount={shortsCount}
-        />
+        {isSearch || format !== "all" ? (
+          <FormatTabs
+            basePath="/"
+            active={format}
+            q={q}
+            shortsCount={shortsCount}
+          />
+        ) : null}
       </div>
 
       {isSearch ? (
         latest.length === 0 ? (
-          <p className="empty-state">No videos matched that search.</p>
+          <p className="empty-state">
+            No videos matched your search. Try different words or browse
+            categories.
+          </p>
         ) : (
           <div className="search-results">
             {latest.map((video) => (
@@ -161,7 +166,10 @@ export default async function HomePage({
         )
       ) : format !== "all" ? (
         latest.length === 0 ? (
-          <p className="empty-state">No videos matched that search.</p>
+          <p className="empty-state">
+            No videos to show for this view. Try another filter or browse
+            categories.
+          </p>
         ) : (
           <div
             className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}
@@ -192,8 +200,8 @@ export default async function HomePage({
               </div>
               <p className="yt-home-sub">
                 {user
-                  ? "Subscribe to channels you like — they show up here and in the sidebar."
-                  : "Sign in to subscribe to channels. Likes and comments also need an account."}
+                  ? "Subscribe to channels you enjoy — they’ll appear here and in your sidebar."
+                  : "Sign in to subscribe, like videos, and leave comments."}
               </p>
             </section>
           )}
@@ -235,10 +243,10 @@ export default async function HomePage({
 
           <p className="yt-home-browse-all">
             <Link href="/categories" className="btn-ghost">
-              Browse all categories
+              Browse categories
             </Link>
             <Link href="/channels" className="btn-secondary">
-              Explore channels
+              Browse channels
             </Link>
           </p>
         </div>

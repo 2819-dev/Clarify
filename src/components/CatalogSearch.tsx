@@ -32,7 +32,7 @@ export function CatalogSearch({
   return (
     <form className="catalog-search yt-search" onSubmit={onSubmit} role="search">
       <label htmlFor="catalog-q" className="sr-only">
-        Search catalog
+        Search
       </label>
       <input
         id="catalog-q"

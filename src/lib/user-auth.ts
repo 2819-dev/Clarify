@@ -491,7 +491,7 @@ export async function setPendingTotpSecret(userId: string, secret: string) {
 export async function enableTotp(userId: string, code: string): Promise<void> {
   const row = await getUserById(userId);
   if (!row?.totp_pending_secret) {
-    throw new Error("Start 2FA setup again.");
+    throw new Error("Please start two-factor setup again.");
   }
   if (!verifyTotpCode(row.totp_pending_secret, code, row.email)) {
     throw new Error("Invalid authenticator code.");

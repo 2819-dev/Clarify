@@ -227,7 +227,7 @@ export default async function ChannelPage({
 
           {tab === "videos" ? (
             longVideos.length === 0 ? (
-              <p className="empty-state">No long-form videos on this channel yet.</p>
+              <p className="empty-state">No videos on this channel yet.</p>
             ) : (
               <div className="video-grid">
                 {longVideos.map((video) => (

@@ -227,7 +227,7 @@ export async function addComment(
   if (hidden) {
     throw new Error(
       verdict.ok
-        ? "Comment was hidden by AutoMod."
+        ? "This comment couldn’t be posted."
         : verdict.message,
     );
   }

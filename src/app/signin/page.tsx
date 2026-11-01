@@ -20,7 +20,7 @@ export default async function SignInPage({
       <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Sign in</h1>
       <p className="yt-home-sub">
-        Subscribe, like, and comment on Clarify. Admin stays on the key icon.
+        Sign in to subscribe, like videos, and join the conversation.
       </p>
       <SignInForm nextPath={nextPath} />
       <p className="auth-foot">

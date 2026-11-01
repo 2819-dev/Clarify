@@ -27,7 +27,7 @@ export default async function UsernamePage({
 
   return (
     <section className="auth-shell">
-      <p className="eyebrow">Viewer</p>
+      <p className="eyebrow">Profile</p>
       <div className="account-avatar-block" style={{ marginBottom: "0.75rem" }}>
         {user.avatar_url ? (
           // eslint-disable-next-line @next/next/no-img-element

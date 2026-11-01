@@ -31,7 +31,7 @@ export function TwoFactorSetup({
       const res = await fetch("/api/auth/2fa/setup", { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Could not start 2FA setup.");
+        setError(data.error || "Could not start two-factor setup.");
         return;
       }
       setSetup({
@@ -41,7 +41,7 @@ export function TwoFactorSetup({
       });
       setCode("");
     } catch {
-      setError("Could not start 2FA setup.");
+      setError("Could not start two-factor setup.");
     } finally {
       setPending(false);
     }
@@ -59,7 +59,7 @@ export function TwoFactorSetup({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Could not enable 2FA.");
+        setError(data.error || "Could not turn on two-factor authentication.");
         return;
       }
       setEnabled(true);
@@ -67,7 +67,7 @@ export function TwoFactorSetup({
       setMessage("Two-factor authentication is on.");
       router.refresh();
     } catch {
-      setError("Could not enable 2FA.");
+      setError("Could not turn on two-factor authentication.");
     } finally {
       setPending(false);
     }
@@ -86,7 +86,7 @@ export function TwoFactorSetup({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Could not disable 2FA.");
+        setError(data.error || "Could not turn off two-factor authentication.");
         return;
       }
       setEnabled(false);
@@ -95,7 +95,7 @@ export function TwoFactorSetup({
       setMessage("Two-factor authentication is off.");
       router.refresh();
     } catch {
-      setError("Could not disable 2FA.");
+      setError("Could not turn off two-factor authentication.");
     } finally {
       setPending(false);
     }
@@ -103,10 +103,10 @@ export function TwoFactorSetup({
 
   return (
     <div className="security-panel">
-      <h2 className="comment-heading">Authenticator app (TOTP)</h2>
+      <h2 className="comment-heading">Two-factor authentication</h2>
       <p className="yt-home-sub">
-        Use Google Authenticator, 1Password, Authy, or any TOTP app. Codes rotate
-        every 30 seconds.
+        Protect your account with an authenticator app such as Google
+        Authenticator, 1Password, or Authy. Codes refresh every 30 seconds.
       </p>
 
       {message ? <p className="auth-success">{message}</p> : null}
@@ -119,7 +119,7 @@ export function TwoFactorSetup({
           disabled={pending}
           onClick={startSetup}
         >
-          {pending ? "Preparing…" : "Enable 2FA"}
+          {pending ? "Getting ready…" : "Turn on two-factor authentication"}
         </button>
       ) : null}
 
@@ -151,7 +151,7 @@ export function TwoFactorSetup({
           />
           <div className="auth-actions">
             <button type="submit" className="btn-primary" disabled={pending}>
-              {pending ? "Enabling…" : "Confirm and enable"}
+              {pending ? "Turning on…" : "Confirm and turn on"}
             </button>
             <button
               type="button"
@@ -166,7 +166,9 @@ export function TwoFactorSetup({
 
       {enabled ? (
         <form className="auth-form" onSubmit={onDisable}>
-          <p className="auth-hint">2FA is enabled on this account.</p>
+          <p className="auth-hint">
+            Two-factor authentication is turned on for this account.
+          </p>
           <label htmlFor="disable-password">Password</label>
           <input
             id="disable-password"
@@ -189,7 +191,7 @@ export function TwoFactorSetup({
             onChange={(e) => setCode(e.target.value)}
           />
           <button type="submit" className="btn-secondary" disabled={pending}>
-            {pending ? "Disabling…" : "Disable 2FA"}
+            {pending ? "Turning off…" : "Turn off two-factor authentication"}
           </button>
         </form>
       ) : null}

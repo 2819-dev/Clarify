@@ -77,7 +77,7 @@ export function CommentSection({
             maxLength={2000}
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            placeholder="Add a public comment…"
+            placeholder="Add a comment…"
             required
           />
           {error ? <p className="form-error">{error}</p> : null}
@@ -97,7 +97,7 @@ export function CommentSection({
       )}
 
       {comments.length === 0 ? (
-        <p className="empty-state">No comments yet.</p>
+        <p className="empty-state">Be the first to comment.</p>
       ) : (
         <ul className="comment-list">
           {comments.map((comment) => (

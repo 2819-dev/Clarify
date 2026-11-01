@@ -88,10 +88,10 @@ export function ThemeToggle() {
 
   const label =
     pref === "system"
-      ? "Theme: System"
+      ? "Use system theme"
       : pref === "light"
-        ? "Theme: Light"
-        : "Theme: Dark";
+        ? "Switch to light theme"
+        : "Switch to dark theme";
 
   return (
     <button

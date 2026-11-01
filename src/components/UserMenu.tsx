@@ -134,7 +134,7 @@ export function UserMenu({ user }: { user: MenuUser | null }) {
                 role="menuitem"
                 onClick={() => setOpen(false)}
               >
-                View your channel
+                View profile
               </Link>
             </div>
           </div>
@@ -166,7 +166,7 @@ export function UserMenu({ user }: { user: MenuUser | null }) {
             onClick={() => setOpen(false)}
           >
             <MenuIcon kind="security" />
-            Security / 2FA
+            Security
           </Link>
 
           <div className="yt-account-sep" />
