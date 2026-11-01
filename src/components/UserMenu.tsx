@@ -79,7 +79,7 @@ export function UserMenu({ user }: { user: MenuUser | null }) {
 
   if (!user) {
     return (
-      <Link href="/signin" className="yt-signin-chip">
+      <Link href="/signin" className="yt-signin-chip" aria-label="Sign in">
         <span className="yt-signin-icon" aria-hidden>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.7" />
@@ -91,7 +91,7 @@ export function UserMenu({ user }: { user: MenuUser | null }) {
             />
           </svg>
         </span>
-        Sign in
+        <span className="yt-signin-label">Sign in</span>
       </Link>
     );
   }

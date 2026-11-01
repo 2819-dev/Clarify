@@ -73,6 +73,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
                   categories={categories}
                   subscribedChannels={subscribedChannels}
                   signedIn={Boolean(user)}
+                  initialMode={contentMode}
                 />
               </Suspense>
               <div className="yt-main">
