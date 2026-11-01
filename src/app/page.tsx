@@ -218,6 +218,7 @@ export default async function HomePage({
               title="Shorts"
               videos={shortsFresh}
               href="/?format=shorts"
+              variant="shorts"
             />
           ) : null}
 

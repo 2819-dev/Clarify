@@ -7,16 +7,21 @@ export function VideoShelf({
   href,
   videos,
   emptyLabel = "No videos to show yet.",
+  variant = "videos",
 }: {
   title: string;
   href?: string;
   videos: Video[];
   emptyLabel?: string;
+  variant?: "videos" | "shorts";
 }) {
   if (videos.length === 0) return null;
 
   return (
-    <section className="yt-shelf" aria-label={title}>
+    <section
+      className={`yt-shelf${variant === "shorts" ? " is-shorts" : ""}`}
+      aria-label={title}
+    >
       <div className="yt-shelf-head">
         <h2 className="yt-shelf-title">{title}</h2>
         {href ? (

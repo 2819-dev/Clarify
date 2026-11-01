@@ -66,15 +66,17 @@ html[data-theme="dark"] {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
+  width: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   max-width: 100%;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-x: clip;
   color: var(--ink);
   font-family: var(--font-body);
   background: var(--surface);
@@ -850,13 +852,25 @@ a {
 }
 
 .channel-yt {
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  /* Full-bleed inside .yt-main without 100vw (avoids mobile horizontal scroll) */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding-bottom: 3.25rem;
   animation: rise 0.6s ease both;
   overflow-x: clip;
+  min-width: 0;
+}
+
+.yt-main-inner:has(> .channel-yt) {
+  padding-inline: 0;
+  overflow-x: clip;
+}
+
+.yt-main-inner:has(> .channel-yt) .channel-yt-inner,
+.yt-main-inner:has(> .channel-yt) .channel-yt-body {
+  width: min(1160px, calc(100% - 1.5rem));
+  margin-inline: auto;
 }
 
 .channel-yt-banner {
@@ -1801,6 +1815,10 @@ a {
   display: flex;
   flex-direction: column;
   background: var(--surface);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 .yt-topbar {
@@ -1980,6 +1998,11 @@ a {
 .yt-sidebar-section {
   border-top: 1px solid rgba(12, 39, 68, 0.06);
   padding-top: 0.85rem;
+}
+
+/* Phone drawer only — desktop keeps modes in the topbar */
+.yt-sidebar-mode {
+  display: none;
 }
 
 .yt-sidebar-cat-name {
@@ -2172,6 +2195,7 @@ a {
 .yt-shelf {
   min-width: 0;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .yt-shelf-row {
@@ -2180,13 +2204,16 @@ a {
   grid-auto-columns: minmax(210px, 240px);
   gap: 1rem;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   max-width: 100%;
   min-width: 0;
   padding-bottom: 0.55rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
+  touch-action: pan-x pan-y;
 }
 
 .yt-shelf-item {
@@ -2269,7 +2296,10 @@ a {
   html.yt-sidebar-collapsed .yt-body,
   html.yt-page-watch .yt-body,
   html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   .yt-sidebar {
@@ -2277,7 +2307,8 @@ a {
     top: 0;
     left: 0;
     z-index: 70;
-    width: min(280px, 86vw);
+    width: min(280px, 86%);
+    max-width: 280px;
     height: 100vh;
     height: 100dvh;
     padding: 4.25rem 0.65rem 1.5rem;
@@ -2287,6 +2318,7 @@ a {
     transform: translateX(-105%);
     transition: transform 0.2s ease;
     overflow: auto;
+    overscroll-behavior: contain;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
@@ -2297,12 +2329,17 @@ a {
   }
 
   html.yt-nav-open .yt-sidebar-section,
-  html.yt-nav-open .yt-sidebar-made {
+  html.yt-nav-open .yt-sidebar-made,
+  html.yt-nav-open .yt-sidebar-mode {
     display: block;
   }
 
   .yt-sidebar-section,
   .yt-sidebar-made {
+    display: none;
+  }
+
+  .yt-sidebar-mode {
     display: none;
   }
 
@@ -2315,29 +2352,43 @@ a {
     grid-template-areas:
       "left right"
       "search search";
-    gap: 0.4rem 0.45rem;
-    padding: 0.4rem 0.75rem 0.5rem;
-    min-height: 52px;
+    gap: 0.35rem 0.35rem;
+    padding: 0.35rem 0.65rem 0.45rem;
+    min-height: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .yt-topbar-left {
     grid-area: left;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .yt-topbar-left .clarify-logo-link {
+    min-width: 0;
   }
 
   .yt-topbar-right {
     grid-area: right;
-    gap: 0.1rem;
+    gap: 0.05rem;
     justify-self: end;
+    min-width: 0;
+    flex-wrap: nowrap;
   }
 
   .yt-topbar-search {
     grid-area: search;
     width: 100%;
+    max-width: 100%;
     justify-self: stretch;
+    min-width: 0;
   }
 
   .yt-topbar-search .catalog-search {
     max-width: none;
+    width: 100%;
   }
 
   .yt-made-by {
@@ -2349,12 +2400,24 @@ a {
     margin: 0;
     padding: 0.45rem 0 0.55rem;
     max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .yt-main,
+  .yt-main-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   .yt-main-inner {
     padding: 0.25rem 0.75rem 2.25rem;
-    max-width: 100%;
-    overflow-x: clip;
+  }
+
+  .yt-main-inner:has(> .channel-yt) {
+    padding-inline: 0;
   }
 
   .yt-shelves,
@@ -2368,31 +2431,107 @@ a {
     gap: 1.35rem;
   }
 
-  .yt-shelf-row {
-    grid-auto-columns: minmax(148px, 58vw);
-    gap: 0.75rem;
-    max-width: 100%;
+  /* Mobile home: stack video shelves vertically — no page-bleed horizontal rails */
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-columns: unset;
+    overflow: hidden;
+    gap: 1rem;
+    padding-bottom: 0;
+    scroll-snap-type: none;
   }
 
-  .video-grid {
-    grid-template-columns: 1fr;
+  .yt-shelf.is-shorts {
+    overflow: hidden;
+  }
+
+  .yt-shelf.is-shorts .yt-shelf-row {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(132px, 38%);
+    gap: 0.65rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    padding-bottom: 0.35rem;
+  }
+
+  .video-grid,
+  .yt-shelf-grid .video-grid {
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.1rem 0.65rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .watch-page {
     padding-top: 0.35rem;
     gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   .yt-icon-btn,
   .admin-key-link {
-    width: 2.65rem;
-    height: 2.65rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: 0 0 auto;
   }
 
   .content-mode-option {
     padding: 0.4rem 0.55rem;
     font-size: 0.7rem;
+  }
+
+  .yt-sidebar-mode .content-mode-toggle {
+    display: inline-flex;
+    width: 100%;
+    margin: 0.15rem 0.35rem 0.25rem;
+  }
+
+  .yt-sidebar-mode .content-mode-option {
+    flex: 1 1 0;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0.45rem 0.4rem;
+  }
+
+  .yt-signin-chip {
+    padding: 0.28rem 0.55rem 0.28rem 0.35rem;
+    font-size: 0.82rem;
+    max-width: 100%;
+  }
+
+  .yt-app .site-footer {
+    width: auto;
+    max-width: 100%;
+    margin-inline: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  .channel-yt-identity {
+    grid-template-columns: auto minmax(0, 1fr);
+    margin-top: -2.25rem;
+    gap: 0.75rem;
+  }
+
+  .channel-yt-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .player-frame.is-short {
+    width: min(100%, 320px);
+    max-width: 100%;
   }
 }
 
@@ -3091,14 +3230,38 @@ a {
 
   .auth-shell {
     margin-inline: 0.25rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
+  /* Modes live in the drawer on phones — keep the topbar readable */
   .yt-topbar-right .content-mode-toggle {
     display: none;
   }
 
   .yt-guide-btn {
     display: inline-flex;
+  }
+
+  .yt-signin-chip {
+    padding: 0.25rem;
+    gap: 0;
+    border-radius: 999px;
+    width: 2.4rem;
+    height: 2.4rem;
+    justify-content: center;
+  }
+
+  .yt-signin-chip .yt-signin-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }
 
@@ -3688,21 +3851,30 @@ html.yt-page-watch .watch-page {
   html.yt-page-watch .yt-body,
   html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body,
   html.yt-page-watch.yt-sidebar-collapsed .yt-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   html.yt-page-watch .yt-main-inner {
     width: 100%;
+    max-width: 100%;
     padding-inline: 0.75rem;
+    overflow-x: clip;
   }
 
+  /* Keep search on watch — phones need it as much as home */
   html.yt-page-watch .yt-topbar-search {
-    display: none;
+    display: block;
   }
 
   html.yt-page-watch .yt-topbar {
-    grid-template-areas: "left right";
+    grid-template-areas:
+      "left right"
+      "search search";
     grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  html.yt-page-watch .watch-page {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   /* YT stacks owner + engage; keep channel name readable */
@@ -3710,16 +3882,25 @@ html.yt-page-watch .watch-page {
     flex-direction: column;
     align-items: stretch;
     gap: 0.7rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .watch-owner {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.55rem;
   }
 
   .watch-owner-copy {
     flex: 1 1 auto;
     min-width: 0;
-    margin-right: 0.5rem;
+    margin-right: 0;
   }
 
   .watch-owner-copy .channel {
@@ -3728,23 +3909,52 @@ html.yt-page-watch .watch-page {
     text-overflow: ellipsis;
   }
 
+  .watch-owner > .engage-control,
+  .watch-owner > .btn-subscribe {
+    justify-self: end;
+    min-width: 0;
+  }
+
   .watch-owner .btn-subscribe {
     flex: 0 0 auto;
-    padding: 0.45rem 0.85rem;
-    font-size: 0.88rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.84rem;
+    white-space: nowrap;
   }
 
   .watch-engage {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .watch-engage .btn-like-group,
+  .watch-engage .btn-share,
+  .watch-engage .btn-ghost,
+  .watch-engage .report-panel,
+  .watch-engage > * {
+    max-width: 100%;
+  }
+
+  .watch-title {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .search-result {
-    grid-template-columns: minmax(140px, 42vw) minmax(0, 1fr);
+    grid-template-columns: minmax(120px, 40%) minmax(0, 1fr);
     gap: 0.65rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .search-result-title {
     font-size: 0.92rem;
+    overflow-wrap: anywhere;
   }
 
   .search-result-desc {

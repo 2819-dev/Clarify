@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { ContentModeToggle } from "@/components/ContentModeToggle";
+import type { ContentMode } from "@/lib/content-mode";
 import type { Category, Channel } from "@/lib/db";
 
 function NavIcon({ name }: { name: "home" | "shorts" | "subs" | "cats" | "channels" }) {
@@ -51,6 +53,7 @@ export function SiteSidebar({
   categories = [],
   subscribedChannels = [],
   signedIn = false,
+  initialMode = "jewish",
 }: {
   categories?: Pick<Category, "slug" | "name" | "video_count">[];
   subscribedChannels?: Pick<
@@ -58,6 +61,7 @@ export function SiteSidebar({
     "slug" | "name" | "avatar_url" | "video_count"
   >[];
   signedIn?: boolean;
+  initialMode?: ContentMode;
 }) {
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
@@ -121,6 +125,11 @@ export function SiteSidebar({
           </Link>
         ))}
       </nav>
+
+      <div className="yt-sidebar-section yt-sidebar-mode">
+        <p className="yt-sidebar-heading">What to show</p>
+        <ContentModeToggle initialMode={initialMode} />
+      </div>
 
       <div className="yt-sidebar-section">
         <p className="yt-sidebar-heading">Subscriptions</p>
