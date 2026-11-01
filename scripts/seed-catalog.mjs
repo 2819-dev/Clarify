@@ -131,13 +131,8 @@ for (const v of payload.videos) {
   kept.push(rows[0].youtube_id);
 }
 
-const active = await sql`SELECT youtube_id FROM videos WHERE is_active = TRUE`;
-const keep = new Set(kept);
-for (const row of active) {
-  if (!keep.has(row.youtube_id)) {
-    await sql`UPDATE videos SET is_active = FALSE, updated_at = NOW() WHERE youtube_id = ${row.youtube_id}`;
-  }
-}
+// Upsert-only: do not deactivate videos missing from the seed payload.
+// Catalog expansion writes directly to Neon; seed is a snapshot, not a wipe list.
 
 const counts = await sql`SELECT
   (SELECT COUNT(*) FROM videos WHERE is_active) AS videos,
@@ -145,4 +140,4 @@ const counts = await sql`SELECT
   (SELECT COUNT(*) FROM videos WHERE is_active AND NOT is_jewish) AS filtered_only,
   (SELECT COUNT(*) FROM channels) AS channels,
   (SELECT COUNT(*) FROM categories) AS categories`;
-console.log(counts[0]);
+console.log({ upserted_videos: kept.length, ...counts[0] });

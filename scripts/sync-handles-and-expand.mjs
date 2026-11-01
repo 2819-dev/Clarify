@@ -358,7 +358,7 @@ async function expandVideos({ channelLimit = 80, perChannel = 12 } = {}) {
           ) VALUES (
             ${entry.youtubeId},
             ${title},
-            ${`From ${channelName} on YouTube.`},
+            ${""},
             ${channelName},
             ${ch.id}::uuid,
             ${category},
