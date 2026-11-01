@@ -14,9 +14,18 @@ function formatDuration(seconds: number | null) {
 }
 
 export function SearchResultRow({ video }: { video: Video }) {
-  const thumb =
-    video.thumbnail_url ??
-    `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
+  const isShort = Boolean(video.is_short);
+  const stored = video.thumbnail_url || "";
+  const isGeneric =
+    !stored ||
+    /\/(default|mqdefault|hqdefault|sddefault|hq720|maxresdefault)\.jpg/i.test(
+      stored,
+    );
+  const thumb = isShort
+    ? isGeneric
+      ? `https://i.ytimg.com/vi/${video.youtube_id}/oar2.jpg`
+      : stored
+    : stored || `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
   const duration = formatDuration(video.duration_seconds);
   const when = video.published_at || video.created_at;
   const relative = formatRelativeTime(when);
@@ -24,12 +33,11 @@ export function SearchResultRow({ video }: { video: Video }) {
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
 
   return (
-    <article className={`search-result ${video.is_short ? "is-short" : ""}`}>
+    <article className={`search-result ${isShort ? "is-short" : ""}`}>
       <Link href={`/watch/${video.id}`} className="search-result-thumb">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={thumb} alt="" loading="lazy" />
-        {video.is_short ? <span className="video-badge">Shorts</span> : null}
-        {!video.is_short && duration ? (
+        {!isShort && duration ? (
           <span className="video-duration">{duration}</span>
         ) : null}
       </Link>

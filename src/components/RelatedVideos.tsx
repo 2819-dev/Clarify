@@ -32,12 +32,16 @@ export function RelatedVideos({
       className={`watch-related${preferShorts ? " is-shorts-rail" : ""}`}
       aria-label={preferShorts ? "More Shorts" : "Related videos"}
     >
-      {preferShorts ? (
-        <p className="watch-related-heading">
-          <ShortsIcon className="yt-shorts-mark" size={20} />
-          More Shorts
-        </p>
-      ) : null}
+      <p className="watch-related-heading">
+        {preferShorts ? (
+          <>
+            <ShortsIcon className="yt-shorts-mark" size={20} />
+            More Shorts
+          </>
+        ) : (
+          "Related"
+        )}
+      </p>
       <ul className="watch-related-list">
         {ordered.map((video) => {
           const stored = video.thumbnail_url || "";
@@ -56,6 +60,7 @@ export function RelatedVideos({
           const when = formatRelativeTime(
             video.published_at || video.created_at,
           );
+          const meta = [video.channel_name, when].filter(Boolean).join(" · ");
           return (
             <li key={video.id}>
               <Link
@@ -71,10 +76,7 @@ export function RelatedVideos({
                 </div>
                 <div className="watch-related-copy">
                   <p className="watch-related-title">{video.title}</p>
-                  <p className="watch-related-channel">{video.channel_name}</p>
-                  {when ? (
-                    <p className="watch-related-meta">{when}</p>
-                  ) : null}
+                  {meta ? <p className="watch-related-meta">{meta}</p> : null}
                 </div>
               </Link>
             </li>

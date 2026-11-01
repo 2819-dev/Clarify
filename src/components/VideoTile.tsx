@@ -20,13 +20,17 @@ function formatDuration(seconds: number | null) {
 export function VideoTile({
   video,
   dense = false,
+  hideChannel = false,
 }: {
   video: Video;
   dense?: boolean;
+  /** On channel pages, omit avatar/name (already in context). */
+  hideChannel?: boolean;
 }) {
   const canModerate = useCanModerate();
   const duration = formatDuration(video.duration_seconds);
   const isShort = Boolean(video.is_short);
+  const showChannel = !hideChannel && !isShort;
   // Prefer YouTube’s original-aspect Shorts thumb when we only have a 16:9 default.
   const stored = video.thumbnail_url || "";
   const isGenericYtThumb =
@@ -47,7 +51,9 @@ export function VideoTile({
 
   return (
     <article
-      className={`video-tile ${isShort ? "is-short" : ""} ${dense ? "is-dense" : ""}`}
+      className={`video-tile ${isShort ? "is-short" : ""} ${dense ? "is-dense" : ""}${
+        hideChannel ? " hide-channel" : ""
+      }`}
     >
       <Link href={`/watch/${video.id}`} className="video-tile-thumb-link">
         <div className="video-thumb-wrap">
@@ -70,7 +76,7 @@ export function VideoTile({
       </Link>
 
       <div className="video-tile-body">
-        {!isShort && video.channel_slug ? (
+        {showChannel && video.channel_slug ? (
           <Link
             href={`/channels/${video.channel_slug}`}
             className="video-tile-avatar-link"
@@ -90,7 +96,7 @@ export function VideoTile({
               </span>
             )}
           </Link>
-        ) : !isShort ? (
+        ) : showChannel ? (
           <span className="video-tile-avatar fallback" aria-hidden>
             {initial}
           </span>
@@ -112,16 +118,18 @@ export function VideoTile({
             ) : null}
           </div>
           <div className="video-meta">
-            {video.channel_slug ? (
-              <Link
-                href={`/channels/${video.channel_slug}`}
-                className="video-channel"
-              >
-                {video.channel_name}
-              </Link>
-            ) : (
-              <p className="video-channel">{video.channel_name}</p>
-            )}
+            {showChannel ? (
+              video.channel_slug ? (
+                <Link
+                  href={`/channels/${video.channel_slug}`}
+                  className="video-channel"
+                >
+                  {video.channel_name}
+                </Link>
+              ) : (
+                <p className="video-channel">{video.channel_name}</p>
+              )
+            ) : null}
             <p className="video-submeta">
               {relative ? (
                 <time dateTime={when} title={absolute}>
