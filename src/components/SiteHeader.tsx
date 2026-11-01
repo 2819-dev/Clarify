@@ -74,6 +74,21 @@ export function SiteHeader({
   }, [pathname]);
 
   useEffect(() => {
+    const root = document.documentElement;
+    const onWatch = pathname.startsWith("/watch/");
+    root.classList.toggle("yt-page-watch", onWatch);
+    // YouTube collapses the expanded sidebar on watch so the player can breathe.
+    if (onWatch && !window.matchMedia("(max-width: 960px)").matches) {
+      root.classList.add("yt-sidebar-collapsed");
+    } else if (!onWatch) {
+      root.classList.remove("yt-sidebar-collapsed");
+    }
+    return () => {
+      root.classList.remove("yt-page-watch");
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         document.documentElement.classList.remove("yt-nav-open");

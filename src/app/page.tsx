@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
 import { FormatTabs } from "@/components/FormatTabs";
+import { SearchResultRow } from "@/components/SearchResultRow";
 import { VideoShelf } from "@/components/VideoShelf";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
@@ -112,10 +113,10 @@ export default async function HomePage({
     return out;
   }
 
-  const latestFresh = takeFresh(latest, 8);
+  const latestFresh = takeFresh(latest, 24);
   const subsFresh = takeFresh(subscriptionVideos, 8);
   const recommendedFresh = takeFresh(recommendedVideos, 8);
-  const shortsFresh = takeFresh(shorts, 8);
+  const shortsFresh = takeFresh(shorts, 10);
 
   return (
     <div className="yt-home">
@@ -148,17 +149,25 @@ export default async function HomePage({
         />
       </div>
 
-      {isSearch || format !== "all" ? (
+      {isSearch ? (
+        latest.length === 0 ? (
+          <p className="empty-state">No videos matched that search.</p>
+        ) : (
+          <div className="search-results">
+            {latest.map((video) => (
+              <SearchResultRow key={video.id} video={video} />
+            ))}
+          </div>
+        )
+      ) : format !== "all" ? (
         latest.length === 0 ? (
           <p className="empty-state">No videos matched that search.</p>
         ) : (
           <div
-            className={`video-grid ${format === "shorts" ? "shorts-grid" : ""} ${
-              isSearch ? "is-search" : ""
-            }`}
+            className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}
           >
             {latest.map((video) => (
-              <VideoTile key={video.id} video={video} dense={isSearch} />
+              <VideoTile key={video.id} video={video} />
             ))}
           </div>
         )
@@ -196,8 +205,6 @@ export default async function HomePage({
             />
           ) : null}
 
-          <VideoShelf title="Latest" videos={latestFresh} href="/" />
-
           {shortsFresh.length > 0 ? (
             <VideoShelf
               title="Shorts"
@@ -205,6 +212,17 @@ export default async function HomePage({
               href="/?format=shorts"
             />
           ) : null}
+
+          <section className="yt-shelf yt-shelf-grid" aria-label="Latest">
+            <div className="yt-shelf-head">
+              <h2 className="yt-shelf-title">Latest</h2>
+            </div>
+            <div className="video-grid">
+              {latestFresh.map((video) => (
+                <VideoTile key={video.id} video={video} />
+              ))}
+            </div>
+          </section>
 
           {shelfRows.map(({ cat, videos }) => (
             <VideoShelf

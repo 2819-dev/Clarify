@@ -89,7 +89,7 @@ export function CommentSection({
         <p className="comment-signin-cta">
           <Link
             href={`/signin?next=${encodeURIComponent(pathname)}`}
-            className="btn-secondary"
+            className="btn-comment-signin"
           >
             Sign in to comment
           </Link>

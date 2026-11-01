@@ -4,6 +4,7 @@ import { CommentSection } from "@/components/CommentSection";
 import { LikeButton } from "@/components/LikeButton";
 import { RelatedVideos } from "@/components/RelatedVideos";
 import { ReportForm } from "@/components/ReportForm";
+import { ShareButton } from "@/components/ShareButton";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
 import { WatchModActions } from "@/components/WatchModActions";
@@ -132,12 +133,16 @@ export default async function WatchPage({
                 initialCount={likeState.count}
                 signedIn={Boolean(user)}
               />
+              <ShareButton title={video.title} />
               <WatchModActions
                 videoId={video.id}
                 videoTitle={video.title}
                 channelSlug={video.channel_slug}
                 channelName={video.channel_name}
               />
+              <div className="watch-report-inline">
+                <ReportForm videoId={video.id} />
+              </div>
             </div>
           </div>
 
@@ -168,10 +173,6 @@ export default async function WatchPage({
           initialComments={comments}
           signedIn={Boolean(user)}
         />
-
-        <div className="watch-toolbar">
-          <ReportForm videoId={video.id} />
-        </div>
       </div>
 
       <RelatedVideos videos={related} />
