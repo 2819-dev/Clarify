@@ -62,7 +62,7 @@ export function SiteSidebar({
         <div className="yt-sidebar-section">
           <p className="yt-sidebar-heading">Categories</p>
           <nav className="yt-sidebar-cats" aria-label="Categories">
-            {categories.slice(0, 16).map((cat) => {
+            {categories.map((cat) => {
               const active = pathname === `/categories/${cat.slug}`;
               return (
                 <Link
