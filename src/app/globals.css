@@ -2212,7 +2212,11 @@ a {
 }
 
 @media (max-width: 960px) {
-  .yt-body {
+  /* Drawer sidebar — beat watch/collapsed desktop column rules */
+  .yt-body,
+  html.yt-sidebar-collapsed .yt-body,
+  html.yt-page-watch .yt-body,
+  html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body {
     grid-template-columns: 1fr;
   }
 
@@ -3558,8 +3562,15 @@ html.yt-page-watch .watch-page {
 }
 
 @media (max-width: 960px) {
-  html.yt-page-watch .yt-body {
+  html.yt-page-watch .yt-body,
+  html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body,
+  html.yt-page-watch.yt-sidebar-collapsed .yt-body {
     grid-template-columns: 1fr;
+  }
+
+  html.yt-page-watch .yt-main-inner {
+    width: 100%;
+    padding-inline: 0.75rem;
   }
 
   html.yt-page-watch .yt-topbar-search {
