@@ -4,7 +4,6 @@ import { FormatTabs } from "@/components/FormatTabs";
 import { VideoShelf } from "@/components/VideoShelf";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
-import { listChannelsBySlugs } from "@/lib/channels";
 import { contentModeLabel } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 import { listSubscribedChannelSlugs } from "@/lib/engagement";
@@ -46,61 +45,59 @@ export default async function HomePage({
 
   const showShelves = !isSearch && format === "all";
 
-  const [subscriptionVideos, recommendedVideos, subscribedChannels, shelfRows] =
-    showShelves
-      ? await Promise.all([
-          subSlugs.length
-            ? listActiveVideos({
-                channelSlugs: subSlugs,
-                mode,
-                limit: 14,
-              })
-            : Promise.resolve([]),
-          (async () => {
-            if (
-              !activity.channelSlugs.length &&
-              !activity.categorySlugs.length
-            ) {
-              return [];
-            }
-            const [byChannel, byCategory] = await Promise.all([
-              activity.channelSlugs.length
-                ? listActiveVideos({
-                    channelSlugs: activity.channelSlugs.slice(0, 8),
-                    mode,
-                    limit: 14,
-                  })
-                : Promise.resolve([]),
-              activity.categorySlugs.length
-                ? listActiveVideos({
-                    categorySlugs: activity.categorySlugs.slice(0, 6),
-                    mode,
-                    limit: 14,
-                  })
-                : Promise.resolve([]),
-            ]);
-            const merged: typeof byChannel = [];
-            const ids = new Set<string>();
-            for (const v of [...byChannel, ...byCategory]) {
-              if (ids.has(v.id)) continue;
-              ids.add(v.id);
-              merged.push(v);
-            }
-            return merged;
-          })(),
-          listChannelsBySlugs(subSlugs.slice(0, 8), mode),
-          Promise.all(
-            categories.slice(0, 5).map(async (cat) => ({
-              cat,
-              videos: await listActiveVideos({
-                category: cat.slug,
-                mode,
-                limit: 8,
-              }),
-            })),
-          ),
-        ])
-      : [[], [], [], []];
+  const [subscriptionVideos, recommendedVideos, shelfRows] = showShelves
+    ? await Promise.all([
+        subSlugs.length
+          ? listActiveVideos({
+              channelSlugs: subSlugs,
+              mode,
+              limit: 14,
+            })
+          : Promise.resolve([]),
+        (async () => {
+          if (
+            !activity.channelSlugs.length &&
+            !activity.categorySlugs.length
+          ) {
+            return [];
+          }
+          const [byChannel, byCategory] = await Promise.all([
+            activity.channelSlugs.length
+              ? listActiveVideos({
+                  channelSlugs: activity.channelSlugs.slice(0, 8),
+                  mode,
+                  limit: 14,
+                })
+              : Promise.resolve([]),
+            activity.categorySlugs.length
+              ? listActiveVideos({
+                  categorySlugs: activity.categorySlugs.slice(0, 6),
+                  mode,
+                  limit: 14,
+                })
+              : Promise.resolve([]),
+          ]);
+          const merged: typeof byChannel = [];
+          const ids = new Set<string>();
+          for (const v of [...byChannel, ...byCategory]) {
+            if (ids.has(v.id)) continue;
+            ids.add(v.id);
+            merged.push(v);
+          }
+          return merged;
+        })(),
+        Promise.all(
+          categories.slice(0, 5).map(async (cat) => ({
+            cat,
+            videos: await listActiveVideos({
+              category: cat.slug,
+              mode,
+              limit: 8,
+            }),
+          })),
+        ),
+      ])
+    : [[], [], []];
 
   // Avoid duplicating the same video across top shelves when possible
   const seen = new Set<string>();
