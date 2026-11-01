@@ -121,7 +121,8 @@ function parseVideosFromChannelHtml(html, channelName) {
     entries.push({
       youtubeId: id,
       title: `${channelName} video`,
-      publishedAt: new Date().toISOString(),
+      // Never invent Clarify insert time — oEmbed/watch page fills real publishedAt.
+      publishedAt: null,
       channelName,
       thumbnailUrl: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
     });
@@ -298,6 +299,37 @@ async function expandVideos({ channelLimit = 80, perChannel = 12 } = {}) {
           /\bshorts\b/i.test(title) ||
           (meta.height && meta.width && meta.height > meta.width);
 
+        let publishedAt = entry.publishedAt;
+        if (!publishedAt) {
+          try {
+            const watchRes = await fetch(
+              `https://www.youtube.com/watch?v=${entry.youtubeId}`,
+              {
+                headers: {
+                  "User-Agent": UA,
+                  Accept: "text/html",
+                  "Accept-Language": "en-US,en;q=0.9",
+                },
+              },
+            );
+            if (watchRes.ok) {
+              const html = await watchRes.text();
+              const raw =
+                html.match(/"uploadDate":"([^"]+)"/)?.[1] ||
+                html.match(/"publishDate":"([^"]+)"/)?.[1];
+              if (raw && !Number.isNaN(new Date(raw).getTime())) {
+                publishedAt = new Date(raw).toISOString();
+              }
+            }
+          } catch {
+            /* ignore */
+          }
+        }
+        if (!publishedAt) {
+          skippedEmbed++;
+          continue;
+        }
+
         // Prefer author_url @handle when present
         if (meta.author_url && /youtube\.com\/@/i.test(meta.author_url)) {
           const handle = usernameFromChannel(meta.author_url, ch.slug);
@@ -336,7 +368,7 @@ async function expandVideos({ channelLimit = 80, perChannel = 12 } = {}) {
             ${Boolean(ch.is_jewish)},
             TRUE,
             TRUE,
-            ${entry.publishedAt}::timestamptz
+            ${publishedAt}::timestamptz
           )
           ON CONFLICT (youtube_id) DO NOTHING
         `;

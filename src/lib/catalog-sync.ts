@@ -26,7 +26,13 @@ type FeedEntry = {
 const UA =
   "Mozilla/5.0 (compatible; ClarifyBot/1.0; +https://clarify.guidelearning.org)";
 
-async function isEmbeddable(youtubeId: string): Promise<boolean> {
+type OembedMeta = {
+  title: string;
+  author_name?: string;
+  thumbnail_url?: string;
+};
+
+async function fetchOembed(youtubeId: string): Promise<OembedMeta | null> {
   try {
     const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(
       `https://www.youtube.com/watch?v=${youtubeId}`,
@@ -34,9 +40,47 @@ async function isEmbeddable(youtubeId: string): Promise<boolean> {
     const res = await fetch(url, {
       headers: { "User-Agent": UA, Accept: "application/json" },
     });
-    return res.ok;
+    if (!res.ok) return null;
+    const data = (await res.json()) as OembedMeta;
+    if (!data?.title) return null;
+    return data;
   } catch {
-    return false;
+    return null;
+  }
+}
+
+function parsePublishedFromHtml(html: string): string | null {
+  const patterns = [
+    /"uploadDate":"([^"]+)"/,
+    /"publishDate":"([^"]+)"/,
+    /itemprop="datePublished"[^>]*content="([^"]+)"/,
+    /content="([^"]+)"[^>]*itemprop="datePublished"/,
+  ];
+  for (const re of patterns) {
+    const m = html.match(re);
+    if (!m?.[1]) continue;
+    const d = new Date(m[1]);
+    if (!Number.isNaN(d.getTime())) return d.toISOString();
+  }
+  return null;
+}
+
+async function fetchWatchPublishedAt(
+  youtubeId: string,
+): Promise<string | null> {
+  try {
+    const res = await fetch(`https://www.youtube.com/watch?v=${youtubeId}`, {
+      headers: {
+        "User-Agent": UA,
+        Accept: "text/html",
+        "Accept-Language": "en-US,en;q=0.9",
+      },
+      redirect: "follow",
+    });
+    if (!res.ok) return null;
+    return parsePublishedFromHtml(await res.text());
+  } catch {
+    return null;
   }
 }
 
@@ -147,7 +191,8 @@ function parseVideosFromChannelHtml(html: string, channelName: string): FeedEntr
         .replace(/\\u0026/g, "&")
         .replace(/\\"/g, '"')
         .replace(/\\n/g, " "),
-      publishedAt: new Date().toISOString(),
+      // Never invent Clarify insert time — enrich later via oEmbed/watch page.
+      publishedAt: "",
       channelName,
       thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`,
     });
@@ -289,8 +334,27 @@ export async function syncCatalogFromYoutube(options?: {
         `;
       }
       for (const entry of feed.slice(0, 15)) {
+        // Prefer real YouTube title from oEmbed over scraped/placeholder text.
+        const oembed = await fetchOembed(entry.youtubeId);
+        if (!oembed) continue;
+        const title = oembed.title || entry.title;
+        const thumbnailUrl =
+          entry.thumbnailUrl ||
+          oembed.thumbnail_url ||
+          `https://i.ytimg.com/vi/${entry.youtubeId}/hqdefault.jpg`;
+        let publishedAt = entry.publishedAt || null;
+        if (!publishedAt) {
+          publishedAt = await fetchWatchPublishedAt(entry.youtubeId);
+        }
+        // Refuse to write Clarify "now" — skip date update if unknown.
+        if (!publishedAt) {
+          summary.errors.push(
+            `${channel.slug}/${entry.youtubeId}: missing publishedAt`,
+          );
+        }
+
         const existing = await sql`
-          SELECT id, title, thumbnail_url FROM videos
+          SELECT id, title, thumbnail_url, published_at FROM videos
           WHERE youtube_id = ${entry.youtubeId}
           LIMIT 1
         `;
@@ -299,17 +363,21 @@ export async function syncCatalogFromYoutube(options?: {
             id: string;
             title: string;
             thumbnail_url: string | null;
+            published_at: string | null;
           };
+          const nextPublished = publishedAt || row.published_at;
           if (
-            row.title !== entry.title ||
-            row.thumbnail_url !== entry.thumbnailUrl
+            row.title !== title ||
+            row.thumbnail_url !== thumbnailUrl ||
+            (publishedAt &&
+              String(row.published_at) !== String(publishedAt))
           ) {
             await sql`
               UPDATE videos
-              SET title = ${entry.title},
-                  thumbnail_url = ${entry.thumbnailUrl},
+              SET title = ${title},
+                  thumbnail_url = ${thumbnailUrl},
                   channel_name = ${entry.channelName || channel.name},
-                  published_at = ${entry.publishedAt}::timestamptz,
+                  published_at = ${nextPublished}::timestamptz,
                   updated_at = NOW()
               WHERE id = ${row.id}::uuid
             `;
@@ -318,9 +386,7 @@ export async function syncCatalogFromYoutube(options?: {
           continue;
         }
 
-        // Only keep videos that YouTube will embed (oEmbed gate).
-        const embedOk = await isEmbeddable(entry.youtubeId);
-        if (!embedOk) continue;
+        if (!publishedAt) continue;
 
         await sql`
           INSERT INTO videos (
@@ -330,18 +396,18 @@ export async function syncCatalogFromYoutube(options?: {
           )
           VALUES (
             ${entry.youtubeId},
-            ${entry.title},
+            ${title},
             ${""},
-            ${entry.channelName || channel.name},
+            ${entry.channelName || oembed.author_name || channel.name},
             ${channel.id}::uuid,
             ${"family"},
             ${"family"},
-            ${entry.thumbnailUrl},
+            ${thumbnailUrl},
             ${false},
             ${channel.is_jewish},
             ${true},
             ${true},
-            ${entry.publishedAt}::timestamptz
+            ${publishedAt}::timestamptz
           )
           ON CONFLICT (youtube_id) DO NOTHING
         `;

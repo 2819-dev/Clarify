@@ -66,11 +66,15 @@ html[data-theme="dark"] {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
   color: var(--ink);
   font-family: var(--font-body);
   background: var(--surface);
@@ -335,8 +339,8 @@ a {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem 1.15rem;
 }
 
 .video-tile {
@@ -1066,6 +1070,8 @@ a {
   display: flex;
   gap: 0.85rem;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
   padding: 0.15rem 0 0.55rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -1882,6 +1888,9 @@ a {
 .yt-body {
   display: grid;
   grid-template-columns: 200px minmax(0, 1fr);
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
   align-items: start;
   flex: 1;
   min-height: 0;
@@ -2008,6 +2017,8 @@ a {
 
 .yt-main {
   min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 56px);
@@ -2018,6 +2029,9 @@ a {
   flex: 1;
   padding: 0.5rem 1.25rem 2.5rem;
   width: min(1680px, 100%);
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 .yt-main-inner:has(.watch-page) {
@@ -2035,15 +2049,20 @@ a {
   top: 56px;
   z-index: 20;
   background: var(--surface);
-  margin: 0 -1.25rem;
-  padding: 0.5rem 1.25rem 0.65rem;
+  margin: 0;
+  padding: 0.5rem 0 0.65rem;
   border-bottom: none;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .yt-chip-rail-track {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
   padding-bottom: 0.1rem;
   scrollbar-width: none;
 }
@@ -2148,6 +2167,8 @@ a {
   grid-auto-columns: minmax(210px, 240px);
   gap: 1rem;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
   padding-bottom: 0.55rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
@@ -2310,12 +2331,22 @@ a {
 
   .yt-chip-rail {
     top: 0;
-    margin: 0 -0.75rem;
-    padding: 0.45rem 0.75rem 0.55rem;
+    margin: 0;
+    padding: 0.45rem 0 0.55rem;
+    max-width: 100%;
   }
 
   .yt-main-inner {
     padding: 0.25rem 0.75rem 2.25rem;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .yt-shelves,
+  .yt-home {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   .yt-shelves {
@@ -2323,13 +2354,14 @@ a {
   }
 
   .yt-shelf-row {
-    grid-auto-columns: minmax(168px, 72vw);
+    grid-auto-columns: minmax(148px, 58vw);
     gap: 0.75rem;
+    max-width: 100%;
   }
 
   .video-grid {
-    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
-    gap: 1rem 0.65rem;
+    grid-template-columns: 1fr;
+    gap: 1.1rem 0.65rem;
   }
 
   .watch-page {
@@ -3598,6 +3630,23 @@ html.yt-page-watch .watch-page {
 
 .yt-shelf-grid .video-grid {
   margin-top: 0.15rem;
+  /* YouTube home density: ~3 tiles across on desktop */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.15rem;
+}
+
+@media (max-width: 1200px) {
+  .yt-shelf-grid .video-grid,
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .yt-shelf-grid .video-grid,
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1100px) {
