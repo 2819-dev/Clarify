@@ -177,12 +177,9 @@ export default async function ChannelPage({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube
+                View on YouTube
               </a>
             ) : null}
-            <Link href="/channels" className="btn-ghost">
-              All channels
-            </Link>
             <ChannelModActions
               channelSlug={channel.slug}
               channelName={channel.name}

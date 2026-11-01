@@ -29,7 +29,7 @@ export function SubscribeButton({
         className="btn-subscribe"
         aria-label={`Sign in to subscribe to ${channelName}`}
       >
-        Sign in to subscribe
+        Subscribe
       </Link>
     );
   }

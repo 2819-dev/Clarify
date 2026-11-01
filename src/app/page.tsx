@@ -153,10 +153,12 @@ export default async function HomePage({
           <p className="empty-state">No videos matched that search.</p>
         ) : (
           <div
-            className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}
+            className={`video-grid ${format === "shorts" ? "shorts-grid" : ""} ${
+              isSearch ? "is-search" : ""
+            }`}
           >
             {latest.map((video) => (
-              <VideoTile key={video.id} video={video} />
+              <VideoTile key={video.id} video={video} dense={isSearch} />
             ))}
           </div>
         )

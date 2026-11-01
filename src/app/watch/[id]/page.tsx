@@ -2,11 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CommentSection } from "@/components/CommentSection";
 import { LikeButton } from "@/components/LikeButton";
+import { RelatedVideos } from "@/components/RelatedVideos";
 import { ReportForm } from "@/components/ReportForm";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
 import { WatchModActions } from "@/components/WatchModActions";
 import { YoutubePlayer } from "@/components/YoutubePlayer";
+import { getContentMode } from "@/lib/content-mode-server";
 import {
   getVideoLikeState,
   isSubscribed,
@@ -14,7 +16,7 @@ import {
 } from "@/lib/engagement";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { getCurrentUser } from "@/lib/user-auth";
-import { getActiveVideo } from "@/lib/videos";
+import { getActiveVideo, listRelatedVideos } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
 
@@ -27,101 +29,152 @@ export default async function WatchPage({
   const video = await getActiveVideo(id);
   if (!video) notFound();
 
+  const mode = await getContentMode();
   const user = await getCurrentUser();
-  const [likeState, comments, subscribed] = await Promise.all([
+  const [likeState, comments, subscribed, related] = await Promise.all([
     getVideoLikeState(video.id, user?.id),
     listComments(video.id),
     user && video.channel_slug
       ? isSubscribed(user.id, video.channel_slug)
       : Promise.resolve(false),
+    listRelatedVideos(video, mode, 18),
   ]);
 
+  const when = video.published_at || video.created_at;
+  const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
+
   return (
-    <article className={`watch-layout ${video.is_short ? "is-short" : ""}`}>
+    <article className={`watch-page ${video.is_short ? "is-short" : ""}`}>
       <WatchActivityTracker
         channelSlug={video.channel_slug}
         categorySlug={video.category_slug}
       />
-      <YoutubePlayer
-        youtubeId={video.youtube_id}
-        title={video.title}
-        embeddable={video.embeddable}
-        isShort={Boolean(video.is_short)}
-      />
 
-      <div className="watch-copy">
-        <h1>{video.title}</h1>
-        <div className="watch-byline">
-          {video.channel_slug ? (
-            <Link href={`/channels/${video.channel_slug}`} className="channel">
-              {video.channel_name}
-            </Link>
-          ) : (
-            <p className="channel">{video.channel_name}</p>
-          )}
-          {video.channel_username ? (
-            <Link
-              href={`/@${video.channel_username}`}
-              className="watch-handle"
-            >
-              @{video.channel_username}
-            </Link>
-          ) : null}
-          <time
-            className="watch-when"
-            dateTime={video.published_at || video.created_at}
-            title={formatAbsoluteTime(video.published_at || video.created_at)}
-          >
-            {formatRelativeTime(video.published_at || video.created_at)}
-          </time>
+      <div className="watch-primary">
+        <YoutubePlayer
+          youtubeId={video.youtube_id}
+          title={video.title}
+          embeddable={video.embeddable}
+          isShort={Boolean(video.is_short)}
+        />
+
+        <div className="watch-copy">
+          <h1 className="watch-title">{video.title}</h1>
+
+          <div className="watch-owner-row">
+            <div className="watch-owner">
+              {video.channel_slug ? (
+                <Link
+                  href={`/channels/${video.channel_slug}`}
+                  className="watch-owner-avatar-link"
+                >
+                  {video.channel_avatar_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={video.channel_avatar_url}
+                      alt=""
+                      className="watch-owner-avatar"
+                    />
+                  ) : (
+                    <span className="watch-owner-avatar fallback" aria-hidden>
+                      {initial}
+                    </span>
+                  )}
+                </Link>
+              ) : (
+                <span className="watch-owner-avatar fallback" aria-hidden>
+                  {initial}
+                </span>
+              )}
+              <div className="watch-owner-copy">
+                {video.channel_slug ? (
+                  <Link
+                    href={`/channels/${video.channel_slug}`}
+                    className="channel"
+                  >
+                    {video.channel_name}
+                  </Link>
+                ) : (
+                  <p className="channel">{video.channel_name}</p>
+                )}
+                <div className="watch-byline">
+                  {video.channel_username ? (
+                    <Link
+                      href={`/@${video.channel_username}`}
+                      className="watch-handle"
+                    >
+                      @{video.channel_username}
+                    </Link>
+                  ) : null}
+                  <time
+                    className="watch-when"
+                    dateTime={when}
+                    title={formatAbsoluteTime(when)}
+                  >
+                    {formatRelativeTime(when)}
+                  </time>
+                </div>
+              </div>
+              {video.channel_slug ? (
+                <SubscribeButton
+                  channelSlug={video.channel_slug}
+                  channelName={video.channel_name}
+                  initialSubscribed={subscribed}
+                  signedIn={Boolean(user)}
+                />
+              ) : null}
+            </div>
+
+            <div className="watch-engage">
+              <LikeButton
+                videoId={video.id}
+                initialLiked={likeState.liked}
+                initialCount={likeState.count}
+                signedIn={Boolean(user)}
+              />
+              <WatchModActions
+                videoId={video.id}
+                videoTitle={video.title}
+                channelSlug={video.channel_slug}
+                channelName={video.channel_name}
+              />
+            </div>
+          </div>
+
+          <div className="watch-desc-card">
+            <div className="watch-tags">
+              {video.is_short ? (
+                <span className="watch-short-pill">Shorts</span>
+              ) : null}
+              {video.category_slug ? (
+                <Link
+                  href={`/categories/${video.category_slug}`}
+                  className="watch-category"
+                >
+                  {video.category_name || video.category}
+                </Link>
+              ) : null}
+            </div>
+            {video.description ? (
+              <p className="desc">{video.description}</p>
+            ) : (
+              <p className="desc is-muted">No description.</p>
+            )}
+          </div>
         </div>
-        <div className="watch-tags">
-          {video.is_short ? <span className="watch-short-pill">Shorts</span> : null}
-          {video.category_slug ? (
-            <p className="watch-category">
-              <Link href={`/categories/${video.category_slug}`}>
-                {video.category_name || video.category}
-              </Link>
-            </p>
-          ) : null}
+
+        <CommentSection
+          videoId={video.id}
+          initialComments={comments}
+          signedIn={Boolean(user)}
+        />
+
+        <div className="watch-toolbar">
+          <ReportForm videoId={video.id} />
         </div>
-        <div className="watch-engage">
-          <LikeButton
-            videoId={video.id}
-            initialLiked={likeState.liked}
-            initialCount={likeState.count}
-            signedIn={Boolean(user)}
-          />
-          {video.channel_slug ? (
-            <SubscribeButton
-              channelSlug={video.channel_slug}
-              channelName={video.channel_name}
-              initialSubscribed={subscribed}
-              signedIn={Boolean(user)}
-            />
-          ) : null}
-          <WatchModActions
-            videoId={video.id}
-            videoTitle={video.title}
-            channelSlug={video.channel_slug}
-            channelName={video.channel_name}
-          />
-        </div>
-        {video.description ? <p className="desc">{video.description}</p> : null}
       </div>
 
-      <CommentSection
-        videoId={video.id}
-        initialComments={comments}
-        signedIn={Boolean(user)}
-      />
-
-      <div className="watch-toolbar">
-        <Link href="/" className="btn-ghost">
-          ← Back to feed
-        </Link>
-        <ReportForm videoId={video.id} />
-      </div>
+      <RelatedVideos videos={related} />
     </article>
   );
 }

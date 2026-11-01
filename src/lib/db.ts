@@ -40,6 +40,7 @@ export type Video = {
   channel_id: string | null;
   channel_slug?: string | null;
   channel_username?: string | null;
+  channel_avatar_url?: string | null;
   category: string;
   category_slug: string | null;
   category_name?: string | null;
