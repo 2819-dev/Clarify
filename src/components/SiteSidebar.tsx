@@ -73,7 +73,7 @@ export function SiteSidebar({
   ];
 
   const bySlug = new Map(subscribedChannels.map((c) => [c.slug, c]));
-  const visibleSubs = subSlugs.map((slug) => {
+  const visibleSubs = subSlugs.slice(0, 6).map((slug) => {
     const known = bySlug.get(slug);
     return (
       known || {
@@ -150,7 +150,7 @@ export function SiteSidebar({
         <div className="yt-sidebar-section">
           <p className="yt-sidebar-heading">Categories</p>
           <nav className="yt-sidebar-cats" aria-label="Categories">
-            {categories.map((cat) => {
+            {categories.slice(0, 8).map((cat) => {
               const active = pathname === `/categories/${cat.slug}`;
               return (
                 <Link
@@ -160,9 +160,6 @@ export function SiteSidebar({
                   aria-current={active ? "page" : undefined}
                 >
                   <span className="yt-sidebar-cat-name">{cat.name}</span>
-                  {typeof cat.video_count === "number" ? (
-                    <span className="yt-sidebar-count">{cat.video_count}</span>
-                  ) : null}
                 </Link>
               );
             })}

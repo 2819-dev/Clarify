@@ -40,7 +40,7 @@ export default async function HomePage({
     countShorts(undefined, mode),
     listActiveVideos({ q, format, mode, limit: isSearch ? 48 : 24 }),
     format === "all" && !isSearch
-      ? listActiveVideos({ format: "shorts", mode, limit: 14 })
+      ? listActiveVideos({ format: "shorts", mode, limit: 10 })
       : Promise.resolve([]),
   ]);
 
@@ -88,14 +88,14 @@ export default async function HomePage({
             }
             return merged;
           })(),
-          listChannelsBySlugs(subSlugs.slice(0, 12), mode),
+          listChannelsBySlugs(subSlugs.slice(0, 8), mode),
           Promise.all(
-            categories.slice(0, 8).map(async (cat) => ({
+            categories.slice(0, 5).map(async (cat) => ({
               cat,
               videos: await listActiveVideos({
                 category: cat.slug,
                 mode,
-                limit: 10,
+                limit: 8,
               }),
             })),
           ),
@@ -115,10 +115,10 @@ export default async function HomePage({
     return out;
   }
 
-  const latestFresh = takeFresh(latest, 12);
-  const subsFresh = takeFresh(subscriptionVideos, 12);
-  const recommendedFresh = takeFresh(recommendedVideos, 12);
-  const shortsFresh = takeFresh(shorts, 12);
+  const latestFresh = takeFresh(latest, 8);
+  const subsFresh = takeFresh(subscriptionVideos, 8);
+  const recommendedFresh = takeFresh(recommendedVideos, 8);
+  const shortsFresh = takeFresh(shorts, 8);
 
   return (
     <div className="yt-home">
@@ -133,11 +133,13 @@ export default async function HomePage({
                 ? "Shorts"
                 : "Home"}
           </h1>
-          <p className="yt-home-sub">
-            {isSearch
-              ? `${latest.length} match${latest.length === 1 ? "" : "es"} in ${contentModeLabel(mode)}.`
-              : `${total} videos · ${categories.length} categories — ${contentModeLabel(mode)}.`}
-          </p>
+          {isSearch || format !== "all" ? (
+            <p className="yt-home-sub">
+              {isSearch
+                ? `${latest.length} match${latest.length === 1 ? "" : "es"} in ${contentModeLabel(mode)}.`
+                : `${total} videos — ${contentModeLabel(mode)}.`}
+            </p>
+          ) : null}
         </div>
         <FormatTabs
           basePath="/"

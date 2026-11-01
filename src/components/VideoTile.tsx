@@ -26,7 +26,9 @@ export function VideoTile({ video }: { video: Video }) {
             <span className="video-duration">{duration}</span>
           ) : null}
         </div>
-        <h3 className="video-title">{video.title}</h3>
+        <h3 className="video-title" title={video.title}>
+          {video.title}
+        </h3>
       </Link>
       <div className="video-meta">
         {video.channel_slug ? (
