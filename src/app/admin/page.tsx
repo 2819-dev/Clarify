@@ -22,11 +22,21 @@ export default async function AdminPage() {
         <div>
           <h1>Report review</h1>
           <p className="lede">
-            Approve removes the video from the catalog. Deny keeps it up.
+            Approve removes the video from the catalog. Deny keeps it up. While
+            signed in as the Guide account you can also use ⋯ menus on videos,
+            channels, and comments across the site.
           </p>
         </div>
         <AdminLogoutButton />
       </div>
+
+      <p className="admin-mod-hint">
+        <Link href="/">Browse catalog</Link>
+        {" · "}
+        <Link href="/channels">Channels</Link>
+        {" · "}
+        <Link href="/account/security">2FA security</Link>
+      </p>
 
       {reports.length === 0 ? (
         <p className="empty-state">
