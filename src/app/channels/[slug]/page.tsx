@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChannelModActions } from "@/components/ChannelModActions";
 import { ChannelTabs, type ChannelTab } from "@/components/ChannelTabs";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { VideoTile } from "@/components/VideoTile";
@@ -10,6 +11,8 @@ import {
   listChannelCategories,
 } from "@/lib/channels";
 import { getContentMode } from "@/lib/content-mode-server";
+import { isSubscribed } from "@/lib/engagement";
+import { getCurrentUser } from "@/lib/user-auth";
 import { countShorts, listActiveVideos } from "@/lib/videos";
 import type { Video } from "@/lib/db";
 
@@ -75,12 +78,15 @@ export default async function ChannelPage({
     notFound();
   }
 
-  const [longVideos, shortVideos, categories, shortsCount] = await Promise.all([
-    listActiveVideos({ channelSlug: slug, format: "videos", limit: 48, mode }),
-    listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24, mode }),
-    listChannelCategories(slug, mode),
-    countShorts(slug, mode),
-  ]);
+  const user = await getCurrentUser();
+  const [longVideos, shortVideos, categories, shortsCount, subscribed] =
+    await Promise.all([
+      listActiveVideos({ channelSlug: slug, format: "videos", limit: 48, mode }),
+      listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24, mode }),
+      listChannelCategories(slug, mode),
+      countShorts(slug, mode),
+      user ? isSubscribed(user.id, slug) : Promise.resolve(false),
+    ]);
 
   const tab = parseTab(tabRaw, shortsCount > 0);
   const handle = channelHandle(channel.youtube_url, channel.slug);
@@ -161,6 +167,8 @@ export default async function ChannelPage({
             <SubscribeButton
               channelSlug={channel.slug}
               channelName={channel.name}
+              initialSubscribed={subscribed}
+              signedIn={Boolean(user)}
             />
             {channel.youtube_url ? (
               <a
@@ -175,6 +183,10 @@ export default async function ChannelPage({
             <Link href="/channels" className="btn-ghost">
               All channels
             </Link>
+            <ChannelModActions
+              channelSlug={channel.slug}
+              channelName={channel.name}
+            />
           </div>
         </div>
 

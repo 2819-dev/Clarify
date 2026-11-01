@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CommentSection } from "@/components/CommentSection";
+import { LikeButton } from "@/components/LikeButton";
 import { ReportForm } from "@/components/ReportForm";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
+import { WatchModActions } from "@/components/WatchModActions";
 import { YoutubePlayer } from "@/components/YoutubePlayer";
+import {
+  getVideoLikeState,
+  isSubscribed,
+  listComments,
+} from "@/lib/engagement";
+import { getCurrentUser } from "@/lib/user-auth";
 import { getActiveVideo } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
@@ -16,6 +25,15 @@ export default async function WatchPage({
   const { id } = await params;
   const video = await getActiveVideo(id);
   if (!video) notFound();
+
+  const user = await getCurrentUser();
+  const [likeState, comments, subscribed] = await Promise.all([
+    getVideoLikeState(video.id, user?.id),
+    listComments(video.id),
+    user && video.channel_slug
+      ? isSubscribed(user.id, video.channel_slug)
+      : Promise.resolve(false),
+  ]);
 
   return (
     <article className={`watch-layout ${video.is_short ? "is-short" : ""}`}>
@@ -48,15 +66,37 @@ export default async function WatchPage({
               </Link>
             </p>
           ) : null}
+        </div>
+        <div className="watch-engage">
+          <LikeButton
+            videoId={video.id}
+            initialLiked={likeState.liked}
+            initialCount={likeState.count}
+            signedIn={Boolean(user)}
+          />
           {video.channel_slug ? (
             <SubscribeButton
               channelSlug={video.channel_slug}
               channelName={video.channel_name}
+              initialSubscribed={subscribed}
+              signedIn={Boolean(user)}
             />
           ) : null}
+          <WatchModActions
+            videoId={video.id}
+            videoTitle={video.title}
+            channelSlug={video.channel_slug}
+            channelName={video.channel_name}
+          />
         </div>
         {video.description ? <p className="desc">{video.description}</p> : null}
       </div>
+
+      <CommentSection
+        videoId={video.id}
+        initialComments={comments}
+        signedIn={Boolean(user)}
+      />
 
       <div className="watch-toolbar">
         <Link href="/" className="btn-ghost">
