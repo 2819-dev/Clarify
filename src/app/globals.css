@@ -2255,24 +2255,41 @@ a {
   }
 
   .yt-topbar {
-    grid-template-columns: auto 1fr auto;
-    gap: 0.45rem 0.55rem;
-    padding: 0.45rem 0.75rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "left right"
+      "search search";
+    gap: 0.4rem 0.45rem;
+    padding: 0.4rem 0.75rem 0.5rem;
     min-height: 52px;
   }
 
+  .yt-topbar-left {
+    grid-area: left;
+  }
+
+  .yt-topbar-right {
+    grid-area: right;
+    gap: 0.1rem;
+    justify-self: end;
+  }
+
   .yt-topbar-search {
-    grid-column: 1 / -1;
+    grid-area: search;
     width: 100%;
+    justify-self: stretch;
   }
 
   .yt-topbar-search .catalog-search {
     max-width: none;
   }
 
-  .yt-topbar-right {
-    gap: 0.15rem;
-    justify-self: end;
+  .yt-topbar-right .theme-toggle + .yt-header-action {
+    /* keep create/bell visible */
+  }
+
+  .yt-made-by {
+    display: none;
   }
 
   .yt-chip-rail {
