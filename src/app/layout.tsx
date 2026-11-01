@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteSidebar } from "@/components/SiteSidebar";
+import { listCategories } from "@/lib/categories";
 import { getContentMode } from "@/lib/content-mode-server";
 import "./globals.css";
 
@@ -18,16 +21,20 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://clarify.guidelearning.org"),
   title: "Clarify — Safe videos for Jewish & family viewing",
   description:
-    "A curated video catalog focused on Jewish content and otherwise family-safe viewing. Report anything that doesn’t belong.",
+    "A curated video catalog focused on Jewish content and otherwise family-safe viewing. Made by Guide. Report anything that doesn’t belong.",
   icons: {
     icon: [{ url: "/clarify-mark.svg", type: "image/svg+xml" }],
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const contentMode = await getContentMode();
+  const categories = await listCategories(contentMode);
 
   return (
     <html
@@ -35,16 +42,26 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="shell">
+        <div className="yt-app">
           <SiteHeader initialMode={contentMode} />
-          <main className="flex-1">{children}</main>
-          <footer className="site-footer">
-            <ClarifyLogo size="sm" href="/" />
-            <p>
-              Clarify keeps a hand-curated catalog. Spot something off? Use
-              Report.
-            </p>
-          </footer>
+          <div className="yt-body">
+            <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
+              <SiteSidebar categories={categories} />
+            </Suspense>
+            <div className="yt-main">
+              <main className="yt-main-inner">{children}</main>
+              <footer className="site-footer">
+                <ClarifyLogo size="sm" href="/" />
+                <p>
+                  Clarify keeps a hand-curated catalog. Made by{" "}
+                  <a href="https://guidelearning.org" rel="noopener noreferrer">
+                    Guide
+                  </a>
+                  . Spot something off? Use Report.
+                </p>
+              </footer>
+            </div>
+          </div>
         </div>
       </body>
     </html>

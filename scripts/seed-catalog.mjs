@@ -27,6 +27,10 @@ const cats = [
   ["community", "Community", "Community life, gentle Israel/culture, and wholesome shorts.", 88],
   ["nature", "Nature", "Calm nature and wildlife for shared family watching.", 90],
   ["science", "Science & How-To", "Gentle science and how-to videos for curious kids.", 91],
+  ["crafts", "Crafts & DIY", "Hands-on crafts and DIY projects for kids and families.", 92],
+  ["gaming", "Gaming", "Family-safe games and builds — Minecraft, LEGO, creative play.", 93],
+  ["travel", "Travel", "Gentle travel and place videos for shared family watching.", 94],
+  ["sports", "Sports", "Light, family-safe sports and movement for kids.", 95],
 ];
 
 for (const [slug, name, description, sort] of cats) {

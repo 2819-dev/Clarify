@@ -22,7 +22,8 @@ npm run pages:build
 npx wrangler pages deploy .pages-out --project-name=clarify --branch=main
 ```
 
-Live URL: **https://clarify-1p0.pages.dev/**
+Canonical URL: **https://clarify.guidelearning.org/**  
+Pages alias: https://clarify-1p0.pages.dev/
 
 Preview/deployment URLs are also printed by `wrangler pages deploy`.
 

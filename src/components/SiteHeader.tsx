@@ -2,23 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
+import { CatalogSearch } from "@/components/CatalogSearch";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { ContentModeToggle } from "@/components/ContentModeToggle";
 import type { ContentMode } from "@/lib/content-mode";
-
-const links = [
-  { href: "/#catalog", label: "Browse", match: (p: string) => p === "/" },
-  {
-    href: "/categories",
-    label: "Categories",
-    match: (p: string) => p.startsWith("/categories"),
-  },
-  {
-    href: "/channels",
-    label: "Channels",
-    match: (p: string) => p.startsWith("/channels"),
-  },
-];
 
 export function SiteHeader({
   initialMode = "jewish",
@@ -26,24 +14,38 @@ export function SiteHeader({
   initialMode?: ContentMode;
 }) {
   const pathname = usePathname() || "/";
+  const searchAction = pathname.startsWith("/categories/")
+    ? pathname
+    : pathname.startsWith("/channels/")
+      ? pathname
+      : "/";
 
   return (
-    <header className="site-header">
-      <ClarifyLogo size="md" />
-      <div className="site-header-tools">
+    <header className="yt-topbar">
+      <div className="yt-topbar-left">
+        <ClarifyLogo size="md" />
+        <span className="yt-made-by">
+          by{" "}
+          <a href="https://guidelearning.org" rel="noopener noreferrer">
+            Guide
+          </a>
+        </span>
+      </div>
+      <div className="yt-topbar-search">
+        <Suspense fallback={null}>
+          <CatalogSearch
+            action={searchAction}
+            placeholder="Search Clarify…"
+          />
+        </Suspense>
+      </div>
+      <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
-        <nav className="site-nav" aria-label="Primary">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={link.match(pathname) ? "is-active" : undefined}
-              aria-current={link.match(pathname) ? "page" : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/admin/login" className="nav-quiet">
+        <nav className="yt-top-links" aria-label="Account">
+          <Link
+            href="/admin/login"
+            className={pathname.startsWith("/admin") ? "is-active" : "nav-quiet"}
+          >
             Admin
           </Link>
         </nav>
