@@ -1,0 +1,80 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { ClarifyLogo } from "@/components/ClarifyLogo";
+import { PrefsHydrator } from "@/components/PrefsHydrator";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteSidebar } from "@/components/SiteSidebar";
+import { listCategories } from "@/lib/categories";
+import { listChannelsBySlugs } from "@/lib/channels";
+import { getContentMode } from "@/lib/content-mode-server";
+import { getSubscriptionSlugs } from "@/lib/preferences-server";
+import "./globals.css";
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
+
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://clarify.guidelearning.org"),
+  title: "Clarify — Safe videos for Jewish & family viewing",
+  description:
+    "A curated video catalog focused on Jewish content and otherwise family-safe viewing. Made by Guide. Report anything that doesn’t belong.",
+  icons: {
+    icon: [{ url: "/clarify-mark.svg", type: "image/svg+xml" }],
+  },
+};
+
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const contentMode = await getContentMode();
+  const subSlugs = await getSubscriptionSlugs();
+  const [categories, subscribedChannels] = await Promise.all([
+    listCategories(contentMode),
+    listChannelsBySlugs(subSlugs, contentMode),
+  ]);
+
+  return (
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <PrefsHydrator />
+        <div className="yt-app">
+          <SiteHeader initialMode={contentMode} />
+          <div className="yt-body">
+            <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
+              <SiteSidebar
+                categories={categories}
+                subscribedChannels={subscribedChannels}
+              />
+            </Suspense>
+            <div className="yt-main">
+              <main className="yt-main-inner">{children}</main>
+              <footer className="site-footer">
+                <ClarifyLogo size="sm" href="/" />
+                <p>
+                  Clarify keeps a hand-curated catalog. Made by{" "}
+                  <a href="https://guidelearning.org" rel="noopener noreferrer">
+                    Guide
+                  </a>
+                  . Spot something off? Use Report.
+                </p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,3 @@
+-- Catalog seed data lives in data/catalog-seed.json
+-- Apply with: npm run seed:catalog
+-- (requires DATABASE_URL and schema from 001_schema.sql)

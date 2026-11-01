@@ -1,0 +1,34 @@
+{
+  "name": "clarify",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "seed:catalog": "node scripts/seed-catalog.mjs",
+    "pages:build": "opennextjs-cloudflare build && node scripts/prepare-pages-out.mjs",
+    "pages:deploy": "npm run pages:build && mv wrangler.jsonc wrangler.workers.jsonc && wrangler pages deploy .pages-out --project-name=clarify --branch=main --commit-dirty=true; status=$?; mv wrangler.workers.jsonc wrangler.jsonc; exit $status",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.15",
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.156.0"
+  }
+}
