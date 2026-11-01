@@ -60,7 +60,9 @@ export default async function CategoryPage({
       </Suspense>
 
       {videos.length === 0 ? (
-        <p className="empty-state">No videos in this category for this mode.</p>
+        <p className="empty-state">
+          No videos in this category right now.
+        </p>
       ) : (
         <div
           className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}

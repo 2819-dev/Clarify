@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { createAdminSession, passwordsMatch } from "@/lib/auth";
+import { elevateToAdmin } from "@/lib/auth";
 
 const bodySchema = z.object({
   password: z.string().min(1),
+  totpCode: z.string().min(6).max(12).optional(),
 });
 
 export async function POST(request: Request) {
@@ -14,15 +15,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Password required" }, { status: 400 });
     }
 
-    if (!passwordsMatch(parsed.data.password)) {
-      return NextResponse.json({ error: "Incorrect password" }, { status: 401 });
+    const result = await elevateToAdmin({
+      password: parsed.data.password,
+      totpCode: parsed.data.totpCode,
+    });
+    if (!result.ok) {
+      return NextResponse.json(
+        { error: result.error, needsTotp: result.needsTotp },
+        { status: 401 },
+      );
     }
 
-    await createAdminSession();
     return NextResponse.json({ ok: true });
   } catch (error) {
     const message =
-      error instanceof Error ? error.message : "Login failed";
+      error instanceof Error ? error.message : "Could not sign in.";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

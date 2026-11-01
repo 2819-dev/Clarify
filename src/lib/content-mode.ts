@@ -8,11 +8,11 @@ export function parseContentMode(raw: string | null | undefined): ContentMode {
 }
 
 export function contentModeLabel(mode: ContentMode): string {
-  return mode === "filtered" ? "Filtered Content" : "Jewish Content";
+  return mode === "filtered" ? "Family-Friendly" : "Jewish";
 }
 
 export function contentModeDescription(mode: ContentMode): string {
   return mode === "filtered"
-    ? "Jewish catalog plus additional family-safe channels — no curse words or inappropriate content."
+    ? "Jewish videos plus additional family-friendly channels, without coarse language or inappropriate material."
     : "Jewish and Jewish-related videos only.";
 }

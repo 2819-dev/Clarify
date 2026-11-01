@@ -59,7 +59,7 @@ export function ContentModeToggle({
     <div
       className={`content-mode-toggle ${pending ? "is-pending" : ""}`}
       role="group"
-      aria-label="Catalog content mode"
+      aria-label="What to show"
     >
       <button
         type="button"
@@ -67,7 +67,7 @@ export function ContentModeToggle({
         aria-pressed={mode === "jewish"}
         onClick={() => select("jewish")}
       >
-        Jewish Content
+        Jewish
       </button>
       <button
         type="button"
@@ -75,7 +75,7 @@ export function ContentModeToggle({
         aria-pressed={mode === "filtered"}
         onClick={() => select("filtered")}
       >
-        Filtered Content
+        Family-Friendly
       </button>
     </div>
   );
