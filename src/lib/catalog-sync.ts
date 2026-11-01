@@ -24,7 +24,7 @@ type FeedEntry = {
 };
 
 const UA =
-  "Mozilla/5.0 (compatible; ClarifyBot/1.0; +https://clarify.guidelearning.org)";
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
 type OembedMeta = {
   title: string;
@@ -55,11 +55,16 @@ function parsePublishedFromHtml(html: string): string | null {
     /"publishDate":"([^"]+)"/,
     /itemprop="datePublished"[^>]*content="([^"]+)"/,
     /content="([^"]+)"[^>]*itemprop="datePublished"/,
+    /"dateText":\{"simpleText":"((?:Premiered\s+|Streamed live on\s+)?[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})"/,
   ];
   for (const re of patterns) {
     const m = html.match(re);
     if (!m?.[1]) continue;
-    const d = new Date(m[1]);
+    const raw = m[1]
+      .replace(/^Premiered\s+/i, "")
+      .replace(/^Streamed live on\s+/i, "")
+      .trim();
+    const d = new Date(raw);
     if (!Number.isNaN(d.getTime())) return d.toISOString();
   }
   return null;
