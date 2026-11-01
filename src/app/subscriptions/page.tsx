@@ -8,14 +8,16 @@ import {
 } from "@/lib/channels";
 import { contentModeLabel } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
-import { getSubscriptionSlugs } from "@/lib/preferences-server";
+import { listSubscribedChannelSlugs } from "@/lib/engagement";
+import { getCurrentUser } from "@/lib/user-auth";
 import { listActiveVideos } from "@/lib/videos";
 
 export const dynamic = "force-dynamic";
 
 export default async function SubscriptionsPage() {
   const mode = await getContentMode();
-  const subSlugs = await getSubscriptionSlugs();
+  const user = await getCurrentUser();
+  const subSlugs = user ? await listSubscribedChannelSlugs(user.id) : [];
   const [categories, channels, videos] = await Promise.all([
     listCategories(mode),
     listChannelsBySlugs(subSlugs, mode),
@@ -31,14 +33,25 @@ export default async function SubscriptionsPage() {
         <div>
           <h1 className="yt-home-title">Subscriptions</h1>
           <p className="yt-home-sub">
-            {channels.length === 0
-              ? `No subscriptions yet in ${contentModeLabel(mode)}. Subscribe on any channel page — saved on this device.`
-              : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent videos — ${contentModeLabel(mode)}.`}
+            {!user
+              ? "Sign in to subscribe to channels and see them here."
+              : channels.length === 0
+                ? `No subscriptions yet in ${contentModeLabel(mode)}. Subscribe on any channel page.`
+                : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent videos — ${contentModeLabel(mode)}.`}
           </p>
         </div>
       </div>
 
-      {channels.length > 0 ? (
+      {!user ? (
+        <p className="empty-state">
+          <Link href="/signin?next=%2Fsubscriptions" className="btn-primary">
+            Sign in
+          </Link>
+          <Link href="/signup?next=%2Fsubscriptions" className="btn-secondary">
+            Create account
+          </Link>
+        </p>
+      ) : channels.length > 0 ? (
         <div className="channel-directory yt-subs-directory">
           {channels.map((channel) => {
             const subs = formatSubscriberCount(channel.subscriber_count);

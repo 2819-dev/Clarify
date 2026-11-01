@@ -6,9 +6,9 @@ import { PrefsHydrator } from "@/components/PrefsHydrator";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteSidebar } from "@/components/SiteSidebar";
 import { listCategories } from "@/lib/categories";
-import { listChannelsBySlugs } from "@/lib/channels";
 import { getContentMode } from "@/lib/content-mode-server";
-import { getSubscriptionSlugs } from "@/lib/preferences-server";
+import { listSubscribedChannels } from "@/lib/engagement";
+import { getCurrentUser } from "@/lib/user-auth";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -37,10 +37,12 @@ export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const contentMode = await getContentMode();
-  const subSlugs = await getSubscriptionSlugs();
+  const user = await getCurrentUser();
   const [categories, subscribedChannels] = await Promise.all([
     listCategories(contentMode),
-    listChannelsBySlugs(subSlugs, contentMode),
+    user
+      ? listSubscribedChannels(user.id, contentMode !== "filtered")
+      : Promise.resolve([]),
   ]);
 
   return (
@@ -51,12 +53,13 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <PrefsHydrator />
         <div className="yt-app">
-          <SiteHeader initialMode={contentMode} />
+          <SiteHeader initialMode={contentMode} user={user} />
           <div className="yt-body">
             <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
               <SiteSidebar
                 categories={categories}
                 subscribedChannels={subscribedChannels}
+                signedIn={Boolean(user)}
               />
             </Suspense>
             <div className="yt-main">

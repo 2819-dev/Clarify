@@ -7,10 +7,9 @@ import { listCategories } from "@/lib/categories";
 import { listChannelsBySlugs } from "@/lib/channels";
 import { contentModeLabel } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
-import {
-  getSubscriptionSlugs,
-  getWatchActivity,
-} from "@/lib/preferences-server";
+import { listSubscribedChannelSlugs } from "@/lib/engagement";
+import { getWatchActivity } from "@/lib/preferences-server";
+import { getCurrentUser } from "@/lib/user-auth";
 import {
   countActiveVideos,
   countShorts,
@@ -29,8 +28,9 @@ export default async function HomePage({
     formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
   const mode = await getContentMode();
   const isSearch = Boolean(q?.trim());
+  const user = await getCurrentUser();
   const [subSlugs, activity] = await Promise.all([
-    getSubscriptionSlugs(),
+    user ? listSubscribedChannelSlugs(user.id) : Promise.resolve([] as string[]),
     getWatchActivity(),
   ]);
 
@@ -169,20 +169,24 @@ export default async function HomePage({
               videos={subsFresh}
               href="/subscriptions"
             />
-          ) : subscribedChannels.length === 0 ? (
+          ) : (
             <section className="yt-shelf yt-shelf-empty-subs">
               <div className="yt-shelf-head">
                 <h2 className="yt-shelf-title">Subscriptions</h2>
-                <Link href="/channels" className="yt-shelf-more">
-                  Browse channels
+                <Link
+                  href={user ? "/channels" : "/signin?next=%2Fchannels"}
+                  className="yt-shelf-more"
+                >
+                  {user ? "Browse channels" : "Sign in"}
                 </Link>
               </div>
               <p className="yt-home-sub">
-                Subscribe to channels you like — saved on this device, no
-                account needed. They’ll show up here and in the sidebar.
+                {user
+                  ? "Subscribe to channels you like — they show up here and in the sidebar."
+                  : "Sign in to subscribe to channels. Likes and comments also need an account."}
               </p>
             </section>
-          ) : null}
+          )}
 
           {recommendedFresh.length > 0 ? (
             <VideoShelf
