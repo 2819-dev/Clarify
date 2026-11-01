@@ -26,6 +26,7 @@ export type Channel = {
   banner_url: string | null;
   subscriber_count: number | null;
   is_jewish: boolean;
+  username: string | null;
   created_at: string;
   video_count?: number;
 };
@@ -38,6 +39,8 @@ export type Video = {
   channel_name: string;
   channel_id: string | null;
   channel_slug?: string | null;
+  channel_username?: string | null;
+  channel_avatar_url?: string | null;
   category: string;
   category_slug: string | null;
   category_name?: string | null;
@@ -48,6 +51,7 @@ export type Video = {
   embeddable: boolean;
   is_active: boolean;
   created_at: string;
+  published_at?: string | null;
 };
 
 export type ReportStatus = "pending" | "approved" | "denied";
