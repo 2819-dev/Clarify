@@ -239,15 +239,6 @@ export default async function HomePage({
               href={`/categories/${cat.slug}`}
             />
           ))}
-
-          <p className="yt-home-browse-all">
-            <Link href="/categories" className="btn-ghost">
-              Browse categories
-            </Link>
-            <Link href="/channels" className="btn-secondary">
-              Browse channels
-            </Link>
-          </p>
         </div>
       )}
     </div>

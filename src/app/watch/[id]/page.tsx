@@ -5,7 +5,6 @@ import { LikeButton } from "@/components/LikeButton";
 import { RelatedVideos } from "@/components/RelatedVideos";
 import { ReportForm } from "@/components/ReportForm";
 import { ShareButton } from "@/components/ShareButton";
-import { ShortsIcon } from "@/components/ShortsIcon";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
 import { WatchDescription } from "@/components/WatchDescription";
@@ -116,29 +115,23 @@ export default async function WatchPage({
                       <Link
                         href={`/channels/${video.channel_slug}`}
                         className="shorts-meta-name"
+                        title={
+                          video.channel_username
+                            ? `@${video.channel_username}`
+                            : undefined
+                        }
                       >
                         {video.channel_name}
                       </Link>
                     ) : (
                       <span className="shorts-meta-name">{video.channel_name}</span>
                     )}
-                    {video.channel_username ? (
-                      <Link
-                        href={`/@${video.channel_username}`}
-                        className="shorts-meta-handle"
-                      >
-                        @{video.channel_username}
-                      </Link>
-                    ) : null}
                   </div>
                   {subscribe}
                 </div>
-                <h1 className="shorts-meta-title">{video.title}</h1>
-                <p className="shorts-meta-when">
-                  <time dateTime={when} title={formatAbsoluteTime(when)}>
-                    {formatRelativeTime(when)}
-                  </time>
-                </p>
+                <h1 className="shorts-meta-title" title={formatAbsoluteTime(when)}>
+                  {video.title}
+                </h1>
               </div>
             </div>
 
@@ -249,18 +242,11 @@ export default async function WatchPage({
             </div>
           )}
 
-          {description || video.category_slug || isShort ? (
+          {!isShort ? (
             <WatchDescription
               text={description}
-              hideEmptyBody={isShort}
               meta={
                 <div className="watch-tags">
-                  {isShort ? (
-                    <span className="watch-short-pill">
-                      <ShortsIcon className="yt-shorts-mark" size={14} />
-                      Shorts
-                    </span>
-                  ) : null}
                   {video.category_slug ? (
                     <Link
                       href={`/categories/${video.category_slug}`}
@@ -272,6 +258,8 @@ export default async function WatchPage({
                 </div>
               }
             />
+          ) : description ? (
+            <WatchDescription text={description} hideEmptyBody />
           ) : null}
         </div>
 

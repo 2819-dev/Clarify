@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
-import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { ModerationProvider } from "@/components/ModerationContext";
 import { PrefsHydrator } from "@/components/PrefsHydrator";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -79,16 +78,15 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
               <div className="yt-main">
                 <main className="yt-main-inner">{children}</main>
                 <footer className="site-footer">
-                  <ClarifyLogo size="sm" href="/" />
                   <p>
-                    Clarify is a carefully selected video library from{" "}
+                    Clarify by{" "}
                     <a
                       href="https://guidelearning.org"
                       rel="noopener noreferrer"
                     >
                       Guide
                     </a>
-                    . See something that doesn’t belong? Use Report.
+                    . Report anything that doesn’t belong.
                   </p>
                 </footer>
               </div>
