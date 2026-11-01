@@ -22,7 +22,9 @@ npm run pages:build
 npx wrangler pages deploy .pages-out --project-name=clarify
 ```
 
-Live URL (after first deploy): `https://clarify.pages.dev` (or the URL Wrangler prints).
+Live URL: **https://clarify-1p0.pages.dev/**
+
+Preview/deployment URLs are also printed by `wrangler pages deploy`.
 
 ## Secrets / env vars (required)
 
