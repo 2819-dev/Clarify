@@ -72,8 +72,21 @@ export function SiteSidebar({
     },
   ];
 
-  const subSet = new Set(subSlugs);
-  const visibleSubs = subscribedChannels.filter((c) => subSet.has(c.slug));
+  const bySlug = new Map(subscribedChannels.map((c) => [c.slug, c]));
+  const visibleSubs = subSlugs.map((slug) => {
+    const known = bySlug.get(slug);
+    return (
+      known || {
+        slug,
+        name: slug
+          .split("-")
+          .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+          .join(" "),
+        avatar_url: null as string | null,
+        video_count: undefined as number | undefined,
+      }
+    );
+  });
 
   return (
     <aside className="yt-sidebar" aria-label="Browse">

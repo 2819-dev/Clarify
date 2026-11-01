@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PREFS_EVENT } from "@/lib/preferences";
 import {
@@ -15,6 +16,7 @@ export function SubscribeButton({
   channelSlug: string;
   channelName: string;
 }) {
+  const router = useRouter();
   const [subscribed, setSubscribed] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -42,6 +44,8 @@ export function SubscribeButton({
       onClick={() => {
         const next = toggleSubscriptionClient(channelSlug);
         setSubscribed(next);
+        // Refresh RSC tree so sidebar / home shelves read the updated cookie.
+        router.refresh();
       }}
     >
       {subscribed ? "Subscribed" : "Subscribe"}
