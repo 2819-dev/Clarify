@@ -109,23 +109,16 @@ export default async function WatchPage({
                 ) : (
                   <p className="channel">{video.channel_name}</p>
                 )}
-                <div className="watch-byline">
-                  {video.channel_username ? (
+                {video.channel_username ? (
+                  <div className="watch-byline">
                     <Link
                       href={`/@${video.channel_username}`}
                       className="watch-handle"
                     >
                       @{video.channel_username}
                     </Link>
-                  ) : null}
-                  <time
-                    className="watch-when"
-                    dateTime={when}
-                    title={formatAbsoluteTime(when)}
-                  >
-                    {formatRelativeTime(when)}
-                  </time>
-                </div>
+                  </div>
+                ) : null}
               </div>
               {video.channel_slug ? (
                 <SubscribeButton
