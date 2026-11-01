@@ -382,6 +382,12 @@ a {
 
 .video-tile.is-short .video-tile-body {
   grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+.video-tile.is-short .video-tile-avatar,
+.video-tile.is-short .video-tile-avatar-link {
+  display: none;
 }
 
 .video-tile-avatar-link {
@@ -441,11 +447,39 @@ a {
 
 .video-tile.is-short .video-thumb-wrap {
   aspect-ratio: 9 / 16;
-  max-height: 280px;
+  max-height: none;
+  border-radius: 0.75rem;
+  background: #0f0f0f;
+}
+
+.video-tile.is-short .video-thumb {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: center;
+}
+
+.video-tile.is-short .video-title {
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.3;
+  -webkit-line-clamp: 2;
+}
+
+.video-tile.is-short .video-channel {
+  font-size: 0.8rem;
+}
+
+.video-tile.is-short .video-submeta {
+  font-size: 0.76rem;
 }
 
 .shorts-grid {
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 1.35rem 0.85rem;
+}
+
+.shorts-grid .video-tile.is-short .video-thumb-wrap {
+  border-radius: 0.85rem;
 }
 
 .format-tabs {
@@ -1084,27 +1118,31 @@ a {
 }
 
 .channel-shorts-row {
-  display: flex;
-  gap: 0.85rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(150px, 170px);
+  gap: 0.75rem;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
   max-width: 100%;
+  min-width: 0;
   padding: 0.15rem 0 0.55rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
 .channel-shorts-row .video-tile {
-  flex: 0 0 148px;
-  width: 148px;
+  width: 100%;
   scroll-snap-align: start;
+  min-width: 0;
 }
 
 .channel-shorts-row .video-tile .video-thumb-wrap {
   aspect-ratio: 9 / 16;
   max-height: none;
-  height: 250px;
-  border-radius: 0.65rem;
+  height: auto;
+  border-radius: 0.75rem;
 }
 
 .channel-shorts-row .video-title {
@@ -1113,6 +1151,10 @@ a {
 }
 
 .channel-shorts-row .video-meta {
+  gap: 0.1rem;
+}
+
+.channel-shorts-row .video-submeta {
   display: none;
 }
 
@@ -1489,9 +1531,70 @@ a {
 
 .player-frame.is-short {
   width: min(100%, 360px);
+  max-height: min(78vh, 720px);
   aspect-ratio: 9 / 16;
   margin-inline: auto;
   border-radius: 0.85rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* YouTube-like Shorts watch: centered stage + portrait related rail */
+.watch-page.is-short {
+  grid-template-columns: minmax(0, 1fr) min(280px, 26vw);
+  gap: 1.25rem 1.35rem;
+  justify-items: stretch;
+}
+
+.watch-page.is-short .watch-primary {
+  justify-items: center;
+  max-width: 720px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.watch-page.is-short .watch-copy {
+  width: min(100%, 420px);
+}
+
+.watch-page.is-short .watch-title {
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  text-align: left;
+}
+
+.watch-page.is-short .comment-section {
+  width: min(100%, 420px);
+}
+
+.watch-related.is-shorts-rail {
+  padding-left: 0.15rem;
+}
+
+.watch-related-heading {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.watch-related.is-shorts-rail .watch-related-list {
+  gap: 0.75rem;
+}
+
+.watch-related.is-shorts-rail .watch-related-item.is-short {
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-thumb {
+  aspect-ratio: 9 / 16;
+  border-radius: 0.65rem;
+  background: #0f0f0f;
+}
+
+.watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-title {
+  -webkit-line-clamp: 3;
+  font-size: 0.86rem;
 }
 
 .player-frame iframe,
@@ -2216,6 +2319,56 @@ a {
   touch-action: pan-x pan-y;
 }
 
+.yt-shelf.is-shorts {
+  padding-block: 0.15rem 0.35rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.85rem;
+}
+
+.yt-shorts-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.yt-shorts-mark {
+  color: #f40303;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  /* YouTube Shorts shelf: tall portrait cards, ~6–8 across on desktop */
+  grid-auto-columns: minmax(186px, 210px);
+  gap: 0.85rem;
+  padding-bottom: 0.35rem;
+  scrollbar-width: none;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row::-webkit-scrollbar {
+  display: none;
+}
+
+.yt-shelf.is-shorts .yt-shelf-item .video-tile {
+  width: 100%;
+}
+
+.yt-shelf.is-shorts .video-tile.is-short .video-thumb-wrap {
+  border-radius: 0.85rem;
+  box-shadow: none;
+}
+
+.yt-shelf.is-shorts .video-tile.is-short .video-title {
+  font-size: 0.95rem;
+  margin-top: 0.05rem;
+}
+
+.yt-shelf.is-shorts .video-tile.is-short .video-submeta {
+  display: none;
+}
+
 .yt-shelf-item {
   scroll-snap-align: start;
   min-width: 0;
@@ -2449,8 +2602,8 @@ a {
 
   .yt-shelf.is-shorts .yt-shelf-row {
     grid-auto-flow: column;
-    grid-auto-columns: minmax(132px, 38%);
-    gap: 0.65rem;
+    grid-auto-columns: minmax(148px, 42%);
+    gap: 0.55rem;
     overflow-x: auto;
     overflow-y: hidden;
     overscroll-behavior-x: contain;
@@ -2459,10 +2612,64 @@ a {
     padding-bottom: 0.35rem;
   }
 
-  .video-grid,
+  .watch-page.is-short {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .watch-page.is-short .watch-primary {
+    max-width: none;
+  }
+
+  .watch-page.is-short .watch-copy,
+  .watch-page.is-short .comment-section {
+    width: 100%;
+  }
+
+  .watch-related.is-shorts-rail {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    width: 100%;
+    padding-top: 0.35rem;
+  }
+
+  .watch-related.is-shorts-rail .watch-related-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(128px, 42%);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.55rem;
+    padding-bottom: 0.35rem;
+    max-width: 100%;
+  }
+
+  .watch-related.is-shorts-rail .watch-related-item.is-short {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-thumb {
+    width: 100%;
+  }
+
+  .watch-related.is-shorts-rail .watch-related-item:not(.is-short) {
+    display: none;
+  }
+
+  .video-grid:not(.shorts-grid),
   .yt-shelf-grid .video-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.1rem 0.65rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0.55rem;
     width: 100%;
     max-width: 100%;
   }
@@ -2530,8 +2737,14 @@ a {
   }
 
   .player-frame.is-short {
-    width: min(100%, 320px);
+    width: min(100%, 340px);
     max-width: 100%;
+    max-height: min(72vh, 640px);
+  }
+
+  .channel-shorts-row {
+    grid-auto-columns: minmax(132px, 38%);
+    gap: 0.55rem;
   }
 }
 
@@ -3806,6 +4019,12 @@ html.yt-page-watch .watch-page {
   grid-template-columns: minmax(0, 1fr) min(402px, 32vw);
 }
 
+html.yt-page-watch .watch-page.is-short {
+  grid-template-columns: minmax(0, 1fr) min(280px, 26vw);
+  width: min(1180px, 100%);
+  margin-inline: auto;
+}
+
 .yt-shelf-grid {
   min-width: 0;
   max-width: 100%;
@@ -3829,15 +4048,24 @@ html.yt-page-watch .watch-page {
 
 @media (max-width: 1200px) {
   .yt-shelf-grid .video-grid,
-  .video-grid {
+  .video-grid:not(.shorts-grid) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
 @media (max-width: 700px) {
   .yt-shelf-grid .video-grid,
-  .video-grid {
+  .video-grid:not(.shorts-grid) {
     grid-template-columns: 1fr;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.95rem 0.5rem;
   }
 }
 

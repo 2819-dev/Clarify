@@ -27,9 +27,19 @@ export function VideoTile({
   const canModerate = useCanModerate();
   const duration = formatDuration(video.duration_seconds);
   const isShort = Boolean(video.is_short);
-  const thumb =
-    video.thumbnail_url ??
-    `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
+  // Prefer YouTube’s original-aspect Shorts thumb when we only have a 16:9 default.
+  const stored = video.thumbnail_url || "";
+  const isGenericYtThumb =
+    !stored ||
+    /\/(default|mqdefault|hqdefault|sddefault|hq720|maxresdefault)\.jpg/i.test(
+      stored,
+    );
+  const thumb = isShort
+    ? isGenericYtThumb
+      ? `https://i.ytimg.com/vi/${video.youtube_id}/oar2.jpg`
+      : stored
+    : stored ||
+      `https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`;
   const when = video.published_at || video.created_at;
   const relative = formatRelativeTime(when);
   const absolute = formatAbsoluteTime(when);
@@ -42,8 +52,17 @@ export function VideoTile({
       <Link href={`/watch/${video.id}`} className="video-tile-thumb-link">
         <div className="video-thumb-wrap">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumb} alt="" className="video-thumb" loading="lazy" />
-          {isShort ? <span className="video-badge">Shorts</span> : null}
+          <img
+            src={thumb}
+            alt=""
+            className="video-thumb"
+            loading="lazy"
+            onError={(event) => {
+              const img = event.currentTarget;
+              const fallback = `https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`;
+              if (img.src !== fallback) img.src = fallback;
+            }}
+          />
           {!isShort && duration ? (
             <span className="video-duration">{duration}</span>
           ) : null}

@@ -40,7 +40,7 @@ export default async function HomePage({
     countShorts(undefined, mode),
     listActiveVideos({ q, format, mode, limit: isSearch ? 48 : 24 }),
     format === "all" && !isSearch
-      ? listActiveVideos({ format: "shorts", mode, limit: 10 })
+      ? listActiveVideos({ format: "shorts", mode, limit: 14 })
       : Promise.resolve([]),
   ]);
 
@@ -116,7 +116,7 @@ export default async function HomePage({
   const latestFresh = takeFresh(latest, 24);
   const subsFresh = takeFresh(subscriptionVideos, 8);
   const recommendedFresh = takeFresh(recommendedVideos, 8);
-  const shortsFresh = takeFresh(shorts, 10);
+  const shortsFresh = takeFresh(shorts, 12);
 
   return (
     <div className="yt-home">
@@ -216,7 +216,7 @@ export default async function HomePage({
           {shortsFresh.length > 0 ? (
             <VideoShelf
               title="Shorts"
-              videos={shortsFresh}
+              videos={shortsFresh.slice(0, 12)}
               href="/?format=shorts"
               variant="shorts"
             />
