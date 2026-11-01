@@ -111,12 +111,6 @@ export function SiteHeader({
           <GuideIcon />
         </button>
         <ClarifyLogo size="md" />
-        <span className="yt-made-by">
-          by{" "}
-          <a href="https://guidelearning.org" rel="noopener noreferrer">
-            Guide
-          </a>
-        </span>
       </div>
       <div className="yt-topbar-search">
         <Suspense fallback={null}>

@@ -16,6 +16,7 @@ import {
   isSubscribed,
   listComments,
 } from "@/lib/engagement";
+import { consumerDescription } from "@/lib/description";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { getCurrentUser } from "@/lib/user-auth";
 import { getActiveVideo, listRelatedVideos } from "@/lib/videos";
@@ -45,11 +46,7 @@ export default async function WatchPage({
   const when = video.published_at || video.created_at;
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
   const isShort = Boolean(video.is_short);
-  const rawDesc = video.description?.trim() || "";
-  const stubDesc =
-    /^YouTube Short from\b/i.test(rawDesc) ||
-    /^No description\b/i.test(rawDesc);
-  const description = stubDesc ? null : rawDesc || null;
+  const description = consumerDescription(video.description);
 
   const channelAvatar = video.channel_avatar_url ? (
     // eslint-disable-next-line @next/next/no-img-element
@@ -163,12 +160,6 @@ export default async function WatchPage({
                 <time dateTime={when} title={formatAbsoluteTime(when)}>
                   {formatRelativeTime(when)}
                 </time>
-                {video.category_name || video.category ? (
-                  <>
-                    <span aria-hidden>·</span>
-                    <span>{video.category_name || video.category}</span>
-                  </>
-                ) : null}
               </p>
 
               <div className="watch-owner-row">
@@ -259,7 +250,7 @@ export default async function WatchPage({
               }
             />
           ) : description ? (
-            <WatchDescription text={description} hideEmptyBody />
+            <WatchDescription text={description} />
           ) : null}
         </div>
 

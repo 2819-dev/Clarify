@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Video } from "@/lib/db";
+import { consumerDescription } from "@/lib/description";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 
 function formatDuration(seconds: number | null) {
@@ -31,6 +32,7 @@ export function SearchResultRow({ video }: { video: Video }) {
   const relative = formatRelativeTime(when);
   const absolute = formatAbsoluteTime(when);
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
+  const description = consumerDescription(video.description);
 
   return (
     <article className={`search-result ${isShort ? "is-short" : ""}`}>
@@ -45,19 +47,6 @@ export function SearchResultRow({ video }: { video: Video }) {
         <Link href={`/watch/${video.id}`} className="search-result-title">
           {video.title}
         </Link>
-        <p className="search-result-meta">
-          {relative ? (
-            <time dateTime={when} title={absolute}>
-              {relative}
-            </time>
-          ) : null}
-          {video.category_name || video.category ? (
-            <>
-              <span aria-hidden>·</span>
-              <span>{video.category_name || video.category}</span>
-            </>
-          ) : null}
-        </p>
         <div className="search-result-channel">
           {video.channel_slug ? (
             <Link
@@ -87,8 +76,15 @@ export function SearchResultRow({ video }: { video: Video }) {
             </span>
           )}
         </div>
-        {video.description ? (
-          <p className="search-result-desc">{video.description}</p>
+        {relative ? (
+          <p className="search-result-meta">
+            <time dateTime={when} title={absolute}>
+              {relative}
+            </time>
+          </p>
+        ) : null}
+        {description ? (
+          <p className="search-result-desc">{description}</p>
         ) : null}
       </div>
     </article>

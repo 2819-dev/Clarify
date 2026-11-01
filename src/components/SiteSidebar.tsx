@@ -218,7 +218,6 @@ export function SiteSidebar({
       ) : null}
 
       <p className="yt-sidebar-made">
-        From{" "}
         <a href="https://guidelearning.org" rel="noopener noreferrer">
           Guide
         </a>

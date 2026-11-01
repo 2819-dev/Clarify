@@ -5,12 +5,9 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 export function WatchDescription({
   text,
   meta,
-  hideEmptyBody = false,
 }: {
   text: string | null | undefined;
   meta?: ReactNode;
-  /** When true, omit the muted empty-body line (Shorts already show channel in-frame). */
-  hideEmptyBody?: boolean;
 }) {
   const bodyRef = useRef<HTMLParagraphElement>(null);
   const [expanded, setExpanded] = useState(false);
@@ -29,7 +26,7 @@ export function WatchDescription({
     return () => ro.disconnect();
   }, [body, expanded]);
 
-  if (!body && hideEmptyBody && !meta) return null;
+  if (!body && !meta) return null;
 
   return (
     <div
@@ -45,9 +42,7 @@ export function WatchDescription({
         >
           {body}
         </p>
-      ) : hideEmptyBody ? null : (
-        <p className="desc is-muted">No description provided.</p>
-      )}
+      ) : null}
       {body && (clamped || expanded) ? (
         <button
           type="button"
