@@ -41,6 +41,38 @@ export async function listChannels(mode?: ContentMode): Promise<Channel[]> {
   return rows as Channel[];
 }
 
+export async function listChannelsBySlugs(
+  slugs: string[],
+  mode?: ContentMode,
+): Promise<Channel[]> {
+  if (slugs.length === 0) return [];
+  const sql = getSql();
+  const onlyJewish = jewishOnly(mode);
+  const normalized = slugs
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 40);
+  const rows = await sql`
+    SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
+           ch.avatar_url, ch.banner_url, ch.subscriber_count,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.created_at,
+           COUNT(v.id)::int AS video_count
+    FROM channels ch
+    LEFT JOIN videos v
+      ON v.channel_id = ch.id
+     AND v.is_active = TRUE
+     AND (
+       ${!onlyJewish}::boolean
+       OR COALESCE(v.is_jewish, TRUE) = TRUE
+     )
+    WHERE ch.slug = ANY(${normalized})
+    GROUP BY ch.id
+    HAVING COUNT(v.id) > 0
+  `;
+  const bySlug = new Map((rows as Channel[]).map((ch) => [ch.slug, ch]));
+  return normalized.map((s) => bySlug.get(s)).filter(Boolean) as Channel[];
+}
+
 export async function getChannel(
   slug: string,
   mode?: ContentMode,

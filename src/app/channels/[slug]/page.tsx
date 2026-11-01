@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChannelTabs, type ChannelTab } from "@/components/ChannelTabs";
+import { SubscribeButton } from "@/components/SubscribeButton";
 import { VideoTile } from "@/components/VideoTile";
 import {
   channelHandle,
@@ -157,20 +158,20 @@ export default async function ChannelPage({
           </div>
 
           <div className="channel-yt-actions">
+            <SubscribeButton
+              channelSlug={channel.slug}
+              channelName={channel.name}
+            />
             {channel.youtube_url ? (
               <a
-                className="btn-subscribe"
+                className="btn-ghost"
                 href={channel.youtube_url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Subscribe
+                YouTube
               </a>
-            ) : (
-              <span className="btn-subscribe is-soft" aria-disabled>
-                Subscribe
-              </span>
-            )}
+            ) : null}
             <Link href="/channels" className="btn-ghost">
               All channels
             </Link>

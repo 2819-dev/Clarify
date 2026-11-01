@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReportForm } from "@/components/ReportForm";
+import { SubscribeButton } from "@/components/SubscribeButton";
+import { WatchActivityTracker } from "@/components/WatchActivityTracker";
 import { YoutubePlayer } from "@/components/YoutubePlayer";
 import { getActiveVideo } from "@/lib/videos";
 
@@ -17,6 +19,10 @@ export default async function WatchPage({
 
   return (
     <article className={`watch-layout ${video.is_short ? "is-short" : ""}`}>
+      <WatchActivityTracker
+        channelSlug={video.channel_slug}
+        categorySlug={video.category_slug}
+      />
       <YoutubePlayer
         youtubeId={video.youtube_id}
         title={video.title}
@@ -42,13 +48,19 @@ export default async function WatchPage({
               </Link>
             </p>
           ) : null}
+          {video.channel_slug ? (
+            <SubscribeButton
+              channelSlug={video.channel_slug}
+              channelName={video.channel_name}
+            />
+          ) : null}
         </div>
         {video.description ? <p className="desc">{video.description}</p> : null}
       </div>
 
       <div className="watch-toolbar">
-        <Link href="/#catalog" className="btn-ghost">
-          ← Back to catalog
+        <Link href="/" className="btn-ghost">
+          ← Back to feed
         </Link>
         <ReportForm videoId={video.id} />
       </div>

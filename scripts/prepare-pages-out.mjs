@@ -43,9 +43,16 @@ writeFileSync(
     {
       version: 1,
       include: ["/*"],
+      // Exclude only static channel *assets* (images). Do NOT exclude
+      // `/channels` or `/channels/[slug]` — those are App Router pages and
+      // must hit `_worker.js` (a bare `/channels/*` exclude made them 404).
       exclude: [
         "/_next/static/*",
-        "/channels/*",
+        "/channels/*.jpg",
+        "/channels/*.jpeg",
+        "/channels/*.png",
+        "/channels/*.webp",
+        "/channels/*.svg",
         "/clarify-mark.svg",
         "/embed-probe.html",
         "/favicon.ico",

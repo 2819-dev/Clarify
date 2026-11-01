@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
+import { PrefsHydrator } from "@/components/PrefsHydrator";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteSidebar } from "@/components/SiteSidebar";
 import { listCategories } from "@/lib/categories";
+import { listChannelsBySlugs } from "@/lib/channels";
 import { getContentMode } from "@/lib/content-mode-server";
+import { getSubscriptionSlugs } from "@/lib/preferences-server";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -34,7 +37,11 @@ export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const contentMode = await getContentMode();
-  const categories = await listCategories(contentMode);
+  const subSlugs = await getSubscriptionSlugs();
+  const [categories, subscribedChannels] = await Promise.all([
+    listCategories(contentMode),
+    listChannelsBySlugs(subSlugs, contentMode),
+  ]);
 
   return (
     <html
@@ -42,11 +49,15 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <PrefsHydrator />
         <div className="yt-app">
           <SiteHeader initialMode={contentMode} />
           <div className="yt-body">
             <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
-              <SiteSidebar categories={categories} />
+              <SiteSidebar
+                categories={categories}
+                subscribedChannels={subscribedChannels}
+              />
             </Suspense>
             <div className="yt-main">
               <main className="yt-main-inner">{children}</main>

@@ -1869,3 +1869,79 @@ a {
     padding: 0.85rem;
   }
 }
+
+/* Admin key affordance */
+.admin-key-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-key-link:hover,
+.admin-key-link.is-active {
+  color: var(--blue-950);
+  background: var(--blue-100);
+  border-color: var(--line);
+}
+
+.admin-key-icon {
+  display: block;
+}
+
+/* Subscribe states */
+.btn-subscribe.is-subscribed {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.btn-subscribe.is-subscribed:hover {
+  background: color-mix(in srgb, var(--paper-deep) 70%, var(--blue-100));
+}
+
+.watch-tags .btn-subscribe {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+/* Sidebar subscriptions */
+.yt-sidebar-empty {
+  margin: 0.15rem 0.7rem 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.yt-sidebar-sub {
+  gap: 0.55rem;
+}
+
+.yt-sidebar-avatar {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  object-fit: cover;
+  background: var(--blue-100);
+  flex: 0 0 auto;
+}
+
+.yt-sidebar-avatar.placeholder {
+  display: inline-block;
+  background: var(--blue-700);
+}
+
+.yt-shelf-empty-subs {
+  padding: 0.85rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.yt-subs-directory {
+  margin-bottom: 0.5rem;
+}

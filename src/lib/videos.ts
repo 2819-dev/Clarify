@@ -5,6 +5,10 @@ export type VideoQuery = {
   q?: string;
   category?: string;
   channelSlug?: string;
+  /** Match any of these channel slugs (subscriptions / activity). */
+  channelSlugs?: string[];
+  /** Match any of these category slugs (recommended from activity). */
+  categorySlugs?: string[];
   /** all | videos | shorts */
   format?: "all" | "videos" | "shorts";
   /** jewish = Jewish-only; filtered = Jewish + family-safe */
@@ -21,6 +25,16 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
   const q = query.q?.trim() || null;
   const category = query.category || null;
   const channelSlug = query.channelSlug || null;
+  const channelSlugs = (query.channelSlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 40);
+  const categorySlugs = (query.categorySlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 20);
+  const hasChannelSlugs = channelSlugs.length > 0;
+  const hasCategorySlugs = categorySlugs.length > 0;
   const format = query.format || "all";
   const shortsOnly = format === "shorts";
   const longOnly = format === "videos";
@@ -41,6 +55,14 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
     WHERE v.is_active = TRUE
       AND (${category}::text IS NULL OR v.category_slug = ${category})
       AND (${channelSlug}::text IS NULL OR c.slug = ${channelSlug})
+      AND (
+        ${!hasChannelSlugs}::boolean
+        OR c.slug = ANY(${channelSlugs})
+      )
+      AND (
+        ${!hasCategorySlugs}::boolean
+        OR v.category_slug = ANY(${categorySlugs})
+      )
       AND (
         ${!onlyJewish}::boolean
         OR COALESCE(v.is_jewish, TRUE) = TRUE

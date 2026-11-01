@@ -31,6 +31,8 @@ Preview/deployment URLs are also printed by `wrangler pages deploy`.
 
 `scripts/prepare-pages-out.mjs` writes `_routes.json` that **excludes** `/_next/static/*` (and other public assets) from `_worker.js`. Pages then serves those files from the CDN. If the Worker handles them instead, CSS/JS 404 and the site renders as unstyled plain text.
 
+Exclude channel **image files** only (`/channels/*.jpg`, etc.). Never exclude `/channels` or `/channels/[slug]` — those are App Router pages and must hit the Worker.
+
 ## Secrets / env vars (required)
 
 Set for **Production** and **Preview** in the Pages dashboard, or:
