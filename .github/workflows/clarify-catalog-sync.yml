@@ -1,0 +1,25 @@
+name: Clarify catalog sync
+
+on:
+  schedule:
+    # Every 6 hours UTC
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Clarify YouTube catalog sync
+        env:
+          CRON_SECRET: ${{ secrets.CLARIFY_CRON_SECRET }}
+          CLARIFY_URL: ${{ vars.CLARIFY_URL || 'https://clarify.guidelearning.org' }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CLARIFY_CRON_SECRET secret is not set" >&2
+            exit 1
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            -H "Content-Type: application/json" \
+            "${CLARIFY_URL}/api/cron/sync"
