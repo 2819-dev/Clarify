@@ -102,42 +102,49 @@ export function CommentSection({
         <ul className="comment-list">
           {comments.map((comment) => (
             <li key={comment.id} className="comment-item">
-              <div className="comment-item-head">
-                <div className="comment-identity">
-                  <UserAvatar
-                    name={comment.display_name}
-                    avatarUrl={comment.avatar_url}
-                    size={36}
-                  />
-                  <div>
-                    <p className="comment-author">{comment.display_name}</p>
-                    {comment.username ? (
-                      <a
-                        href={`/@${comment.username}`}
-                        className="comment-handle"
-                      >
-                        {formatAt(comment.username)}
-                      </a>
+              <div className="comment-identity">
+                <UserAvatar
+                  name={comment.display_name}
+                  avatarUrl={comment.avatar_url}
+                  size={40}
+                />
+                <div className="comment-copy">
+                  <div className="comment-item-head">
+                    <div>
+                      <p className="comment-author">
+                        {comment.display_name}
+                        {comment.username ? (
+                          <>
+                            {" "}
+                            <a
+                              href={`/@${comment.username}`}
+                              className="comment-handle"
+                            >
+                              {formatAt(comment.username)}
+                            </a>
+                          </>
+                        ) : null}
+                      </p>
+                    </div>
+                    {canModerate ? (
+                      <ModeratorMenu
+                        target="comment"
+                        commentId={comment.id}
+                        label={comment.display_name}
+                        onDone={() =>
+                          setComments((prev) =>
+                            prev.filter((c) => c.id !== comment.id),
+                          )
+                        }
+                      />
                     ) : null}
                   </div>
+                  <CommentBody text={comment.body} />
+                  <p className="comment-when">
+                    {new Date(comment.created_at).toLocaleString()}
+                  </p>
                 </div>
-                {canModerate ? (
-                  <ModeratorMenu
-                    target="comment"
-                    commentId={comment.id}
-                    label={comment.display_name}
-                    onDone={() =>
-                      setComments((prev) =>
-                        prev.filter((c) => c.id !== comment.id),
-                      )
-                    }
-                  />
-                ) : null}
               </div>
-              <CommentBody text={comment.body} />
-              <p className="comment-when">
-                {new Date(comment.created_at).toLocaleString()}
-              </p>
             </li>
           ))}
         </ul>

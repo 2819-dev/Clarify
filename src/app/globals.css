@@ -1623,9 +1623,9 @@ a {
 
 .yt-sidebar {
   position: sticky;
-  top: 58px;
+  top: 56px;
   align-self: start;
-  height: calc(100vh - 58px);
+  height: calc(100vh - 56px);
   overflow: auto;
   padding: 0.85rem 0.65rem 1.75rem;
   border-right: none;
@@ -2304,15 +2304,23 @@ a {
   min-width: 0;
 }
 
+.comment-copy {
+  min-width: 0;
+  flex: 1;
+}
+
 .comment-identity .comment-author {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
 }
 
 .comment-identity .comment-handle {
-  display: inline-block;
-  margin-top: 0.05rem;
   font-size: 0.8rem;
   font-weight: 550;
+  color: var(--ink-soft);
 }
 
 .auth-shell {
