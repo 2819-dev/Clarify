@@ -56,7 +56,7 @@ function ShortsRow({ videos, slug }: { videos: Video[]; slug: string }) {
     <Shelf title="Shorts" href={`/channels/${slug}?tab=shorts`} className="is-shorts">
       <div className="channel-shorts-row">
         {videos.map((video) => (
-          <VideoTile key={video.id} video={video} />
+          <VideoTile key={video.id} video={video} hideChannel dense />
         ))}
       </div>
     </Shelf>
@@ -197,9 +197,14 @@ export default async function ChannelPage({
                   title="Videos"
                   href={`/channels/${slug}?tab=videos`}
                 >
-                  <div className="video-grid">
+                  <div className="channel-videos-row">
                     {longVideos.slice(0, 8).map((video) => (
-                      <VideoTile key={video.id} video={video} />
+                      <VideoTile
+                        key={video.id}
+                        video={video}
+                        hideChannel
+                        dense
+                      />
                     ))}
                   </div>
                 </Shelf>
@@ -214,9 +219,14 @@ export default async function ChannelPage({
                     title={category.name}
                     href={`/channels/${slug}?tab=videos`}
                   >
-                    <div className="video-grid">
+                    <div className="channel-videos-row">
                       {videos.map((video) => (
-                        <VideoTile key={video.id} video={video} />
+                        <VideoTile
+                          key={video.id}
+                          video={video}
+                          hideChannel
+                          dense
+                        />
                       ))}
                     </div>
                   </Shelf>
@@ -231,7 +241,7 @@ export default async function ChannelPage({
             ) : (
               <div className="video-grid">
                 {longVideos.map((video) => (
-                  <VideoTile key={video.id} video={video} />
+                  <VideoTile key={video.id} video={video} hideChannel />
                 ))}
               </div>
             )
@@ -243,7 +253,7 @@ export default async function ChannelPage({
             ) : (
               <div className="video-grid shorts-grid">
                 {shortVideos.map((video) => (
-                  <VideoTile key={video.id} video={video} />
+                  <VideoTile key={video.id} video={video} hideChannel />
                 ))}
               </div>
             )
