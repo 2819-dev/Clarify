@@ -46,6 +46,11 @@ export default async function WatchPage({
   const when = video.published_at || video.created_at;
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
   const isShort = Boolean(video.is_short);
+  const rawDesc = video.description?.trim() || "";
+  const stubDesc =
+    /^YouTube Short from\b/i.test(rawDesc) ||
+    /^No description\b/i.test(rawDesc);
+  const description = stubDesc ? null : rawDesc || null;
 
   const channelAvatar = video.channel_avatar_url ? (
     // eslint-disable-next-line @next/next/no-img-element
@@ -244,27 +249,30 @@ export default async function WatchPage({
             </div>
           )}
 
-          <WatchDescription
-            text={video.description}
-            meta={
-              <div className="watch-tags">
-                {isShort ? (
-                  <span className="watch-short-pill">
-                    <ShortsIcon className="yt-shorts-mark" size={14} />
-                    Shorts
-                  </span>
-                ) : null}
-                {video.category_slug ? (
-                  <Link
-                    href={`/categories/${video.category_slug}`}
-                    className="watch-category"
-                  >
-                    {video.category_name || video.category}
-                  </Link>
-                ) : null}
-              </div>
-            }
-          />
+          {description || video.category_slug || isShort ? (
+            <WatchDescription
+              text={description}
+              hideEmptyBody={isShort}
+              meta={
+                <div className="watch-tags">
+                  {isShort ? (
+                    <span className="watch-short-pill">
+                      <ShortsIcon className="yt-shorts-mark" size={14} />
+                      Shorts
+                    </span>
+                  ) : null}
+                  {video.category_slug ? (
+                    <Link
+                      href={`/categories/${video.category_slug}`}
+                      className="watch-category"
+                    >
+                      {video.category_name || video.category}
+                    </Link>
+                  ) : null}
+                </div>
+              }
+            />
+          ) : null}
         </div>
 
         <CommentSection

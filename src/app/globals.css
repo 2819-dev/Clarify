@@ -4510,3 +4510,334 @@ html.yt-page-watch .watch-page.is-short {
     max-width: none;
   }
 }
+
+/* ——— Refine pass: denser YT chrome (home / watch / Shorts) ——— */
+.yt-topbar {
+  gap: 0.85rem;
+  padding: 0.28rem 1rem;
+  border-bottom-color: color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+.content-mode-option {
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0.28rem 0.58rem;
+}
+
+.yt-main-inner {
+  padding: 0.35rem 1.35rem 2rem;
+}
+
+.yt-main-inner:has(.watch-page) {
+  padding-top: 0.55rem;
+}
+
+.yt-home {
+  gap: 0.85rem;
+}
+
+.yt-chip-rail {
+  padding: 0.35rem 0 0.4rem;
+}
+
+.yt-chip {
+  padding: 0.32rem 0.72rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.yt-shelves {
+  gap: 1.15rem;
+  margin-top: 0.1rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.5rem;
+}
+
+.yt-shelf-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.yt-shelf-more {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.yt-shelf-row {
+  gap: 0.85rem;
+  padding-bottom: 0.25rem;
+}
+
+.yt-shelf.is-shorts {
+  padding-block: 0;
+}
+
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.55rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  grid-auto-columns: minmax(168px, 188px);
+  gap: 0.65rem;
+  padding-bottom: 0.15rem;
+}
+
+.yt-shelf.is-shorts .video-tile.is-short .video-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.28;
+  -webkit-line-clamp: 2;
+  margin-top: 0.35rem;
+}
+
+.yt-shelf.is-shorts .video-tile.is-short .video-channel,
+.yt-shelf.is-shorts .video-tile.is-short .video-meta {
+  display: none;
+}
+
+.yt-shelf-empty-subs {
+  padding: 0.15rem 0 0.25rem;
+}
+
+.yt-shelf-empty-subs .yt-shelf-head {
+  margin-bottom: 0.2rem;
+}
+
+.yt-shelf-empty-subs .yt-home-sub {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+.yt-home-browse-all {
+  margin: 0.35rem 0 0;
+  padding-top: 0.15rem;
+  gap: 0.55rem;
+}
+
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid) {
+  gap: 1.35rem 1rem;
+}
+
+.video-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.video-channel {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.video-submeta {
+  font-size: 0.78rem;
+}
+
+.video-tile-body {
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.video-tile-avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.shorts-grid {
+  gap: 1.1rem 0.7rem;
+}
+
+.shorts-grid .video-tile.is-short .video-channel {
+  display: none;
+}
+
+.watch-page {
+  gap: 1.15rem 1.25rem;
+  padding: 0.35rem 0 2.25rem;
+}
+
+.watch-primary {
+  gap: 0.65rem;
+}
+
+.watch-title {
+  margin: 0.05rem 0 0.1rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.watch-title-meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.84rem;
+  gap: 0.3rem;
+}
+
+.watch-owner-row {
+  margin-bottom: 0.45rem;
+  gap: 0.55rem 0.85rem;
+}
+
+.watch-owner-avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.watch-owner-copy .channel {
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.watch-desc-card {
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.65rem;
+  margin-top: 0;
+}
+
+.watch-desc-card.is-meta-only {
+  padding: 0.45rem 0.7rem;
+  background: transparent;
+}
+
+.watch-desc-card .desc {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.watch-page.is-short .watch-copy.is-short-copy {
+  margin-top: 0.15rem;
+}
+
+.watch-page.is-short .watch-engage.is-short-engage {
+  margin-bottom: 0.15rem;
+}
+
+.watch-page.is-short .comment-section {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+}
+
+.shorts-stage {
+  gap: 0.65rem;
+}
+
+.shorts-stage-meta {
+  gap: 0.35rem;
+  padding: 2.4rem 0.8rem 0.85rem;
+}
+
+.shorts-meta-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  -webkit-line-clamp: 2;
+}
+
+.shorts-meta-when {
+  font-size: 0.7rem;
+}
+
+.shorts-meta-handle {
+  font-size: 0.72rem;
+}
+
+.shorts-action-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.shorts-action-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.player-frame {
+  border-radius: 0.7rem;
+}
+
+.player-frame.is-short {
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
+}
+
+.watch-related-heading {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.watch-related.is-shorts-rail .watch-related-list {
+  gap: 0.6rem;
+}
+
+.comment-section {
+  gap: 0.7rem;
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+}
+
+.comment-heading {
+  font-size: 1rem;
+}
+
+.comment-form textarea {
+  min-height: 3.5rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.site-footer {
+  padding: 1.35rem 0 1.65rem;
+  font-size: 0.84rem;
+  gap: 0.4rem;
+}
+
+.yt-sidebar-section {
+  padding-top: 0.65rem;
+}
+
+.yt-sidebar-heading {
+  margin: 0.1rem 0.75rem 0.3rem;
+  font-size: 0.68rem;
+}
+
+.yt-category-hero {
+  gap: 0.2rem;
+  padding: 0.1rem 0 0.25rem;
+}
+
+.format-tab {
+  padding: 0.32rem 0.7rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+@media (max-width: 960px) {
+  .yt-main-inner {
+    padding: 0.2rem 0.75rem 1.75rem;
+  }
+
+  .yt-home {
+    gap: 0.7rem;
+  }
+
+  .yt-shelves {
+    gap: 1rem;
+  }
+
+  .yt-shelf.is-shorts .yt-shelf-row {
+    grid-auto-columns: minmax(138px, 40%);
+    gap: 0.45rem;
+  }
+
+  .shorts-stage-meta {
+    padding: 2.1rem 0.7rem 0.85rem;
+    padding-right: 3.85rem;
+  }
+
+  .shorts-action-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
