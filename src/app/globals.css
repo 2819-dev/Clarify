@@ -1530,15 +1530,15 @@ a {
 }
 
 .player-frame.is-short {
-  width: min(100%, 360px);
+  width: 100%;
   max-height: min(78vh, 720px);
   aspect-ratio: 9 / 16;
-  margin-inline: auto;
+  margin-inline: 0;
   border-radius: 0.85rem;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 }
 
-/* YouTube-like Shorts watch: centered stage + portrait related rail */
+/* YouTube-like Shorts watch: stage + side actions + in-frame channel */
 .watch-page.is-short {
   grid-template-columns: minmax(0, 1fr) min(280px, 26vw);
   gap: 1.25rem 1.35rem;
@@ -1547,18 +1547,249 @@ a {
 
 .watch-page.is-short .watch-primary {
   justify-items: center;
-  max-width: 720px;
+  max-width: 760px;
   width: 100%;
   margin-inline: auto;
 }
 
-.watch-page.is-short .watch-copy {
-  width: min(100%, 420px);
+.shorts-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 460px;
 }
 
-.watch-page.is-short .watch-title {
-  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-  text-align: left;
+.shorts-stage-frame {
+  position: relative;
+  flex: 1 1 auto;
+  width: min(100%, 360px);
+  min-width: 0;
+}
+
+.shorts-stage-frame .player-frame.is-short {
+  width: 100%;
+}
+
+.shorts-stage-meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: grid;
+  gap: 0.45rem;
+  padding: 2.75rem 0.9rem 0.95rem;
+  border-radius: 0 0 0.85rem 0.85rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 42%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+  color: #fff;
+  pointer-events: none;
+}
+
+.shorts-stage-meta a,
+.shorts-stage-meta button,
+.shorts-stage-meta .btn-subscribe,
+.shorts-stage-meta .engage-control {
+  pointer-events: auto;
+}
+
+.shorts-meta-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.shorts-meta-avatar-link {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.shorts-meta-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: #333;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.shorts-meta-avatar.fallback {
+  background: color-mix(in srgb, var(--blue-700, #1a56a8) 80%, #000);
+}
+
+.shorts-meta-channel-copy {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.shorts-meta-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shorts-meta-name:hover {
+  text-decoration: underline;
+}
+
+.shorts-meta-handle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shorts-meta-handle:hover {
+  text-decoration: underline;
+}
+
+.shorts-stage-meta .engage-control {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.shorts-stage-meta .btn-subscribe,
+.shorts-stage-meta .engage-control .btn-subscribe {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f0f0f;
+  border: none;
+  white-space: nowrap;
+}
+
+.shorts-stage-meta .btn-subscribe.is-subscribed,
+.shorts-stage-meta .engage-control .btn-subscribe.is-subscribed {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.shorts-meta-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shorts-meta-when {
+  margin: 0;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.shorts-stage-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 0 0 auto;
+  padding-bottom: 0.35rem;
+  width: 64px;
+}
+
+.btn-like-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shorts-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+}
+
+.shorts-action-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2, #ececec) 88%, var(--ink) 12%);
+  color: var(--ink);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.shorts-action:hover .shorts-action-icon {
+  background: color-mix(in srgb, var(--surface-2, #ececec) 70%, var(--ink) 30%);
+  transform: scale(1.04);
+}
+
+.shorts-action.is-liked .shorts-action-icon {
+  color: #065fd4;
+}
+
+.shorts-action.is-copied .shorts-action-icon {
+  color: #065fd4;
+}
+
+.shorts-action-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--ink);
+}
+
+.shorts-stage-actions-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.shorts-stage-actions-more .btn-ghost,
+.shorts-stage-actions-more .report-panel summary,
+.shorts-stage-actions-more button {
+  font-size: 0.7rem;
+}
+
+.watch-page.is-short .watch-copy.is-short-copy {
+  width: min(100%, 420px);
+  margin-top: 0.35rem;
+}
+
+.watch-page.is-short .watch-copy.is-short-copy .watch-desc-card {
+  margin-top: 0;
 }
 
 .watch-page.is-short .comment-section {
@@ -1574,6 +1805,9 @@ a {
   font-size: 1rem;
   font-weight: 700;
   color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .watch-related.is-shorts-rail .watch-related-list {
@@ -2621,8 +2855,63 @@ a {
   }
 
   .watch-page.is-short .watch-copy,
+  .watch-page.is-short .watch-copy.is-short-copy,
   .watch-page.is-short .comment-section {
     width: 100%;
+  }
+
+  /* Mobile Shorts: actions overlay inside the right edge of the frame */
+  .shorts-stage {
+    position: relative;
+    max-width: min(100%, 420px);
+    margin-inline: auto;
+    gap: 0;
+  }
+
+  .shorts-stage-frame {
+    width: 100%;
+  }
+
+  .shorts-stage-meta {
+    padding-right: 4.25rem;
+    padding-bottom: 1rem;
+  }
+
+  .shorts-stage-actions {
+    position: absolute;
+    right: 0.35rem;
+    bottom: 5.75rem;
+    z-index: 4;
+    width: 56px;
+    gap: 0.65rem;
+    padding-bottom: 0;
+  }
+
+  .shorts-action-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(15, 15, 15, 0.45);
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+
+  .shorts-action:hover .shorts-action-icon {
+    background: rgba(15, 15, 15, 0.62);
+  }
+
+  .shorts-action.is-liked .shorts-action-icon {
+    color: #3ea6ff;
+  }
+
+  .shorts-action-label {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  }
+
+  .shorts-stage-actions-more .btn-ghost,
+  .shorts-stage-actions-more .report-panel summary,
+  .shorts-stage-actions-more button {
+    color: #fff;
   }
 
   .watch-related.is-shorts-rail {

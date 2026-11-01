@@ -29,11 +29,14 @@ export function LikeButton({
   initialLiked = false,
   initialCount = 0,
   signedIn = false,
+  layout = "row",
 }: {
   videoId: string;
   initialLiked?: boolean;
   initialCount?: number;
   signedIn?: boolean;
+  /** Vertical Shorts rail: like + dislike stacked as circular actions. */
+  layout?: "row" | "stack";
 }) {
   const router = useRouter();
   const pathname = usePathname() || "/";
@@ -42,7 +45,7 @@ export function LikeButton({
   const [pending, setPending] = useState(false);
   const signInHref = `/signin?next=${encodeURIComponent(pathname)}`;
 
-  const label = count > 0 ? String(count) : null;
+  const label = count > 0 ? String(count) : layout === "stack" ? "Like" : null;
 
   async function toggleLike() {
     setPending(true);
@@ -64,6 +67,66 @@ export function LikeButton({
     } finally {
       setPending(false);
     }
+  }
+
+  if (layout === "stack") {
+    return (
+      <div className="btn-like-stack" role="group" aria-label="Rate this video">
+        {signedIn ? (
+          <button
+            type="button"
+            className={`shorts-action ${liked ? "is-liked" : ""}`}
+            aria-pressed={liked}
+            aria-label={liked ? "Unlike" : "Like"}
+            disabled={pending}
+            onClick={toggleLike}
+          >
+            <span className="shorts-action-icon">
+              <ThumbUpIcon filled={liked} />
+            </span>
+            <span className="shorts-action-label">{label}</span>
+          </button>
+        ) : (
+          <Link
+            href={signInHref}
+            className="shorts-action"
+            aria-label="Sign in to like"
+          >
+            <span className="shorts-action-icon">
+              <ThumbUpIcon />
+            </span>
+            <span className="shorts-action-label">{label}</span>
+          </Link>
+        )}
+        {signedIn ? (
+          <button
+            type="button"
+            className="shorts-action"
+            aria-label="Dislike"
+            title="Dislike"
+            onClick={() => {
+              if (liked) void toggleLike();
+            }}
+          >
+            <span className="shorts-action-icon">
+              <ThumbDownIcon />
+            </span>
+            <span className="shorts-action-label">Dislike</span>
+          </button>
+        ) : (
+          <Link
+            href={signInHref}
+            className="shorts-action"
+            aria-label="Sign in to dislike"
+          >
+            <span className="shorts-action-icon">
+              <ThumbDownIcon />
+            </span>
+            <span className="shorts-action-label">Dislike</span>
+          </Link>
+        )}
+      </div>
+    );
   }
 
   return (

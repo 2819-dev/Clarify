@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShortsIcon } from "@/components/ShortsIcon";
 import type { Video } from "@/lib/db";
 import { formatRelativeTime } from "@/lib/time";
 
@@ -32,7 +33,10 @@ export function RelatedVideos({
       aria-label={preferShorts ? "More Shorts" : "Related videos"}
     >
       {preferShorts ? (
-        <p className="watch-related-heading">More Shorts</p>
+        <p className="watch-related-heading">
+          <ShortsIcon className="yt-shorts-mark" size={20} />
+          More Shorts
+        </p>
       ) : null}
       <ul className="watch-related-list">
         {ordered.map((video) => {

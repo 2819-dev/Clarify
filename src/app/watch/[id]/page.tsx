@@ -43,116 +43,207 @@ export default async function WatchPage({
 
   const when = video.published_at || video.created_at;
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
+  const isShort = Boolean(video.is_short);
+
+  const channelAvatar = video.channel_avatar_url ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={video.channel_avatar_url}
+      alt=""
+      className={isShort ? "shorts-meta-avatar" : "watch-owner-avatar"}
+    />
+  ) : (
+    <span
+      className={
+        isShort
+          ? "shorts-meta-avatar fallback"
+          : "watch-owner-avatar fallback"
+      }
+      aria-hidden
+    >
+      {initial}
+    </span>
+  );
+
+  const subscribe =
+    video.channel_slug ? (
+      <SubscribeButton
+        channelSlug={video.channel_slug}
+        channelName={video.channel_name}
+        initialSubscribed={subscribed}
+        signedIn={Boolean(user)}
+      />
+    ) : null;
 
   return (
-    <article className={`watch-page ${video.is_short ? "is-short" : ""}`}>
+    <article className={`watch-page ${isShort ? "is-short" : ""}`}>
       <WatchActivityTracker
         channelSlug={video.channel_slug}
         categorySlug={video.category_slug}
       />
 
       <div className="watch-primary">
-        <YoutubePlayer
-          youtubeId={video.youtube_id}
-          title={video.title}
-          embeddable={video.embeddable}
-          isShort={Boolean(video.is_short)}
-        />
-
-        <div className="watch-copy">
-          <h1 className="watch-title">{video.title}</h1>
-          <p className="watch-title-meta">
-            <time dateTime={when} title={formatAbsoluteTime(when)}>
-              {formatRelativeTime(when)}
-            </time>
-            {video.category_name || video.category ? (
-              <>
-                <span aria-hidden>·</span>
-                <span>{video.category_name || video.category}</span>
-              </>
-            ) : null}
-          </p>
-
-          <div className="watch-owner-row">
-            <div className="watch-owner">
-              {video.channel_slug ? (
-                <Link
-                  href={`/channels/${video.channel_slug}`}
-                  className="watch-owner-avatar-link"
-                >
-                  {video.channel_avatar_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={video.channel_avatar_url}
-                      alt=""
-                      className="watch-owner-avatar"
-                    />
-                  ) : (
-                    <span className="watch-owner-avatar fallback" aria-hidden>
-                      {initial}
-                    </span>
-                  )}
-                </Link>
-              ) : (
-                <span className="watch-owner-avatar fallback" aria-hidden>
-                  {initial}
-                </span>
-              )}
-              <div className="watch-owner-copy">
-                {video.channel_slug ? (
-                  <Link
-                    href={`/channels/${video.channel_slug}`}
-                    className="channel"
-                  >
-                    {video.channel_name}
-                  </Link>
-                ) : (
-                  <p className="channel">{video.channel_name}</p>
-                )}
-                {video.channel_username ? (
-                  <div className="watch-byline">
+        {isShort ? (
+          <div className="shorts-stage">
+            <div className="shorts-stage-frame">
+              <YoutubePlayer
+                youtubeId={video.youtube_id}
+                title={video.title}
+                embeddable={video.embeddable}
+                isShort
+              />
+              <div className="shorts-stage-meta">
+                <div className="shorts-meta-channel">
+                  {video.channel_slug ? (
                     <Link
-                      href={`/@${video.channel_username}`}
-                      className="watch-handle"
+                      href={`/channels/${video.channel_slug}`}
+                      className="shorts-meta-avatar-link"
                     >
-                      @{video.channel_username}
+                      {channelAvatar}
                     </Link>
+                  ) : (
+                    channelAvatar
+                  )}
+                  <div className="shorts-meta-channel-copy">
+                    {video.channel_slug ? (
+                      <Link
+                        href={`/channels/${video.channel_slug}`}
+                        className="shorts-meta-name"
+                      >
+                        {video.channel_name}
+                      </Link>
+                    ) : (
+                      <span className="shorts-meta-name">{video.channel_name}</span>
+                    )}
+                    {video.channel_username ? (
+                      <Link
+                        href={`/@${video.channel_username}`}
+                        className="shorts-meta-handle"
+                      >
+                        @{video.channel_username}
+                      </Link>
+                    ) : null}
                   </div>
-                ) : null}
+                  {subscribe}
+                </div>
+                <h1 className="shorts-meta-title">{video.title}</h1>
+                <p className="shorts-meta-when">
+                  <time dateTime={when} title={formatAbsoluteTime(when)}>
+                    {formatRelativeTime(when)}
+                  </time>
+                </p>
               </div>
-              {video.channel_slug ? (
-                <SubscribeButton
-                  channelSlug={video.channel_slug}
-                  channelName={video.channel_name}
-                  initialSubscribed={subscribed}
-                  signedIn={Boolean(user)}
-                />
-              ) : null}
             </div>
 
-            <div className="watch-engage">
+            <aside className="shorts-stage-actions" aria-label="Video actions">
               <LikeButton
                 videoId={video.id}
                 initialLiked={likeState.liked}
                 initialCount={likeState.count}
                 signedIn={Boolean(user)}
+                layout="stack"
               />
-              <ShareButton title={video.title} />
-              <WatchModActions
-                videoId={video.id}
-                videoTitle={video.title}
-                channelSlug={video.channel_slug}
-                channelName={video.channel_name}
-              />
-              <div className="watch-report-inline">
-                <ReportForm videoId={video.id} />
+              <ShareButton title={video.title} layout="stack" />
+              <div className="shorts-stage-actions-more">
+                <WatchModActions
+                  videoId={video.id}
+                  videoTitle={video.title}
+                  channelSlug={video.channel_slug}
+                  channelName={video.channel_name}
+                />
+                <div className="watch-report-inline">
+                  <ReportForm videoId={video.id} />
+                </div>
               </div>
-            </div>
+            </aside>
           </div>
+        ) : (
+          <YoutubePlayer
+            youtubeId={video.youtube_id}
+            title={video.title}
+            embeddable={video.embeddable}
+            isShort={false}
+          />
+        )}
+
+        <div className={`watch-copy${isShort ? " is-short-copy" : ""}`}>
+          {!isShort ? (
+            <>
+              <h1 className="watch-title">{video.title}</h1>
+              <p className="watch-title-meta">
+                <time dateTime={when} title={formatAbsoluteTime(when)}>
+                  {formatRelativeTime(when)}
+                </time>
+                {video.category_name || video.category ? (
+                  <>
+                    <span aria-hidden>·</span>
+                    <span>{video.category_name || video.category}</span>
+                  </>
+                ) : null}
+              </p>
+
+              <div className="watch-owner-row">
+                <div className="watch-owner">
+                  {video.channel_slug ? (
+                    <Link
+                      href={`/channels/${video.channel_slug}`}
+                      className="watch-owner-avatar-link"
+                    >
+                      {channelAvatar}
+                    </Link>
+                  ) : (
+                    channelAvatar
+                  )}
+                  <div className="watch-owner-copy">
+                    {video.channel_slug ? (
+                      <Link
+                        href={`/channels/${video.channel_slug}`}
+                        className="channel"
+                      >
+                        {video.channel_name}
+                      </Link>
+                    ) : (
+                      <p className="channel">{video.channel_name}</p>
+                    )}
+                    {video.channel_username ? (
+                      <div className="watch-byline">
+                        <Link
+                          href={`/@${video.channel_username}`}
+                          className="watch-handle"
+                        >
+                          @{video.channel_username}
+                        </Link>
+                      </div>
+                    ) : null}
+                  </div>
+                  {subscribe}
+                </div>
+
+                <div className="watch-engage">
+                  <LikeButton
+                    videoId={video.id}
+                    initialLiked={likeState.liked}
+                    initialCount={likeState.count}
+                    signedIn={Boolean(user)}
+                  />
+                  <ShareButton title={video.title} />
+                  <WatchModActions
+                    videoId={video.id}
+                    videoTitle={video.title}
+                    channelSlug={video.channel_slug}
+                    channelName={video.channel_name}
+                  />
+                  <div className="watch-report-inline">
+                    <ReportForm videoId={video.id} />
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : null}
 
           <div className="watch-desc-card">
             <div className="watch-tags">
-              {video.is_short ? (
+              {isShort ? (
                 <span className="watch-short-pill">Shorts</span>
               ) : null}
               {video.category_slug ? (
@@ -179,10 +270,7 @@ export default async function WatchPage({
         />
       </div>
 
-      <RelatedVideos
-        videos={related}
-        preferShorts={Boolean(video.is_short)}
-      />
+      <RelatedVideos videos={related} preferShorts={isShort} />
     </article>
   );
 }
