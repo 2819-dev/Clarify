@@ -28,8 +28,30 @@ export default async function UsernamePage({
   return (
     <section className="auth-shell">
       <p className="eyebrow">Viewer</p>
-      <h1 className="yt-home-title">{user.display_name}</h1>
-      <p className="yt-home-sub">{formatAt(user.username)}</p>
+      <div className="account-avatar-block" style={{ marginBottom: "0.75rem" }}>
+        {user.avatar_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={user.avatar_url}
+            alt=""
+            width={72}
+            height={72}
+            className="user-avatar"
+          />
+        ) : (
+          <span className="user-avatar user-avatar-fallback" style={{ width: 72, height: 72, fontSize: 28 }}>
+            {(user.display_name[0] || "?").toUpperCase()}
+          </span>
+        )}
+        <div>
+          <h1 className="yt-home-title" style={{ margin: 0 }}>
+            {user.display_name}
+          </h1>
+          <p className="yt-home-sub" style={{ marginTop: "0.25rem" }}>
+            {formatAt(user.username)}
+          </p>
+        </div>
+      </div>
       <p className="auth-foot">
         <Link href="/">Back to home</Link>
       </p>

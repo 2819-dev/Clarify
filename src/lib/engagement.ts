@@ -140,6 +140,7 @@ export type VideoComment = {
   display_name: string;
   username: string | null;
   user_id: string;
+  avatar_url?: string | null;
   is_hidden?: boolean;
   automod_flag?: string | null;
 };
@@ -152,7 +153,9 @@ export async function listComments(
   const includeHidden = Boolean(opts?.includeHidden);
   const rows = await sql`
     SELECT c.id, c.body, c.created_at, c.user_id, u.display_name, u.username,
-           COALESCE(c.is_hidden, FALSE) AS is_hidden, c.automod_flag
+           COALESCE(c.is_hidden, FALSE) AS is_hidden, c.automod_flag,
+           (u.avatar_bytes IS NOT NULL) AS has_avatar,
+           u.avatar_updated_at
     FROM video_comments c
     INNER JOIN users u ON u.id = c.user_id
     WHERE c.video_id = ${videoId}::uuid
@@ -163,7 +166,27 @@ export async function listComments(
     ORDER BY c.created_at DESC
     LIMIT 100
   `;
-  return rows as VideoComment[];
+  return (rows as (VideoComment & {
+    has_avatar?: boolean;
+    avatar_updated_at?: string | null;
+  })[]).map((row) => {
+    const version = row.avatar_updated_at
+      ? new Date(row.avatar_updated_at).getTime()
+      : 0;
+    return {
+      id: row.id,
+      body: row.body,
+      created_at: row.created_at,
+      display_name: row.display_name,
+      username: row.username,
+      user_id: row.user_id,
+      is_hidden: row.is_hidden,
+      automod_flag: row.automod_flag,
+      avatar_url: row.has_avatar
+        ? `/api/avatars/${row.user_id}${version ? `?v=${version}` : ""}`
+        : null,
+    };
+  });
 }
 
 export async function addComment(

@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { CommentBody } from "@/components/CommentBody";
 import { ModeratorMenu } from "@/components/ModeratorMenu";
 import { useCanModerate } from "@/components/ModerationContext";
+import { UserAvatar } from "@/components/UserAvatar";
 import type { VideoComment } from "@/lib/engagement";
 import { formatAt } from "@/lib/usernames";
 
@@ -102,13 +103,23 @@ export function CommentSection({
           {comments.map((comment) => (
             <li key={comment.id} className="comment-item">
               <div className="comment-item-head">
-                <div>
-                  <p className="comment-author">{comment.display_name}</p>
-                  {comment.username ? (
-                    <a href={`/@${comment.username}`} className="comment-handle">
-                      {formatAt(comment.username)}
-                    </a>
-                  ) : null}
+                <div className="comment-identity">
+                  <UserAvatar
+                    name={comment.display_name}
+                    avatarUrl={comment.avatar_url}
+                    size={36}
+                  />
+                  <div>
+                    <p className="comment-author">{comment.display_name}</p>
+                    {comment.username ? (
+                      <a
+                        href={`/@${comment.username}`}
+                        className="comment-handle"
+                      >
+                        {formatAt(comment.username)}
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
                 {canModerate ? (
                   <ModeratorMenu

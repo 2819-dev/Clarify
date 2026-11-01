@@ -37,9 +37,11 @@ export function SiteHeader({
 }: {
   initialMode?: ContentMode;
   user?: {
+    id?: string;
     email: string;
     display_name: string;
     username?: string | null;
+    avatar_url?: string | null;
   } | null;
   showAdminKey?: boolean;
 }) {
@@ -65,13 +67,12 @@ export function SiteHeader({
         <Suspense fallback={null}>
           <CatalogSearch
             action={searchAction}
-            placeholder="Search Clarify…"
+            placeholder="Search"
           />
         </Suspense>
       </div>
       <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
-        <UserMenu user={user} />
         {showAdminKey ? (
           <Link
             href="/admin/login"
@@ -84,6 +85,7 @@ export function SiteHeader({
             <KeyIcon />
           </Link>
         ) : null}
+        <UserMenu user={user} />
       </div>
     </header>
   );

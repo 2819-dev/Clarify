@@ -19,12 +19,15 @@ export type AuthUser = {
   display_name: string;
   username: string | null;
   totp_enabled: boolean;
+  avatar_url: string | null;
 };
 
 type UserRow = AuthUser & {
   password_hash: string;
   totp_secret: string | null;
   totp_pending_secret: string | null;
+  has_avatar?: boolean;
+  avatar_updated_at?: string | null;
 };
 
 function requireSessionSecret() {
@@ -77,13 +80,22 @@ function mapUser(row: {
   display_name: string;
   username?: string | null;
   totp_enabled?: boolean;
+  has_avatar?: boolean;
+  avatar_updated_at?: string | null;
 }): AuthUser {
+  const hasAvatar = Boolean(row.has_avatar);
+  const version = row.avatar_updated_at
+    ? new Date(row.avatar_updated_at).getTime()
+    : 0;
   return {
     id: row.id,
     email: row.email,
     display_name: row.display_name,
     username: row.username ?? null,
     totp_enabled: Boolean(row.totp_enabled),
+    avatar_url: hasAvatar
+      ? `/api/avatars/${row.id}${version ? `?v=${version}` : ""}`
+      : null,
   };
 }
 
@@ -195,7 +207,9 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
   const sql = getSql();
   const rows = await sql`
     SELECT id, email, display_name, username,
-           COALESCE(totp_enabled, FALSE) AS totp_enabled
+           COALESCE(totp_enabled, FALSE) AS totp_enabled,
+           (avatar_bytes IS NOT NULL) AS has_avatar,
+           avatar_updated_at
     FROM users
     WHERE id = ${userId}::uuid
     LIMIT 1
@@ -207,6 +221,8 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
         display_name: string;
         username: string | null;
         totp_enabled: boolean;
+        has_avatar: boolean;
+        avatar_updated_at: string | null;
       }
     | undefined;
   return row ? mapUser(row) : null;
@@ -217,7 +233,9 @@ export async function getUserById(userId: string): Promise<UserRow | null> {
   const rows = await sql`
     SELECT id, email, display_name, username, password_hash,
            totp_secret, COALESCE(totp_enabled, FALSE) AS totp_enabled,
-           totp_pending_secret
+           totp_pending_secret,
+           (avatar_bytes IS NOT NULL) AS has_avatar,
+           avatar_updated_at
     FROM users
     WHERE id = ${userId}::uuid
     LIMIT 1
@@ -231,7 +249,9 @@ export async function getUserByEmail(emailRaw: string): Promise<UserRow | null> 
   const rows = await sql`
     SELECT id, email, display_name, username, password_hash,
            totp_secret, COALESCE(totp_enabled, FALSE) AS totp_enabled,
-           totp_pending_secret
+           totp_pending_secret,
+           (avatar_bytes IS NOT NULL) AS has_avatar,
+           avatar_updated_at
     FROM users
     WHERE email = ${email}
     LIMIT 1
@@ -245,13 +265,145 @@ export async function getPublicUserByUsername(usernameRaw: string) {
   const sql = getSql();
   const rows = await sql`
     SELECT id, email, display_name, username,
-           COALESCE(totp_enabled, FALSE) AS totp_enabled
+           COALESCE(totp_enabled, FALSE) AS totp_enabled,
+           (avatar_bytes IS NOT NULL) AS has_avatar,
+           avatar_updated_at
     FROM users
     WHERE lower(username) = ${username}
     LIMIT 1
   `;
-  const row = rows[0] as AuthUser | undefined;
+  const row = rows[0] as
+    | {
+        id: string;
+        email: string;
+        display_name: string;
+        username: string | null;
+        totp_enabled: boolean;
+        has_avatar: boolean;
+        avatar_updated_at: string | null;
+      }
+    | undefined;
   return row ? mapUser(row) : null;
+}
+
+export async function updateUserProfile(
+  userId: string,
+  input: { displayName?: string; username?: string },
+): Promise<AuthUser> {
+  const sql = getSql();
+  const current = await getUserById(userId);
+  if (!current) throw new Error("Account not found.");
+
+  let nextUsername = current.username;
+  if (input.username !== undefined) {
+    const normalized = normalizeUsername(input.username);
+    if (!isValidUsername(normalized)) {
+      throw new Error("Usernames use letters, numbers, dots, and underscores.");
+    }
+    const taken = await sql`
+      SELECT 1 FROM users
+      WHERE lower(username) = ${normalized}
+        AND id <> ${userId}::uuid
+      LIMIT 1
+    `;
+    if (taken.length > 0) throw new Error("That username is taken.");
+    nextUsername = normalized;
+  }
+
+  const nextDisplay =
+    input.displayName !== undefined
+      ? input.displayName.trim().slice(0, 80) || current.display_name
+      : current.display_name;
+
+  const rows = await sql`
+    UPDATE users
+    SET display_name = ${nextDisplay},
+        username = ${nextUsername}
+    WHERE id = ${userId}::uuid
+    RETURNING id, email, display_name, username,
+              COALESCE(totp_enabled, FALSE) AS totp_enabled,
+              (avatar_bytes IS NOT NULL) AS has_avatar,
+              avatar_updated_at
+  `;
+  return mapUser(
+    rows[0] as {
+      id: string;
+      email: string;
+      display_name: string;
+      username: string | null;
+      totp_enabled: boolean;
+      has_avatar: boolean;
+      avatar_updated_at: string | null;
+    },
+  );
+}
+
+export async function saveUserAvatar(
+  userId: string,
+  mime: string,
+  bytes: Buffer,
+): Promise<AuthUser> {
+  if (!["image/jpeg", "image/png", "image/webp"].includes(mime)) {
+    throw new Error("Use a JPEG, PNG, or WebP image.");
+  }
+  if (bytes.length < 32 || bytes.length > 900_000) {
+    throw new Error("Image must be under ~900KB.");
+  }
+  const sql = getSql();
+  // neon serverless accepts Uint8Array for BYTEA
+  const payload = Uint8Array.from(bytes);
+  await sql`
+    UPDATE users
+    SET avatar_mime = ${mime},
+        avatar_bytes = ${payload},
+        avatar_updated_at = NOW()
+    WHERE id = ${userId}::uuid
+  `;
+  const user = await getCurrentUser();
+  if (!user || user.id !== userId) {
+    const rows = await sql`
+      SELECT id, email, display_name, username,
+             COALESCE(totp_enabled, FALSE) AS totp_enabled,
+             (avatar_bytes IS NOT NULL) AS has_avatar,
+             avatar_updated_at
+      FROM users WHERE id = ${userId}::uuid LIMIT 1
+    `;
+    return mapUser(
+      rows[0] as {
+        id: string;
+        email: string;
+        display_name: string;
+        username: string | null;
+        totp_enabled: boolean;
+        has_avatar: boolean;
+        avatar_updated_at: string | null;
+      },
+    );
+  }
+  return user;
+}
+
+export async function getUserAvatar(
+  userId: string,
+): Promise<{ mime: string; bytes: Buffer } | null> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT avatar_mime, avatar_bytes
+    FROM users
+    WHERE id = ${userId}::uuid
+      AND avatar_bytes IS NOT NULL
+    LIMIT 1
+  `;
+  const row = rows[0] as
+    | { avatar_mime: string | null; avatar_bytes: ArrayBuffer | Buffer | string }
+    | undefined;
+  if (!row?.avatar_bytes || !row.avatar_mime) return null;
+  const bytes = Buffer.isBuffer(row.avatar_bytes)
+    ? row.avatar_bytes
+    : typeof row.avatar_bytes === "string"
+      ? Buffer.from(row.avatar_bytes, "base64")
+      : Buffer.from(row.avatar_bytes);
+  return { mime: row.avatar_mime, bytes };
 }
 
 export async function registerUser(input: {
@@ -274,7 +426,9 @@ export async function registerUser(input: {
       INSERT INTO users (email, password_hash, display_name, username)
       VALUES (${email}, ${passwordHash}, ${displayName}, ${username})
       RETURNING id, email, display_name, username,
-                COALESCE(totp_enabled, FALSE) AS totp_enabled
+                COALESCE(totp_enabled, FALSE) AS totp_enabled,
+                FALSE AS has_avatar,
+                NULL::timestamptz AS avatar_updated_at
     `;
     return mapUser(
       rows[0] as {
@@ -283,6 +437,8 @@ export async function registerUser(input: {
         display_name: string;
         username: string | null;
         totp_enabled: boolean;
+        has_avatar: boolean;
+        avatar_updated_at: string | null;
       },
     );
   } catch (err) {
