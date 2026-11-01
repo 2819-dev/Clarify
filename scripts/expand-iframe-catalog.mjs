@@ -103,6 +103,223 @@ const NEW_CHANNELS = [
   ["smithsonian", false, "history"],
   ["nasa", false, "science"],
   ["esa", false, "science"],
+  // Round 2 — more Jewish
+  ["ushmmorg", true, "history"],
+  ["holocaustmuseum", true, "history"],
+  ["jewishmuseum", true, "history"],
+  ["thejewishmuseum", true, "history"],
+  ["skirball", true, "community"],
+  ["skirballculturalcenter", true, "community"],
+  ["ajcglobal", true, "community"],
+  ["adl", true, "community"],
+  ["adl_national", true, "community"],
+  ["jewishfederations", true, "community"],
+  ["jewishfederationsofna", true, "community"],
+  ["hjf", true, "community"],
+  ["wjcongress", true, "community"],
+  ["worldjewishcongress", true, "community"],
+  ["israel21c", true, "community"],
+  ["idf", true, "community"],
+  ["idfonline", true, "community"],
+  ["jerusalemu", true, "learning"],
+  ["openu", true, "learning"],
+  ["technion", true, "science"],
+  ["weizmanninstitute", true, "science"],
+  ["hebrewu", true, "learning"],
+  ["huji", true, "learning"],
+  ["telavivuniversity", true, "learning"],
+  ["barilanuniversity", true, "learning"],
+  ["oukosher", true, "cooking"],
+  ["kosherdotcom", true, "cooking"],
+  ["jamiegeller", true, "cooking"],
+  ["leahcookskosher", true, "cooking"],
+  ["naomihadra", true, "cooking"],
+  ["mayim", true, "community"],
+  ["mayimbialik", true, "community"],
+  ["bennyfriedman", true, "music"],
+  ["yaakovshwekeyofficial", true, "music"],
+  ["mordechaishapiro", true, "music"],
+  ["ishayribo", true, "music"],
+  ["oshrikohli", true, "music"],
+  ["hatikvahmusic", true, "music"],
+  ["jewishacappella", true, "music"],
+  ["six13sings", true, "music"],
+  ["themaccabeats", true, "music"],
+  ["maccabeats", true, "music"],
+  ["bimbam", true, "learning"],
+  ["unpacked", true, "learning"],
+  ["jewishunpacked", true, "learning"],
+  ["pragerukids", true, "learning"],
+  ["prageru", true, "learning"],
+  ["alephbetaacademy", true, "torah"],
+  ["hidabroot", true, "torah"],
+  ["hidabrootcom", true, "torah"],
+  ["aish", true, "torah"],
+  ["aishcom", true, "torah"],
+  ["aish-studios", true, "torah"],
+  ["chabadorg", true, "torah"],
+  ["chabadkidsvideos", true, "learning"],
+  ["jewishkidsfavorites", true, "learning"],
+  ["shalomsesame", true, "learning"],
+  ["pjlibraryofficial", true, "learning"],
+  ["myjewishlearning", true, "learning"],
+  ["sefariaproject", true, "torah"],
+  ["opensiddur", true, "prayer"],
+  ["openjudaism", true, "torah"],
+  ["reformjudaism", true, "community"],
+  ["reconstructingjudaism", true, "community"],
+  ["uscj", true, "community"],
+  ["rabbinicalassembly", true, "community"],
+  ["moishie", true, "music"],
+  ["eliav", true, "music"],
+  ["shwekey", true, "music"],
+  ["lipa", true, "music"],
+  ["lipaschmeltzer", true, "music"],
+  ["beriberi", true, "music"],
+  ["dovestar", true, "music"],
+  ["jewishmusiccentral", true, "music"],
+  ["jewtunes", true, "music"],
+  ["kosherock", true, "music"],
+  ["shalshelet", true, "music"],
+  ["neshomah", true, "music"],
+  ["ruach", true, "music"],
+  ["ruachband", true, "music"],
+  ["bluefringemusic", true, "music"],
+  ["thejewishstar", true, "community"],
+  ["jewishtimes", true, "community"],
+  ["algemeiner", true, "community"],
+  ["jpost", true, "community"],
+  ["jerusalempost", true, "community"],
+  ["timesofisrael", true, "community"],
+  ["haaretz", true, "community"],
+  ["i24news", true, "community"],
+  ["kanisrael", true, "community"],
+  ["jewishnews", true, "community"],
+  ["jtaorg", true, "community"],
+  ["jewishtelegraphicagency", true, "community"],
+  // Round 2 — more family-friendly
+  ["sesamestreet", false, "learning"],
+  ["pbskids", false, "learning"],
+  ["pbs", false, "learning"],
+  ["cbeebies", false, "learning"],
+  ["bbclearning", false, "learning"],
+  ["bbcbitesize", false, "learning"],
+  ["khanacademy", false, "learning"],
+  ["khanacademykids", false, "learning"],
+  ["duolingo", false, "learning"],
+  ["scratchteam", false, "learning"],
+  ["cs50", false, "learning"],
+  ["mitocw", false, "learning"],
+  ["stanfordonline", false, "learning"],
+  ["googleforkids", false, "learning"],
+  ["youtubelearning", false, "learning"],
+  ["ted", false, "learning"],
+  ["tedxkids", false, "learning"],
+  ["nationalgeographic", false, "nature"],
+  ["natgeokids", false, "nature"],
+  ["natgeoanimals", false, "nature"],
+  ["bbcearth", false, "nature"],
+  ["bbcearthkids", false, "nature"],
+  ["discoverykids", false, "nature"],
+  ["disneynature", false, "nature"],
+  ["wildkratts", false, "nature"],
+  ["octonauts", false, "nature"],
+  ["peppa", false, "family"],
+  ["peppapig", false, "family"],
+  ["bluyclues", false, "learning"],
+  ["blueyofficial", false, "family"],
+  ["danieltiger", false, "learning"],
+  ["misterrogers", false, "learning"],
+  ["readingrainbow", false, "learning"],
+  ["storylineonline", false, "learning"],
+  ["vooks", false, "stories"],
+  ["brightlystorytime", false, "stories"],
+  ["kidstimesstories", false, "stories"],
+  ["cosmickids", false, "sports"],
+  ["cosmickidsyoga", false, "sports"],
+  ["gonoodle", false, "sports"],
+  ["justdancekids", false, "sports"],
+  ["nikekids", false, "sports"],
+  ["olympics", false, "sports"],
+  ["paralympics", false, "sports"],
+  ["fifakids", false, "sports"],
+  ["nba", false, "sports"],
+  ["lego", false, "gaming"],
+  ["legofriends", false, "gaming"],
+  ["minecraft", false, "gaming"],
+  ["minecraftofficial", false, "gaming"],
+  ["roblox", false, "gaming"],
+  ["nintendo", false, "gaming"],
+  ["nintendokids", false, "gaming"],
+  ["playstation", false, "gaming"],
+  ["xbox", false, "gaming"],
+  ["epicgames", false, "gaming"],
+  ["howitsmade", false, "science"],
+  ["sciencechannel", false, "science"],
+  ["nasaarmstrong", false, "science"],
+  ["nasajpl", false, "science"],
+  ["esaops", false, "science"],
+  ["spacex", false, "science"],
+  ["blueorigin", false, "science"],
+  ["smithsonianzoo", false, "nature"],
+  ["bronxzoo", false, "nature"],
+  ["brookfieldzoo", false, "nature"],
+  ["georgiaaquarium", false, "nature"],
+  ["sheddaquarium", false, "nature"],
+  ["montereybay", false, "nature"],
+  ["newenglandaquarium", false, "nature"],
+  ["vancouveraquarium", false, "nature"],
+  ["torontozoo", false, "nature"],
+  ["londonzoo", false, "nature"],
+  ["edinburghzoo", false, "nature"],
+  ["sanfranciscozoo", false, "nature"],
+  ["artforkids", false, "crafts"],
+  ["artforkidshub", false, "crafts"],
+  ["moriahkathryn", false, "crafts"],
+  ["theartofeducation", false, "crafts"],
+  ["origami", false, "crafts"],
+  ["easypeasyandfun", false, "crafts"],
+  ["redtedart", false, "crafts"],
+  ["babyshark", false, "music"],
+  ["pinkfong", false, "music"],
+  ["cocomelon", false, "music"],
+  ["supersimplesongs", false, "music"],
+  ["mothergooseclubplayhouse", false, "music"],
+  ["littleangel", false, "music"],
+  ["chuchutv", false, "music"],
+  ["infobells", false, "music"],
+  ["farfaria", false, "stories"],
+  ["abcmouse", false, "learning"],
+  ["hookedonphonics", false, "learning"],
+  ["starfall", false, "learning"],
+  ["brainpop", false, "learning"],
+  ["brainpopjr", false, "learning"],
+  ["mysteryscience", false, "science"],
+  ["generationgeniusstem", false, "science"],
+  ["sciencemax", false, "science"],
+  ["sickscience", false, "science"],
+  ["nilered", false, "science"],
+  ["thebrainscoop", false, "science"],
+  ["asimplescientist", false, "science"],
+  ["physicsgirl", false, "science"],
+  ["minuteearth", false, "science"],
+  ["tededstudents", false, "learning"],
+  ["crashcoursekids", false, "learning"],
+  ["scishowkids", false, "science"],
+  ["scishowspace", false, "science"],
+  ["itsokaytobesmart", false, "science"],
+  ["asapcience", false, "science"],
+  ["domainofscience", false, "science"],
+  ["numberblocks", false, "learning"],
+  ["alphablocks", false, "learning"],
+  ["colourblocks", false, "learning"],
+  ["learningblocks", false, "learning"],
+  ["wondergrove", false, "learning"],
+  ["highlightskids", false, "learning"],
+  ["nationalgeographicedu", false, "learning"],
+  ["scholastic", false, "learning"],
+  ["scholasticparents", false, "learning"],
+  ["readacrossamerica", false, "stories"],
 ];
 
 function sleep(ms) {
@@ -236,7 +453,7 @@ function parseVideosFromChannelHtml(html, channelName) {
       channelName,
       thumbnailUrl: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
     });
-    if (entries.length >= 40) break;
+    if (entries.length >= 80) break;
   }
   return entries;
 }
@@ -433,6 +650,7 @@ async function fetchUploads(ch) {
     `;
     ch.youtube_channel_id = channelId;
   }
+  const byId = new Map();
   if (channelId) {
     try {
       const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(channelId)}`;
@@ -440,24 +658,37 @@ async function fetchUploads(ch) {
         headers: { "User-Agent": UA, Accept: "application/atom+xml,text/xml" },
       });
       if (res.ok) {
-        const entries = parseAtomFeed(await res.text());
-        if (entries.length) return entries;
+        for (const entry of parseAtomFeed(await res.text())) {
+          byId.set(entry.youtubeId, entry);
+        }
       }
     } catch {
       /* fall through */
     }
   }
-  if (!ch.youtube_url) return [];
-  const pageUrl = ch.youtube_url.replace(/\/$/, "") + "/videos";
-  const res = await fetch(pageUrl, {
-    headers: { "User-Agent": UA, Accept: "text/html" },
-    redirect: "follow",
-  });
-  if (!res.ok) return [];
-  return parseVideosFromChannelHtml(await res.text(), ch.name);
+  if (ch.youtube_url) {
+    try {
+      const pageUrl = ch.youtube_url.replace(/\/$/, "") + "/videos";
+      const res = await fetch(pageUrl, {
+        headers: { "User-Agent": UA, Accept: "text/html" },
+        redirect: "follow",
+      });
+      if (res.ok) {
+        for (const entry of parseVideosFromChannelHtml(
+          await res.text(),
+          ch.name,
+        )) {
+          if (!byId.has(entry.youtubeId)) byId.set(entry.youtubeId, entry);
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  return [...byId.values()];
 }
 
-async function expandVideos({ channelLimit = 180, perChannel = 18 } = {}) {
+async function expandVideos({ channelLimit = 280, perChannel = 28 } = {}) {
   const channels = await sql`
     SELECT ch.id, ch.slug, ch.name, ch.youtube_url, ch.youtube_channel_id,
            COALESCE(ch.is_jewish, TRUE) AS is_jewish,
@@ -645,7 +876,7 @@ const chSummary = await ensureNewChannels();
 console.log(JSON.stringify(chSummary, null, 2));
 
 console.log("=== expand iframe-verified uploads (thin channels first) ===");
-const expandSummary = await expandVideos({ channelLimit: 220, perChannel: 20 });
+const expandSummary = await expandVideos({ channelLimit: 300, perChannel: 30 });
 console.log(JSON.stringify(expandSummary, null, 2));
 
 console.log("=== after ===");
