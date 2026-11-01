@@ -172,7 +172,7 @@ export function formatSubscriberCount(n: number | null | undefined): string | nu
   return `${n} subscribers`;
 }
 
-/** Prefer stored Clarify username, then YouTube @handle, then slug. */
+/** Prefer real YouTube @handle casing from URL, then stored username, then slug. */
 export function channelHandle(
   channel: {
     username?: string | null;
@@ -180,10 +180,16 @@ export function channelHandle(
     slug: string;
   },
 ): string {
-  if (channel.username) return `@${channel.username.replace(/^@+/, "")}`;
   if (channel.youtube_url) {
     const at = channel.youtube_url.match(/youtube\.com\/@([^/?#]+)/i);
-    if (at?.[1]) return `@${decodeURIComponent(at[1])}`;
+    if (at?.[1]) {
+      try {
+        return `@${decodeURIComponent(at[1])}`;
+      } catch {
+        return `@${at[1]}`;
+      }
+    }
   }
+  if (channel.username) return `@${channel.username.replace(/^@+/, "")}`;
   return `@${channel.slug.replace(/-/g, "")}`;
 }

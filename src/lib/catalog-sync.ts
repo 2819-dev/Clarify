@@ -26,6 +26,20 @@ type FeedEntry = {
 const UA =
   "Mozilla/5.0 (compatible; ClarifyBot/1.0; +https://clarify.guidelearning.org)";
 
+async function isEmbeddable(youtubeId: string): Promise<boolean> {
+  try {
+    const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(
+      `https://www.youtube.com/watch?v=${youtubeId}`,
+    )}&format=json`;
+    const res = await fetch(url, {
+      headers: { "User-Agent": UA, Accept: "application/json" },
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export type SyncSummary = {
   channelsScanned: number;
   videosInserted: number;
@@ -176,21 +190,32 @@ async function fetchChannelUploads(channel: ChannelRow): Promise<FeedEntry[]> {
 
 async function backfillUsernames(sql: ReturnType<typeof getSql>) {
   let n = 0;
+  // Always prefer the real YouTube @handle from youtube_url when present —
+  // overwrite slug-invented usernames from earlier backfills.
   const channels = (await sql`
     SELECT id, slug, youtube_url, username FROM channels
-    WHERE username IS NULL OR username = ''
-  `) as { id: string; slug: string; youtube_url: string | null; username: string | null }[];
+  `) as {
+    id: string;
+    slug: string;
+    youtube_url: string | null;
+    username: string | null;
+  }[];
   for (const ch of channels) {
     const username = usernameFromChannel(ch.youtube_url, ch.slug);
+    if (ch.username && ch.username === username) continue;
     try {
       await sql`
         UPDATE channels SET username = ${username}
         WHERE id = ${ch.id}::uuid
-          AND (username IS NULL OR username = '')
+          AND NOT EXISTS (
+            SELECT 1 FROM channels c2
+            WHERE lower(c2.username) = ${username}
+              AND c2.id <> ${ch.id}::uuid
+          )
       `;
       n += 1;
     } catch {
-      // unique collision — leave null
+      // unique collision — leave existing
     }
   }
 
@@ -293,7 +318,10 @@ export async function syncCatalogFromYoutube(options?: {
           continue;
         }
 
-        // New upload from a curated channel — add as active, inherit jewish flag
+        // Only keep videos that YouTube will embed (oEmbed gate).
+        const embedOk = await isEmbeddable(entry.youtubeId);
+        if (!embedOk) continue;
+
         await sql`
           INSERT INTO videos (
             youtube_id, title, description, channel_name, channel_id,
