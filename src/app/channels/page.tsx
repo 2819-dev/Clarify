@@ -7,7 +7,7 @@ import {
   formatSubscriberCount,
   listChannels,
 } from "@/lib/channels";
-import { contentModeLabel } from "@/lib/content-mode";
+import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 
 export const dynamic = "force-dynamic";
@@ -41,9 +41,10 @@ export default async function ChannelsIndexPage({
         <div>
           <h1 className="yt-home-title">Channels</h1>
           <p className="yt-home-sub">
-            {contentModeLabel(mode)} — {filtered.length} channel
-            {filtered.length === 1 ? "" : "s"}. Subscribe to keep favorites in
-            your sidebar.
+            {filtered.length} {contentModeAdjective(mode)} channel
+            {filtered.length === 1 ? "" : "s"}
+            {query ? ` matching “${q?.trim()}”` : ""}. Subscribe to keep
+            favorites in your sidebar.
           </p>
         </div>
       </div>
@@ -65,7 +66,7 @@ export default async function ChannelsIndexPage({
             const subs = formatSubscriberCount(channel.subscriber_count);
             const videoLabel = `${channel.video_count ?? 0} video${
               (channel.video_count ?? 0) === 1 ? "" : "s"
-            }${!channel.is_jewish ? " · Family-Friendly" : ""}`;
+            }`;
             return (
               <ChannelCard
                 key={channel.id}

@@ -215,8 +215,8 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         onChange={(e) => setPassword(e.target.value)}
       />
       <p className="auth-hint">
-        Use at least 8 characters. You can add two-factor authentication later
-        in Account → Security.
+        Use at least 8 characters. You can turn on two-factor authentication
+        later from Settings → Security.
       </p>
       {error ? <p className="form-error">{error}</p> : null}
       <div className="auth-actions">

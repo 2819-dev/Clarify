@@ -253,7 +253,7 @@ export default async function ChannelPage({
             <div className="channel-yt-about">
               <h2>Description</h2>
               <p className="channel-yt-about-body">
-                {channel.description || "No description available."}
+                {channel.description || "No description provided."}
               </p>
               <dl className="channel-yt-about-stats">
                 <div>
@@ -267,7 +267,7 @@ export default async function ChannelPage({
                   </div>
                 ) : null}
                 <div>
-                  <dt>Videos on Clarify</dt>
+                  <dt>Videos</dt>
                   <dd>{channel.video_count}</dd>
                 </div>
                 {shortsCount > 0 ? (

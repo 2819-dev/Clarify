@@ -76,8 +76,8 @@ export function HeaderActions() {
         onClose={() => setNotifOpen(false)}
       >
         <p className="yt-header-panel-empty">
-          You’re all caught up. Subscribe to channels to hear about new videos
-          in your library.
+          You’re all caught up. Subscribe to channels to see their latest videos
+          here.
         </p>
         <Link
           href="/subscriptions"

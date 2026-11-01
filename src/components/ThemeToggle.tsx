@@ -86,12 +86,13 @@ export function ThemeToggle() {
     applyResolved(next);
   }
 
+  // Labels describe the *next* appearance after click (system → light → dark → system).
   const label =
     pref === "system"
-      ? "Use system theme"
+      ? "Switch to light theme"
       : pref === "light"
-        ? "Switch to light theme"
-        : "Switch to dark theme";
+        ? "Switch to dark theme"
+        : "Use system theme";
 
   return (
     <button

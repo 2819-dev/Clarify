@@ -17,7 +17,6 @@ export default async function SignInPage({
 
   return (
     <section className="auth-shell">
-      <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Sign in</h1>
       <p className="yt-home-sub">
         Sign in to subscribe, like videos, and join the conversation.

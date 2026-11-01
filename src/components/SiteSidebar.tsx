@@ -124,7 +124,7 @@ export function SiteSidebar({
       </nav>
 
       <div className="yt-sidebar-section yt-sidebar-mode">
-        <p className="yt-sidebar-heading">What to show</p>
+        <p className="yt-sidebar-heading">Content</p>
         <ContentModeToggle initialMode={initialMode} />
       </div>
 

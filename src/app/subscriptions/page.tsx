@@ -7,7 +7,7 @@ import {
   formatSubscriberCount,
   listChannelsBySlugs,
 } from "@/lib/channels";
-import { contentModeLabel } from "@/lib/content-mode";
+import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 import { listSubscribedChannelSlugs } from "@/lib/engagement";
 import { getCurrentUser } from "@/lib/user-auth";
@@ -37,8 +37,8 @@ export default async function SubscriptionsPage() {
             {!user
               ? "Sign in to follow channels and see them here."
               : channels.length === 0
-                ? `You haven’t subscribed to any ${contentModeLabel(mode).toLowerCase()} channels yet. Open a channel and tap Subscribe.`
-                : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent video${videos.length === 1 ? "" : "s"} — ${contentModeLabel(mode)}.`}
+                ? `You haven’t subscribed to any ${contentModeAdjective(mode)} channels yet. Open a channel and tap Subscribe.`
+                : `${channels.length} channel${channels.length === 1 ? "" : "s"} · ${videos.length} recent ${contentModeAdjective(mode)} video${videos.length === 1 ? "" : "s"}.`}
           </p>
         </div>
       </div>

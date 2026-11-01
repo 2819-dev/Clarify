@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const videoId = searchParams.get("videoId");
   if (!videoId) {
-    return NextResponse.json({ error: "videoId required" }, { status: 400 });
+    return NextResponse.json({ error: "Video is required." }, { status: 400 });
   }
   const comments = await listComments(videoId);
   return NextResponse.json({ comments });

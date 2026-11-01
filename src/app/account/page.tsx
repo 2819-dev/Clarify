@@ -11,7 +11,6 @@ export default async function AccountPage() {
 
   return (
     <section className="auth-shell auth-shell-wide">
-      <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Settings</h1>
       <p className="yt-home-sub">
         Update your photo, display name, and @username. These appear on your

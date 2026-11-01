@@ -147,15 +147,6 @@ export function UserMenu({ user }: { user: MenuUser | null }) {
             role="menuitem"
             onClick={() => setOpen(false)}
           >
-            <MenuIcon kind="account" />
-            Your account
-          </Link>
-          <Link
-            href="/account"
-            className="yt-account-item"
-            role="menuitem"
-            onClick={() => setOpen(false)}
-          >
             <MenuIcon kind="settings" />
             Settings
           </Link>

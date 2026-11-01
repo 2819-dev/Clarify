@@ -43,9 +43,19 @@ export function LikeButton({
   const [liked, setLiked] = useState(initialLiked);
   const [count, setCount] = useState(initialCount);
   const [pending, setPending] = useState(false);
+  const [disliked, setDisliked] = useState(false);
   const signInHref = `/signin?next=${encodeURIComponent(pathname)}`;
 
   const label = count > 0 ? String(count) : layout === "stack" ? "Like" : null;
+
+  function onDislike() {
+    if (liked) {
+      void toggleLike();
+      setDisliked(true);
+      return;
+    }
+    setDisliked((v) => !v);
+  }
 
   async function toggleLike() {
     setPending(true);
@@ -101,17 +111,18 @@ export function LikeButton({
         {signedIn ? (
           <button
             type="button"
-            className="shorts-action"
-            aria-label="Dislike"
-            title="Dislike"
-            onClick={() => {
-              if (liked) void toggleLike();
-            }}
+            className={`shorts-action${disliked ? " is-disliked" : ""}`}
+            aria-label={disliked ? "Remove dislike" : "Dislike"}
+            aria-pressed={disliked}
+            title={disliked ? "Thanks for the feedback" : "Dislike"}
+            onClick={onDislike}
           >
             <span className="shorts-action-icon">
               <ThumbDownIcon />
             </span>
-            <span className="shorts-action-label">Dislike</span>
+            <span className="shorts-action-label">
+              {disliked ? "Noted" : "Dislike"}
+            </span>
           </button>
         ) : (
           <Link
@@ -153,12 +164,11 @@ export function LikeButton({
       {signedIn ? (
         <button
           type="button"
-          className="btn-dislike"
-          aria-label="Dislike"
-          title="Dislike"
-          onClick={() => {
-            if (liked) void toggleLike();
-          }}
+          className={`btn-dislike${disliked ? " is-disliked" : ""}`}
+          aria-label={disliked ? "Remove dislike" : "Dislike"}
+          aria-pressed={disliked}
+          title={disliked ? "Thanks for the feedback" : "Dislike"}
+          onClick={onDislike}
         >
           <ThumbDownIcon />
         </button>
