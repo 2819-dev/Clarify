@@ -5,6 +5,7 @@ import { LikeButton } from "@/components/LikeButton";
 import { RelatedVideos } from "@/components/RelatedVideos";
 import { ReportForm } from "@/components/ReportForm";
 import { ShareButton } from "@/components/ShareButton";
+import { ShortsIcon } from "@/components/ShortsIcon";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
 import { WatchModActions } from "@/components/WatchModActions";
@@ -144,17 +145,6 @@ export default async function WatchPage({
                 layout="stack"
               />
               <ShareButton title={video.title} layout="stack" />
-              <div className="shorts-stage-actions-more">
-                <WatchModActions
-                  videoId={video.id}
-                  videoTitle={video.title}
-                  channelSlug={video.channel_slug}
-                  channelName={video.channel_name}
-                />
-                <div className="watch-report-inline">
-                  <ReportForm videoId={video.id} />
-                </div>
-              </div>
             </aside>
           </div>
         ) : (
@@ -239,12 +229,27 @@ export default async function WatchPage({
                 </div>
               </div>
             </>
-          ) : null}
+          ) : (
+            <div className="watch-engage is-short-engage">
+              <WatchModActions
+                videoId={video.id}
+                videoTitle={video.title}
+                channelSlug={video.channel_slug}
+                channelName={video.channel_name}
+              />
+              <div className="watch-report-inline">
+                <ReportForm videoId={video.id} />
+              </div>
+            </div>
+          )}
 
           <div className="watch-desc-card">
             <div className="watch-tags">
               {isShort ? (
-                <span className="watch-short-pill">Shorts</span>
+                <span className="watch-short-pill">
+                  <ShortsIcon className="yt-shorts-mark" size={14} />
+                  Shorts
+                </span>
               ) : null}
               {video.category_slug ? (
                 <Link

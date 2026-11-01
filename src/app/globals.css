@@ -1237,6 +1237,7 @@ a {
 .watch-short-pill {
   display: inline-flex;
   align-items: center;
+  gap: 0.28rem;
   padding: 0.18rem 0.5rem;
   border-radius: 0.35rem;
   background: var(--blue-100);
@@ -1769,23 +1770,18 @@ a {
   color: var(--ink);
 }
 
-.shorts-stage-actions-more {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  width: 100%;
-}
-
-.shorts-stage-actions-more .btn-ghost,
-.shorts-stage-actions-more .report-panel summary,
-.shorts-stage-actions-more button {
-  font-size: 0.7rem;
-}
-
 .watch-page.is-short .watch-copy.is-short-copy {
   width: min(100%, 420px);
   margin-top: 0.35rem;
+}
+
+.watch-page.is-short .watch-engage.is-short-engage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 0.35rem;
 }
 
 .watch-page.is-short .watch-copy.is-short-copy .watch-desc-card {
@@ -2906,12 +2902,6 @@ a {
   .shorts-action-label {
     color: #fff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-  }
-
-  .shorts-stage-actions-more .btn-ghost,
-  .shorts-stage-actions-more .report-panel summary,
-  .shorts-stage-actions-more button {
-    color: #fff;
   }
 
   .watch-related.is-shorts-rail {
