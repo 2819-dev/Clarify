@@ -3571,6 +3571,39 @@ html.yt-page-watch .watch-page {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
+  /* YT stacks owner + engage; keep channel name readable */
+  .watch-owner-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+
+  .watch-owner {
+    width: 100%;
+  }
+
+  .watch-owner-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 0.5rem;
+  }
+
+  .watch-owner-copy .channel {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .watch-owner .btn-subscribe {
+    flex: 0 0 auto;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.88rem;
+  }
+
+  .watch-engage {
+    width: 100%;
+  }
+
   .search-result {
     grid-template-columns: minmax(140px, 42vw) minmax(0, 1fr);
     gap: 0.65rem;
