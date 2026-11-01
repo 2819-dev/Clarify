@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito } from "next/font/google";
+import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getContentMode } from "@/lib/content-mode-server";
@@ -8,13 +8,13 @@ import "./globals.css";
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
 });
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${nunito.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <div className="shell">

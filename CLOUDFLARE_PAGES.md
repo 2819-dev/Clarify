@@ -19,12 +19,16 @@ Open the printed OAuth URL, approve, and wait for “Successfully logged in”.
 npm run pages:deploy
 # or:
 npm run pages:build
-npx wrangler pages deploy .pages-out --project-name=clarify
+npx wrangler pages deploy .pages-out --project-name=clarify --branch=main
 ```
 
 Live URL: **https://clarify-1p0.pages.dev/**
 
 Preview/deployment URLs are also printed by `wrangler pages deploy`.
+
+### Static CSS/JS must bypass the Worker
+
+`scripts/prepare-pages-out.mjs` writes `_routes.json` that **excludes** `/_next/static/*` (and other public assets) from `_worker.js`. Pages then serves those files from the CDN. If the Worker handles them instead, CSS/JS 404 and the site renders as unstyled plain text.
 
 ## Secrets / env vars (required)
 

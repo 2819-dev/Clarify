@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --blue-950: #082447;
-  --blue-900: #123a74;
-  --blue-700: #1a5bb3;
-  --blue-500: #3b82d6;
-  --blue-100: #d7e7fb;
-  --gold-700: #9a6414;
-  --gold-600: #c9842a;
-  --gold-400: #e4b45a;
-  --gold-100: #f7e7c4;
-  --ink: #12233a;
-  --ink-soft: #51647e;
-  --paper: #f1f5fb;
-  --paper-deep: #e3edf8;
+  --blue-950: #0c2744;
+  --blue-900: #153a5f;
+  --blue-700: #1f5a8a;
+  --blue-500: #3a7eb0;
+  --blue-100: #e7eef5;
+  --accent: #c45c26;
+  --accent-soft: #f3ebe5;
+  --gold-700: #9a4f1c;
+  --gold-600: var(--accent);
+  --gold-400: #d4895a;
+  --gold-100: var(--accent-soft);
+  --ink: #182230;
+  --ink-soft: #5b6b7c;
+  --paper: #f6f7f9;
+  --paper-deep: #eceff3;
   --white: #ffffff;
   --danger: #b42318;
-  --shadow: 0 18px 44px rgba(8, 36, 71, 0.12);
-  --shadow-soft: 0 10px 28px rgba(8, 36, 71, 0.07);
-  --radius: 1.2rem;
+  --line: rgba(12, 39, 68, 0.1);
+  --shadow: 0 1px 2px rgba(12, 39, 68, 0.05), 0 6px 18px rgba(12, 39, 68, 0.05);
+  --shadow-soft: 0 1px 2px rgba(12, 39, 68, 0.04);
+  --radius: 0.625rem;
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
-  --font-body: var(--font-nunito), "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: var(--font-source-sans), "Source Sans 3", "Avenir Next", sans-serif;
 }
 
 @theme inline {
@@ -43,24 +46,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   background:
-    radial-gradient(1100px 560px at 6% -10%, rgba(58, 128, 214, 0.26), transparent 58%),
-    radial-gradient(820px 480px at 98% -4%, rgba(228, 180, 90, 0.2), transparent 54%),
-    radial-gradient(700px 460px at 72% 108%, rgba(18, 58, 116, 0.09), transparent 56%),
-    linear-gradient(180deg, #eaf2fb 0%, var(--paper) 38%, #e7f0f9 100%);
-  background-attachment: fixed;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-  background-image:
-    radial-gradient(rgba(18, 58, 116, 0.055) 1px, transparent 1px);
-  background-size: 22px 22px;
-  z-index: 0;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 90%);
+    linear-gradient(180deg, #fbfcfd 0%, var(--paper) 28%, var(--paper-deep) 100%);
 }
 
 a {
@@ -71,7 +57,7 @@ a {
 .shell {
   position: relative;
   z-index: 1;
-  width: min(1160px, calc(100% - 2rem));
+  width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -84,16 +70,12 @@ a {
   justify-content: space-between;
   gap: 1rem;
   position: sticky;
-  top: 0.75rem;
+  top: 0;
   z-index: 40;
-  margin-top: 0.85rem;
-  padding: 0.78rem 1.05rem;
-  border-radius: 1.4rem;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(18, 58, 116, 0.08);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(14px) saturate(1.15);
-  animation: rise 0.7s ease both;
+  margin-top: 0;
+  padding: 0.85rem 0;
+  background: color-mix(in srgb, var(--paper) 94%, white);
+  border-bottom: 1px solid var(--line);
 }
 
 .clarify-logo-link,
@@ -106,12 +88,11 @@ a {
 .clarify-mark {
   flex: 0 0 auto;
   display: block;
-  filter: drop-shadow(0 6px 14px rgba(11, 42, 87, 0.18));
-  transition: transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .clarify-logo-link:hover .clarify-mark {
-  transform: translateY(-1px) rotate(-2deg);
+  transform: translateY(-1px);
 }
 
 .clarify-wordmark {
@@ -132,11 +113,11 @@ a {
 
 .content-mode-toggle {
   display: inline-flex;
-  padding: 0.2rem;
-  border-radius: 999px;
-  background: rgba(18, 58, 116, 0.06);
-  border: 1px solid rgba(18, 58, 116, 0.1);
-  gap: 0.15rem;
+  padding: 0.15rem;
+  border-radius: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  gap: 0.1rem;
 }
 
 .content-mode-toggle.is-pending {
@@ -148,11 +129,11 @@ a {
   border: none;
   cursor: pointer;
   font: inherit;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.01em;
-  padding: 0.42rem 0.75rem;
-  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.375rem;
   color: var(--ink-soft);
   background: transparent;
   transition: background 0.15s ease, color 0.15s ease;
@@ -166,7 +147,6 @@ a {
 .content-mode-option.is-active {
   background: var(--blue-950);
   color: var(--white);
-  box-shadow: 0 6px 14px rgba(8, 36, 71, 0.18);
 }
 
 .site-nav {
@@ -175,37 +155,37 @@ a {
   gap: 0.35rem 1rem;
   align-items: center;
   justify-content: flex-end;
-  font-weight: 700;
+  font-weight: 650;
   color: var(--blue-900);
   font-size: 0.95rem;
 }
 
 .site-nav a {
-  padding: 0.35rem 0.2rem;
+  padding: 0.35rem 0.15rem;
   border-bottom: 2px solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
 }
 
 .site-nav a:hover {
   color: var(--blue-700);
-  border-bottom-color: rgba(201, 132, 42, 0.55);
+  border-bottom-color: color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 .site-nav a.is-active {
   color: var(--blue-950);
-  border-bottom-color: var(--gold-600);
+  border-bottom-color: var(--accent);
 }
 
 .nav-quiet {
-  opacity: 0.58;
+  opacity: 0.55;
   font-weight: 600;
 }
 
 .hero {
   display: grid;
-  gap: 1.05rem;
-  padding: 3.5rem 0 2.65rem;
-  animation: rise 0.85s 0.08s ease both;
+  gap: 1rem;
+  padding: 3.25rem 0 2.4rem;
+  animation: rise 0.7s 0.05s ease both;
 }
 
 .hero-brand-lockup {
@@ -219,30 +199,30 @@ a {
 
 .hero-line {
   margin: 0;
-  max-width: 17ch;
+  max-width: 18ch;
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  font-size: clamp(1.45rem, 3vw, 2rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
-  animation: rise 0.9s 0.14s ease both;
+  animation: rise 0.75s 0.1s ease both;
 }
 
 .hero-support {
   margin: 0;
-  max-width: 34ch;
+  max-width: 38ch;
   font-size: 1.05rem;
   line-height: 1.55;
   color: var(--ink-soft);
-  animation: rise 0.95s 0.2s ease both;
+  animation: rise 0.8s 0.15s ease both;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 0.2rem;
+  gap: 0.65rem;
+  margin-top: 0.15rem;
 }
 
 .btn-primary,
@@ -253,21 +233,21 @@ a {
   border: none;
   cursor: pointer;
   font: inherit;
-  font-weight: 800;
-  border-radius: 999px;
-  padding: 0.8rem 1.25rem;
-  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.72rem 1.15rem;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--blue-700), var(--blue-950));
+  background: var(--blue-950);
   color: var(--white);
-  box-shadow: 0 12px 26px rgba(18, 58, 116, 0.2);
 }
 
 .btn-primary:hover {
+  background: var(--blue-900);
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(18, 58, 116, 0.26);
 }
 
 .btn-primary:disabled,
@@ -280,44 +260,44 @@ a {
 }
 
 .btn-secondary {
-  background: var(--gold-100);
+  background: var(--accent-soft);
   color: var(--gold-700);
 }
 
 .btn-secondary:hover {
-  background: #f3dfb4;
+  background: color-mix(in srgb, var(--accent-soft) 70%, white);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--white);
   color: var(--blue-900);
-  border: 1.5px solid rgba(29, 95, 184, 0.2);
+  border: 1px solid var(--line);
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.9);
+  border-color: color-mix(in srgb, var(--blue-700) 35%, var(--line));
 }
 
 .btn-danger {
-  background: #fde8e6;
+  background: #f8e8e6;
   color: var(--danger);
 }
 
 .section {
   padding: 1rem 0 4rem;
-  animation: rise 0.9s 0.16s ease both;
+  animation: rise 0.75s 0.12s ease both;
 }
 
 .section-heading {
   display: grid;
-  gap: 0.35rem;
-  margin-bottom: 1.5rem;
+  gap: 0.3rem;
+  margin-bottom: 1.35rem;
 }
 
 .section-heading h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
   color: var(--blue-950);
 }
 
@@ -334,27 +314,21 @@ a {
 
 .video-tile {
   display: grid;
-  gap: 0.7rem;
-  transition: transform 0.2s ease;
+  gap: 0.65rem;
+  transition: transform 0.18s ease;
 }
 
 .video-tile:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .video-thumb-wrap {
   position: relative;
   overflow: hidden;
-  border-radius: 1.1rem;
+  border-radius: 0.7rem;
   aspect-ratio: 16 / 9;
   background: var(--blue-100);
-  box-shadow: var(--shadow-soft);
-  outline: 1px solid rgba(18, 58, 116, 0.07);
-  transition: box-shadow 0.22s ease, transform 0.22s ease;
-}
-
-.video-tile:hover .video-thumb-wrap {
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
 
 .video-thumb {
@@ -369,20 +343,20 @@ a {
 .video-duration,
 .video-badge {
   position: absolute;
-  right: 0.55rem;
-  bottom: 0.55rem;
-  background: rgba(11, 42, 87, 0.85);
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background: rgba(12, 39, 68, 0.88);
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.15rem 0.4rem;
-  border-radius: 0.4rem;
+  padding: 0.12rem 0.38rem;
+  border-radius: 0.3rem;
 }
 
 .video-badge {
-  left: 0.55rem;
+  left: 0.5rem;
   right: auto;
-  background: linear-gradient(135deg, var(--blue-700), var(--blue-950));
+  background: var(--blue-950);
 }
 
 .video-tile.is-short .video-thumb-wrap {
@@ -397,18 +371,18 @@ a {
 .format-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
   margin: 0 0 1rem;
 }
 
 .format-tab {
-  padding: 0.45rem 0.95rem;
-  border-radius: 999px;
-  font-weight: 800;
+  padding: 0.42rem 0.85rem;
+  border-radius: 0.45rem;
+  font-weight: 700;
   font-size: 0.9rem;
   color: var(--blue-900);
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(29, 95, 184, 0.14);
+  background: var(--white);
+  border: 1px solid var(--line);
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -421,7 +395,7 @@ a {
 
 .video-tile-main {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.45rem;
 }
 
 .video-title {
@@ -434,13 +408,13 @@ a {
 .video-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.75rem;
+  gap: 0.35rem 0.7rem;
   align-items: center;
 }
 
 .video-channel {
   margin: 0;
-  color: var(--gold-600);
+  color: var(--accent);
   font-size: 0.92rem;
   font-weight: 700;
 }
@@ -450,12 +424,12 @@ a {
 }
 
 .video-category {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--blue-900);
-  background: rgba(29, 95, 184, 0.1);
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
+  background: var(--blue-100);
+  padding: 0.12rem 0.45rem;
+  border-radius: 0.35rem;
 }
 
 .catalog-search {
@@ -467,46 +441,40 @@ a {
 
 .catalog-search input {
   flex: 1 1 220px;
-  border: 1.5px solid rgba(29, 95, 184, 0.16);
-  border-radius: 999px;
-  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
   font: inherit;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--white);
   color: var(--ink);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .catalog-search input:focus {
   outline: none;
-  border-color: rgba(26, 91, 179, 0.45);
-  box-shadow: 0 0 0 3px rgba(26, 91, 179, 0.14);
+  border-color: color-mix(in srgb, var(--blue-700) 45%, var(--line));
+  box-shadow: 0 0 0 3px rgba(31, 90, 138, 0.12);
 }
 
 .category-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0 0 1.4rem;
+  gap: 0.4rem;
+  margin: 0 0 1.35rem;
 }
 
 .category-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.42rem 0.82rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(29, 95, 184, 0.12);
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.45rem;
+  background: var(--white);
+  border: 1px solid var(--line);
   color: var(--blue-900);
   font-weight: 700;
   font-size: 0.88rem;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease,
-    transform 0.15s ease;
-}
-
-.category-chip:hover {
-  transform: translateY(-1px);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .category-chip.is-active,
@@ -527,11 +495,11 @@ a {
 
 .eyebrow {
   margin: 0;
-  color: var(--gold-600);
-  font-weight: 800;
+  color: var(--accent);
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
 }
 
 .entity-grid {
@@ -542,23 +510,24 @@ a {
 
 .entity-tile {
   display: grid;
-  gap: 0.45rem;
-  padding: 1.1rem 1.15rem;
+  gap: 0.4rem;
+  padding: 1.05rem 1.1rem;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(29, 95, 184, 0.12);
-  transition: transform 0.18s ease;
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
 .entity-tile:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--blue-700) 28%, var(--line));
 }
 
 .entity-tile h3 {
   margin: 0;
   font-family: var(--font-display);
   color: var(--blue-950);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .entity-tile p {
@@ -570,7 +539,7 @@ a {
 
 .entity-count {
   color: var(--blue-700);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.88rem;
 }
 
@@ -586,29 +555,27 @@ a {
 .channel-directory {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.15rem;
+  gap: 1.1rem;
 }
 
 .channel-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(29, 95, 184, 0.12);
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.85rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .channel-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 
 .channel-card-banner {
-  height: 108px;
-  background:
-    linear-gradient(135deg, var(--blue-900), var(--blue-700) 55%, var(--gold-600));
+  height: 100px;
+  background: var(--blue-900);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -618,19 +585,15 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 39, 79, 0.15),
-    rgba(10, 39, 79, 0.45)
-  );
+  background: linear-gradient(180deg, transparent, rgba(12, 39, 68, 0.28));
 }
 
 .channel-card-body {
   display: grid;
   grid-template-columns: 72px 1fr;
   gap: 0.85rem;
-  padding: 0 1rem 1.05rem;
-  margin-top: -2rem;
+  padding: 0 1rem 1rem;
+  margin-top: -1.85rem;
   position: relative;
   z-index: 1;
   align-items: end;
@@ -638,8 +601,8 @@ a {
 
 .channel-card-copy {
   display: grid;
-  gap: 0.3rem;
-  padding-top: 2.1rem;
+  gap: 0.28rem;
+  padding-top: 2rem;
   min-width: 0;
 }
 
@@ -647,7 +610,7 @@ a {
   margin: 0;
   font-family: var(--font-display);
   color: var(--blue-950);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   line-height: 1.2;
 }
 
@@ -667,7 +630,7 @@ a {
   flex-wrap: wrap;
   gap: 0.35rem;
   color: var(--blue-700);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.82rem;
 }
 
@@ -677,8 +640,7 @@ a {
   border-radius: 50%;
   object-fit: cover;
   background: var(--blue-100);
-  border: 3px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 20px rgba(11, 42, 87, 0.12);
+  border: 3px solid var(--white);
 }
 
 .channel-avatar.lg {
@@ -694,13 +656,12 @@ a {
 
 .channel-avatar.placeholder {
   display: inline-block;
-  background:
-    radial-gradient(circle at 30% 30%, var(--gold-400), var(--blue-700));
+  background: var(--blue-700);
 }
 
 .channel-page {
   padding: 1.25rem 0 3rem;
-  animation: rise 0.7s ease both;
+  animation: rise 0.6s ease both;
 }
 
 .channel-profile {
@@ -708,45 +669,36 @@ a {
 }
 
 .channel-banner {
-  height: clamp(148px, 24vw, 236px);
-  border-radius: 1.45rem;
-  background:
-    linear-gradient(135deg, var(--blue-950), var(--blue-700) 50%, var(--gold-600));
+  height: clamp(148px, 24vw, 220px);
+  border-radius: 0.9rem;
+  background: var(--blue-950);
   background-size: cover;
   background-position: center;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  animation: rise 0.75s ease both;
 }
 
 .channel-banner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      105deg,
-      rgba(10, 39, 79, 0.55) 0%,
-      rgba(10, 39, 79, 0.2) 45%,
-      rgba(228, 180, 90, 0.18) 100%
-    );
+  background: linear-gradient(180deg, transparent 40%, rgba(12, 39, 68, 0.35));
 }
 
 .channel-profile-main {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.15rem;
+  gap: 1.1rem;
   align-items: end;
-  margin-top: -3.25rem;
-  padding: 0 0.85rem;
+  margin-top: -3rem;
+  padding: 0 0.75rem;
   position: relative;
   z-index: 1;
 }
 
 .channel-profile-copy {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.35rem;
   padding-bottom: 0.15rem;
   min-width: 0;
 }
@@ -754,7 +706,7 @@ a {
 .channel-display-name {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.5vw, 2.55rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   color: var(--blue-950);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -765,7 +717,7 @@ a {
   flex-wrap: wrap;
   gap: 0.4rem;
   color: var(--blue-700);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.92rem;
 }
 
@@ -778,7 +730,7 @@ a {
 }
 
 .channel-profile-actions {
-  margin-top: 0.55rem;
+  margin-top: 0.5rem;
 }
 
 .channel-videos {
@@ -793,22 +745,20 @@ a {
   margin-bottom: 1.25rem;
 }
 
-/* YouTube-like channel profile */
 .channel-yt {
   width: 100vw;
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding-bottom: 3.25rem;
-  animation: rise 0.7s ease both;
+  animation: rise 0.6s ease both;
   overflow-x: clip;
 }
 
 .channel-yt-banner {
   width: 100%;
-  height: clamp(128px, 18vw, 228px);
-  background:
-    linear-gradient(135deg, var(--blue-950), var(--blue-700) 52%, var(--gold-600));
+  height: clamp(128px, 18vw, 220px);
+  background: var(--blue-950);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -818,11 +768,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 55%,
-    rgba(8, 36, 71, 0.18) 100%
-  );
+  background: linear-gradient(180deg, transparent 60%, rgba(12, 39, 68, 0.16));
   pointer-events: none;
 }
 
@@ -836,7 +782,7 @@ a {
   grid-template-columns: auto 1fr auto;
   gap: 1.15rem 1.4rem;
   align-items: center;
-  margin-top: -3.4rem;
+  margin-top: -3.25rem;
   position: relative;
   z-index: 2;
   padding-bottom: 0.85rem;
@@ -849,27 +795,25 @@ a {
   object-fit: cover;
   background: var(--blue-100);
   border: 4px solid var(--white);
-  box-shadow: 0 10px 28px rgba(8, 36, 71, 0.18);
   flex-shrink: 0;
 }
 
 .channel-yt-avatar.placeholder {
   display: inline-block;
-  background:
-    radial-gradient(circle at 30% 30%, var(--gold-400), var(--blue-700));
+  background: var(--blue-700);
 }
 
 .channel-yt-identity-copy {
   display: grid;
-  gap: 0.28rem;
+  gap: 0.25rem;
   min-width: 0;
-  padding-top: 2.6rem;
+  padding-top: 2.5rem;
 }
 
 .channel-yt-name {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
   color: var(--blue-950);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -882,12 +826,12 @@ a {
   align-items: center;
   color: var(--ink-soft);
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 650;
 }
 
 .channel-yt-handle {
   color: var(--ink-soft);
-  font-weight: 700;
+  font-weight: 650;
 }
 
 .channel-yt-snippet {
@@ -904,7 +848,7 @@ a {
 
 .channel-yt-more {
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -918,7 +862,7 @@ a {
   gap: 0.55rem;
   align-items: center;
   justify-content: flex-end;
-  padding-top: 2.6rem;
+  padding-top: 2.5rem;
 }
 
 .btn-subscribe {
@@ -929,23 +873,23 @@ a {
   border: none;
   cursor: pointer;
   font: inherit;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.95rem;
-  border-radius: 999px;
-  padding: 0.65rem 1.2rem;
-  background: #0f0f0f;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  background: var(--blue-950);
   color: #fff;
   text-decoration: none;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .btn-subscribe:hover {
-  background: #272727;
+  background: var(--blue-900);
   transform: translateY(-1px);
 }
 
 .btn-subscribe.is-soft {
-  background: rgba(15, 15, 15, 0.08);
+  background: var(--paper-deep);
   color: var(--ink);
   cursor: default;
 }
@@ -954,7 +898,7 @@ a {
   display: flex;
   gap: 0.15rem;
   margin: 0.35rem 0 0;
-  border-bottom: 1px solid rgba(18, 58, 116, 0.12);
+  border-bottom: 1px solid var(--line);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -966,7 +910,7 @@ a {
 .channel-yt-tab {
   flex: 0 0 auto;
   padding: 0.85rem 1.05rem 0.75rem;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.95rem;
   color: var(--ink-soft);
   border-bottom: 3px solid transparent;
@@ -1004,14 +948,14 @@ a {
 .channel-shelf-head h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--blue-950);
   letter-spacing: -0.01em;
 }
 
 .channel-shelf-more {
   color: var(--blue-700);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.88rem;
 }
 
@@ -1038,7 +982,7 @@ a {
   aspect-ratio: 9 / 16;
   max-height: none;
   height: 250px;
-  border-radius: 0.85rem;
+  border-radius: 0.65rem;
 }
 
 .channel-shorts-row .video-title {
@@ -1077,7 +1021,7 @@ a {
   display: grid;
   gap: 0.65rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(18, 58, 116, 0.1);
+  border-top: 1px solid var(--line);
 }
 
 .channel-yt-about-stats > div {
@@ -1091,12 +1035,12 @@ a {
   margin: 0;
   color: var(--ink-soft);
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 650;
 }
 
 .channel-yt-about-stats dd {
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ink);
 }
 
@@ -1122,18 +1066,18 @@ a {
 
 .watch-category a {
   color: var(--blue-700);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .watch-short-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(26, 91, 179, 0.12);
+  padding: 0.18rem 0.5rem;
+  border-radius: 0.35rem;
+  background: var(--blue-100);
   color: var(--blue-900);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .watch-layout.is-short {
@@ -1165,7 +1109,7 @@ a {
 
   .content-mode-option {
     font-size: 0.72rem;
-    padding: 0.38rem 0.62rem;
+    padding: 0.35rem 0.55rem;
   }
 
   .channel-profile-main,
@@ -1176,7 +1120,7 @@ a {
   }
 
   .channel-profile-main {
-    margin-top: -2.5rem;
+    margin-top: -2.4rem;
     justify-items: start;
   }
 
@@ -1191,7 +1135,7 @@ a {
 
   .channel-yt-identity {
     grid-template-columns: auto 1fr;
-    margin-top: -2.4rem;
+    margin-top: -2.3rem;
   }
 
   .channel-yt-identity-copy {
@@ -1215,7 +1159,7 @@ a {
   display: grid;
   gap: 1.25rem;
   padding: 1.5rem 0 3.5rem;
-  animation: rise 0.7s ease both;
+  animation: rise 0.6s ease both;
 }
 
 .player-frame {
@@ -1223,16 +1167,16 @@ a {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 1.2rem;
+  border-radius: 0.75rem;
   background: var(--blue-950);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
 
 .player-frame.is-short {
   width: min(100%, 360px);
   aspect-ratio: 9 / 16;
   margin-inline: auto;
-  border-radius: 1.35rem;
+  border-radius: 0.85rem;
 }
 
 .player-frame iframe,
@@ -1249,20 +1193,15 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(228, 180, 90, 0.2), transparent 45%),
-    linear-gradient(135deg, rgba(18, 58, 116, 0.35), transparent);
+  background: color-mix(in srgb, var(--blue-950) 88%, white);
   pointer-events: none;
-  animation: pulse-orb 2.4s ease-in-out infinite;
+  opacity: 0.35;
 }
 
 .clarify-unavailable {
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(228, 180, 90, 0.3), transparent 42%),
-    radial-gradient(circle at 88% 78%, rgba(61, 130, 214, 0.28), transparent 46%),
-    linear-gradient(155deg, #0f2f63 0%, #123a74 52%, #0a274f 100%);
+  background: var(--blue-950);
   color: white;
   padding: 1.75rem;
 }
@@ -1277,7 +1216,7 @@ a {
 .clarify-unavailable h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
   line-height: 1.18;
   color: #fff;
 }
@@ -1291,19 +1230,25 @@ a {
 
 .clarify-unavailable .btn-primary {
   margin-top: 0.25rem;
+  background: var(--white);
+  color: var(--blue-950);
+}
+
+.clarify-unavailable .btn-primary:hover {
+  background: var(--blue-100);
 }
 
 .watch-copy h1 {
   margin: 0.2rem 0 0.4rem;
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
   color: var(--blue-950);
 }
 
 .watch-copy .channel {
   margin: 0;
-  color: var(--gold-600);
-  font-weight: 800;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .watch-copy .desc {
@@ -1324,15 +1269,14 @@ a {
   width: min(100%, 420px);
   padding: 1rem 1.1rem 1.1rem;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(29, 95, 184, 0.15);
-  box-shadow: var(--shadow);
+  background: var(--white);
+  border: 1px solid var(--line);
 }
 
 .report-panel h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--blue-950);
 }
 
@@ -1346,9 +1290,9 @@ a {
 .report-form textarea,
 .admin-login-form input {
   width: 100%;
-  border: 1.5px solid rgba(29, 95, 184, 0.2);
-  border-radius: 0.9rem;
-  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.9rem;
   font: inherit;
   background: white;
   color: var(--ink);
@@ -1357,7 +1301,7 @@ a {
 
 .report-form textarea:focus,
 .admin-login-form input:focus {
-  outline: 2px solid rgba(29, 95, 184, 0.35);
+  outline: 2px solid rgba(31, 90, 138, 0.28);
   outline-offset: 1px;
 }
 
@@ -1380,13 +1324,13 @@ a {
   display: grid;
   gap: 1.1rem;
   padding: 2rem 0 4rem;
-  animation: rise 0.7s ease both;
+  animation: rise 0.6s ease both;
 }
 
 .admin-shell h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.9rem, 4vw, 2.55rem);
   color: var(--blue-950);
   letter-spacing: -0.03em;
 }
@@ -1405,7 +1349,7 @@ a {
 }
 
 .admin-login-form label {
-  font-weight: 800;
+  font-weight: 700;
   color: var(--blue-900);
 }
 
@@ -1428,15 +1372,15 @@ a {
   gap: 1rem;
   padding: 1rem;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(29, 95, 184, 0.12);
+  background: var(--white);
+  border: 1px solid var(--line);
 }
 
 .report-item img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .report-item h3 {
@@ -1470,7 +1414,7 @@ a {
   padding: 2.25rem 0 2.75rem;
   color: var(--ink-soft);
   font-size: 0.92rem;
-  border-top: 1px solid rgba(18, 58, 116, 0.08);
+  border-top: 1px solid var(--line);
 }
 
 .site-footer p {
@@ -1494,21 +1438,11 @@ a {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes pulse-orb {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
   }
 }
 
@@ -1518,6 +1452,6 @@ a {
   }
 
   .hero {
-    padding-top: 2.4rem;
+    padding-top: 2.25rem;
   }
 }
