@@ -25,8 +25,7 @@ export default async function CategoriesIndexPage() {
         <div>
           <h1 className="yt-home-title">Categories</h1>
           <p className="yt-home-sub">
-            Browse {contentModeLabel(mode).toLowerCase()} by theme — like
-            YouTube topics, curated for Clarify.
+            Browse {contentModeLabel(mode)} videos by theme.
           </p>
         </div>
       </div>
