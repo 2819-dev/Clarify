@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { ModeratorMenu } from "@/components/ModeratorMenu";
+import { useCanModerate } from "@/components/ModerationContext";
 import type { VideoComment } from "@/lib/engagement";
 
 export function CommentSection({
@@ -16,6 +18,7 @@ export function CommentSection({
 }) {
   const router = useRouter();
   const pathname = usePathname() || "/";
+  const canModerate = useCanModerate();
   const [comments, setComments] = useState(initialComments);
   const [body, setBody] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -96,7 +99,21 @@ export function CommentSection({
         <ul className="comment-list">
           {comments.map((comment) => (
             <li key={comment.id} className="comment-item">
-              <p className="comment-author">{comment.display_name}</p>
+              <div className="comment-item-head">
+                <p className="comment-author">{comment.display_name}</p>
+                {canModerate ? (
+                  <ModeratorMenu
+                    target="comment"
+                    commentId={comment.id}
+                    label={comment.display_name}
+                    onDone={() =>
+                      setComments((prev) =>
+                        prev.filter((c) => c.id !== comment.id),
+                      )
+                    }
+                  />
+                ) : null}
+              </div>
               <p className="comment-body">{comment.body}</p>
               <p className="comment-when">
                 {new Date(comment.created_at).toLocaleString()}

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
+import { ModerationProvider } from "@/components/ModerationContext";
 import { PrefsHydrator } from "@/components/PrefsHydrator";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteSidebar } from "@/components/SiteSidebar";
 import { listCategories } from "@/lib/categories";
 import { getContentMode } from "@/lib/content-mode-server";
+import { isAdminAccountEmail } from "@/lib/admin-email";
 import { listSubscribedChannels } from "@/lib/engagement";
 import { getCurrentUser } from "@/lib/user-auth";
 import "./globals.css";
@@ -38,6 +40,7 @@ export const dynamic = "force-dynamic";
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const contentMode = await getContentMode();
   const user = await getCurrentUser();
+  const canModerate = isAdminAccountEmail(user?.email);
   const [categories, subscribedChannels] = await Promise.all([
     listCategories(contentMode),
     user
@@ -52,31 +55,40 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <PrefsHydrator />
-        <div className="yt-app">
-          <SiteHeader initialMode={contentMode} user={user} />
-          <div className="yt-body">
-            <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
-              <SiteSidebar
-                categories={categories}
-                subscribedChannels={subscribedChannels}
-                signedIn={Boolean(user)}
-              />
-            </Suspense>
-            <div className="yt-main">
-              <main className="yt-main-inner">{children}</main>
-              <footer className="site-footer">
-                <ClarifyLogo size="sm" href="/" />
-                <p>
-                  Clarify keeps a hand-curated catalog. Made by{" "}
-                  <a href="https://guidelearning.org" rel="noopener noreferrer">
-                    Guide
-                  </a>
-                  . Spot something off? Use Report.
-                </p>
-              </footer>
+        <ModerationProvider canModerate={canModerate}>
+          <div className="yt-app">
+            <SiteHeader
+              initialMode={contentMode}
+              user={user}
+              showAdminKey={canModerate}
+            />
+            <div className="yt-body">
+              <Suspense fallback={<aside className="yt-sidebar" aria-hidden />}>
+                <SiteSidebar
+                  categories={categories}
+                  subscribedChannels={subscribedChannels}
+                  signedIn={Boolean(user)}
+                />
+              </Suspense>
+              <div className="yt-main">
+                <main className="yt-main-inner">{children}</main>
+                <footer className="site-footer">
+                  <ClarifyLogo size="sm" href="/" />
+                  <p>
+                    Clarify keeps a hand-curated catalog. Made by{" "}
+                    <a
+                      href="https://guidelearning.org"
+                      rel="noopener noreferrer"
+                    >
+                      Guide
+                    </a>
+                    . Spot something off? Use Report.
+                  </p>
+                </footer>
+              </div>
             </div>
           </div>
-        </div>
+        </ModerationProvider>
       </body>
     </html>
   );

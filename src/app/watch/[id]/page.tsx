@@ -5,6 +5,7 @@ import { LikeButton } from "@/components/LikeButton";
 import { ReportForm } from "@/components/ReportForm";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { WatchActivityTracker } from "@/components/WatchActivityTracker";
+import { WatchModActions } from "@/components/WatchModActions";
 import { YoutubePlayer } from "@/components/YoutubePlayer";
 import {
   getVideoLikeState,
@@ -81,6 +82,12 @@ export default async function WatchPage({
               signedIn={Boolean(user)}
             />
           ) : null}
+          <WatchModActions
+            videoId={video.id}
+            videoTitle={video.title}
+            channelSlug={video.channel_slug}
+            channelName={video.channel_name}
+          />
         </div>
         {video.description ? <p className="desc">{video.description}</p> : null}
       </div>

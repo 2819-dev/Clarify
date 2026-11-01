@@ -1,5 +1,8 @@
 import { cookies } from "next/headers";
 import { createHmac, timingSafeEqual } from "crypto";
+import { ADMIN_ACCOUNT_EMAIL, isAdminAccountEmail } from "./admin-email";
+import { getCurrentUser, getUserByEmail } from "./user-auth";
+import { verifyTotpCode } from "./totp";
 
 const COOKIE_NAME = "clarify_admin_session";
 const MAX_AGE_SECONDS = 60 * 60 * 12; // 12 hours
@@ -84,6 +87,8 @@ export async function clearAdminSession() {
 }
 
 export async function isAdminAuthenticated(): Promise<boolean> {
+  const user = await getCurrentUser();
+  if (!isAdminAccountEmail(user?.email)) return false;
   const jar = await cookies();
   const token = jar.get(COOKIE_NAME)?.value;
   if (!token) return false;
@@ -92,4 +97,43 @@ export async function isAdminAuthenticated(): Promise<boolean> {
   } catch {
     return false;
   }
+}
+
+/** Signed-in admin-account user may open /admin/login (key icon). */
+export async function canAccessAdminLogin(): Promise<boolean> {
+  const user = await getCurrentUser();
+  return isAdminAccountEmail(user?.email);
+}
+
+export async function adminAccountRequiresTotp(): Promise<boolean> {
+  const row = await getUserByEmail(ADMIN_ACCOUNT_EMAIL);
+  return Boolean(row?.totp_enabled && row.totp_secret);
+}
+
+export async function elevateToAdmin(input: {
+  password: string;
+  totpCode?: string;
+}): Promise<{ ok: true } | { ok: false; error: string; needsTotp?: boolean }> {
+  const user = await getCurrentUser();
+  if (!isAdminAccountEmail(user?.email)) {
+    return { ok: false, error: "Admin access is limited to the Guide account." };
+  }
+  if (!passwordsMatch(input.password)) {
+    return { ok: false, error: "Incorrect password" };
+  }
+  const row = await getUserByEmail(ADMIN_ACCOUNT_EMAIL);
+  if (row?.totp_enabled && row.totp_secret) {
+    if (!input.totpCode) {
+      return {
+        ok: false,
+        error: "Enter your authenticator code.",
+        needsTotp: true,
+      };
+    }
+    if (!verifyTotpCode(row.totp_secret, input.totpCode, row.email)) {
+      return { ok: false, error: "Invalid authenticator code.", needsTotp: true };
+    }
+  }
+  await createAdminSession();
+  return { ok: true };
 }

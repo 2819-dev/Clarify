@@ -21,7 +21,8 @@ export async function listChannels(mode?: ContentMode): Promise<Channel[]> {
        ${!onlyJewish}::boolean
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
-    WHERE (
+    WHERE COALESCE(ch.is_active, TRUE) = TRUE
+      AND (
       ${!onlyJewish}::boolean
       OR COALESCE(ch.is_jewish, TRUE) = TRUE
       OR EXISTS (
@@ -66,6 +67,7 @@ export async function listChannelsBySlugs(
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
     WHERE ch.slug = ANY(${normalized})
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     GROUP BY ch.id
     HAVING COUNT(v.id) > 0
   `;
@@ -93,6 +95,7 @@ export async function getChannel(
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
     WHERE ch.slug = ${slug}
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     GROUP BY ch.id
     LIMIT 1
   `;

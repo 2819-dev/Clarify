@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { authenticateUser, createUserSession } from "@/lib/user-auth";
+import {
+  authenticateUser,
+  createPending2fa,
+  createUserSession,
+} from "@/lib/user-auth";
 
 const schema = z.object({
   email: z.string().email(),
@@ -27,8 +31,22 @@ export async function POST(request: Request) {
         { status: 401 },
       );
     }
+    if (user.totp_enabled && user.totp_secret) {
+      await createPending2fa(user.id);
+      return NextResponse.json({
+        requires2fa: true,
+        email: user.email,
+      });
+    }
     await createUserSession(user.id);
-    return NextResponse.json({ user });
+    return NextResponse.json({
+      user: {
+        id: user.id,
+        email: user.email,
+        display_name: user.display_name,
+        totp_enabled: user.totp_enabled,
+      },
+    });
   } catch {
     return NextResponse.json({ error: "Could not sign in." }, { status: 500 });
   }

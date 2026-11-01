@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChannelModActions } from "@/components/ChannelModActions";
 import { ChannelTabs, type ChannelTab } from "@/components/ChannelTabs";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { VideoTile } from "@/components/VideoTile";
@@ -182,6 +183,10 @@ export default async function ChannelPage({
             <Link href="/channels" className="btn-ghost">
               All channels
             </Link>
+            <ChannelModActions
+              channelSlug={channel.slug}
+              channelName={channel.name}
+            />
           </div>
         </div>
 

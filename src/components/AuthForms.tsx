@@ -8,6 +8,8 @@ export function SignInForm({ nextPath = "/" }: { nextPath?: string }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [totpCode, setTotpCode] = useState("");
+  const [requires2fa, setRequires2fa] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
@@ -16,6 +18,22 @@ export function SignInForm({ nextPath = "/" }: { nextPath?: string }) {
     setPending(true);
     setError(null);
     try {
+      if (requires2fa) {
+        const res = await fetch("/api/auth/2fa/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code: totpCode }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || "Could not verify code.");
+          return;
+        }
+        router.replace(nextPath || "/");
+        router.refresh();
+        return;
+      }
+
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -24,6 +42,10 @@ export function SignInForm({ nextPath = "/" }: { nextPath?: string }) {
       const data = await res.json();
       if (!res.ok) {
         setError(data.error || "Could not sign in.");
+        return;
+      }
+      if (data.requires2fa) {
+        setRequires2fa(true);
         return;
       }
       router.replace(nextPath || "/");
@@ -37,32 +59,76 @@ export function SignInForm({ nextPath = "/" }: { nextPath?: string }) {
 
   return (
     <form className="auth-form" onSubmit={onSubmit}>
-      <label htmlFor="signin-email">Email</label>
-      <input
-        id="signin-email"
-        type="email"
-        autoComplete="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label htmlFor="signin-password">Password</label>
-      <input
-        id="signin-password"
-        type="password"
-        autoComplete="current-password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      {!requires2fa ? (
+        <>
+          <label htmlFor="signin-email">Email</label>
+          <input
+            id="signin-email"
+            type="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="signin-password">Password</label>
+          <input
+            id="signin-password"
+            type="password"
+            autoComplete="current-password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </>
+      ) : (
+        <>
+          <p className="auth-hint">
+            Enter the 6-digit code from your authenticator app
+            {email ? ` for ${email}` : ""}.
+          </p>
+          <label htmlFor="signin-totp">Authenticator code</label>
+          <input
+            id="signin-totp"
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="[0-9 ]*"
+            maxLength={8}
+            required
+            value={totpCode}
+            onChange={(e) => setTotpCode(e.target.value)}
+            autoFocus
+          />
+        </>
+      )}
       {error ? <p className="form-error">{error}</p> : null}
       <div className="auth-actions">
         <button type="submit" className="btn-primary" disabled={pending}>
-          {pending ? "Signing in…" : "Sign in"}
+          {pending
+            ? requires2fa
+              ? "Verifying…"
+              : "Signing in…"
+            : requires2fa
+              ? "Verify code"
+              : "Sign in"}
         </button>
-        <Link href={`/signup?next=${encodeURIComponent(nextPath)}`}>
-          Create account
-        </Link>
+        {requires2fa ? (
+          <button
+            type="button"
+            className="user-menu-link"
+            onClick={() => {
+              setRequires2fa(false);
+              setTotpCode("");
+              setError(null);
+            }}
+          >
+            Back
+          </button>
+        ) : (
+          <Link href={`/signup?next=${encodeURIComponent(nextPath)}`}>
+            Create account
+          </Link>
+        )}
       </div>
     </form>
   );
@@ -134,7 +200,10 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <p className="auth-hint">At least 8 characters.</p>
+      <p className="auth-hint">
+        At least 8 characters. You can turn on authenticator 2FA after signing
+        up under Account → Security.
+      </p>
       {error ? <p className="form-error">{error}</p> : null}
       <div className="auth-actions">
         <button type="submit" className="btn-primary" disabled={pending}>

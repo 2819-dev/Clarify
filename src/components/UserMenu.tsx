@@ -27,6 +27,9 @@ export function UserMenu({
       <span className="user-menu-name" title={user.email}>
         {user.display_name || user.email}
       </span>
+      <Link href="/account/security" className="user-menu-link">
+        Security
+      </Link>
       <button
         type="button"
         className="user-menu-link"

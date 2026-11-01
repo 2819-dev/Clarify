@@ -34,6 +34,7 @@ export async function listSubscribedChannels(
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
     WHERE s.user_id = ${userId}::uuid
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     GROUP BY ch.id, s.created_at
     HAVING COUNT(v.id) > 0
     ORDER BY s.created_at DESC
