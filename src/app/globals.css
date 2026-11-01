@@ -308,18 +308,18 @@ a {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.75rem 1.35rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem 1rem;
 }
 
 .video-tile {
   display: grid;
-  gap: 0.55rem;
-  transition: transform 0.18s ease;
+  gap: 0.4rem;
+  transition: transform 0.15s ease;
 }
 
 .video-tile:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .video-thumb-wrap {
@@ -411,10 +411,8 @@ a {
 }
 
 .video-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
-  align-items: center;
+  display: grid;
+  gap: 0.15rem;
 }
 
 .video-channel {
@@ -425,6 +423,25 @@ a {
 }
 
 .video-channel:hover {
+  color: var(--blue-700);
+}
+
+.video-submeta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+  align-items: center;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.video-handle {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.video-handle:hover {
   color: var(--blue-700);
 }
 
@@ -1244,16 +1261,48 @@ a {
 }
 
 .watch-copy h1 {
-  margin: 0.2rem 0 0.4rem;
+  margin: 0 0 0.35rem;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
   color: var(--blue-950);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.watch-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.65rem;
+  margin-bottom: 0.35rem;
 }
 
 .watch-copy .channel {
   margin: 0;
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.watch-handle,
+.watch-when {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.watch-handle:hover {
+  color: var(--blue-700);
+}
+
+.mention-link,
+.comment-handle {
+  color: var(--blue-700);
+  font-weight: 650;
+}
+
+.mention-link:hover,
+.comment-handle:hover {
+  text-decoration: underline;
 }
 
 .watch-copy .desc {
@@ -1729,6 +1778,11 @@ a {
   padding-top: 0.35rem;
 }
 
+.yt-home-meta.is-minimal {
+  padding-top: 0;
+  margin-bottom: -0.15rem;
+}
+
 .yt-home-title {
   margin: 0;
   font-family: var(--font-display);
@@ -1746,8 +1800,8 @@ a {
 
 .yt-shelves {
   display: grid;
-  gap: 2.25rem;
-  margin-top: 0.5rem;
+  gap: 1.65rem;
+  margin-top: 0.25rem;
 }
 
 .yt-shelf-head {
@@ -1755,7 +1809,7 @@ a {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 0.95rem;
+  margin-bottom: 0.7rem;
 }
 
 .yt-shelf-title {

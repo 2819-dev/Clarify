@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { CommentBody } from "@/components/CommentBody";
 import { ModeratorMenu } from "@/components/ModeratorMenu";
 import { useCanModerate } from "@/components/ModerationContext";
 import type { VideoComment } from "@/lib/engagement";
+import { formatAt } from "@/lib/usernames";
 
 export function CommentSection({
   videoId,
@@ -100,7 +102,14 @@ export function CommentSection({
           {comments.map((comment) => (
             <li key={comment.id} className="comment-item">
               <div className="comment-item-head">
-                <p className="comment-author">{comment.display_name}</p>
+                <div>
+                  <p className="comment-author">{comment.display_name}</p>
+                  {comment.username ? (
+                    <a href={`/@${comment.username}`} className="comment-handle">
+                      {formatAt(comment.username)}
+                    </a>
+                  ) : null}
+                </div>
                 {canModerate ? (
                   <ModeratorMenu
                     target="comment"
@@ -114,7 +123,7 @@ export function CommentSection({
                   />
                 ) : null}
               </div>
-              <p className="comment-body">{comment.body}</p>
+              <CommentBody text={comment.body} />
               <p className="comment-when">
                 {new Date(comment.created_at).toLocaleString()}
               </p>

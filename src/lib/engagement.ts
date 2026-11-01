@@ -1,3 +1,4 @@
+import { moderateText } from "./automod";
 import { getSql, type Channel } from "./db";
 
 export async function listSubscribedChannelSlugs(
@@ -9,6 +10,7 @@ export async function listSubscribedChannelSlugs(
     FROM subscriptions s
     INNER JOIN channels ch ON ch.id = s.channel_id
     WHERE s.user_id = ${userId}::uuid
+      AND COALESCE(ch.is_active, TRUE) = TRUE
     ORDER BY s.created_at DESC
   `;
   return (rows as { slug: string }[]).map((r) => r.slug);
@@ -22,7 +24,7 @@ export async function listSubscribedChannels(
   const rows = await sql`
     SELECT ch.id, ch.slug, ch.name, ch.description, ch.youtube_url,
            ch.avatar_url, ch.banner_url, ch.subscriber_count,
-           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.created_at,
+           COALESCE(ch.is_jewish, TRUE) AS is_jewish, ch.username, ch.created_at,
            COUNT(v.id)::int AS video_count
     FROM subscriptions s
     INNER JOIN channels ch ON ch.id = s.channel_id
@@ -136,16 +138,28 @@ export type VideoComment = {
   body: string;
   created_at: string;
   display_name: string;
+  username: string | null;
   user_id: string;
+  is_hidden?: boolean;
+  automod_flag?: string | null;
 };
 
-export async function listComments(videoId: string): Promise<VideoComment[]> {
+export async function listComments(
+  videoId: string,
+  opts?: { includeHidden?: boolean },
+): Promise<VideoComment[]> {
   const sql = getSql();
+  const includeHidden = Boolean(opts?.includeHidden);
   const rows = await sql`
-    SELECT c.id, c.body, c.created_at, c.user_id, u.display_name
+    SELECT c.id, c.body, c.created_at, c.user_id, u.display_name, u.username,
+           COALESCE(c.is_hidden, FALSE) AS is_hidden, c.automod_flag
     FROM video_comments c
     INNER JOIN users u ON u.id = c.user_id
     WHERE c.video_id = ${videoId}::uuid
+      AND (
+        ${includeHidden}::boolean
+        OR COALESCE(c.is_hidden, FALSE) = FALSE
+      )
     ORDER BY c.created_at DESC
     LIMIT 100
   `;
@@ -156,27 +170,47 @@ export async function addComment(
   userId: string,
   videoId: string,
   body: string,
-): Promise<VideoComment> {
+): Promise<VideoComment & { automod_hidden?: boolean }> {
   const trimmed = body.trim();
   if (!trimmed) throw new Error("Comment cannot be empty.");
   if (trimmed.length > 2000) throw new Error("Comment is too long.");
+  const verdict = moderateText(trimmed);
+  const hidden = !verdict.ok;
+  const flag = verdict.ok ? null : verdict.flag;
   const sql = getSql();
   const rows = await sql`
-    INSERT INTO video_comments (user_id, video_id, body)
-    VALUES (${userId}::uuid, ${videoId}::uuid, ${trimmed})
-    RETURNING id, body, created_at, user_id
+    INSERT INTO video_comments (user_id, video_id, body, is_hidden, automod_flag)
+    VALUES (
+      ${userId}::uuid,
+      ${videoId}::uuid,
+      ${trimmed},
+      ${hidden},
+      ${flag}
+    )
+    RETURNING id, body, created_at, user_id, is_hidden, automod_flag
   `;
   const inserted = rows[0] as {
     id: string;
     body: string;
     created_at: string;
     user_id: string;
+    is_hidden: boolean;
+    automod_flag: string | null;
   };
   const users = await sql`
-    SELECT display_name FROM users WHERE id = ${userId}::uuid LIMIT 1
+    SELECT display_name, username FROM users WHERE id = ${userId}::uuid LIMIT 1
   `;
+  const u = users[0] as { display_name: string; username: string | null };
+  if (hidden) {
+    throw new Error(
+      verdict.ok
+        ? "Comment was hidden by AutoMod."
+        : verdict.message,
+    );
+  }
   return {
     ...inserted,
-    display_name: (users[0] as { display_name: string }).display_name,
+    display_name: u.display_name,
+    username: u.username,
   };
 }

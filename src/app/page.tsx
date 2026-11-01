@@ -121,23 +121,25 @@ export default async function HomePage({
     <div className="yt-home">
       <CategoryRail categories={categories} />
 
-      <div className="yt-home-meta">
-        <div>
-          <h1 className="yt-home-title">
-            {isSearch
-              ? `Results for “${q}”`
-              : format === "shorts"
-                ? "Shorts"
-                : "Home"}
-          </h1>
-          {isSearch || format !== "all" ? (
+      <div className={`yt-home-meta ${!isSearch && format === "all" ? "is-minimal" : ""}`}>
+        {isSearch || format !== "all" ? (
+          <div>
+            <h1 className="yt-home-title">
+              {isSearch
+                ? `Results for “${q}”`
+                : format === "shorts"
+                  ? "Shorts"
+                  : "Home"}
+            </h1>
             <p className="yt-home-sub">
               {isSearch
                 ? `${latest.length} match${latest.length === 1 ? "" : "es"} in ${contentModeLabel(mode)}.`
                 : `${total} videos — ${contentModeLabel(mode)}.`}
             </p>
-          ) : null}
-        </div>
+          </div>
+        ) : (
+          <div />
+        )}
         <FormatTabs
           basePath="/"
           active={format}

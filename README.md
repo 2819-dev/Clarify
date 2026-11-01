@@ -20,8 +20,9 @@ Copy `.env.example` to `.env.local` and set:
 | `ADMIN_PASSWORD` | Elevates the Guide admin account (never `NEXT_PUBLIC_*`) |
 | `ADMIN_EMAIL` | Optional; account that may see the admin key (defaults to Guide Passmail) |
 | `SESSION_SECRET` | HMAC for admin + viewer + pending-2FA cookies |
+| `CRON_SECRET` | Auth for `/api/cron/sync` (GitHub Action / external cron) |
 
-Schema SQL lives in `sql/` (`001` catalog, `006` users/engagement, `007` TOTP). Apply `006` + `007` for accounts and 2FA.
+Schema SQL lives in `sql/` through `009` (usernames, AutoMod, publish times, sync IDs).
 
 ## Develop
 
@@ -52,6 +53,26 @@ Signed in as `ADMIN_EMAIL`, use **⋯** menus next to videos, channels, and comm
 - **Comment** → Delete permanently
 
 The admin panel still reviews community reports (approve/deny). The key icon is hidden for everyone else.
+
+## @usernames
+
+- Viewers pick an optional `@username` at signup (or get one from their email local-part).
+- Channels have a separate `@username` (from YouTube `@handle` / slug), distinct from display name.
+- `/@handle` resolves to a channel page or viewer profile (`/u/[username]`).
+
+## AutoMod
+
+New comments run through rule-based AutoMod (`src/lib/automod.ts`): hate/slurs, threats, scam/spam patterns, link floods. Matching comments are **not shown** publicly (stored hidden with `automod_flag`). Users see an error instead of a live post.
+
+## Catalog sync (cron)
+
+`POST /api/cron/sync` with `Authorization: Bearer $CRON_SECRET`:
+
+1. Backfills missing `@usernames`.
+2. For active channels, resolves YouTube channel IDs and reads the public Atom feed.
+3. Updates titles/thumbnails for known videos; **inserts new uploads** from those curated channels.
+
+GitHub Actions workflow `.github/workflows/clarify-catalog-sync.yml` runs every 6 hours when `CLARIFY_CRON_SECRET` is set on the repo.
 
 ## Catalog
 

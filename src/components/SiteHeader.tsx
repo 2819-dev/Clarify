@@ -36,7 +36,11 @@ export function SiteHeader({
   showAdminKey = false,
 }: {
   initialMode?: ContentMode;
-  user?: { email: string; display_name: string } | null;
+  user?: {
+    email: string;
+    display_name: string;
+    username?: string | null;
+  } | null;
   showAdminKey?: boolean;
 }) {
   const pathname = usePathname() || "/";

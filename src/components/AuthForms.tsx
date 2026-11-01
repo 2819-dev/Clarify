@@ -139,6 +139,7 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [username, setUsername] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
@@ -154,6 +155,7 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
           email,
           password,
           displayName: displayName || undefined,
+          username: username || undefined,
         }),
       });
       const data = await res.json();
@@ -180,6 +182,18 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
         placeholder="Optional"
+      />
+      <label htmlFor="signup-username">Username</label>
+      <input
+        id="signup-username"
+        type="text"
+        autoComplete="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="@handle (optional)"
+        minLength={2}
+        maxLength={30}
+        pattern="[A-Za-z0-9._]+"
       />
       <label htmlFor="signup-email">Email</label>
       <input

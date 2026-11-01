@@ -9,6 +9,13 @@ const schema = z.object({
   email: z.string().email(),
   password: z.string().min(8).max(200),
   displayName: z.string().trim().max(80).optional(),
+  username: z
+    .string()
+    .trim()
+    .min(2)
+    .max(30)
+    .regex(/^[A-Za-z0-9._]+$/)
+    .optional(),
 });
 
 export async function POST(request: Request) {
@@ -17,7 +24,7 @@ export async function POST(request: Request) {
     const parsed = schema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
-        { error: "Enter a valid email and a password (8+ characters)." },
+        { error: "Enter a valid email, password (8+), and optional @username." },
         { status: 400 },
       );
     }
@@ -25,6 +32,7 @@ export async function POST(request: Request) {
       email: parsed.data.email,
       password: parsed.data.password,
       displayName: parsed.data.displayName,
+      username: parsed.data.username,
     });
     await createUserSession(user.id);
     return NextResponse.json({ user });

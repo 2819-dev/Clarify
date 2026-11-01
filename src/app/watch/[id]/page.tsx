@@ -12,6 +12,7 @@ import {
   isSubscribed,
   listComments,
 } from "@/lib/engagement";
+import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { getCurrentUser } from "@/lib/user-auth";
 import { getActiveVideo } from "@/lib/videos";
 
@@ -49,14 +50,31 @@ export default async function WatchPage({
       />
 
       <div className="watch-copy">
-        {video.channel_slug ? (
-          <Link href={`/channels/${video.channel_slug}`} className="channel">
-            {video.channel_name}
-          </Link>
-        ) : (
-          <p className="channel">{video.channel_name}</p>
-        )}
         <h1>{video.title}</h1>
+        <div className="watch-byline">
+          {video.channel_slug ? (
+            <Link href={`/channels/${video.channel_slug}`} className="channel">
+              {video.channel_name}
+            </Link>
+          ) : (
+            <p className="channel">{video.channel_name}</p>
+          )}
+          {video.channel_username ? (
+            <Link
+              href={`/@${video.channel_username}`}
+              className="watch-handle"
+            >
+              @{video.channel_username}
+            </Link>
+          ) : null}
+          <time
+            className="watch-when"
+            dateTime={video.published_at || video.created_at}
+            title={formatAbsoluteTime(video.published_at || video.created_at)}
+          >
+            {formatRelativeTime(video.published_at || video.created_at)}
+          </time>
+        </div>
         <div className="watch-tags">
           {video.is_short ? <span className="watch-short-pill">Shorts</span> : null}
           {video.category_slug ? (

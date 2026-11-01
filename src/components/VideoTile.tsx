@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ModeratorMenu } from "@/components/ModeratorMenu";
 import { useCanModerate } from "@/components/ModerationContext";
 import type { Video } from "@/lib/db";
+import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 
 function formatDuration(seconds: number | null) {
   if (!seconds || seconds <= 0) return null;
@@ -19,6 +20,12 @@ export function VideoTile({ video }: { video: Video }) {
   const thumb =
     video.thumbnail_url ??
     `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
+  const when = video.published_at || video.created_at;
+  const relative = formatRelativeTime(when);
+  const absolute = formatAbsoluteTime(when);
+  const handle = video.channel_username
+    ? `@${video.channel_username}`
+    : null;
 
   return (
     <article className={`video-tile ${isShort ? "is-short" : ""}`}>
@@ -52,14 +59,22 @@ export function VideoTile({ video }: { video: Video }) {
         ) : (
           <p className="video-channel">{video.channel_name}</p>
         )}
-        {video.category_slug ? (
-          <Link
-            href={`/categories/${video.category_slug}`}
-            className="video-category"
-          >
-            {video.category_name || video.category}
-          </Link>
-        ) : null}
+        <p className="video-submeta">
+          {handle ? (
+            <Link
+              href={`/@${video.channel_username}`}
+              className="video-handle"
+            >
+              {handle}
+            </Link>
+          ) : null}
+          {handle && relative ? <span aria-hidden>·</span> : null}
+          {relative ? (
+            <time dateTime={when} title={absolute}>
+              {relative}
+            </time>
+          ) : null}
+        </p>
       </div>
     </article>
   );

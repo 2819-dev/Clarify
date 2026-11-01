@@ -2,6 +2,11 @@ import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 import { getSql } from "./db";
 import { verifyTotpCode } from "./totp";
+import {
+  isValidUsername,
+  normalizeUsername,
+  usernameFromEmail,
+} from "./usernames";
 
 const USER_COOKIE = "clarify_user_session";
 const PENDING_2FA_COOKIE = "clarify_2fa_pending";
@@ -12,6 +17,7 @@ export type AuthUser = {
   id: string;
   email: string;
   display_name: string;
+  username: string | null;
   totp_enabled: boolean;
 };
 
@@ -69,14 +75,32 @@ function mapUser(row: {
   id: string;
   email: string;
   display_name: string;
+  username?: string | null;
   totp_enabled?: boolean;
 }): AuthUser {
   return {
     id: row.id,
     email: row.email,
     display_name: row.display_name,
+    username: row.username ?? null,
     totp_enabled: Boolean(row.totp_enabled),
   };
+}
+
+async function allocateUsername(preferred: string): Promise<string> {
+  const sql = getSql();
+  const base = isValidUsername(preferred)
+    ? preferred
+    : usernameFromEmail(`${preferred}@x`);
+  for (let i = 0; i < 12; i++) {
+    const candidate =
+      i === 0 ? base : normalizeUsername(`${base}${i + 1}`) || `user${i + 1}`;
+    const rows = await sql`
+      SELECT 1 FROM users WHERE lower(username) = ${candidate} LIMIT 1
+    `;
+    if (rows.length === 0) return candidate;
+  }
+  return normalizeUsername(`u${randomBytes(4).toString("hex")}`) || "viewer";
 }
 
 export function hashPassword(password: string): string {
@@ -170,7 +194,8 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
   if (!userId) return null;
   const sql = getSql();
   const rows = await sql`
-    SELECT id, email, display_name, COALESCE(totp_enabled, FALSE) AS totp_enabled
+    SELECT id, email, display_name, username,
+           COALESCE(totp_enabled, FALSE) AS totp_enabled
     FROM users
     WHERE id = ${userId}::uuid
     LIMIT 1
@@ -180,6 +205,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
         id: string;
         email: string;
         display_name: string;
+        username: string | null;
         totp_enabled: boolean;
       }
     | undefined;
@@ -189,7 +215,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
 export async function getUserById(userId: string): Promise<UserRow | null> {
   const sql = getSql();
   const rows = await sql`
-    SELECT id, email, display_name, password_hash,
+    SELECT id, email, display_name, username, password_hash,
            totp_secret, COALESCE(totp_enabled, FALSE) AS totp_enabled,
            totp_pending_secret
     FROM users
@@ -203,7 +229,7 @@ export async function getUserByEmail(emailRaw: string): Promise<UserRow | null> 
   const email = normalizeEmail(emailRaw);
   const sql = getSql();
   const rows = await sql`
-    SELECT id, email, display_name, password_hash,
+    SELECT id, email, display_name, username, password_hash,
            totp_secret, COALESCE(totp_enabled, FALSE) AS totp_enabled,
            totp_pending_secret
     FROM users
@@ -213,27 +239,49 @@ export async function getUserByEmail(emailRaw: string): Promise<UserRow | null> 
   return (rows[0] as UserRow | undefined) ?? null;
 }
 
+export async function getPublicUserByUsername(usernameRaw: string) {
+  const username = normalizeUsername(usernameRaw);
+  if (!username) return null;
+  const sql = getSql();
+  const rows = await sql`
+    SELECT id, email, display_name, username,
+           COALESCE(totp_enabled, FALSE) AS totp_enabled
+    FROM users
+    WHERE lower(username) = ${username}
+    LIMIT 1
+  `;
+  const row = rows[0] as AuthUser | undefined;
+  return row ? mapUser(row) : null;
+}
+
 export async function registerUser(input: {
   email: string;
   password: string;
   displayName?: string;
+  username?: string;
 }): Promise<AuthUser> {
   const email = normalizeEmail(input.email);
   const displayName =
     input.displayName?.trim() || email.split("@")[0] || "Viewer";
+  const preferred = input.username?.trim()
+    ? normalizeUsername(input.username)
+    : usernameFromEmail(email);
+  const username = await allocateUsername(preferred);
   const passwordHash = hashPassword(input.password);
   const sql = getSql();
   try {
     const rows = await sql`
-      INSERT INTO users (email, password_hash, display_name)
-      VALUES (${email}, ${passwordHash}, ${displayName})
-      RETURNING id, email, display_name, COALESCE(totp_enabled, FALSE) AS totp_enabled
+      INSERT INTO users (email, password_hash, display_name, username)
+      VALUES (${email}, ${passwordHash}, ${displayName}, ${username})
+      RETURNING id, email, display_name, username,
+                COALESCE(totp_enabled, FALSE) AS totp_enabled
     `;
     return mapUser(
       rows[0] as {
         id: string;
         email: string;
         display_name: string;
+        username: string | null;
         totp_enabled: boolean;
       },
     );

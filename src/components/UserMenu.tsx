@@ -7,7 +7,11 @@ import { useState } from "react";
 export function UserMenu({
   user,
 }: {
-  user: { email: string; display_name: string } | null;
+  user: {
+    email: string;
+    display_name: string;
+    username?: string | null;
+  } | null;
 }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -24,8 +28,13 @@ export function UserMenu({
 
   return (
     <div className="user-menu">
-      <span className="user-menu-name" title={user.email}>
-        {user.display_name || user.email}
+      <span
+        className="user-menu-name"
+        title={user.username ? `@${user.username}` : user.email}
+      >
+        {user.username
+          ? `@${user.username}`
+          : user.display_name || user.email}
       </span>
       <Link href="/account/security" className="user-menu-link">
         Security

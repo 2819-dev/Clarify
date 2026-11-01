@@ -89,7 +89,7 @@ export default async function ChannelPage({
     ]);
 
   const tab = parseTab(tabRaw, shortsCount > 0);
-  const handle = channelHandle(channel.youtube_url, channel.slug);
+  const handle = channelHandle(channel);
   const subs = formatSubscriberCount(channel.subscriber_count);
   const videoLabel = `${channel.video_count} video${
     channel.video_count === 1 ? "" : "s"
