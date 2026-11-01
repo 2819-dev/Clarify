@@ -801,20 +801,21 @@ a {
 
 .channel-display-name {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-  color: var(--blue-950);
-  line-height: 1.1;
+  font-family: var(--font-body);
+  font-size: clamp(1.55rem, 2.8vw, 2.05rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 .channel-meta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  color: var(--blue-700);
-  font-weight: 700;
-  font-size: 0.92rem;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .channel-bio {
@@ -1043,9 +1044,10 @@ a {
 
 .channel-shelf-head h2 {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--blue-950);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
   letter-spacing: -0.01em;
 }
 
@@ -1099,9 +1101,10 @@ a {
 
 .channel-yt-about h2 {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--blue-950);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .channel-yt-about-body {
@@ -1274,13 +1277,24 @@ a {
 }
 
 .watch-title {
-  margin: 0.15rem 0 0.75rem;
+  margin: 0.15rem 0 0.2rem;
   font-family: var(--font-body);
   font-size: clamp(1.1rem, 1.6vw, 1.28rem);
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.01em;
   line-height: 1.3;
+}
+
+.watch-title-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 500;
 }
 
 .watch-owner-row {
@@ -1517,7 +1531,7 @@ a {
 
 .watch-copy h1,
 .watch-title {
-  margin: 0.15rem 0 0.75rem;
+  margin: 0.15rem 0 0.2rem;
   font-family: var(--font-body);
   font-size: clamp(1.1rem, 1.6vw, 1.28rem);
   font-weight: 700;
@@ -2080,10 +2094,11 @@ a {
 
 .yt-home-title {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
-  color: var(--blue-950);
-  letter-spacing: -0.02em;
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 .yt-home-sub {
@@ -2399,10 +2414,10 @@ a {
 }
 
 .yt-shelf-empty-subs {
-  padding: 0.85rem 1rem;
+  padding: 0;
   border: none;
-  border-radius: 0.75rem;
-  background: #f8f8f8;
+  border-radius: 0;
+  background: transparent;
 }
 
 .yt-subs-directory {
@@ -2900,35 +2915,52 @@ a {
   margin: 0;
 }
 
-.btn-like {
+.btn-like-group {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 999px;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+
+.btn-like,
+.btn-dislike {
   appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   border: none;
   cursor: pointer;
   font: inherit;
   font-weight: 650;
   font-size: 0.88rem;
-  border-radius: 999px;
+  border-radius: 0;
   padding: 0.4rem 0.85rem;
-  background: #f2f2f2;
+  background: transparent;
   color: var(--ink);
   text-decoration: none;
   transition: background 0.12s ease, color 0.12s ease;
 }
 
-.btn-like:hover {
+.btn-like:hover,
+.btn-dislike:hover {
   background: #e5e5e5;
 }
 
 .btn-like.is-liked {
   color: var(--ink);
-  background: #e5e5e5;
 }
 
-.btn-like svg {
+.btn-like-divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 0.35rem 0;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.btn-like svg,
+.btn-dislike svg {
   display: block;
 }
 
@@ -3218,14 +3250,23 @@ html.yt-sidebar-collapsed .yt-sidebar {
   color: var(--surface);
 }
 
-.btn-like {
+.btn-like-group {
   background: var(--paper);
+}
+
+.btn-like,
+.btn-dislike {
   color: var(--ink);
 }
 
 .btn-like:hover,
+.btn-dislike:hover,
 .btn-like.is-liked {
   background: var(--paper-deep);
+}
+
+.btn-like-divider {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .yt-signin-chip {
@@ -3292,9 +3333,12 @@ html.yt-sidebar-collapsed .yt-sidebar {
   background: var(--paper);
 }
 
-.watch-desc-card,
-.yt-shelf-empty-subs {
+.watch-desc-card {
   background: var(--paper);
+}
+
+.yt-shelf-empty-subs {
+  background: transparent;
 }
 
 .content-mode-toggle {

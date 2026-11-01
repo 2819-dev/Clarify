@@ -61,6 +61,17 @@ export default async function WatchPage({
 
         <div className="watch-copy">
           <h1 className="watch-title">{video.title}</h1>
+          <p className="watch-title-meta">
+            <time dateTime={when} title={formatAbsoluteTime(when)}>
+              {formatRelativeTime(when)}
+            </time>
+            {video.category_name || video.category ? (
+              <>
+                <span aria-hidden>·</span>
+                <span>{video.category_name || video.category}</span>
+              </>
+            ) : null}
+          </p>
 
           <div className="watch-owner-row">
             <div className="watch-owner">
