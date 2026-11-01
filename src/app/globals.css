@@ -4841,3 +4841,179 @@ html.yt-page-watch .watch-page.is-short {
     height: 40px;
   }
 }
+
+/* ——— Declutter pass: quieter chrome ——— */
+.yt-made-by {
+  font-size: 0.72rem;
+  opacity: 0.72;
+  font-weight: 500;
+}
+
+.yt-topbar {
+  min-height: 52px;
+  padding: 0.2rem 0.9rem;
+}
+
+.yt-topbar-search .catalog-search input {
+  height: 38px;
+  font-size: 0.92rem;
+}
+
+.content-mode-toggle {
+  padding: 0.08rem;
+  background: color-mix(in srgb, var(--paper-deep) 80%, transparent);
+}
+
+.content-mode-option {
+  font-size: 0.7rem;
+  padding: 0.24rem 0.5rem;
+  font-weight: 600;
+}
+
+.yt-icon-btn {
+  width: 38px;
+  height: 38px;
+}
+
+html.yt-page-watch .site-footer,
+.yt-main-inner:has(.watch-page) ~ .site-footer,
+.yt-main:has(.watch-page) .site-footer {
+  display: none;
+}
+
+.watch-page.is-short .watch-engage.is-short-engage {
+  justify-content: flex-end;
+  margin: 0.1rem 0 0;
+  opacity: 0.85;
+}
+
+.watch-page.is-short .watch-report-inline .btn-ghost {
+  font-size: 0.78rem;
+  font-weight: 550;
+  padding: 0.25rem 0.55rem;
+  color: var(--ink-soft);
+  background: transparent;
+}
+
+.watch-page.is-short .comment-section {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top-color: color-mix(in srgb, var(--line) 65%, transparent);
+}
+
+.watch-page.is-short .comment-heading {
+  font-size: 0.95rem;
+}
+
+.watch-page.is-short .comment-signin-cta .btn-comment-signin,
+.watch-page.is-short .btn-comment-signin {
+  font-size: 0.84rem;
+  padding: 0.4rem 0.75rem;
+}
+
+.shorts-stage-meta {
+  padding: 2.1rem 0.75rem 0.75rem;
+  gap: 0.3rem;
+}
+
+.shorts-meta-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.shorts-meta-name {
+  font-size: 0.88rem;
+}
+
+.shorts-meta-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  -webkit-line-clamp: 2;
+  line-height: 1.3;
+}
+
+.shorts-stage-actions {
+  width: 56px;
+  gap: 0.7rem;
+}
+
+.shorts-action-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.shorts-action-label {
+  font-size: 0.65rem;
+}
+
+.yt-shorts-mark {
+  width: 22px;
+  height: 22px;
+}
+
+.yt-shelf.is-shorts .yt-shorts-mark {
+  width: 20px;
+  height: 20px;
+}
+
+.yt-chip-rail {
+  padding: 0.25rem 0 0.3rem;
+}
+
+.yt-home {
+  gap: 0.65rem;
+}
+
+.yt-shelves {
+  gap: 0.95rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.4rem;
+}
+
+.yt-sidebar-made {
+  opacity: 0.75;
+  font-size: 0.72rem;
+  padding-top: 0.65rem;
+}
+
+.watch-related-heading {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.watch-related.is-shorts-rail .watch-related-item.is-short {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+.watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-title {
+  font-size: 0.82rem;
+  -webkit-line-clamp: 2;
+}
+
+.player-frame.is-short {
+  box-shadow: none;
+  border-radius: 0.7rem;
+}
+
+.site-footer {
+  padding: 1rem 0 1.25rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 960px) {
+  .yt-made-by {
+    display: none;
+  }
+
+  .shorts-stage-meta {
+    padding: 1.85rem 0.65rem 0.75rem;
+    padding-right: 3.6rem;
+  }
+
+  .watch-page.is-short .watch-engage.is-short-engage {
+    margin-top: 0.25rem;
+  }
+}
