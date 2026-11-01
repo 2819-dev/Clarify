@@ -232,7 +232,10 @@ export async function syncCatalogFromYoutube(options?: {
 
   summary.usernamesBackfilled = await backfillUsernames(sql);
 
-  const limit = Math.min(Math.max(options?.channelLimit ?? 40, 1), 120);
+  // Cloudflare Workers cap subrequests per invocation — keep batches small and rotate.
+  const limit = Math.min(Math.max(options?.channelLimit ?? 8, 1), 20);
+  const hour = new Date().getUTCHours();
+  const offset = (hour % 12) * limit;
   const channels = (await sql`
     SELECT id, slug, name, youtube_url, youtube_channel_id, username,
            COALESCE(is_jewish, TRUE) AS is_jewish
@@ -241,6 +244,7 @@ export async function syncCatalogFromYoutube(options?: {
       AND youtube_url IS NOT NULL
     ORDER BY subscriber_count DESC NULLS LAST, name ASC
     LIMIT ${limit}
+    OFFSET ${offset}
   `) as ChannelRow[];
 
   for (const channel of channels) {
@@ -316,9 +320,9 @@ export async function syncCatalogFromYoutube(options?: {
         summary.videosInserted += 1;
       }
     } catch (err) {
-      summary.errors.push(
-        `${channel.slug}: ${err instanceof Error ? err.message : String(err)}`,
-      );
+      const message = err instanceof Error ? err.message : String(err);
+      summary.errors.push(`${channel.slug}: ${message}`);
+      if (/Too many subrequests/i.test(message)) break;
     }
   }
 

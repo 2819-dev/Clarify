@@ -18,7 +18,7 @@ async function run(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   try {
-    const summary = await syncCatalogFromYoutube({ channelLimit: 50 });
+    const summary = await syncCatalogFromYoutube({ channelLimit: 8 });
     return NextResponse.json({ ok: true, summary });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Sync failed";
