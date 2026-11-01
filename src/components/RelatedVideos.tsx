@@ -11,31 +11,58 @@ function formatDuration(seconds: number | null) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export function RelatedVideos({ videos }: { videos: Video[] }) {
+export function RelatedVideos({
+  videos,
+  preferShorts = false,
+}: {
+  videos: Video[];
+  preferShorts?: boolean;
+}) {
   if (videos.length === 0) return null;
 
+  const ordered = preferShorts
+    ? [...videos].sort(
+        (a, b) => Number(Boolean(b.is_short)) - Number(Boolean(a.is_short)),
+      )
+    : videos;
+
   return (
-    <aside className="watch-related" aria-label="Related videos">
+    <aside
+      className={`watch-related${preferShorts ? " is-shorts-rail" : ""}`}
+      aria-label={preferShorts ? "More Shorts" : "Related videos"}
+    >
+      {preferShorts ? (
+        <p className="watch-related-heading">More Shorts</p>
+      ) : null}
       <ul className="watch-related-list">
-        {videos.map((video) => {
-          const thumb =
-            video.thumbnail_url ??
-            `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
+        {ordered.map((video) => {
+          const stored = video.thumbnail_url || "";
+          const isGeneric =
+            !stored ||
+            /\/(default|mqdefault|hqdefault|sddefault|hq720|maxresdefault)\.jpg/i.test(
+              stored,
+            );
+          const thumb = video.is_short
+            ? isGeneric
+              ? `https://i.ytimg.com/vi/${video.youtube_id}/oar2.jpg`
+              : stored
+            : stored ||
+              `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
           const duration = formatDuration(video.duration_seconds);
           const when = formatRelativeTime(
             video.published_at || video.created_at,
           );
           return (
             <li key={video.id}>
-              <Link href={`/watch/${video.id}`} className="watch-related-item">
+              <Link
+                href={`/watch/${video.id}`}
+                className={`watch-related-item${video.is_short ? " is-short" : ""}`}
+              >
                 <div className="watch-related-thumb">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={thumb} alt="" loading="lazy" />
-                  {duration ? (
+                  {!video.is_short && duration ? (
                     <span className="video-duration">{duration}</span>
-                  ) : null}
-                  {video.is_short ? (
-                    <span className="video-badge">Shorts</span>
                   ) : null}
                 </div>
                 <div className="watch-related-copy">

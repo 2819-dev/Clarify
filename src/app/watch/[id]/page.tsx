@@ -179,7 +179,10 @@ export default async function WatchPage({
         />
       </div>
 
-      <RelatedVideos videos={related} />
+      <RelatedVideos
+        videos={related}
+        preferShorts={Boolean(video.is_short)}
+      />
     </article>
   );
 }
