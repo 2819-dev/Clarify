@@ -11,6 +11,11 @@ export function contentModeLabel(mode: ContentMode): string {
   return mode === "filtered" ? "Family-Friendly" : "Jewish";
 }
 
+/** Lowercase adjective for natural sentences (“Jewish”, “family-friendly”). */
+export function contentModeAdjective(mode: ContentMode): string {
+  return mode === "filtered" ? "family-friendly" : "Jewish";
+}
+
 export function contentModeDescription(mode: ContentMode): string {
   return mode === "filtered"
     ? "Jewish videos plus additional family-friendly channels, without coarse language or inappropriate material."

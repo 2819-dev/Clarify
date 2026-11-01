@@ -59,7 +59,7 @@ export function ContentModeToggle({
     <div
       className={`content-mode-toggle ${pending ? "is-pending" : ""}`}
       role="group"
-      aria-label="What to show"
+      aria-label="Content"
     >
       <button
         type="button"

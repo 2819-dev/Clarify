@@ -5,7 +5,7 @@ import { SearchResultRow } from "@/components/SearchResultRow";
 import { VideoShelf } from "@/components/VideoShelf";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
-import { contentModeLabel } from "@/lib/content-mode";
+import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 import { listSubscribedChannelSlugs } from "@/lib/engagement";
 import { getWatchActivity } from "@/lib/preferences-server";
@@ -134,8 +134,8 @@ export default async function HomePage({
             </h1>
             <p className="yt-home-sub">
               {isSearch
-                ? `${latest.length} match${latest.length === 1 ? "" : "es"} in ${contentModeLabel(mode)}.`
-                : `${total} videos — ${contentModeLabel(mode)}.`}
+                ? `${latest.length} ${contentModeAdjective(mode)} result${latest.length === 1 ? "" : "s"}.`
+                : `${total} ${contentModeAdjective(mode)} video${total === 1 ? "" : "s"}.`}
             </p>
           </div>
         ) : (
@@ -225,6 +225,9 @@ export default async function HomePage({
           <section className="yt-shelf yt-shelf-grid" aria-label="Latest">
             <div className="yt-shelf-head">
               <h2 className="yt-shelf-title">Latest</h2>
+              <Link href="/?format=videos" className="yt-shelf-more">
+                Show more
+              </Link>
             </div>
             <div className="video-grid">
               {latestFresh.map((video) => (

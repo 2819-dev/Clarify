@@ -8,6 +8,7 @@ import { ModeratorMenu } from "@/components/ModeratorMenu";
 import { useCanModerate } from "@/components/ModerationContext";
 import { UserAvatar } from "@/components/UserAvatar";
 import type { VideoComment } from "@/lib/engagement";
+import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { formatAt } from "@/lib/usernames";
 
 export function CommentSection({
@@ -141,7 +142,12 @@ export function CommentSection({
                   </div>
                   <CommentBody text={comment.body} />
                   <p className="comment-when">
-                    {new Date(comment.created_at).toLocaleString()}
+                    <time
+                      dateTime={comment.created_at}
+                      title={formatAbsoluteTime(comment.created_at)}
+                    >
+                      {formatRelativeTime(comment.created_at)}
+                    </time>
                   </p>
                 </div>
               </div>

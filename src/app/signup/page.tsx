@@ -17,7 +17,6 @@ export default async function SignUpPage({
 
   return (
     <section className="auth-shell">
-      <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Create account</h1>
       <p className="yt-home-sub">
         Create an account with email and password to subscribe, like, and

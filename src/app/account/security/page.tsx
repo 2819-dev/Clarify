@@ -13,7 +13,6 @@ export default async function AccountSecurityPage() {
 
   return (
     <section className="auth-shell auth-shell-wide">
-      <p className="eyebrow">Account</p>
       <h1 className="yt-home-title">Security</h1>
       <p className="yt-home-sub">
         Signed in as <strong>{user.email}</strong>. Add an authenticator app

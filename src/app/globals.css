@@ -1435,8 +1435,32 @@ a {
   white-space: pre-wrap;
 }
 
+.watch-desc-card .desc.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  white-space: normal;
+}
+
 .watch-desc-card .desc.is-muted {
   color: var(--ink-soft);
+}
+
+.watch-desc-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 0.35rem 0 0;
+  cursor: pointer;
+}
+
+.watch-desc-toggle:hover {
+  text-decoration: underline;
 }
 
 .watch-related {
@@ -3629,6 +3653,14 @@ a {
 
 .btn-like.is-liked {
   color: var(--ink);
+}
+
+.btn-dislike.is-disliked {
+  color: #065fd4;
+}
+
+.shorts-action.is-disliked .shorts-action-icon {
+  color: #065fd4;
 }
 
 .btn-like-divider {
