@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { CatalogSearch } from "@/components/CatalogSearch";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { ContentModeToggle } from "@/components/ContentModeToggle";
+import { UserMenu } from "@/components/UserMenu";
 import type { ContentMode } from "@/lib/content-mode";
 
 function KeyIcon() {
@@ -31,8 +32,10 @@ function KeyIcon() {
 
 export function SiteHeader({
   initialMode = "jewish",
+  user = null,
 }: {
   initialMode?: ContentMode;
+  user?: { email: string; display_name: string } | null;
 }) {
   const pathname = usePathname() || "/";
   const searchAction = pathname.startsWith("/categories/")
@@ -62,6 +65,7 @@ export function SiteHeader({
       </div>
       <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
+        <UserMenu user={user} />
         <Link
           href="/admin/login"
           className={`admin-key-link ${

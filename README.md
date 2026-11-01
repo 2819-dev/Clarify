@@ -6,7 +6,8 @@ Curated Jewish & family-safe video browsing with community reports and a passwor
 
 - Next.js (App Router) + TypeScript + Tailwind
 - Neon Postgres (`@neondatabase/serverless`)
-- Signed HTTP-only admin session cookie (no public accounts)
+- Viewer accounts (email/password in Neon) for subscribe / like / comment
+- Separate signed HTTP-only admin session (key icon + `ADMIN_PASSWORD`)
 
 ## Environment
 
@@ -16,9 +17,9 @@ Copy `.env.example` to `.env.local` and set:
 | --- | --- |
 | `DATABASE_URL` | Neon pooled connection string |
 | `ADMIN_PASSWORD` | Server-only admin password (never `NEXT_PUBLIC_*`) |
-| `SESSION_SECRET` | Long random string used to HMAC-sign the admin session cookie |
+| `SESSION_SECRET` | Long random string used to HMAC-sign admin + viewer session cookies |
 
-Schema SQL lives in `sql/001_schema.sql`.
+Schema SQL lives in `sql/` (`001` catalog, `006` users/engagement). Apply `sql/006_users_engagement.sql` for accounts.
 
 ## Develop
 
@@ -28,7 +29,8 @@ npm run dev
 ```
 
 - Catalog: [http://localhost:3000](http://localhost:3000)
-- Admin login: [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
+- Sign in / sign up: `/signin`, `/signup` (subscribe, like, comment)
+- Admin login (key icon): [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
 
 ## Catalog
 

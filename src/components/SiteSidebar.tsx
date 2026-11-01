@@ -2,42 +2,23 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import type { Category, Channel } from "@/lib/db";
-import { PREFS_EVENT } from "@/lib/preferences";
-import {
-  getSubscriptionsClient,
-  hydratePreferencesCookies,
-} from "@/lib/preferences-client";
 
 export function SiteSidebar({
   categories = [],
   subscribedChannels = [],
+  signedIn = false,
 }: {
   categories?: Pick<Category, "slug" | "name" | "video_count">[];
   subscribedChannels?: Pick<
     Channel,
     "slug" | "name" | "avatar_url" | "video_count"
   >[];
+  signedIn?: boolean;
 }) {
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
   const format = searchParams.get("format");
-  const [subSlugs, setSubSlugs] = useState<string[]>(
-    subscribedChannels.map((c) => c.slug),
-  );
-
-  useEffect(() => {
-    hydratePreferencesCookies();
-    const sync = () => setSubSlugs(getSubscriptionsClient());
-    sync();
-    window.addEventListener(PREFS_EVENT, sync);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener(PREFS_EVENT, sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, []);
 
   const links = [
     {
@@ -72,21 +53,7 @@ export function SiteSidebar({
     },
   ];
 
-  const bySlug = new Map(subscribedChannels.map((c) => [c.slug, c]));
-  const visibleSubs = subSlugs.slice(0, 6).map((slug) => {
-    const known = bySlug.get(slug);
-    return (
-      known || {
-        slug,
-        name: slug
-          .split("-")
-          .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-          .join(" "),
-        avatar_url: null as string | null,
-        video_count: undefined as number | undefined,
-      }
-    );
-  });
+  const visibleSubs = subscribedChannels.slice(0, 6);
 
   return (
     <aside className="yt-sidebar" aria-label="Browse">
@@ -108,9 +75,16 @@ export function SiteSidebar({
 
       <div className="yt-sidebar-section">
         <p className="yt-sidebar-heading">Subscriptions</p>
-        {visibleSubs.length === 0 ? (
+        {!signedIn ? (
           <p className="yt-sidebar-empty">
-            Subscribe on a channel page — saved on this device.
+            <Link href={`/signin?next=${encodeURIComponent(pathname)}`}>
+              Sign in
+            </Link>{" "}
+            to subscribe to channels.
+          </p>
+        ) : visibleSubs.length === 0 ? (
+          <p className="yt-sidebar-empty">
+            Subscribe on a channel page to pin it here.
           </p>
         ) : (
           <nav className="yt-sidebar-cats" aria-label="Subscriptions">

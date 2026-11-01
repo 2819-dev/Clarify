@@ -15,7 +15,7 @@ export default async function AdminLoginPage() {
       <ClarifyLogo href="/" size="lg" />
       <h1>Admin sign-in</h1>
       <p className="lede">
-        Password-only access for reviewing reports. No public accounts.
+        Password-only access for reviewing reports. Separate from viewer sign-in.
       </p>
       <AdminLoginForm />
     </section>
