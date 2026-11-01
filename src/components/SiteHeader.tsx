@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { CatalogSearch } from "@/components/CatalogSearch";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { ContentModeToggle } from "@/components/ContentModeToggle";
 import { HeaderActions } from "@/components/HeaderActions";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserMenu } from "@/components/UserMenu";
 import type { ContentMode } from "@/lib/content-mode";
 
@@ -39,6 +40,18 @@ function GuideIcon() {
   );
 }
 
+function toggleNav() {
+  const root = document.documentElement;
+  const isMobile = window.matchMedia("(max-width: 960px)").matches;
+  if (isMobile) {
+    root.classList.toggle("yt-nav-open");
+    root.classList.remove("yt-sidebar-collapsed");
+  } else {
+    root.classList.toggle("yt-sidebar-collapsed");
+    root.classList.remove("yt-nav-open");
+  }
+}
+
 export function SiteHeader({
   initialMode = "jewish",
   user = null,
@@ -56,17 +69,29 @@ export function SiteHeader({
 }) {
   const pathname = usePathname() || "/";
 
+  useEffect(() => {
+    document.documentElement.classList.remove("yt-nav-open");
+  }, [pathname]);
+
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        document.documentElement.classList.remove("yt-nav-open");
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <header className="yt-topbar">
       <div className="yt-topbar-left">
         <button
           type="button"
           className="yt-icon-btn yt-guide-btn"
-          aria-label="Guide menu"
+          aria-label="Menu"
           title="Menu"
-          onClick={() => {
-            document.documentElement.classList.toggle("yt-sidebar-collapsed");
-          }}
+          onClick={toggleNav}
         >
           <GuideIcon />
         </button>
@@ -85,6 +110,7 @@ export function SiteHeader({
       </div>
       <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
+        <ThemeToggle />
         <HeaderActions />
         {showAdminKey ? (
           <Link
@@ -100,6 +126,13 @@ export function SiteHeader({
         ) : null}
         <UserMenu user={user} />
       </div>
+      <button
+        type="button"
+        className="yt-nav-scrim"
+        aria-label="Close menu"
+        tabIndex={-1}
+        onClick={() => document.documentElement.classList.remove("yt-nav-open")}
+      />
     </header>
   );
 }

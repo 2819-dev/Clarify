@@ -10,6 +10,7 @@ import { listCategories } from "@/lib/categories";
 import { getContentMode } from "@/lib/content-mode-server";
 import { isAdminAccountEmail } from "@/lib/admin-email";
 import { listSubscribedChannels } from "@/lib/engagement";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import { getCurrentUser } from "@/lib/user-auth";
 import "./globals.css";
 
@@ -52,7 +53,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+      </head>
       <body className="min-h-full flex flex-col">
         <PrefsHydrator />
         <ModerationProvider canModerate={canModerate}>

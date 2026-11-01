@@ -63,6 +63,10 @@ export function SiteSidebar({
   const searchParams = useSearchParams();
   const format = searchParams.get("format");
 
+  function closeMobileNav() {
+    document.documentElement.classList.remove("yt-nav-open");
+  }
+
   const links = [
     {
       href: "/",
@@ -108,6 +112,7 @@ export function SiteSidebar({
             className={`yt-sidebar-link ${item.active ? "is-active" : ""}`}
             aria-current={item.active ? "page" : undefined}
             title={item.label}
+            onClick={closeMobileNav}
           >
             <span className="yt-sidebar-icon" aria-hidden>
               <NavIcon name={item.icon} />
@@ -143,6 +148,7 @@ export function SiteSidebar({
                   }`}
                   aria-current={active ? "page" : undefined}
                   title={ch.name}
+                  onClick={closeMobileNav}
                 >
                   {ch.avatar_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -162,7 +168,11 @@ export function SiteSidebar({
                 </Link>
               );
             })}
-            <Link href="/subscriptions" className="yt-sidebar-more">
+            <Link
+              href="/subscriptions"
+              className="yt-sidebar-more"
+              onClick={closeMobileNav}
+            >
               All subscriptions
             </Link>
           </nav>
@@ -182,6 +192,7 @@ export function SiteSidebar({
                   className={`yt-sidebar-link ${active ? "is-active" : ""}`}
                   aria-current={active ? "page" : undefined}
                   title={cat.name}
+                  onClick={closeMobileNav}
                 >
                   <span className="yt-sidebar-label yt-sidebar-cat-name">
                     {cat.name}
@@ -189,7 +200,11 @@ export function SiteSidebar({
                 </Link>
               );
             })}
-            <Link href="/categories" className="yt-sidebar-more">
+            <Link
+              href="/categories"
+              className="yt-sidebar-more"
+              onClick={closeMobileNav}
+            >
               All categories
             </Link>
           </nav>
