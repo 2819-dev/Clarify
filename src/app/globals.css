@@ -5746,16 +5746,6 @@ html.yt-page-watch .watch-page:not(.is-short) {
   font-weight: 650;
 }
 
-/* Home / subscriptions / channel / category video grids */
-.yt-shelf-grid .video-grid,
-.video-grid:not(.shorts-grid) {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.15rem 1.5rem;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-
 .video-tile {
   gap: 0.85rem;
 }
@@ -5783,13 +5773,6 @@ html.yt-page-watch .watch-page:not(.is-short) {
   font-size: 0.8rem;
 }
 
-/* Horizontal long-form shelves: ~3 cards visible on desktop */
-.yt-shelf:not(.is-shorts) .yt-shelf-row {
-  grid-auto-columns: minmax(0, calc((100% - 3rem) / 3));
-  gap: 1.5rem;
-  padding-bottom: 0.65rem;
-}
-
 .yt-shelf.is-shorts .yt-shelf-row {
   grid-auto-columns: minmax(176px, 196px);
   gap: 0.95rem;
@@ -5804,6 +5787,52 @@ html.yt-page-watch .watch-page:not(.is-short) {
   padding-block: 0.35rem 1.5rem;
 }
 
+/* ——— Sitewide long-form: exactly 3 cols desk / 1 phone; no side-scroll ——— */
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid),
+.yt-shelf-longform-grid,
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  grid-auto-columns: unset !important;
+  gap: 2.15rem 1.5rem !important;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+  overscroll-behavior-x: none;
+  scroll-snap-type: none;
+  padding-bottom: 0;
+  -webkit-overflow-scrolling: auto;
+  touch-action: pan-y;
+}
+
+.yt-shelf:not(.is-shorts) {
+  overflow: visible;
+}
+
+.yt-shelf:not(.is-shorts) .yt-shelf-item {
+  scroll-snap-align: none;
+  min-width: 0;
+  width: auto;
+  max-width: none;
+}
+
+/* Shorts shelves keep horizontal multi-up rail */
+.yt-shelf.is-shorts .yt-shelf-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-x pan-y;
+}
+
 @media (max-width: 960px) {
   .yt-shelves {
     gap: 1.65rem;
@@ -5814,14 +5843,11 @@ html.yt-page-watch .watch-page:not(.is-short) {
   }
 
   .yt-shelf-grid .video-grid,
-  .video-grid:not(.shorts-grid) {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.65rem 0;
-  }
-
+  .video-grid:not(.shorts-grid),
+  .yt-shelf-longform-grid,
   .yt-shelf:not(.is-shorts) .yt-shelf-row {
-    grid-auto-columns: minmax(0, 100%);
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.65rem 0 !important;
   }
 
   .yt-shelf.is-shorts .yt-shelf-row {

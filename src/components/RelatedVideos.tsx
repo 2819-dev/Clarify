@@ -64,9 +64,9 @@ export function RelatedVideos({
             : stored ||
               `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
           const duration = formatDuration(video.duration_seconds);
-          const when = formatRelativeTime(
-            video.published_at || video.created_at,
-          );
+          const when = video.published_at
+            ? formatRelativeTime(video.published_at)
+            : null;
           const meta = [video.channel_name, when].filter(Boolean).join(" · ");
           return (
             <li key={video.id}>

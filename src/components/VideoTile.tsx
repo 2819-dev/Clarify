@@ -44,9 +44,10 @@ export function VideoTile({
       : stored
     : stored ||
       `https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`;
-  const when = video.published_at || video.created_at;
-  const relative = formatRelativeTime(when);
-  const absolute = formatAbsoluteTime(when);
+  // Only show relative time from real YouTube publish dates — never catalog insert time.
+  const when = video.published_at || null;
+  const relative = when ? formatRelativeTime(when) : null;
+  const absolute = when ? formatAbsoluteTime(when) : "";
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
 
   return (
@@ -130,13 +131,13 @@ export function VideoTile({
                 <p className="video-channel">{video.channel_name}</p>
               )
             ) : null}
-            <p className="video-submeta">
-              {relative ? (
+            {relative && when ? (
+              <p className="video-submeta">
                 <time dateTime={when} title={absolute}>
                   {relative}
                 </time>
-              ) : null}
-            </p>
+              </p>
+            ) : null}
           </div>
         </div>
       </div>

@@ -28,9 +28,9 @@ export function SearchResultRow({ video }: { video: Video }) {
       : stored
     : stored || `https://i.ytimg.com/vi/${video.youtube_id}/mqdefault.jpg`;
   const duration = formatDuration(video.duration_seconds);
-  const when = video.published_at || video.created_at;
-  const relative = formatRelativeTime(when);
-  const absolute = formatAbsoluteTime(when);
+  const when = video.published_at || null;
+  const relative = when ? formatRelativeTime(when) : null;
+  const absolute = when ? formatAbsoluteTime(when) : "";
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
   const description = consumerDescription(video.description);
 
@@ -76,7 +76,7 @@ export function SearchResultRow({ video }: { video: Video }) {
             </span>
           )}
         </div>
-        {relative ? (
+        {relative && when ? (
           <p className="search-result-meta">
             <time dateTime={when} title={absolute}>
               {relative}
