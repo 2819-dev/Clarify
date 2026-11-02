@@ -34,71 +34,94 @@ export default async function HomePage({
     getWatchActivity(),
   ]);
 
+  // Music belongs in its own section — keep it out of the mixed home Latest grid.
+  const homeExcludeMusic = !isSearch ? (["music"] as string[]) : undefined;
+
   const [categories, total, shortsCount, latest, shorts] = await Promise.all([
     listCategories(mode),
     countActiveVideos(mode),
     countShorts(undefined, mode),
-    listActiveVideos({ q, format, mode, limit: isSearch ? 48 : 24 }),
+    listActiveVideos({
+      q,
+      format,
+      mode,
+      limit: isSearch ? 48 : 24,
+      excludeCategorySlugs: homeExcludeMusic,
+    }),
     format === "all" && !isSearch
-      ? listActiveVideos({ format: "shorts", mode, limit: 14 })
+      ? listActiveVideos({
+          format: "shorts",
+          mode,
+          limit: 14,
+          excludeCategorySlugs: ["music"],
+        })
       : Promise.resolve([]),
   ]);
 
   const showShelves = !isSearch && format === "all";
+  const nonMusicCategories = categories.filter((c) => c.slug !== "music");
+  const musicCategory = categories.find((c) => c.slug === "music");
 
-  const [subscriptionVideos, recommendedVideos, shelfRows] = showShelves
-    ? await Promise.all([
-        subSlugs.length
-          ? listActiveVideos({
-              channelSlugs: subSlugs,
-              mode,
-              limit: 14,
-            })
-          : Promise.resolve([]),
-        (async () => {
-          if (
-            !activity.channelSlugs.length &&
-            !activity.categorySlugs.length
-          ) {
-            return [];
-          }
-          const [byChannel, byCategory] = await Promise.all([
-            activity.channelSlugs.length
-              ? listActiveVideos({
-                  channelSlugs: activity.channelSlugs.slice(0, 8),
-                  mode,
-                  limit: 14,
-                })
-              : Promise.resolve([]),
-            activity.categorySlugs.length
-              ? listActiveVideos({
-                  categorySlugs: activity.categorySlugs.slice(0, 6),
-                  mode,
-                  limit: 14,
-                })
-              : Promise.resolve([]),
-          ]);
-          const merged: typeof byChannel = [];
-          const ids = new Set<string>();
-          for (const v of [...byChannel, ...byCategory]) {
-            if (ids.has(v.id)) continue;
-            ids.add(v.id);
-            merged.push(v);
-          }
-          return merged;
-        })(),
-        Promise.all(
-          categories.slice(0, 5).map(async (cat) => ({
-            cat,
-            videos: await listActiveVideos({
-              category: cat.slug,
-              mode,
-              limit: 8,
-            }),
-          })),
-        ),
-      ])
-    : [[], [], []];
+  const [subscriptionVideos, recommendedVideos, musicVideos, shelfRows] =
+    showShelves
+      ? await Promise.all([
+          subSlugs.length
+            ? listActiveVideos({
+                channelSlugs: subSlugs,
+                mode,
+                limit: 14,
+                excludeCategorySlugs: ["music"],
+              })
+            : Promise.resolve([]),
+          (async () => {
+            if (
+              !activity.channelSlugs.length &&
+              !activity.categorySlugs.length
+            ) {
+              return [];
+            }
+            const [byChannel, byCategory] = await Promise.all([
+              activity.channelSlugs.length
+                ? listActiveVideos({
+                    channelSlugs: activity.channelSlugs.slice(0, 8),
+                    mode,
+                    limit: 14,
+                    excludeCategorySlugs: ["music"],
+                  })
+                : Promise.resolve([]),
+              activity.categorySlugs.length
+                ? listActiveVideos({
+                    categorySlugs: activity.categorySlugs
+                      .filter((s) => s !== "music")
+                      .slice(0, 6),
+                    mode,
+                    limit: 14,
+                    excludeCategorySlugs: ["music"],
+                  })
+                : Promise.resolve([]),
+            ]);
+            const merged: typeof byChannel = [];
+            const ids = new Set<string>();
+            for (const v of [...byChannel, ...byCategory]) {
+              if (ids.has(v.id)) continue;
+              ids.add(v.id);
+              merged.push(v);
+            }
+            return merged;
+          })(),
+          listActiveVideos({ category: "music", mode, limit: 12 }),
+          Promise.all(
+            nonMusicCategories.slice(0, 5).map(async (cat) => ({
+              cat,
+              videos: await listActiveVideos({
+                category: cat.slug,
+                mode,
+                limit: 8,
+              }),
+            })),
+          ),
+        ])
+      : [[], [], [], []];
 
   // Avoid duplicating the same video across top shelves when possible
   const seen = new Set<string>();
@@ -218,6 +241,14 @@ export default async function HomePage({
               ))}
             </div>
           </section>
+
+          {musicVideos.length > 0 ? (
+            <VideoShelf
+              title={musicCategory?.name || "Music"}
+              videos={takeFresh(musicVideos, 10)}
+              href="/categories/music"
+            />
+          ) : null}
 
           {shelfRows.map(({ cat, videos }) => (
             <VideoShelf

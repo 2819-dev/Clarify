@@ -9,6 +9,8 @@ export type VideoQuery = {
   channelSlugs?: string[];
   /** Match any of these category slugs (recommended from activity). */
   categorySlugs?: string[];
+  /** Exclude these category slugs (e.g. keep music off the mixed home feed). */
+  excludeCategorySlugs?: string[];
   /** all | videos | shorts */
   format?: "all" | "videos" | "shorts";
   /** jewish = Jewish-only; filtered = Jewish + family-safe */
@@ -33,8 +35,13 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean)
     .slice(0, 20);
+  const excludeCategorySlugs = (query.excludeCategorySlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 20);
   const hasChannelSlugs = channelSlugs.length > 0;
   const hasCategorySlugs = categorySlugs.length > 0;
+  const hasExcludeCategories = excludeCategorySlugs.length > 0;
   const format = query.format || "all";
   const shortsOnly = format === "shorts";
   const longOnly = format === "videos";
@@ -65,6 +72,11 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
       AND (
         ${!hasCategorySlugs}::boolean
         OR v.category_slug = ANY(${categorySlugs})
+      )
+      AND (
+        ${!hasExcludeCategories}::boolean
+        OR v.category_slug IS NULL
+        OR NOT (v.category_slug = ANY(${excludeCategorySlugs}))
       )
       AND (
         ${!onlyJewish}::boolean
