@@ -145,9 +145,9 @@ export async function listRelatedVideos(
         OR COALESCE(v.is_jewish, TRUE) = TRUE
       )
     ORDER BY
+      CASE WHEN COALESCE(v.is_short, FALSE) = ${Boolean(video.is_short)} THEN 0 ELSE 1 END,
       CASE WHEN ${channelSlug}::text IS NOT NULL AND c.slug = ${channelSlug} THEN 0 ELSE 1 END,
       CASE WHEN ${categorySlug}::text IS NOT NULL AND v.category_slug = ${categorySlug} THEN 0 ELSE 1 END,
-      CASE WHEN COALESCE(v.is_short, FALSE) = ${Boolean(video.is_short)} THEN 0 ELSE 1 END,
       COALESCE(v.published_at, v.created_at) DESC
     LIMIT ${cap}
   `;

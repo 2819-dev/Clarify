@@ -2949,17 +2949,15 @@ a {
     max-width: 100%;
   }
 
+  .watch-related.is-shorts-rail .watch-related-item,
   .watch-related.is-shorts-rail .watch-related-item.is-short {
     grid-template-columns: 1fr;
     width: 100%;
   }
 
+  .watch-related.is-shorts-rail .watch-related-item .watch-related-thumb,
   .watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-thumb {
     width: 100%;
-  }
-
-  .watch-related.is-shorts-rail .watch-related-item:not(.is-short) {
-    display: none;
   }
 
   .video-grid:not(.shorts-grid),
@@ -5492,12 +5490,22 @@ body {
   overflow-x: clip;
 }
 
-.watch-related.is-shorts-rail .watch-related-item:not(.is-short) {
-  display: none;
+/* Prefer short tiles on the Shorts rail (class applied by RelatedVideos). */
+.watch-related.is-shorts-rail .watch-related-item {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: start;
 }
 
-.watch-related.is-shorts-rail .watch-related-item.is-short .watch-related-thumb {
+.watch-related.is-shorts-rail .watch-related-item .watch-related-thumb {
   aspect-ratio: 9 / 16;
+  border-radius: 0.65rem;
+  background: #0f0f0f;
+}
+
+.watch-related.is-shorts-rail .watch-related-item .watch-related-title {
+  -webkit-line-clamp: 3;
+  font-size: 0.84rem;
 }
 
 @media (max-width: 960px) {

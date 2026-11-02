@@ -21,11 +21,17 @@ export function RelatedVideos({
 }) {
   if (videos.length === 0) return null;
 
-  const ordered = preferShorts
-    ? [...videos].sort(
-        (a, b) => Number(Boolean(b.is_short)) - Number(Boolean(a.is_short)),
-      )
-    : videos;
+  const shortsOnly = preferShorts
+    ? videos.filter((video) => Boolean(video.is_short))
+    : [];
+  const ordered =
+    preferShorts && shortsOnly.length > 0
+      ? shortsOnly
+      : preferShorts
+        ? [...videos].sort(
+            (a, b) => Number(Boolean(b.is_short)) - Number(Boolean(a.is_short)),
+          )
+        : videos;
 
   return (
     <aside
@@ -44,13 +50,14 @@ export function RelatedVideos({
       </p>
       <ul className="watch-related-list">
         {ordered.map((video) => {
+          const treatAsShort = preferShorts || Boolean(video.is_short);
           const stored = video.thumbnail_url || "";
           const isGeneric =
             !stored ||
             /\/(default|mqdefault|hqdefault|sddefault|hq720|maxresdefault)\.jpg/i.test(
               stored,
             );
-          const thumb = video.is_short
+          const thumb = treatAsShort
             ? isGeneric
               ? `https://i.ytimg.com/vi/${video.youtube_id}/oar2.jpg`
               : stored
@@ -65,12 +72,12 @@ export function RelatedVideos({
             <li key={video.id}>
               <Link
                 href={`/watch/${video.id}`}
-                className={`watch-related-item${video.is_short ? " is-short" : ""}`}
+                className={`watch-related-item${treatAsShort ? " is-short" : ""}`}
               >
                 <div className="watch-related-thumb">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={thumb} alt="" loading="lazy" />
-                  {!video.is_short && duration ? (
+                  {!treatAsShort && duration ? (
                     <span className="video-duration">{duration}</span>
                   ) : null}
                 </div>
