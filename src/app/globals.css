@@ -2386,9 +2386,58 @@ a {
   text-decoration: underline;
 }
 
-.yt-sidebar-made {
+.yt-sidebar-footer {
   margin-top: auto;
-  padding: 1rem 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 0.35rem;
+}
+
+.theme-toggle {
+  display: flex;
+  width: 100%;
+  padding: 0.12rem;
+  border-radius: 0.65rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  gap: 0.1rem;
+}
+
+.theme-toggle-option {
+  appearance: none;
+  flex: 1 1 0;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 0.35rem;
+  border-radius: 0.5rem;
+  color: var(--ink-soft);
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle-option:hover {
+  color: var(--ink);
+}
+
+.theme-toggle-option.is-active {
+  background: var(--blue-950);
+  color: #fff;
+}
+
+html.theme-dark .theme-toggle-option.is-active,
+html[data-theme="dark"] .theme-toggle-option.is-active {
+  color: #0f0f0f;
+  background: #fff;
+}
+
+.yt-sidebar-made {
+  margin: 0;
+  padding: 0 0.75rem 0.15rem;
   font-size: 0.76rem;
   color: var(--ink-soft);
 }
@@ -2737,12 +2786,18 @@ a {
 
   html.yt-nav-open .yt-sidebar-section,
   html.yt-nav-open .yt-sidebar-made,
-  html.yt-nav-open .yt-sidebar-mode {
+  html.yt-nav-open .yt-sidebar-mode,
+  html.yt-nav-open .yt-sidebar-footer {
     display: block;
   }
 
+  html.yt-nav-open .yt-sidebar-footer {
+    display: flex;
+  }
+
   .yt-sidebar-section,
-  .yt-sidebar-made {
+  .yt-sidebar-made,
+  .yt-sidebar-footer {
     display: none;
   }
 
@@ -3913,6 +3968,7 @@ html.yt-sidebar-collapsed .yt-sidebar-heading,
 html.yt-sidebar-collapsed .yt-sidebar-empty,
 html.yt-sidebar-collapsed .yt-sidebar-more,
 html.yt-sidebar-collapsed .yt-sidebar-made,
+html.yt-sidebar-collapsed .yt-sidebar-footer,
 html.yt-sidebar-collapsed .yt-sidebar-section:nth-of-type(2) {
   display: none;
 }
@@ -5206,9 +5262,6 @@ html.yt-page-watch .site-footer,
     gap: 0.55rem;
   }
 
-  .yt-topbar-right .theme-toggle {
-    display: none;
-  }
 }
 
 @media (max-width: 720px) {
