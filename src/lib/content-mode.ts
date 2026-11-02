@@ -18,6 +18,6 @@ export function contentModeAdjective(mode: ContentMode): string {
 
 export function contentModeDescription(mode: ContentMode): string {
   return mode === "filtered"
-    ? "Jewish videos plus family-friendly channels (nature, sleep ambience, secular kids, and more), without coarse language or inappropriate material."
-    : "Clearly Jewish content only — shiurim, holidays, Shabbat, Hebrew, Jewish education, Israel/Jewish culture. Not generic family or ambience.";
+    ? "Family-friendly library including Jewish makers plus suitable non-Jewish creators (nature, kids, about-Jews topics, and more)."
+    : "Videos from Jewish creators and makers — educators, musicians, Jewish orgs — not merely topics about Jews.";
 }

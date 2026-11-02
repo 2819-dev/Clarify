@@ -11,7 +11,7 @@ export type VideoQuery = {
   channelSlugs?: string[];
   /** Match any of these category slugs (recommended from activity). */
   categorySlugs?: string[];
-  /** Exclude these category slugs (e.g. keep music off the mixed home feed). */
+  /** Exclude these category slugs (e.g. keep music/news off the mixed home feed). */
   excludeCategorySlugs?: string[];
   /** all | videos | shorts */
   format?: "all" | "videos" | "shorts";
@@ -25,6 +25,17 @@ export type VideoQuery = {
   boostCategorySlugs?: string[];
   limit?: number;
 };
+
+/** Merge parental disabled categories into exclude list. */
+export function withParentalExcludes(
+  base: string[] | undefined,
+  disabled: string[] | undefined,
+): string[] | undefined {
+  const merged = [...(base || []), ...(disabled || [])]
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  return merged.length ? [...new Set(merged)] : undefined;
+}
 
 function jewishOnly(mode?: ContentMode): boolean {
   return mode !== "filtered";

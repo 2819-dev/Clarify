@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { ModerationProvider } from "@/components/ModerationContext";
+import { ChildRestrictionBanner } from "@/components/ChildRestrictionBanner";
 import { PrefsHydrator } from "@/components/PrefsHydrator";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteSidebar } from "@/components/SiteSidebar";
@@ -76,6 +77,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
                 />
               </Suspense>
               <div className="yt-main">
+                <ChildRestrictionBanner />
                 <main className="yt-main-inner">{children}</main>
                 <footer className="site-footer">
                   <p>
