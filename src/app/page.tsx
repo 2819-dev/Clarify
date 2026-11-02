@@ -181,9 +181,9 @@ export default async function HomePage({
             categories.
           </p>
         ) : (
-          <div className="search-results">
+          <div className="video-grid">
             {latest.map((video) => (
-              <SearchResultRow key={video.id} video={video} />
+              <VideoTile key={video.id} video={video} />
             ))}
           </div>
         )
