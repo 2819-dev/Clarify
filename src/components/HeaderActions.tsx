@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
+import { ParentalControlsPanel } from "@/components/ParentalControlsPanel";
 
 function IconBell() {
   return (
@@ -50,43 +51,46 @@ function Popover({
   );
 }
 
-export function HeaderActions() {
+export function HeaderActions({ signedIn = false }: { signedIn?: boolean }) {
   const notifId = useId();
   const [notifOpen, setNotifOpen] = useState(false);
   const notifRoot = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="yt-header-action" ref={notifRoot}>
-      <button
-        type="button"
-        className="yt-icon-btn"
-        aria-label="Notifications"
-        aria-haspopup="dialog"
-        aria-expanded={notifOpen}
-        aria-controls={notifId}
-        title="Notifications"
-        onClick={() => setNotifOpen((v) => !v)}
-      >
-        <IconBell />
-      </button>
-      <Popover
-        open={notifOpen}
-        id={notifId}
-        title="Notifications"
-        onClose={() => setNotifOpen(false)}
-      >
-        <p className="yt-header-panel-empty">
-          You’re all caught up. Subscribe to channels to see their latest videos
-          here.
-        </p>
-        <Link
-          href="/subscriptions"
-          className="yt-header-panel-item"
-          onClick={() => setNotifOpen(false)}
+    <>
+      <div className="yt-header-action" ref={notifRoot}>
+        <button
+          type="button"
+          className="yt-icon-btn"
+          aria-label="Notifications"
+          aria-haspopup="dialog"
+          aria-expanded={notifOpen}
+          aria-controls={notifId}
+          title="Notifications"
+          onClick={() => setNotifOpen((v) => !v)}
         >
-          View subscriptions
-        </Link>
-      </Popover>
-    </div>
+          <IconBell />
+        </button>
+        <Popover
+          open={notifOpen}
+          id={notifId}
+          title="Notifications"
+          onClose={() => setNotifOpen(false)}
+        >
+          <p className="yt-header-panel-empty">
+            You’re all caught up. Subscribe to channels to see their latest videos
+            here.
+          </p>
+          <Link
+            href="/subscriptions"
+            className="yt-header-panel-item"
+            onClick={() => setNotifOpen(false)}
+          >
+            View subscriptions
+          </Link>
+        </Popover>
+      </div>
+      <ParentalControlsPanel signedIn={signedIn} />
+    </>
   );
 }

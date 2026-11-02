@@ -120,7 +120,7 @@ export function SiteHeader({
       <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
         <ThemeToggle />
-        <HeaderActions />
+        <HeaderActions signedIn={Boolean(user)} />
         {showAdminKey ? (
           <Link
             href="/admin/login"

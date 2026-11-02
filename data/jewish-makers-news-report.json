@@ -1,0 +1,69 @@
+{
+  "policy": "Jewish = Jewish makers; News separate; about-Jews by others → filtered",
+  "before": {
+    "channels": 631,
+    "videos": 17531,
+    "jewish_videos": 7549,
+    "jewish_channels": 246,
+    "news_videos": 0
+  },
+  "after": {
+    "jewish_videos": 7270,
+    "jewish_channels": 239,
+    "news_videos": 479
+  },
+  "demoted_channels": [
+    {
+      "slug": "800-pound-gorilla-media",
+      "name": "800 Pound Gorilla Media",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "ap-archive",
+      "name": "AP Archive",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "anne-frank-house",
+      "name": "Anne Frank House",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "associated-press",
+      "name": "Associated Press",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "bbc-newsround",
+      "name": "BBC Newsround",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "pix11-news",
+      "name": "PIX11 News",
+      "why": "not-jewish-maker"
+    },
+    {
+      "slug": "united-states-holocaust-memorial-museum",
+      "name": "United States Holocaust Memorial Museum",
+      "why": "not-jewish-maker"
+    }
+  ],
+  "news_moved_seed": 479,
+  "neon": {
+    "before": {
+      "jewish": 7585,
+      "filtered": 9982,
+      "news": 0
+    },
+    "after": {
+      "jewish": 7306,
+      "filtered": 10261,
+      "news": 479,
+      "active": 17567
+    },
+    "demoted_channels": 7,
+    "demoted_videos": 279,
+    "news_retagged": 479
+  }
+}

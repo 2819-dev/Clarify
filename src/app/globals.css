@@ -5864,3 +5864,152 @@ html.yt-page-watch .watch-page:not(.is-short) {
     font-size: 0.96rem;
   }
 }
+
+/* ——— Parental controls ——— */
+.parental-panel {
+  width: min(360px, calc(100vw - 1.5rem));
+  max-height: min(78vh, 640px);
+  overflow: auto;
+}
+
+.parental-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.parental-tabs button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.parental-tabs button.is-active {
+  background: var(--blue-700);
+  border-color: var(--blue-700);
+  color: #fff;
+}
+
+.parental-block {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.parental-code {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: center;
+  padding: 0.85rem 0.75rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--blue-700) 8%, var(--surface));
+  border: 1px dashed color-mix(in srgb, var(--blue-700) 35%, var(--line));
+}
+
+.parental-code-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.55rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.parental-code-timer {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.parental-label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.parental-label input,
+.parental-label select,
+.parental-row input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.parental-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem;
+}
+
+.parental-row button,
+.parental-save {
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  background: var(--blue-700);
+  color: #fff;
+  font-weight: 650;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.parental-fieldset {
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.65rem 0.7rem;
+  margin: 0;
+}
+
+.parental-fieldset legend {
+  padding: 0 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.parental-check {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: 0.82rem;
+  margin: 0.25rem 0;
+}
+
+.parental-error {
+  color: #b42318;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.parental-ok {
+  color: var(--blue-700);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.parental-status-line {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.child-restriction-banner {
+  margin: 0.35rem 0.85rem 0.15rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--blue-700) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--blue-700) 25%, var(--line));
+  font-size: 0.86rem;
+  color: var(--ink);
+}
+
+.child-restriction-banner.is-blocked {
+  background: color-mix(in srgb, #b42318 12%, var(--surface));
+  border-color: color-mix(in srgb, #b42318 35%, var(--line));
+}
