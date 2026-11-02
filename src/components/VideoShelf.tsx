@@ -43,12 +43,18 @@ export function VideoShelf({
       </div>
       {videos.length === 0 ? (
         <p className="empty-state">{emptyLabel}</p>
-      ) : (
+      ) : isShorts ? (
         <div className="yt-shelf-row">
           {videos.map((video) => (
             <div key={video.id} className="yt-shelf-item">
               <VideoTile video={video} />
             </div>
+          ))}
+        </div>
+      ) : (
+        <div className="video-grid yt-shelf-longform-grid">
+          {videos.map((video) => (
+            <VideoTile key={video.id} video={video} />
           ))}
         </div>
       )}
