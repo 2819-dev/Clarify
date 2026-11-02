@@ -320,6 +320,289 @@ const NEW_CHANNELS = [
   ["scholastic", false, "learning"],
   ["scholasticparents", false, "learning"],
   ["readacrossamerica", false, "stories"],
+  // Round 3 — more Jewish
+  ["jewsforjudaism", true, "torah"],
+  ["partnersinjudaism", true, "torah"],
+  ["simpletoremember", true, "torah"],
+  ["torahcafe", true, "torah"],
+  ["torahanytimeofficial", true, "torah"],
+  ["oupress", true, "torah"],
+  ["oukosherorg", true, "cooking"],
+  ["koshercomvideos", true, "cooking"],
+  ["kosheronthemove", true, "cooking"],
+  ["busyinjthekitchen", true, "cooking"],
+  ["betweencarpools", true, "cooking"],
+  ["koshercowboy", true, "cooking"],
+  ["jewlishkitchen", true, "cooking"],
+  ["jewishfoodexperience", true, "cooking"],
+  ["tabletmagvideo", true, "community"],
+  ["momentmagazine", true, "community"],
+  ["jewishcurrents", true, "community"],
+  ["kveller", true, "community"],
+  ["heyalma", true, "community"],
+  ["18doors", true, "community"],
+  ["hillelinternational", true, "community"],
+  ["hillel", true, "community"],
+  ["moishheilman", true, "music"],
+  ["eliavzohar", true, "music"],
+  ["shwekeyofficial", true, "music"],
+  ["avrahamfriedofficial", true, "music"],
+  ["yaakovshwekeymusic", true, "music"],
+  ["gadelbazofficial", true, "music"],
+  ["ishayriboofficial", true, "music"],
+  ["oshri", true, "music"],
+  ["hatikva", true, "music"],
+  ["bluefringe", true, "music"],
+  ["jewishrockradio", true, "music"],
+  ["jewishacappella", true, "music"],
+  ["kolbo", true, "music"],
+  ["neshama", true, "music"],
+  ["ruachrevival", true, "music"],
+  ["shira", true, "music"],
+  ["shirachadasha", true, "music"],
+  ["jewishkidsnetwork", true, "learning"],
+  ["torahforkids", true, "learning"],
+  ["hebrewforkids", true, "hebrew"],
+  ["hebrewpod101", true, "hebrew"],
+  ["learnhebrew", true, "hebrew"],
+  ["ulpan", true, "hebrew"],
+  ["ulpanor", true, "hebrew"],
+  ["teachmehebrew", true, "hebrew"],
+  ["israelforever", true, "community"],
+  ["standwithusofficial", true, "community"],
+  ["cameraorg", true, "community"],
+  ["honestreporting", true, "community"],
+  ["memri", true, "community"],
+  ["memritv", true, "community"],
+  ["jewishvirtuallibrary", true, "history"],
+  ["yivoinstitute", true, "history"],
+  ["yivo", true, "history"],
+  ["cjhnyc", true, "history"],
+  ["centerforjewishhistory", true, "history"],
+  ["ushmmofficial", true, "history"],
+  ["holocaustencyclopedia", true, "history"],
+  ["yadvashemofficial", true, "history"],
+  ["annefrankhouse", true, "history"],
+  ["annefrank", true, "history"],
+  ["museumoftolerance", true, "history"],
+  ["simonswiesenthal", true, "history"],
+  ["wiesenthalcenter", true, "history"],
+  ["jewishbookcouncil", true, "stories"],
+  ["pjlibrary", true, "stories"],
+  ["karben", true, "stories"],
+  ["behrmanhouse", true, "learning"],
+  ["behrman", true, "learning"],
+  ["torahaura", true, "learning"],
+  ["lookstein", true, "learning"],
+  ["looksteincenter", true, "learning"],
+  ["pardes", true, "torah"],
+  ["pardesinstitute", true, "torah"],
+  ["hartmaninstitute", true, "torah"],
+  ["shalomhartman", true, "torah"],
+  ["mechonhadar", true, "torah"],
+  ["hadar", true, "torah"],
+  ["drisha", true, "torah"],
+  ["yct", true, "torah"],
+  ["yctharova", true, "torah"],
+  ["riets", true, "torah"],
+  ["yuutorah", true, "torah"],
+  ["yuitorah", true, "torah"],
+  ["matanel", true, "community"],
+  ["israelfund", true, "community"],
+  ["friendsofidf", true, "community"],
+  ["fidf", true, "community"],
+  ["magendavidadom", true, "community"],
+  ["magen", true, "community"],
+  ["mdaisrael", true, "community"],
+  ["jewishnationalfund", true, "community"],
+  ["kkljnf", true, "community"],
+  ["jewishagencyisrael", true, "community"],
+  ["birthrightisrael", true, "community"],
+  ["taglit", true, "community"],
+  ["masa", true, "community"],
+  ["masaisrael", true, "community"],
+  ["onwardisrael", true, "community"],
+  ["israelspecialforces", true, "community"],
+  ["ilantur", true, "community"],
+  ["tlv1", true, "community"],
+  ["kan11", true, "community"],
+  ["kannemania", true, "community"],
+  ["glztv", true, "community"],
+  ["israelhayom", true, "community"],
+  ["mako", true, "community"],
+  ["n12news", true, "community"],
+  ["keshet12", true, "community"],
+  // Round 3 — more family-friendly
+  ["pbsdigitalstudios", false, "learning"],
+  ["pbsspacetime", false, "science"],
+  ["pbsorigins", false, "history"],
+  ["pbsamericantestkitchen", false, "cooking"],
+  ["americastestkitchen", false, "cooking"],
+  ["seriouseats", false, "cooking"],
+  ["bonappetit", false, "cooking"],
+  ["foodnetwork", false, "cooking"],
+  ["tasty", false, "cooking"],
+  ["babishculinaryuniverse", false, "cooking"],
+  ["joshuaweissman", false, "cooking"],
+  ["prohomecooks", false, "cooking"],
+  ["sortedfood", false, "cooking"],
+  ["jamieoliver", false, "cooking"],
+  ["gordonramsay", false, "cooking"],
+  ["kidsbakingchampionship", false, "cooking"],
+  ["kidscooking", false, "cooking"],
+  ["cookingwithkids", false, "cooking"],
+  ["annreardon", false, "cooking"],
+  ["howtomake", false, "science"],
+  ["howstuffworks", false, "science"],
+  ["seeker", false, "science"],
+  ["seekerstories", false, "science"],
+  ["greatbigstory", false, "family"],
+  ["nowthis", false, "family"],
+  ["vox", false, "learning"],
+  ["voxdotcom", false, "learning"],
+  ["polymatter", false, "learning"],
+  ["wendoverproductions", false, "learning"],
+  ["realengineering", false, "science"],
+  ["mustarde", false, "science"],
+  ["mustardechannel", false, "science"],
+  ["thecodingtrain", false, "learning"],
+  ["fireship", false, "learning"],
+  ["freecodecamp", false, "learning"],
+  ["traversymedia", false, "learning"],
+  ["programmingwithmosh", false, "learning"],
+  ["csdojo", false, "learning"],
+  ["thenewboston", false, "learning"],
+  ["3blue1brown", false, "science"],
+  ["standupmaths", false, "science"],
+  ["mathologer", false, "science"],
+  ["numberphile2", false, "science"],
+  ["singingbanana", false, "science"],
+  ["tibees", false, "science"],
+  ["physicsfun", false, "science"],
+  ["veritasium2", false, "science"],
+  ["smartereveryday2", false, "science"],
+  ["cgpgrey", false, "learning"],
+  ["cgpgreyclips", false, "learning"],
+  ["tomscott", false, "learning"],
+  ["tomscottplus", false, "learning"],
+  ["geographyNow", false, "learning"],
+  ["geographynow", false, "learning"],
+  ["usefulcharts", false, "history"],
+  ["oversimplified2", false, "history"],
+  ["historiacivilis", false, "history"],
+  ["kingsandgenerals", false, "history"],
+  ["invicta", false, "history"],
+  ["historymatters", false, "history"],
+  ["tededorigamidaily", false, "crafts"],
+  ["origamiinstructions", false, "crafts"],
+  ["joenab", false, "crafts"],
+  ["drawingwiffwaffles", false, "crafts"],
+  ["markcrilley", false, "crafts"],
+  ["drawwithjazza", false, "crafts"],
+  ["proko", false, "crafts"],
+  ["circlelineartschool", false, "crafts"],
+  ["brokensymphony", false, "music"],
+  ["twosetviolin", false, "music"],
+  ["classicfm", false, "music"],
+  ["halidonmusicclassical", false, "music"],
+  ["lso", false, "music"],
+  ["berlinphil", false, "music"],
+  ["metopera", false, "music"],
+  ["kennedycenter", false, "music"],
+  ["carnegiehall", false, "music"],
+  ["lincolncenter", false, "music"],
+  ["sfsymphony", false, "music"],
+  ["nyphil", false, "music"],
+  ["disney", false, "family"],
+  ["disneyjunior", false, "family"],
+  ["disneyplus", false, "family"],
+  ["pixar", false, "family"],
+  ["dreamworks", false, "family"],
+  ["illumination", false, "family"],
+  ["sonyanimation", false, "family"],
+  ["nickjr", false, "family"],
+  ["nickjruk", false, "family"],
+  ["cartoonito", false, "family"],
+  ["cbeebieshouse", false, "family"],
+  ["mrbeastgaming", false, "gaming"],
+  ["dantdm", false, "gaming"],
+  ["stampylonghead", false, "gaming"],
+  ["stampylongnose", false, "gaming"],
+  ["popularmmos", false, "gaming"],
+  ["prestonplayz", false, "gaming"],
+  ["unspeakable", false, "gaming"],
+  ["fgteev", false, "gaming"],
+  ["nogla", false, "gaming"],
+  ["sSundee", false, "gaming"],
+  ["ssundee", false, "gaming"],
+  ["ldshadowlady", false, "gaming"],
+  ["smallishbeans", false, "gaming"],
+  ["impulseSV", false, "gaming"],
+  ["impulsesv", false, "gaming"],
+  ["grianmc", false, "gaming"],
+  ["hermitcraft", false, "gaming"],
+  ["cubfan135", false, "gaming"],
+  ["iskall85", false, "gaming"],
+  ["ethoslab", false, "gaming"],
+  ["bdoubleo100", false, "gaming"],
+  ["natgeowild", false, "nature"],
+  ["discovery", false, "nature"],
+  ["discoverychannel", false, "nature"],
+  ["bbcearthunplugged", false, "nature"],
+  ["ourplanet", false, "nature"],
+  ["netflix", false, "family"],
+  ["netflixjr", false, "family"],
+  ["appletv", false, "family"],
+  ["smithsonianzoo", false, "nature"],
+  ["nationalzoo", false, "nature"],
+  ["sdzsafaripark", false, "nature"],
+  ["oregonzoo", false, "nature"],
+  ["woodlandparkzoo", false, "nature"],
+  ["houstonzoo", false, "nature"],
+  ["dallaszoo", false, "nature"],
+  ["columbuszoo", false, "nature"],
+  ["cincinnatizoo", false, "nature"],
+  ["stlzookeeper", false, "nature"],
+  ["audubon", false, "nature"],
+  ["audubonsociety", false, "nature"],
+  ["wwf", false, "nature"],
+  ["worldwildlife", false, "nature"],
+  ["conservationintl", false, "nature"],
+  ["janegoodallinst", false, "nature"],
+  ["janegoodall", false, "nature"],
+  ["davidsuzuki", false, "nature"],
+  ["tedxnashville", false, "learning"],
+  ["tedx", false, "learning"],
+  ["tedxtalks", false, "learning"],
+  ["bigthink", false, "learning"],
+  ["worldsciencefestival", false, "science"],
+  ["royalinstitution", false, "science"],
+  ["richannel", false, "science"],
+  ["exploratorium", false, "science"],
+  ["mosboston", false, "science"],
+  ["chicagomsi", false, "science"],
+  ["calacademy", false, "science"],
+  ["amnhnyc", false, "science"],
+  ["fieldmuseum", false, "science"],
+  ["smithsoniannmnh", false, "science"],
+  ["airandspace", false, "science"],
+  ["smithsonianairspace", false, "science"],
+  ["intrepidmuseum", false, "history"],
+  ["ussconstitution", false, "history"],
+  ["nationalarchives", false, "history"],
+  ["libraryofcongress", false, "history"],
+  ["britishlibrary", false, "history"],
+  ["britishmuseum", false, "history"],
+  ["metmuseum", false, "history"],
+  ["moma", false, "history"],
+  ["guggenheim", false, "history"],
+  ["tate", false, "history"],
+  ["rijksmuseum", false, "history"],
+  ["louvre", false, "history"],
+  ["vaticanmuseums", false, "history"],
+  ["gettymuseum", false, "history"],
+  ["nga", false, "history"],
+  ["nationalgallery", false, "history"],
 ];
 
 function sleep(ms) {
@@ -453,24 +736,31 @@ function parseVideosFromChannelHtml(html, channelName) {
       channelName,
       thumbnailUrl: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
     });
-    if (entries.length >= 80) break;
+    if (entries.length >= 120) break;
   }
   return entries;
 }
 
-async function isEmbeddable(youtubeId) {
-  try {
-    const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(
-      `https://www.youtube.com/watch?v=${youtubeId}`,
-    )}&format=json`;
-    const res = await fetch(url, {
-      headers: { "User-Agent": UA, Accept: "application/json" },
-    });
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
-    return null;
+async function isEmbeddable(youtubeId, tries = 3) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(
+        `https://www.youtube.com/watch?v=${youtubeId}`,
+      )}&format=json`;
+      const res = await fetch(url, {
+        headers: { "User-Agent": UA, Accept: "application/json" },
+      });
+      if (res.status === 429 || res.status >= 500) {
+        await sleep(800 * (i + 1));
+        continue;
+      }
+      if (!res.ok) return null;
+      return res.json();
+    } catch {
+      await sleep(400 * (i + 1));
+    }
   }
+  return null;
 }
 
 async function fetchPublishedAt(youtubeId) {
@@ -601,7 +891,7 @@ async function ensureNewChannels() {
         ) VALUES (
           ${slug},
           ${meta.name},
-          ${meta.description || null},
+          ${meta.description || ""},
           ${url},
           ${meta.avatar},
           ${meta.subscriberCount},
@@ -666,23 +956,27 @@ async function fetchUploads(ch) {
       /* fall through */
     }
   }
-  if (ch.youtube_url) {
-    try {
-      const pageUrl = ch.youtube_url.replace(/\/$/, "") + "/videos";
-      const res = await fetch(pageUrl, {
-        headers: { "User-Agent": UA, Accept: "text/html" },
-        redirect: "follow",
-      });
-      if (res.ok) {
+  // Prefer Atom (has publishedAt). Only scrape HTML tabs when feed is thin.
+  if (ch.youtube_url && byId.size < 20) {
+    const base = ch.youtube_url.replace(/\/$/, "");
+    for (const path of ["/videos", "/shorts"]) {
+      try {
+        const res = await fetch(base + path, {
+          headers: { "User-Agent": UA, Accept: "text/html" },
+          redirect: "follow",
+        });
+        if (!res.ok) continue;
         for (const entry of parseVideosFromChannelHtml(
           await res.text(),
           ch.name,
         )) {
           if (!byId.has(entry.youtubeId)) byId.set(entry.youtubeId, entry);
         }
+        await sleep(200);
+        if (byId.size >= 60) break;
+      } catch {
+        /* ignore tab */
       }
-    } catch {
-      /* ignore */
     }
   }
   return [...byId.values()];
@@ -720,7 +1014,7 @@ async function expandVideos({ channelLimit = 280, perChannel = 28 } = {}) {
           continue;
         }
         const meta = await isEmbeddable(entry.youtubeId);
-        await sleep(70);
+        await sleep(160);
         if (!meta?.title) {
           skippedEmbed++;
           continue;
@@ -732,14 +1026,11 @@ async function expandVideos({ channelLimit = 280, perChannel = 28 } = {}) {
           /\b#shorts\b/i.test(title) ||
           (meta.height && meta.width && meta.height > meta.width);
 
+        // Watch pages are often bot-blocked; published_at may stay null.
         let publishedAt = entry.publishedAt;
         if (!publishedAt) {
           publishedAt = await fetchPublishedAt(entry.youtubeId);
           await sleep(60);
-        }
-        if (!publishedAt) {
-          skippedEmbed++;
-          continue;
         }
 
         if (meta.author_url && /youtube\.com\/@/i.test(meta.author_url)) {
@@ -783,7 +1074,7 @@ async function expandVideos({ channelLimit = 280, perChannel = 28 } = {}) {
             ${Boolean(ch.is_jewish)},
             TRUE,
             TRUE,
-            ${publishedAt}::timestamptz
+            ${publishedAt}
           )
           ON CONFLICT (youtube_id) DO NOTHING
         `;
@@ -876,7 +1167,7 @@ const chSummary = await ensureNewChannels();
 console.log(JSON.stringify(chSummary, null, 2));
 
 console.log("=== expand iframe-verified uploads (thin channels first) ===");
-const expandSummary = await expandVideos({ channelLimit: 300, perChannel: 30 });
+const expandSummary = await expandVideos({ channelLimit: 420, perChannel: 36 });
 console.log(JSON.stringify(expandSummary, null, 2));
 
 console.log("=== after ===");
