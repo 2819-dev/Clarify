@@ -10,7 +10,8 @@
     "seed:catalog": "node scripts/seed-catalog.mjs",
     "pages:build": "opennextjs-cloudflare build && node scripts/prepare-pages-out.mjs",
     "pages:deploy": "npm run pages:build && mv wrangler.jsonc wrangler.workers.jsonc && wrangler pages deploy .pages-out --project-name=clarify --branch=main --commit-dirty=true; status=$?; mv wrangler.workers.jsonc wrangler.jsonc; exit $status",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "catalog:expand": "node scripts/expand-iframe-catalog.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
