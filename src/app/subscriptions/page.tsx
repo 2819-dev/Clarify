@@ -44,14 +44,17 @@ export default async function SubscriptionsPage() {
       </div>
 
       {!user ? (
-        <p className="empty-state">
+        <div className="empty-state">
+          <p className="empty-state-copy">
+            Sign in to follow channels and build your subscription feed.
+          </p>
           <Link href="/signin?next=%2Fsubscriptions" className="btn-primary">
             Sign in
           </Link>
           <Link href="/signup?next=%2Fsubscriptions" className="btn-secondary">
             Create account
           </Link>
-        </p>
+        </div>
       ) : channels.length > 0 ? (
         <div className="channel-directory yt-subs-directory">
           {channels.map((channel) => {
@@ -70,11 +73,15 @@ export default async function SubscriptionsPage() {
           })}
         </div>
       ) : (
-        <p className="empty-state">
+        <div className="empty-state">
+          <p className="empty-state-copy">
+            You haven’t subscribed to any channels yet. Find creators you like
+            and tap Subscribe.
+          </p>
           <Link href="/channels" className="btn-primary">
             Browse channels
           </Link>
-        </p>
+        </div>
       )}
 
       {videos.length > 0 ? (

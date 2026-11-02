@@ -6066,3 +6066,613 @@ html.yt-page-watch .watch-page:not(.is-short) {
   background: color-mix(in srgb, #b42318 12%, var(--surface));
   border-color: color-mix(in srgb, #b42318 35%, var(--line));
 }
+
+/* ——— Make better 2026-11-02: consumer polish pass ——— */
+
+/* Typography & surface rhythm */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.yt-topbar {
+  min-height: 56px;
+  padding: 0.35rem 1rem;
+  border-bottom-color: color-mix(in srgb, var(--line) 85%, transparent);
+  backdrop-filter: saturate(1.1);
+}
+
+.yt-topbar-search .catalog-search input {
+  height: 40px;
+  font-size: 0.98rem;
+  background: var(--surface);
+  border-color: color-mix(in srgb, var(--ink) 18%, transparent);
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+html.theme-dark .yt-topbar-search .catalog-search input,
+html[data-theme="dark"] .yt-topbar-search .catalog-search input {
+  background: #121212;
+  border-color: #303030;
+  color: var(--ink);
+}
+
+.yt-topbar-search .catalog-search input:focus {
+  border-color: #1c62b9;
+  box-shadow: inset 0 0 0 1px #1c62b9;
+}
+
+.yt-topbar-right {
+  gap: 0.35rem;
+}
+
+.yt-icon-btn {
+  width: 40px;
+  height: 40px;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+html.theme-dark .yt-icon-btn:hover,
+html.theme-dark .yt-icon-btn[aria-expanded="true"],
+html[data-theme="dark"] .yt-icon-btn:hover,
+html[data-theme="dark"] .yt-icon-btn[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.content-mode-toggle {
+  padding: 0.1rem;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+}
+
+.content-mode-option {
+  font-size: 0.72rem;
+  padding: 0.32rem 0.62rem;
+  font-weight: 650;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+/* Sidebar */
+.yt-sidebar {
+  padding: 0.65rem 0.55rem 1.15rem;
+  gap: 0.85rem;
+}
+
+.yt-sidebar-link {
+  border-radius: 0.7rem;
+  padding: 0.58rem 0.75rem;
+  transition: background 0.14s ease;
+}
+
+.yt-sidebar-link:hover {
+  background: color-mix(in srgb, var(--paper) 92%, var(--ink));
+}
+
+.yt-sidebar-link.is-active {
+  background: var(--paper);
+  font-weight: 650;
+}
+
+html.theme-dark .yt-sidebar-link:hover,
+html[data-theme="dark"] .yt-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html.theme-dark .yt-sidebar-link.is-active,
+html[data-theme="dark"] .yt-sidebar-link.is-active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.yt-sidebar-heading {
+  margin: 0.2rem 0.75rem 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.yt-sidebar-empty {
+  margin: 0.15rem 0.75rem 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.yt-sidebar-empty a {
+  color: var(--blue-700);
+  font-weight: 650;
+}
+
+.yt-sidebar-footer {
+  gap: 0.55rem;
+  padding-top: 0.25rem;
+}
+
+.theme-toggle {
+  border-radius: 0.7rem;
+  border-color: color-mix(in srgb, var(--line) 95%, transparent);
+  background: var(--paper);
+}
+
+.theme-toggle-option {
+  padding: 0.42rem 0.3rem;
+  font-size: 0.72rem;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.yt-sidebar-made {
+  opacity: 0.6;
+  padding-bottom: 0.25rem;
+}
+
+/* Home / chips / shelves */
+.yt-main-inner:not(:has(.watch-page)) {
+  padding-block: 0.45rem 2rem;
+  padding-inline: 1.35rem;
+}
+
+.yt-home {
+  gap: 0.85rem;
+}
+
+.yt-chip-rail {
+  padding: 0.55rem 0 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.yt-chip-rail-track {
+  gap: 0.45rem;
+  padding-bottom: 0.2rem;
+}
+
+.yt-chip {
+  padding: 0.38rem 0.8rem;
+  border-radius: 0.55rem;
+  font-size: 0.86rem;
+  font-weight: 550;
+  background: var(--paper);
+  transition: background 0.14s ease, color 0.14s ease, transform 0.14s ease;
+}
+
+.yt-chip:hover {
+  background: var(--paper-deep);
+}
+
+.yt-chip.is-active {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+html.theme-dark .yt-chip.is-active,
+html[data-theme="dark"] .yt-chip.is-active {
+  background: #f1f1f1;
+  color: #0f0f0f;
+}
+
+.yt-shelves {
+  gap: 2.15rem;
+  margin-top: 0.55rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.95rem;
+  align-items: center;
+}
+
+.yt-shelf-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+}
+
+.yt-shelf-more {
+  font-size: 0.84rem;
+  padding: 0.2rem 0.15rem;
+}
+
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid),
+.yt-shelf-longform-grid,
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  gap: 2.25rem 1.55rem !important;
+}
+
+.video-tile {
+  gap: 0.75rem;
+}
+
+.video-tile-body {
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.video-thumb-wrap {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.video-tile:hover .video-thumb-wrap {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.video-thumb {
+  transition: transform 0.22s ease;
+}
+
+.video-tile:hover .video-thumb {
+  transform: scale(1.02);
+}
+
+.video-title {
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.video-channel {
+  font-size: 0.82rem;
+  margin-top: 0.12rem;
+}
+
+.video-submeta {
+  font-size: 0.78rem;
+  margin-top: 0.08rem;
+  color: var(--ink-soft);
+}
+
+.video-tile-avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  grid-auto-columns: minmax(168px, 188px);
+  gap: 0.85rem;
+  padding-bottom: 0.25rem;
+}
+
+.yt-shelf.is-shorts .video-title {
+  font-size: 0.86rem;
+  line-height: 1.3;
+}
+
+/* Watch page */
+html.yt-page-watch .yt-main-inner {
+  padding-top: 1rem;
+  padding-inline: 1.35rem 1.5rem;
+}
+
+.watch-page:not(.is-short) {
+  gap: 1.15rem 1.65rem;
+  padding-top: 0.15rem;
+}
+
+.watch-primary {
+  gap: 0.7rem;
+}
+
+.player-frame:not(.is-short) {
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.watch-title {
+  margin: 0.35rem 0 0.2rem;
+  font-size: clamp(1.12rem, 1.55vw, 1.28rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+}
+
+.watch-title-meta {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  gap: 0.4rem;
+}
+
+.watch-owner-row {
+  margin-bottom: 0.55rem;
+  gap: 0.85rem 1.1rem;
+}
+
+.watch-owner-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.watch-engage {
+  gap: 0.45rem;
+  margin: 0.15rem 0 0.25rem;
+}
+
+.btn-like-group,
+.btn-share,
+.watch-engage .btn-ghost,
+.watch-report-inline .btn-ghost {
+  border-radius: 999px;
+}
+
+.btn-like,
+.btn-dislike,
+.btn-share {
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.42rem 0.9rem;
+}
+
+.btn-like-group {
+  background: var(--paper);
+}
+
+.btn-like:hover,
+.btn-dislike:hover {
+  background: var(--paper-deep);
+}
+
+.btn-subscribe {
+  border-radius: 999px;
+  font-weight: 650;
+  padding: 0.45rem 1rem;
+  transition: background 0.14s ease, color 0.14s ease, filter 0.14s ease;
+}
+
+.btn-subscribe:hover {
+  filter: brightness(0.96);
+}
+
+.watch-category a,
+.watch-tags .watch-category a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem;
+  border-radius: 0.4rem;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.watch-category a:hover {
+  color: var(--ink);
+  background: var(--paper-deep);
+}
+
+.watch-desc-card {
+  border-radius: 0.8rem;
+  padding: 0.85rem 1rem;
+  background: var(--paper);
+  margin-top: 0.35rem;
+}
+
+.watch-desc-card .desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.watch-related-heading {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.watch-related-list {
+  gap: 0.7rem;
+}
+
+.watch-related-item {
+  gap: 0.65rem;
+  border-radius: 0.45rem;
+  transition: background 0.14s ease;
+  padding: 0.1rem;
+  margin: -0.1rem;
+}
+
+.watch-related-item:hover {
+  background: transparent;
+}
+
+.watch-related-thumb {
+  border-radius: 0.55rem;
+}
+
+.watch-related-title {
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.32;
+}
+
+.watch-related-channel,
+.watch-related-meta {
+  font-size: 0.76rem;
+  margin-top: 0.18rem;
+}
+
+/* Shorts watch */
+.shorts-stage-meta {
+  gap: 0.4rem;
+  padding: 2.5rem 0.85rem 0.95rem;
+}
+
+.shorts-meta-title {
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.shorts-action-icon {
+  width: 46px;
+  height: 46px;
+  transition: background 0.14s ease, transform 0.14s ease;
+}
+
+.shorts-action:hover .shorts-action-icon {
+  transform: scale(1.04);
+}
+
+.player-frame.is-short {
+  border-radius: 0.85rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Empty states */
+.empty-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 0.85rem;
+  margin: 0.35rem 0 0;
+  padding: 1.35rem 1.15rem;
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.empty-state .btn-primary,
+.empty-state .btn-secondary,
+.empty-state a.btn-primary,
+.empty-state a.btn-secondary {
+  text-decoration: none;
+}
+
+.empty-state-copy {
+  margin: 0;
+  flex: 1 1 16rem;
+  max-width: 42ch;
+}
+
+/* Mobile */
+@media (max-width: 960px) {
+  .yt-topbar {
+    padding: 0.3rem 0.65rem 0.4rem;
+    min-height: 48px;
+  }
+
+  .yt-main-inner:not(:has(.watch-page)) {
+    padding-inline: 0.85rem;
+    padding-block: 0.2rem 1.5rem;
+  }
+
+  html.yt-page-watch .yt-main-inner {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+  .yt-home {
+    gap: 0.65rem;
+  }
+
+  .yt-chip-rail {
+    padding: 0.35rem 0 0.2rem;
+    margin: 0 -0.15rem;
+  }
+
+  .yt-shelves {
+    gap: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .yt-shelf-head {
+    margin-bottom: 0.75rem;
+  }
+
+  .yt-shelf-title {
+    font-size: 1.05rem;
+  }
+
+  .yt-shelf-grid .video-grid,
+  .video-grid:not(.shorts-grid),
+  .yt-shelf-longform-grid,
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    gap: 1.55rem 0 !important;
+  }
+
+  .video-title {
+    font-size: 0.94rem;
+  }
+
+  .video-tile:hover .video-thumb-wrap,
+  .video-tile:hover .video-thumb {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .watch-copy,
+  .watch-related,
+  .watch-page:not(.is-short) .watch-primary {
+    padding-inline: 0.85rem;
+  }
+
+  .watch-title {
+    margin-top: 0.55rem;
+    font-size: 1.05rem;
+  }
+
+  .watch-owner-row {
+    margin-bottom: 0.45rem;
+  }
+
+  .watch-engage {
+    gap: 0.4rem;
+  }
+
+  .watch-related-heading {
+    margin-top: 0.35rem;
+  }
+
+  .watch-related-item {
+    grid-template-columns: 148px minmax(0, 1fr);
+  }
+
+  .empty-state {
+    padding: 1.1rem 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  .yt-sidebar {
+    padding-top: 4.1rem;
+  }
+
+  .yt-shelf.is-shorts .yt-shelf-row {
+    grid-auto-columns: minmax(142px, 40%);
+    gap: 0.7rem;
+  }
+
+  .shorts-stage-meta {
+    padding: 2.15rem 0.7rem 0.85rem;
+    padding-right: 3.7rem;
+  }
+
+  .shorts-action-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-thumb,
+  .video-thumb-wrap,
+  .shorts-action-icon,
+  .yt-chip,
+  .yt-sidebar-link,
+  .theme-toggle-option,
+  .content-mode-option {
+    transition: none !important;
+  }
+
+  .video-tile:hover .video-thumb-wrap,
+  .video-tile:hover .video-thumb,
+  .shorts-action:hover .shorts-action-icon {
+    transform: none;
+  }
+}
