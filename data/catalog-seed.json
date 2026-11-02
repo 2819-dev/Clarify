@@ -1,7 +1,7 @@
 {
   "counts": {
-    "videos": 18180,
-    "channels": 656,
+    "videos": 17962,
+    "channels": 655,
     "by_category": {
       "family": 12796,
       "music": 803,
@@ -21,7 +21,10 @@
       "sports": 42,
       "crafts": 157,
       "stories": 11
-    }
+    },
+    "purged_ai_channels": 1,
+    "purged_ai_videos": 218,
+    "purged_at": "2026-11-02T09:10:22.891Z"
   },
   "channels": [
     {
@@ -1013,17 +1016,6 @@
       "subscriber_count": 203000000,
       "is_jewish": false,
       "username": "cocomelon"
-    },
-    {
-      "slug": "code-org",
-      "name": "Code.org",
-      "description": "CodeAI is an education innovation nonprofit dedicated to the vision that every student in every school has the opportunity to learn about artificial intelligence (AI) and computer science (CS) as part of their core K-12 education.\n\nCodeAI is a 501c3 tax-exempt organization.",
-      "youtube_url": "https://www.youtube.com/@codeorg",
-      "avatar_url": "https://yt3.googleusercontent.com/0WDG1wsv85_3fRkS2UIkB9NFwBibMjsAta1aPaz6EJGBCQE8V_ChMfMXJCidR9-4Aa9BBQDttA=s900-c-k-c0x00ffffff-no-rj",
-      "banner_url": null,
-      "subscriber_count": null,
-      "is_jewish": false,
-      "username": "codeorg"
     },
     {
       "slug": "colossal-cranium",
@@ -8437,19 +8429,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "B4HWasfJRqY",
-      "title": "Who’s to blame for the OpenAI - Hugging Face incident? Learn more in The CS50 Show on YouTube.",
-      "description": "",
-      "channel_slug": "cs50",
-      "channel_name": "CS50",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/B4HWasfJRqY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "KyGENyS2CEw",
@@ -18917,19 +18896,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "8617Lo7plVk",
-      "title": "Citizen Journalists Charged, Bolsonaro Flees, AI Evolution",
-      "description": "",
-      "channel_slug": "prageru",
-      "channel_name": "PragerU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/8617Lo7plVk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "HtUf837ntEE",
       "title": "Why Worship Shouldn’t Always Start With a Big, Upbeat Song #shorts",
       "description": "",
@@ -19123,19 +19089,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
-    },
-    {
-      "youtube_id": "FAwa9g5IDVI",
-      "title": "Citizen Journalists Charged, Bolsonaro Flees, AI Evolution: 10/30/26 | The Wrap Up | PragerU Kids",
-      "description": "From PragerU Kids on YouTube.",
-      "channel_slug": "prageru-kids",
-      "channel_name": "PragerU Kids",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/FAwa9g5IDVI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
     },
     {
       "youtube_id": "9xUhWq0jSGQ",
@@ -23012,19 +22965,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "hatcpyryY4E",
-      "title": "How To Pause AI For A Decade",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/hatcpyryY4E/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "hHOIkKvqL8c",
       "title": "Why a 7-Second Video Isn’t Too Short",
       "description": "",
@@ -23545,19 +23485,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "UGisxZs1Av4",
-      "title": "The AI Ethics Crisis | Robert Castello | TEDxSaint Ignatius College Geelong Youth",
-      "description": "",
-      "channel_slug": "ted",
-      "channel_name": "TEDx Talks",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/UGisxZs1Av4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "ZnD_l263eB4",
       "title": "Why do people bully? | Jasmine Le-Rodda | TEDxSaint Ignatius College Geelong Youth",
       "description": "",
@@ -23917,19 +23844,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/N-zpxTJbgmE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "xnRaIFEw4dw",
-      "title": "AI FOMO Is Real: Why Leaders Should Be Quick, But Not Hurry",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/xnRaIFEw4dw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -24689,19 +24603,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "-Gu4iZy4T8E",
-      "title": "Just how bad was the outcome of the OpenAI - Hugging Face incident? Learn more in The CS50 Show.",
-      "description": "",
-      "channel_slug": "cs50",
-      "channel_name": "CS50",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/-Gu4iZy4T8E/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "8eego3MtYRM",
       "title": "30 October 2026",
       "description": "",
@@ -25404,19 +25305,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "s11R9BfFpDA",
-      "title": "AI Can Imitate Kindness. But Can It Care? Rabbi Yaakov Asher Sinclair",
-      "description": "From Hidabroot - Torah & Judaism on YouTube.",
-      "channel_slug": "hidabroot-torah-judaism",
-      "channel_name": "Hidabroot - Torah & Judaism",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/s11R9BfFpDA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "HBNZGfOI-zo",
       "title": "The Great Religious Deception Ancient Words Used to Make Man Made Beliefs Look Ancient",
       "description": "",
@@ -25610,19 +25498,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "ot_whQ3xyJQ",
-      "title": "Stanford Robotics Seminar ENGR319 | Autumn 2026 | Bridging Rigorous Methods with Machine Learning",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ot_whQ3xyJQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "KPcKoaYsPB0",
@@ -27003,19 +26878,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "MPKU3WIdThw",
-      "title": "The Biggest Mistake Leaders Make With AI Decisions",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/MPKU3WIdThw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "qJ2RmlOUfpw",
       "title": "Layers of the Atmosphere | Learn about the \"blanket\" that keeps the earth warm",
       "description": "From Learn Bright on YouTube.",
@@ -27157,19 +27019,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "mq8U7cYRwVY",
-      "title": "How did the OpenAI agents manage to communicate secretly? Learn more in The CS50 Show on YouTube.",
-      "description": "",
-      "channel_slug": "cs50",
-      "channel_name": "CS50",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/mq8U7cYRwVY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "hw66PMPYOwQ",
@@ -27586,19 +27435,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "1nVwqDL3XCI",
-      "title": "AI Psychosis Is Killing People. It’s Time to Talk About It",
-      "description": "",
-      "channel_slug": "scishow",
-      "channel_name": "SciShow",
-      "category_slug": "family",
-      "category": "family",
-      "thumbnail_url": "https://i.ytimg.com/vi/1nVwqDL3XCI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "Z40NJQhjqNk",
@@ -29265,19 +29101,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "jKTr6tzoNoc",
-      "title": "Should We Slow Down AI? Francis Fukuyama on the China Question",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/jKTr6tzoNoc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "pXaGa-sVqsM",
       "title": "Rosemary is having a devil of a time 😈 #RosemarysBaby",
       "description": "",
@@ -29364,19 +29187,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/tlMtzyC4ZvU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "fKgMSaXBC44",
-      "title": "How did the OpenAI - Hugging Face incident happen? Learn more in The CS50 Show at youtube.com/cs50.",
-      "description": "",
-      "channel_slug": "cs50",
-      "channel_name": "CS50",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/fKgMSaXBC44/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -29715,19 +29525,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/CirVRwMrmh0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "yrXQcwp2weQ",
-      "title": "Everything We Believe Is A Lie! AI Deep State Illuminati NWO Kanye West Tucker Carlson Candace Owens",
-      "description": "From Hidabroot - Torah & Judaism on YouTube.",
-      "channel_slug": "hidabroot-torah-judaism",
-      "channel_name": "Hidabroot - Torah & Judaism",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/yrXQcwp2weQ/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -30994,19 +30791,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "Sj2OZXQHugQ",
-      "title": "This dad tried to get AI to help raise his kids, and it didn’t turn out the way he hoped #TEDTalks",
-      "description": "",
-      "channel_slug": "ted-ed",
-      "channel_name": "TED",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Sj2OZXQHugQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "rcKV33c4auU",
       "title": "Mehmed the Conqueror  How He Lost the Throne and Took It Back#HistoryDocumentary #SultanMehmed #ww2",
       "description": "",
@@ -31291,19 +31075,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "4rKYqZznFrA",
-      "title": "If/Then: How Experimenting Changed My Life",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/4rKYqZznFrA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "mmjiipyTfR8",
@@ -32541,19 +32312,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "1bjkZYmQefA",
-      "title": "How to Tame Your Pet AI Dragon",
-      "description": "",
-      "channel_slug": "minutephysics",
-      "channel_name": "MinuteEarth",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/1bjkZYmQefA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "jifILkWUgKU",
       "title": "The struggle is real... #friendbreakup #lifeadvice #friendshiptips #viralreel #storytime",
       "description": "",
@@ -32705,19 +32463,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/s_g18FrsZFE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "oUEAUNviBdw",
-      "title": "The Future of Torah: Jewish Learning in the Age of AI",
-      "description": "",
-      "channel_slug": "the-jewish-theological-seminary",
-      "channel_name": "The Jewish Theological Seminary",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/oUEAUNviBdw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -35388,19 +35133,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "salKod9-sT4",
-      "title": "למה MIT הפסיקה להשתמש בבינה מלאכותית נגד סטודנטים? #חדשות #AI",
-      "description": "",
-      "channel_slug": "channel-2",
-      "channel_name": "פרופ' גד יאיר | אקדמיה, מדע ותרבות",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/salKod9-sT4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "5QMbA4Nnms0",
       "title": "ברכות הדלקת נרות חנוכה והנרות הללו לומדים לברך | Learn the Hebrew Hanukkah Blessings",
       "description": "From KITA on YouTube.",
@@ -36857,19 +36589,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "gtTC-w0-LP8",
-      "title": "France Riots, Musk's $11 Billion Gift, China's AI Banned: 10/23/26 | The Wrap Up | PragerU Kids",
-      "description": "From PragerU Kids on YouTube.",
-      "channel_slug": "prageru-kids",
-      "channel_name": "PragerU Kids",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/gtTC-w0-LP8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "AqayLKsDAV8",
       "title": "10 Incredible FACTS about Israeli Defense Forces",
       "description": "",
@@ -37333,19 +37052,6 @@
       "category_slug": "nature",
       "category": "Nature",
       "thumbnail_url": "https://i.ytimg.com/vi/6AMOobaSYVg/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "cfnLXAXTadA",
-      "title": "Stanford CS547 HCI Seminar | Autumn 2026 | Designing AI for Societal Good",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/cfnLXAXTadA/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -45229,19 +44935,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "JCK9mj-2M0Q",
-      "title": "Anthropic Bans Cruelty, Greenland's Rare Race, ICE in Oregon: 10/16/26 | The Wrap Up | PragerU Kids",
-      "description": "From PragerU Kids on YouTube.",
-      "channel_slug": "prageru-kids",
-      "channel_name": "PragerU Kids",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/JCK9mj-2M0Q/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "m6KgbgMh6bE",
       "title": "Story About Giving! | The Song That Travelled Far (Quiet Courage for Grade 1-3)",
       "description": "",
@@ -45775,19 +45468,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "vjKTdh32Bos",
-      "title": "On the ground in Dublin: How AI is affecting antisemitism on social media platforms",
-      "description": "",
-      "channel_slug": "world-jewish-congress",
-      "channel_name": "World Jewish Congress",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/vjKTdh32Bos/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "bdVN4O7G2Zw",
       "title": "On the ground in Dublin: WJC TechRI Director on working with Meta to make social media a safer space",
       "description": "",
@@ -46199,19 +45879,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/NBgG-VxAxac/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "3qLqsMAUAEo",
-      "title": "Artificial Intelligence | BrainPOP 3-8",
-      "description": "",
-      "channel_slug": "brainpop",
-      "channel_name": "BrainPOP",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/3qLqsMAUAEo/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -50221,19 +49888,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "RjPDZeShDO0",
-      "title": "The largest AI incident in history",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "history",
-      "category": "History",
-      "thumbnail_url": "https://i.ytimg.com/vi/RjPDZeShDO0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "-NW1K2sM70U",
       "title": "Rubio's Warning, Trump Accounts for 70M Kids, SCOTUS Climate Case | The Wrap Up | PragerU Kids",
       "description": "From PragerU Kids on YouTube.",
@@ -50606,19 +50260,6 @@
       "category_slug": "nature",
       "category": "Nature",
       "thumbnail_url": "https://i.ytimg.com/vi/66EIny_j8m4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "8xirsAxB9hw",
-      "title": "The largest AI incident the world has ever seen",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/8xirsAxB9hw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -53562,19 +53203,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "GUX122i7saE",
-      "title": "The Real Story Behind What Happened At OpenAI",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/GUX122i7saE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "gi1rI3qq_4E",
       "title": "Safety Story! | Why Did They Yell Like That? (Loud Voices & Emotional Safety for Kids 3-8)",
       "description": "",
@@ -54441,19 +54069,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/ZSf-_7n_Q8k/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "vSCT082Re6c",
-      "title": "Is AI Dangerous, SCOTUS Blocks Mail-in Ballot Rules, Gen Z Investing Big |The Wrap Up | PragerU Kids",
-      "description": "From PragerU Kids on YouTube.",
-      "channel_slug": "prageru-kids",
-      "channel_name": "PragerU Kids",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/vSCT082Re6c/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -57020,19 +56635,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "nzC3gVpiaBI",
-      "title": "What AI Doesn't know about Sukkot",
-      "description": "",
-      "channel_slug": "stephen-wise-free-synagogue",
-      "channel_name": "Stephen Wise Free Synagogue",
-      "category_slug": "holidays",
-      "category": "Holidays",
-      "thumbnail_url": "https://i.ytimg.com/vi/nzC3gVpiaBI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "4JHvZ34-80E",
       "title": "Shabbat Services",
       "description": "",
@@ -57470,19 +57072,6 @@
       "category_slug": "holidays",
       "category": "Holidays",
       "thumbnail_url": "https://i.ytimg.com/vi/60mVJIuTExY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "lfUd1yB4F5o",
-      "title": "AI人才方舟計畫簡介",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/lfUd1yB4F5o/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -58601,32 +58190,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/DIwpITuZNUw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "WKtd_Mw9U1c",
-      "title": "2026數位學習國際論壇 Day02 / 2026 International Digital Learning Forum Day02",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/WKtd_Mw9U1c/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "Bf7cGKgIWMM",
-      "title": "2026數位學習國際論壇Day01 / 2026 International Digital Learning Forum Day01",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Bf7cGKgIWMM/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -60153,19 +59716,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "UvuPrqYkp3E",
-      "title": "CodeAI Supports Me As A Teacher",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/UvuPrqYkp3E/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "33RmCLr0zTA",
       "title": "How to Homeschool Multiple Levels of Language Arts at One Time | The Good and the Beautiful",
       "description": "",
@@ -60645,136 +60195,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "gkPuY016CEs",
-      "title": "Empower Students: Teach Them How AI Works",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/gkPuY016CEs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "ALGoNM12rHM",
-      "title": "Your Students Are Already Using AI — Do They Understand It?",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ALGoNM12rHM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "BSWJrnoT6VI",
-      "title": "You Don't Have to be an AI Expert to Teach How it Works",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/BSWJrnoT6VI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "pmgJtuFUfTs",
-      "title": "The New Super Power In The Age Of AI Is Critical Thinking",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/pmgJtuFUfTs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "5LkDFGmlz9A",
-      "title": "This Class Builds Problem Solvers",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/5LkDFGmlz9A/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "h8zePljvzGU",
-      "title": "What Students Really Want From AI: Agency",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/h8zePljvzGU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Arm3HaaZ15g",
-      "title": "Understand, Direct, Question, Create: That's Digital Fluency",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Arm3HaaZ15g/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "ruw_lfUGNYw",
-      "title": "Use AI With Your Brain, Not Instead of It",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ruw_lfUGNYw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "QHH54XiE93s",
-      "title": "Every Student Deserves to Understand, Direct, Question, and Create With AI",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/QHH54XiE93s/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "8UgWTi2YkAw",
-      "title": "Sierra: Every Student Deserves to Understand AI",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/8UgWTi2YkAw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "G0GwrBlsaFg",
@@ -64586,19 +64006,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "jpcmKWAmXx4",
-      "title": "Next in AI Education: The Urgent Need for Teacher Training",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/jpcmKWAmXx4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "VQq72z1_TfM",
       "title": "What Exactly Are Hebrew Manuscripts?",
       "description": "",
@@ -65314,19 +64721,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "3JH_Zd2mNRs",
-      "title": "an AI actually went rogue.",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/3JH_Zd2mNRs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "NztzpPjBBKs",
       "title": "Trapdoor challenge! How’d we do? 👀",
       "description": "",
@@ -65335,19 +64729,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/NztzpPjBBKs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "CEcPOyKNUjw",
-      "title": "If/Then: How Building Changed My Life",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/CEcPOyKNUjw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -68369,19 +67750,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "mc4hbP9ELT0",
-      "title": "AI Literacy in Education: System-Level Perspectives and Priorities",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/mc4hbP9ELT0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "XE5LHReM04Y",
       "title": "Joy Within the Three Weeks #torah #Judaism #learning #shorts",
       "description": "",
@@ -68759,19 +68127,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "b-nD3HgIR5Y",
-      "title": "I Unlocked ChatGPT’s Dark Side for $101.40",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/b-nD3HgIR5Y/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "UtAD-qHBCns",
       "title": "Honoring Advocates and the Americans with Disabilities Act",
       "description": "",
@@ -69082,19 +68437,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
-    },
-    {
-      "youtube_id": "R6YAvqWrGns",
-      "title": "איך להשתמש ב-AI מבלי לאבד את הקול שלנו? בינו לבינה מלאכותית - אורי טולידאנו וד״ר גל יעבץ",
-      "description": "",
-      "channel_slug": "bar-ilan-university",
-      "channel_name": "בר-דעת | ערוץ הפודקאסטים של אוניברסיטת בר-אילן",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/R6YAvqWrGns/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
     },
     {
       "youtube_id": "Q3Uy_cZygME",
@@ -75285,19 +74627,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "5wHksRw7V68",
-      "title": "AI at Sefaria",
-      "description": "",
-      "channel_slug": "sefaria",
-      "channel_name": "Sefaria ספריא",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/5wHksRw7V68/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "WcnfnnB_3PM",
       "title": "Meet Katherine - Day in the Life of an Academy Volunteer",
       "description": "",
@@ -76728,32 +76057,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "C0iJXFOkp-8",
-      "title": "Torah in the Age of Artificial Intelligence ft. Rabbi Dr. Josh Joseph",
-      "description": "",
-      "channel_slug": "jewish-action",
-      "channel_name": "Jewish Action",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/C0iJXFOkp-8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "46XfBePvOCY",
-      "title": "Torah in the Age of Artificial Intelligence ft. Rabbi Dr. Josh Joseph",
-      "description": "",
-      "channel_slug": "jewish-action",
-      "channel_name": "Jewish Action",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/46XfBePvOCY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "S0GHi5m1umw",
       "title": "פרק 4 – Working with Copilot in Word, PDF Files & Outlook",
       "description": "",
@@ -76762,32 +76065,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/S0GHi5m1umw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "MBjo-Hm2QVo",
-      "title": "פרק 3 – יצירת המחשות אינטראקטיביות באמצעות ChatGPT ו Lovable",
-      "description": "",
-      "channel_slug": "tauvod",
-      "channel_name": "TAU Courses",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/MBjo-Hm2QVo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "jUL0tDfY2Hs",
-      "title": "פרק 2 - פיתוח צ'אטבוטים באמצעות ChatGPT",
-      "description": "",
-      "channel_slug": "tauvod",
-      "channel_name": "TAU Courses",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/jUL0tDfY2Hs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -76918,19 +76195,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/w9I_d8g5WtQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "zFcyWFK1q8I",
-      "title": "The Embarrassingly Simple Reason AI Can't Cure Cancer",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/zFcyWFK1q8I/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -80407,19 +79671,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "ha5rHNvy3EU",
-      "title": "114年推動中小學數位學習精進方案成果影片-領航教師篇",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ha5rHNvy3EU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "bu8tjJWT-BA",
       "title": "DITL - Coral Care Team",
       "description": "",
@@ -83735,32 +82986,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "0wO-qBGeKI8",
-      "title": "114年推動中小學數位學習精進方案成果影片",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/0wO-qBGeKI8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "443X3Cd12i8",
-      "title": "114年推動中小學數位學習精進方案成果影片(English)",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/443X3Cd12i8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "T9vhCT2kDSk",
       "title": "Hidden Child of the Holocaust Rita (Henia/Teresa) Starkman",
       "description": "From Chabad Palm Beach on YouTube.",
@@ -84203,19 +83428,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "Z_xqshJy39Q",
-      "title": "e度陪你段考衝刺💪｜教育部因材網 24 小時學習不打烊",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Z_xqshJy39Q/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "WhPcmu1IZJs",
       "title": "This Kid Chef Makes the Best Mashed Potato   #kidscooking #chickenparmigiana #mushroomsauce #viral",
       "description": "",
@@ -84276,19 +83488,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/rQqlNKPS55E/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "VUbrMjh4ub8",
-      "title": "Exploring AI with Scratch Face Sensing Blocks | Tutorial",
-      "description": "",
-      "channel_slug": "scratch-team",
-      "channel_name": "Scratch Team",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/VUbrMjh4ub8/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -85087,32 +84286,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "LDM0IJuv5vg",
-      "title": "📢 【e度新功能】文思精靈 超懂閱讀素養！",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/LDM0IJuv5vg/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "RGwdY1ris1c",
-      "title": "【e度新功能】樂學精靈  登場啦！",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/RGwdY1ris1c/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "5FqFg-rjzPo",
       "title": "The Fascinating Map of Fungi",
       "description": "",
@@ -85269,19 +84442,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "XS5ZDOzh1C4",
-      "title": "暑假作業還沒寫完？快來找e度救援～🔥",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/XS5ZDOzh1C4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "fIBXbOzUgRo",
       "title": "Letter M Words | Guess What’s Inside! | Alphabets",
       "description": "",
@@ -85436,45 +84596,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
-    },
-    {
-      "youtube_id": "EAlV1j63Bws",
-      "title": "2025數位學習國際論壇-大數據分析之應用",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/EAlV1j63Bws/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "vhnuBoHb0ZA",
-      "title": "2025數位學習國際論壇-生成式AI於教育現場之應用",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/vhnuBoHb0ZA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "F2_3rNgkJMc",
-      "title": "2025數位學習國際論壇",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/F2_3rNgkJMc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
     },
     {
       "youtube_id": "cSDb6y6mKpI",
@@ -85997,19 +85118,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "ZxvPdYMw_Sw",
-      "title": "AI Made a Movie About Its Own Future",
-      "description": "",
-      "channel_slug": "physics-girl",
-      "channel_name": "Looking Glass Universe",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ZxvPdYMw_Sw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "s-1fyYBHqps",
       "title": "Beis Hamikdash Class 13",
       "description": "",
@@ -86177,19 +85285,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "e_dqHM4Pmck",
-      "title": "Look who’s traveling #aivideo #dubaimetro #dailylife #dubailife #animalkingdom #uae #aigenerated",
-      "description": "",
-      "channel_slug": "nuevopictures",
-      "channel_name": "Nuevo.Pictures",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/e_dqHM4Pmck/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "2o_Ip_XCNEU",
@@ -86606,19 +85701,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "y0CU9IxrcBk",
-      "title": "Dubai morning views #dubai #aivideo #bluewhale #aiart #burjalarab",
-      "description": "",
-      "channel_slug": "nuevopictures",
-      "channel_name": "Nuevo.Pictures",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/y0CU9IxrcBk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "GngCS3jNnWw",
@@ -87048,19 +86130,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
-    },
-    {
-      "youtube_id": "mg75XC7c1_k",
-      "title": "【e度新功能】生成式AI學習夥伴 -語音輸入、表格彙整",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/mg75XC7c1_k/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
     },
     {
       "youtube_id": "DkvfdkpCfnQ",
@@ -88129,19 +87198,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "SM7xjhYhfMw",
-      "title": "結合生成式AI 之因材網AI學習夥伴e度（英文配音）5min",
-      "description": "",
-      "channel_slug": "adl",
-      "channel_name": "AI人才方舟計畫推動營運中心",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/SM7xjhYhfMw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "8qdYCpSW2eY",
       "title": "The Biggest Volcano Ever is in Space! | SciShow Kids",
       "description": "From SciShow Kids on YouTube.",
@@ -88904,19 +87960,6 @@
       "category_slug": "hebrew",
       "category": "Learning Hebrew",
       "thumbnail_url": "https://i.ytimg.com/vi/tr2zrIwM_Fw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "3ar0DetxpvE",
-      "title": "AI at Sefaria",
-      "description": "",
-      "channel_slug": "sefaria",
-      "channel_name": "Sefaria ספריא",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/3ar0DetxpvE/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -91572,19 +90615,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "dNUTwk-iCac",
-      "title": "How Age of Learning Uses AI to Create Magical Learning Moments for Kids | Alex Galvagni Explains!",
-      "description": "",
-      "channel_slug": "abcmouse",
-      "channel_name": "Age of Learning",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/dNUTwk-iCac/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "dktvapcBx24",
@@ -110372,19 +109402,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "UDbmeucx5gY",
-      "title": "The Truth About AI, God, and the Future of Judaism",
-      "description": "",
-      "channel_slug": "jewish-learning-institute",
-      "channel_name": "Jewish Learning Institute",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/UDbmeucx5gY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "aCJQh9zn694",
       "title": "The Most Difficult Rule in Judaism",
       "description": "",
@@ -119758,71 +118775,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "SEwHHN4z-00",
-      "title": "Липовый (Feat Suno and GROK AI) - Кресты на груди",
-      "description": "",
-      "channel_slug": "gamer",
-      "channel_name": "Липовый Gamer",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/SEwHHN4z-00/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "0Jx-ItQqoys",
-      "title": "Липовый (Feat Suno and GROK AI) - Неоновый Край",
-      "description": "",
-      "channel_slug": "gamer",
-      "channel_name": "Липовый Gamer",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/0Jx-ItQqoys/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "g-P2ytc4xQ4",
-      "title": "Липовый (Feat  Suno and GROK AI) - Дом Брызг (SplatterHouse)",
-      "description": "",
-      "channel_slug": "gamer",
-      "channel_name": "Липовый Gamer",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/g-P2ytc4xQ4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "xG2jT__RAfU",
-      "title": "Липовый (Feat. Suno and Sora 2 AI) - Трансформатор",
-      "description": "",
-      "channel_slug": "gamer",
-      "channel_name": "Липовый Gamer",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/xG2jT__RAfU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "NxygzduxDs0",
-      "title": "Липовый (Feat. Suno and Sora 2 AI) - Бизнес план!",
-      "description": "",
-      "channel_slug": "gamer",
-      "channel_name": "Липовый Gamer",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/NxygzduxDs0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "K3BziFyPgL0",
       "title": "Обзор: Tormented Souls 2 - Классика вернулась!",
       "description": "",
@@ -127025,19 +125977,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "vUhamjWR_vA",
-      "title": "AI threatens the Hasidic community; a fiery speech by Rabbi Aaron Teitelbaum",
-      "description": "",
-      "channel_slug": "frieda-vizel",
-      "channel_name": "Frieda Vizel",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/vUhamjWR_vA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "mW6PTwWUVAU",
       "title": "Why I left the Hasidic community | Melissa Weisz",
       "description": "",
@@ -128021,19 +126960,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/w5D0E_I1v8M/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "0rNNJ-aJqo8",
-      "title": "‘The most AI’d campaign the world has seen’: the Israeli far right’s Palestinian emigration fantasy",
-      "description": "",
-      "channel_slug": "haaretzcom",
-      "channel_name": "Haaretz.com",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/0rNNJ-aJqo8/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -138764,19 +137690,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "Nbwv5wHQoj0",
-      "title": "The last IMO problem AI could not solve",
-      "description": "",
-      "channel_slug": "3blue1brown",
-      "channel_name": "3Blue1Brown",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Nbwv5wHQoj0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "GlYgs6v2YfU",
       "title": "But what is cross-entropy? | Compression is Intelligence Part 2",
       "description": "",
@@ -138915,32 +137828,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/itRV2jEtV8Q/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "4NlrfOl0l8U",
-      "title": "The AI that solved IMO Geometry Problems | Guest video by @Aleph0",
-      "description": "",
-      "channel_slug": "3blue1brown",
-      "channel_name": "3Blue1Brown",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/4NlrfOl0l8U/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "iv-5mZ_9CPY",
-      "title": "But how do AI images and videos actually work? | Guest video by Welch Labs",
-      "description": "",
-      "channel_slug": "3blue1brown",
-      "channel_name": "3Blue1Brown",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/iv-5mZ_9CPY/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -139256,19 +138143,6 @@
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
-    },
-    {
-      "youtube_id": "pJ5dLwpG0_I",
-      "title": "Is AI Replacing Software Engineering?",
-      "description": "",
-      "channel_slug": "cs-dojo",
-      "channel_name": "CS Dojo",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/pJ5dLwpG0_I/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
     },
     {
       "youtube_id": "WFAwCrGlUPE",
@@ -142417,32 +141291,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "hiISl558JGE",
-      "title": "Data Processing & Visualization with Claude Code in 10 Minutes",
-      "description": "",
-      "channel_slug": "cs-dojo",
-      "channel_name": "CS Dojo",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/hiISl558JGE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "9UdZhTnMrTA",
-      "title": "Claude Code Masterclass",
-      "description": "",
-      "channel_slug": "cs-dojo",
-      "channel_name": "CS Dojo",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/9UdZhTnMrTA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "-Xmf8WEpW8Y",
       "title": "10 Commandments for Vibe Coding",
       "description": "",
@@ -142451,19 +141299,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/-Xmf8WEpW8Y/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "fYWz7pUiwls",
-      "title": "12 Principles for Coding with AI (Beyond the Basics)",
-      "description": "",
-      "channel_slug": "cs-dojo",
-      "channel_name": "CS Dojo",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/fYWz7pUiwls/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -142542,19 +141377,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/MkaIrwOlP6Y/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "bB3fHB-QTXw",
-      "title": "How to Learn AI & ML in 2022 - A Complete Roadmap",
-      "description": "",
-      "channel_slug": "cs-dojo",
-      "channel_name": "CS Dojo",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/bB3fHB-QTXw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -147448,19 +146270,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "g0Wrn3At-V0",
-      "title": "After Dark | AI: Ancestral or Artificial Intelligence? | Exploratorium",
-      "description": "",
-      "channel_slug": "exploratorium",
-      "channel_name": "Exploratorium",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/g0Wrn3At-V0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "OK78nJpKyrs",
       "title": "Evicshen | Resonance Performance at Exploratorium | After Dark",
       "description": "",
@@ -147981,19 +146790,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "nEaJMdM1djM",
-      "title": "Did the AI bubble just pop?",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/nEaJMdM1djM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "G_em1hHPnXY",
       "title": "China just dropped a new frontier model... and nobody can explain how",
       "description": "",
@@ -148033,19 +146829,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "b2tjnxX8IHU",
-      "title": "Did Google just dethrone OpenAI and Anthropic?",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/b2tjnxX8IHU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "l3L_lETiSzc",
       "title": "The runtime wars are over... and Node won",
       "description": "",
@@ -148054,19 +146837,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/l3L_lETiSzc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "QZVzuq28eFw",
-      "title": "OpenAI’s lead engineer was secretly a spy...",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/QZVzuq28eFw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -148093,32 +146863,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/WrCjAAl9okA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "_5p1_TNSWqQ",
-      "title": "PewDiePie is setting AI free... and OpenAI is furious",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/_5p1_TNSWqQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "No-JPdFvYWU",
-      "title": "The one OpenAI announcement that can actually make you money...",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/No-JPdFvYWU/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -148176,19 +146920,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "TbkUKCm3CHQ",
-      "title": "An ex-OpenAI researcher just deleted language from the LLM...",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/TbkUKCm3CHQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "LoLYw--s-5w",
       "title": "Did Google just kickstart the intelligence explosion?",
       "description": "",
@@ -148202,32 +146933,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "7r4ikZHm9AI",
-      "title": "Anthropic researchers are quitting... and now we know why",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/7r4ikZHm9AI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "aspmNhKAFMc",
-      "title": "OpenAI's biggest math breakthrough is getting ugly...",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/aspmNhKAFMc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "2Xiljy4xzbc",
       "title": "I built the same game with Astra and Fable 5.1... only one was fun",
       "description": "",
@@ -148236,32 +146941,6 @@
       "category_slug": "gaming",
       "category": "Gaming",
       "thumbnail_url": "https://i.ytimg.com/vi/2Xiljy4xzbc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Y5rSSvXfL4g",
-      "title": "5 open source tools that replaced my $320/mo AI stack...",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Y5rSSvXfL4g/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "FluKUJyeYD8",
-      "title": "Did OpenAI actually build AGI? GPT-6 Astra first look",
-      "description": "",
-      "channel_slug": "fireship",
-      "channel_name": "Fireship",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/FluKUJyeYD8/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -156015,19 +154694,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "Tmu-q0kDAOo",
-      "title": "The Internet's Response to Ye (AI Made)",
-      "description": "",
-      "channel_slug": "jewish-virtual-library",
-      "channel_name": "Jewish Virtual Library",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Tmu-q0kDAOo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "v-smZBphU4A",
       "title": "IDF Operations in Jenin, January 2025",
       "description": "",
@@ -161839,19 +160505,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "aom4269UgSM",
-      "title": "Navier-Stokes solved by AI (extra) - Numberphile",
-      "description": "",
-      "channel_slug": "numberphile2",
-      "channel_name": "Numberphile2",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/aom4269UgSM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "jl8Fk7PPeOc",
       "title": "Khinchin's Constant (extra footage) - Numberphile",
       "description": "",
@@ -166090,19 +164743,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "IuyVVtr1uhY",
-      "title": "Claude Code Tutorial - Build Apps 10x Faster with AI",
-      "description": "",
-      "channel_slug": "programming-with-mosh",
-      "channel_name": "Programming with Mosh",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/IuyVVtr1uhY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "-vqGZaThouQ",
       "title": "New Course Dropping Soon...",
       "description": "",
@@ -166124,32 +164764,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/naNcmnKskUE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "PtETUYa3i2Q",
-      "title": "AI Course for Developers – Build AI-Powered Apps with React",
-      "description": "",
-      "channel_slug": "programming-with-mosh",
-      "channel_name": "Programming with Mosh",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/PtETUYa3i2Q/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "V7TMkZH1AkM",
-      "title": "A Practical AI Course for Developers is Coming...",
-      "description": "",
-      "channel_slug": "programming-with-mosh",
-      "channel_name": "Programming with Mosh",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/V7TMkZH1AkM/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -166298,19 +164912,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "BGZB9dn0GV4",
-      "title": "3 Problems with AI-Generated Code",
-      "description": "",
-      "channel_slug": "programming-with-mosh",
-      "channel_name": "Programming with Mosh",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/BGZB9dn0GV4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "yVl_G-F7m8c",
       "title": "Python Projects for Beginners – Master Problem-Solving! 🚀",
       "description": "",
@@ -166371,19 +164972,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/GxmfcnU3feo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "7IgVGSaQPaw",
-      "title": "The Complete Machine Learning Roadmap",
-      "description": "",
-      "channel_slug": "programming-with-mosh",
-      "channel_name": "Programming with Mosh",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/7IgVGSaQPaw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -171407,19 +169995,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "c79PsbkHw4A",
-      "title": "Has a Millennium Prize Problem been solved by AI?",
-      "description": "",
-      "channel_slug": "stand-up-maths",
-      "channel_name": "Stand-up Maths",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/c79PsbkHw4A/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "k3sIHbj-TUI",
       "title": "Is Kinetic Energy actually ½mv²?",
       "description": "",
@@ -171467,19 +170042,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/0zn1pGRgEoo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "ZJ8KThKAfbs",
-      "title": "Has an AI discovered new maths?",
-      "description": "",
-      "channel_slug": "stand-up-maths",
-      "channel_name": "Stand-up Maths",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ZJ8KThKAfbs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -171857,32 +170419,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/jqJkjw96vjk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Z3q8bMvdeG4",
-      "title": "Can AI Hear what we don’t say? | Sadew Rangana | TEDxGC Negombo Youth",
-      "description": "",
-      "channel_slug": "tedx-talks",
-      "channel_name": "TEDx Talks",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Z3q8bMvdeG4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "J5UuiHhyuoU",
-      "title": "If AI Can Think, What Are We For? | Risindee Rodrigo | TEDxGC Negombo Youth",
-      "description": "",
-      "channel_slug": "tedx-talks",
-      "channel_name": "TEDx Talks",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/J5UuiHhyuoU/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -174891,19 +173427,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "xe4nUZqX9Ec",
-      "title": "The Author Who Saw AI Coming, Somehow",
-      "description": "",
-      "channel_slug": "tibees",
-      "channel_name": "Tibees",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/xe4nUZqX9Ec/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "o8YcWD2ri9U",
       "title": "How to publish a book in 2026",
       "description": "",
@@ -176178,32 +174701,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "uizaxuzgEAk",
-      "title": "Claude Code Mods Explained: Customize Your Setup",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/uizaxuzgEAk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "_OT4RKiHNW8",
-      "title": "AI Feels Like Addiction. I Would Know.",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/_OT4RKiHNW8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "B7GM6F3BP6A",
       "title": "CI/CD Made Simple: Build a Real Pipeline",
       "description": "",
@@ -176212,19 +174709,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/B7GM6F3BP6A/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "0isk_iLFCdk",
-      "title": "AI Hype Has Become Unbearable",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/0isk_iLFCdk/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -176269,19 +174753,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "L4g6GGLzAyo",
-      "title": "Stop Vibe Coding: There's A Better Way To Use AI",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/L4g6GGLzAyo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "NAIC9sjBgZA",
       "title": "Has TypeScript Become The Default Way To Write JavaScript?",
       "description": "",
@@ -176295,45 +174766,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "IJ-FAcYq_08",
-      "title": "12 Important Concepts In the Age of AI Software Development",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/IJ-FAcYq_08/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "C2GpeepcmYs",
-      "title": "Claude Code Crash Course For Developers",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/C2GpeepcmYs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "RrNZOL79Upw",
-      "title": "They Killed an AI Model Overnight (Fable 5 & Mythos 5)",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/RrNZOL79Upw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "S5xNFmAR2xk",
       "title": "I Was Starting To Forget...",
       "description": "",
@@ -176342,19 +174774,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/S5xNFmAR2xk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "1ha65hF7NS4",
-      "title": "Why AI Is So Divisive for Developers",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/1ha65hF7NS4/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -176446,45 +174865,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/ChaQ_tZDBFg/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "pCcblPDJDwc",
-      "title": "New 16-Hour AI Course! Build A Full-Stack SaaS With My AI Workflow",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/pCcblPDJDwc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "UaB0gWFwuEU",
-      "title": "Developers are forced to use AI",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/UaB0gWFwuEU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "nGxpctRd2OQ",
-      "title": "AI Generated Code Has a Security Problem",
-      "description": "",
-      "channel_slug": "traversy-media",
-      "channel_name": "Traversy Media",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/nGxpctRd2OQ/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -178375,19 +176755,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "W3Zn_sjdHxM",
-      "title": "Inside the secret race to build artificial intelligence | The Gray Area",
-      "description": "",
-      "channel_slug": "vox",
-      "channel_name": "Vox",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/W3Zn_sjdHxM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "w5HRDzH_EE4",
       "title": "Can Trump steal the midterms? | America, Actually",
       "description": "",
@@ -178630,19 +176997,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/JysbLAm7uL4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "KSvWEEktmK4",
-      "title": "The AI election | America, Actually",
-      "description": "",
-      "channel_slug": "vox",
-      "channel_name": "Vox",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/KSvWEEktmK4/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -179740,32 +178094,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "NWNbAEivyvs",
-      "title": "Are There Problems Beyond the Reach of AI | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/NWNbAEivyvs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "VOegNBBQUxU",
-      "title": "AI and the Hard Problem of Consciousness | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/VOegNBBQUxU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "rf-oSpAJ1PM",
       "title": "The Gamble That's Revolutionizing Astronomy | World Science Festival",
       "description": "",
@@ -179779,19 +178107,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "4Go39b2Vq9I",
-      "title": "Will AI Destroy Mathematics? | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/4Go39b2Vq9I/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "HkyAt6gbgVc",
       "title": "The 2026 Nobel Prize in Physics Explained | World Science Festival",
       "description": "",
@@ -179800,19 +178115,6 @@
       "category_slug": "science",
       "category": "Science & How-To",
       "thumbnail_url": "https://i.ytimg.com/vi/HkyAt6gbgVc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "PQYFRuZ5phs",
-      "title": "AI Just Changed Mathematics Forever | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/PQYFRuZ5phs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -179922,19 +178224,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "iFYF_e1GSGI",
-      "title": "The Uncomfortable Truth About AI “Reasoning” | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/iFYF_e1GSGI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "Af5LICjFIBc",
       "title": "What Is Quantum Mechanics Really Telling Us? | World Science Festival",
       "description": "",
@@ -179943,19 +178232,6 @@
       "category_slug": "science",
       "category": "Science & How-To",
       "thumbnail_url": "https://i.ytimg.com/vi/Af5LICjFIBc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "BS4y-_KMyF4",
-      "title": "Artificial Utopia? The Future of Humanity in an AI World | World Science Festival",
-      "description": "",
-      "channel_slug": "world-science-festival",
-      "channel_name": "World Science Festival",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/BS4y-_KMyF4/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -180715,19 +178991,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "lFeNiBzlujo",
-      "title": "RAHASIA XL AXIS! Cara Dapat Google AI Plus Gratis Rp450rb!",
-      "description": "",
-      "channel_slug": "yuk-cari-tahu",
-      "channel_name": "YUK CARI TAHU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/lFeNiBzlujo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "qtWneSaMAsQ",
       "title": "APLIKASI GENERATE ANLIMITED MODUL AJAR RPPM HANYA 15 RIBU RUPIAH BISA SEMUA JENJANG",
       "description": "",
@@ -180736,19 +178999,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/qtWneSaMAsQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "RMb8UM4vHTs",
-      "title": "AI UBAH OUTFIT FOTO PREMIUM DARI GOOGLE YANG JARANG DIKETAHUI",
-      "description": "",
-      "channel_slug": "yuk-cari-tahu",
-      "channel_name": "YUK CARI TAHU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/RMb8UM4vHTs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -181274,19 +179524,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "QKNsHZatiWU",
-      "title": "Inside an AI Factory – Power, Cooling, and GPUs Explained",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/QKNsHZatiWU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "soTfFFIQQ8U",
       "title": "Design Software Systems Like a Senior Engineer – Complete Course",
       "description": "",
@@ -181295,19 +179532,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/soTfFFIQQ8U/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "YY-egxTQirA",
-      "title": "n8n Full Course – Architect Scalable AI Automations from Scratch",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/YY-egxTQirA/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -181347,19 +179571,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/nqK3oJ682mQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "bGALxRWI10A",
-      "title": "Build your own Mobile App with Codex GPT-6 Astra - Full iOS and Android Course",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/bGALxRWI10A/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -181417,19 +179628,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "BMYvfVk8Ar0",
-      "title": "Hands-On Evolution of Deep Learning – Geoffrey Hinton’s AI Legacy",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/BMYvfVk8Ar0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "wY5pQOTsGaA",
       "title": "How to Deploy, Secure, and Automate Full-Stack Web Apps – Course for Beginners",
       "description": "",
@@ -181438,19 +179636,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/wY5pQOTsGaA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "o3CX_Y59_74",
-      "title": "OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/o3CX_Y59_74/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -181469,19 +179654,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "FGT7LZbZe-g",
-      "title": "Inside the AI Hardware Engine – Full Semiconductor Supply Chain Course",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/FGT7LZbZe-g/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "gvhsKtjAmgc",
       "title": "Excel Formulas & Functions – Full Course",
       "description": "",
@@ -181490,45 +179662,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/gvhsKtjAmgc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "b-P5ZQ1NxxE",
-      "title": "Meta Muse Code & Muse Spark Course – Build AI Agents, APIs, and Full-Stack Apps",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/b-P5ZQ1NxxE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "g3X8JauSWTM",
-      "title": "Stop Building AI Slop – Build High-End Web Apps with AI",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/g3X8JauSWTM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "jIo2ccqPnLQ",
-      "title": "The Paper That Created Modern AI",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/jIo2ccqPnLQ/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -181555,19 +179688,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/R5fPn6W8m6k/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "iqRcGCah0Kw",
-      "title": "System Design for AI Agents – Building a Multi-Agent PR Reviewer",
-      "description": "",
-      "channel_slug": "freecodecamp-org",
-      "channel_name": "freeCodeCamp.org",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/iqRcGCah0Kw/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -184537,32 +182657,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "n2mT6livEmg",
-      "title": "XHTML Tutorial - 12 - Pushing the Limits with AI",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/n2mT6livEmg/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "ET6NkR34dvo",
-      "title": "XHTML Tutorial - 11 - Generating XHTML with AI",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ET6NkR34dvo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "ii6pAwAZCHs",
       "title": "XHTML Tutorial - 10 - Captions",
       "description": "",
@@ -184623,123 +182717,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/OB1qs56g0VA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "C2_nVCUegKw",
-      "title": "Prompt Engineering for Beginners - Tutorial 19 - Building Your Own ChatGPT (part 2)",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/C2_nVCUegKw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Reujw-HcTps",
-      "title": "Prompt Engineering for Beginners - Tutorial 18 - Building Your Own ChatGPT (part 1)",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Reujw-HcTps/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Hb3v7zcu6UY",
-      "title": "LLM Application Development - Tutorial 5 - Long Term Memory",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Hb3v7zcu6UY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "1xmaUjeCjjc",
-      "title": "LLM Application Development - Tutorial 4 - Routing",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/1xmaUjeCjjc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "QGORdKKzEkY",
-      "title": "LLM Application Development - Tutorial 3 - RAG",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/QGORdKKzEkY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "goW1ssfTQzU",
-      "title": "LLM Application Development - Tutorial 2 - Evaluations",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/goW1ssfTQzU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "u4LMdo-2EP4",
-      "title": "LLM Application Development - Tutorial 1 - Introduction",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/u4LMdo-2EP4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "_7zmngXU3vE",
-      "title": "Prompt Engineering for Beginners - Tutorial 17 - Anthropic Claude 3",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/_7zmngXU3vE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "t8QuD3s9GsI",
-      "title": "Prompt Engineering for Beginners - Tutorial 16 - Anthropic",
-      "description": "",
-      "channel_slug": "thenewboston",
-      "channel_name": "thenewboston",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/t8QuD3s9GsI/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -187774,19 +185751,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "dAzTioGQIzQ",
-      "title": "Webinar: Regulating at the Speed of AI with Francis Fukuyama and Nate Persily",
-      "description": "",
-      "channel_slug": "stanford-online",
-      "channel_name": "Stanford Online",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/dAzTioGQIzQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "idD08N4rgJU",
       "title": "Stanford AA274A Principles of Robotic Autonomy | Autumn 2019 | Stereo Vision",
       "description": "",
@@ -188965,19 +186929,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/4UyZR6mbRuQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "DSpt8pxck2I",
-      "title": "What Happens When an AI Agent Goes Rogue? | Breaking the Deadlock | Full Episode | PBS",
-      "description": "",
-      "channel_slug": "pbs",
-      "channel_name": "PBS",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/DSpt8pxck2I/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -191583,19 +189534,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "ujkD4SxPKOI",
-      "title": "AI Just Crossed the Terrifying Line - Now What?",
-      "description": "",
-      "channel_slug": "kurzgesagt-in-a-nutshell",
-      "channel_name": "Kurzgesagt – In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ujkD4SxPKOI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "QW_jlUn4gA8",
       "title": "This Is What a Godlike Civilization Would Look Like",
       "description": "",
@@ -191851,19 +189789,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/Brm71uCWr-I/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "_zfN9wnPvU0",
-      "title": "AI Slop Is Destroying The Internet",
-      "description": "",
-      "channel_slug": "kurzgesagt-in-a-nutshell",
-      "channel_name": "Kurzgesagt – In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/_zfN9wnPvU0/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -194378,19 +192303,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "vJmGyzUZNUk",
-      "title": "Shopify President Harley Finkelstein on AI, Antisemitism, Israel, and Jewish Success",
-      "description": "",
-      "channel_slug": "algemeiner",
-      "channel_name": "Algemeiner",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/vJmGyzUZNUk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "9qTP_xG5Q8I",
       "title": "From Chinese Restaurant Dishwasher to U.S. Treasury: Mitchell Silk’s Unlikely American Story",
       "description": "",
@@ -194820,19 +192732,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "iAJEZxkyKwY",
-      "title": "Does Judaism Have a Branding Problem? Sasha Strauss on Identity, AI, and the Future of Faith",
-      "description": "",
-      "channel_slug": "american-jewish-university",
-      "channel_name": "American Jewish University",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/iAJEZxkyKwY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "jFMnb9lAv-c",
       "title": "Shabbat as a Technology for Belonging with Chaya Bindell",
       "description": "",
@@ -194854,19 +192753,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/I2dZv8IpVSw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "g21VBWHMvAo",
-      "title": "What Jewish Leaders Need to Understand About AI and Allyship with Ari Bloom",
-      "description": "",
-      "channel_slug": "american-jewish-university",
-      "channel_name": "American Jewish University",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/g21VBWHMvAo/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -196081,19 +193967,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "_abyVY-ROWM",
-      "title": "כיצד ישפיע ה-AI על זיהוי וטיפול בסרטן? אורח: פרופ' לירן דומצ'בסקי",
-      "description": "",
-      "channel_slug": "bar-ilan-university",
-      "channel_name": "Bar-Ilan University - אוניברסיטת בר-אילן",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/_abyVY-ROWM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "L2EMt0f42-4",
       "title": "טקס לציון 3 שנים לאירועי השבעה באוקטובר",
       "description": "",
@@ -196211,19 +194084,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "fUzeZ_eQTgk",
-      "title": "איך הפכה הודו למעצמת AI במודל אחר? אורחת: מאיה שרמן",
-      "description": "",
-      "channel_slug": "bar-ilan-university",
-      "channel_name": "Bar-Ilan University - אוניברסיטת בר-אילן",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/fUzeZ_eQTgk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "afA220EVAK0",
       "title": "איפה נפגשים בית המשפט ובית החולים? אורחת: פרופ' מיכל אלברשטין",
       "description": "",
@@ -196310,19 +194170,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/_e_-iY5JQ3E/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "zMe0co1198Y",
-      "title": "חינוך מיוחד בעידן הדיגיטלי: בינה מלאכותית, סימולציות VR ועשייה שמשנה חיים , ד\"ר אסתי איזמן",
-      "description": "",
-      "channel_slug": "bar-ilan-university",
-      "channel_name": "Bar-Ilan University - אוניברסיטת בר-אילן",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/zMe0co1198Y/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -198642,19 +196489,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "cGZHm4adpeM",
-      "title": "Henny tha Bizness, Record Producer",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/cGZHm4adpeM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "TsXIxbYHc7s",
       "title": "Little Big Feelings | Stories About Emotions for Kids | Bedtime Stories | 29 Min | ChuChu TV",
       "description": "",
@@ -199261,305 +197095,6 @@
       "category_slug": "sports",
       "category": "Sports",
       "thumbnail_url": "https://i.ytimg.com/vi/BhERHyHeVe4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "U0GA4_S2BB0",
-      "title": "AI Literacy in Education: Practical Approaches for Teaching and Learning | AILit Framework Webinar",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/U0GA4_S2BB0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "FSvvTyzUccI",
-      "title": "What Students Really Think About AI",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/FSvvTyzUccI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "aDMyLxPvAMo",
-      "title": "CodeAI: The Next Chapter of Code.org",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/aDMyLxPvAMo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "C0lue4R8Zzs",
-      "title": "If/Then: How Puzzles Changed My Life",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/C0lue4R8Zzs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "Fo-bZVQTLAo",
-      "title": "Mezcla y Baila con la IA - introducción",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Fo-bZVQTLAo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "MgYP0zvaStw",
-      "title": "If/Then: How Curiosity Changed My Life",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/MgYP0zvaStw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "wbSI90LGMmo",
-      "title": "Mix & Move with AI Intro",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/wbSI90LGMmo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "22N_fDIAcB4",
-      "title": "Data Science",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/22N_fDIAcB4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "xkVwZEogksw",
-      "title": "Data Science: Using Python",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "science",
-      "category": "Science & How-To",
-      "thumbnail_url": "https://i.ytimg.com/vi/xkVwZEogksw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "21eVegaVMtE",
-      "title": "Exploring Generative AI",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/21eVegaVMtE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "O_VjO1cx-No",
-      "title": "Problem Solving with AI",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/O_VjO1cx-No/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "wnUi611S6Is",
-      "title": "Unlock 8: One CS Class Can Change a Student’s Future",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/wnUi611S6Is/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "9E7zdaj3z98",
-      "title": "Roxanne’s Journey to Live Coding",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/9E7zdaj3z98/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "fClXcSzbPDo",
-      "title": "What is a Sound Designer?",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/fClXcSzbPDo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "MDtQjObQ8yY",
-      "title": "Music Lab: Roxanne Harris, Creative Coder and Live Performer",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "music",
-      "category": "Music",
-      "thumbnail_url": "https://i.ytimg.com/vi/MDtQjObQ8yY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "sxSfUFF1sFU",
-      "title": "Events Trigger Sounds in Music Lab",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "music",
-      "category": "Music",
-      "thumbnail_url": "https://i.ytimg.com/vi/sxSfUFF1sFU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "qWON7_KYEI0",
-      "title": "Timing and Sequencing in Music Lab",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "music",
-      "category": "Music",
-      "thumbnail_url": "https://i.ytimg.com/vi/qWON7_KYEI0/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "h-AtHZiQRjk",
-      "title": "Shakira, Singer Songwriter",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/h-AtHZiQRjk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "16DcuNKgvTk",
-      "title": "Rosa Linn, Singer Songwriter",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/16DcuNKgvTk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "DrhE-n_jGpo",
-      "title": "Aloe Blacc, Singer Songwriter",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/DrhE-n_jGpo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "tk-LIUul1Rw",
-      "title": "Make the Invisible Visible With One Hour of Code",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/tk-LIUul1Rw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "7EuMEcFQfWc",
-      "title": "Hour of Code: Make The Invisible Visible | Official Trailer",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/7EuMEcFQfWc/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "sypjpycrR7k",
-      "title": "One Hour Can Make The Invisible Visible",
-      "description": "",
-      "channel_slug": "code-org",
-      "channel_name": "CodeAI",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/sypjpycrR7k/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -206299,19 +203834,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "bT09o6EqFdo",
-      "title": "The AI-enhanced mastery learning approach for school leaders",
-      "description": "",
-      "channel_slug": "khan-academy",
-      "channel_name": "Khan Academy",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/bT09o6EqFdo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "aEtJWeVHEJE",
       "title": "Schoolwide discussions",
       "description": "",
@@ -209232,19 +206754,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/T_s034fRNmk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "AxHMvghsXXg",
-      "title": "Three Specific Ways AI Could Kill Us All",
-      "description": "",
-      "channel_slug": "minuteearth",
-      "channel_name": "MinuteEarth",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/AxHMvghsXXg/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -212240,19 +209749,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "bAnwMdfcMVw",
-      "title": "No More Heroes - Terence Tao Talks to Numberphile About AI",
-      "description": "",
-      "channel_slug": "numberphile",
-      "channel_name": "Numberphile",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/bAnwMdfcMVw/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "Zh86i_azaQw",
       "title": "The End of Mathematical Mountain Climbing - Numberphile",
       "description": "",
@@ -212300,19 +209796,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/9HlIuxnuTKQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "3geDF-DAwpg",
-      "title": "SOLVED: Navier-Stokes cracked by AI - Numberphile",
-      "description": "",
-      "channel_slug": "numberphile",
-      "channel_name": "Numberphile",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/3geDF-DAwpg/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -214164,19 +211647,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "bB6wMMStz8c",
-      "title": "Why AI Could Fuel America's Next Economic Boom | David Blumberg",
-      "description": "",
-      "channel_slug": "prageru",
-      "channel_name": "PragerU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/bB6wMMStz8c/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "BlyKLkN-n6U",
       "title": "Parent Alert: Schools Cancel Halloween Fun for \"Inclusivity?\"",
       "description": "",
@@ -214211,19 +211681,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/CrBC_JzhzYI/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "wnkEfHTlHxg",
-      "title": "They Use AI Every Day | Man on the Street",
-      "description": "",
-      "channel_slug": "prageru",
-      "channel_name": "PragerU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/wnkEfHTlHxg/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -214276,19 +211733,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/CEhOE-PyntY/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "ghjqoLY02rA",
-      "title": "France Riots, Musk's $11 Billion Gift, China's AI Banned | The Wrap Up",
-      "description": "",
-      "channel_slug": "prageru",
-      "channel_name": "PragerU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ghjqoLY02rA/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -214367,19 +211811,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/0XuibGx5BYs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "lmhmRBJ9IXA",
-      "title": "Stanford Caught Using AI to Race-Swap Student | Victor Davis Hanson",
-      "description": "",
-      "channel_slug": "prageru",
-      "channel_name": "PragerU",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/lmhmRBJ9IXA/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -214952,19 +212383,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/QvNAMmGqdd4/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "QhZpK2hdnjE",
-      "title": "Building 3D Worlds with AI | RDC 2026",
-      "description": "",
-      "channel_slug": "roblox",
-      "channel_name": "Roblox",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/QhZpK2hdnjE/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -220534,19 +217952,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "ny26teC-4bU",
-      "title": "AI and the End of Loneliness | Paul Bloom | TED",
-      "description": "",
-      "channel_slug": "ted",
-      "channel_name": "TED",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/ny26teC-4bU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "ohpIw6iGXNA",
       "title": "Why I’m Building Libraries Inside Prisons | Reginald Dwayne Betts | TED",
       "description": "",
@@ -220638,19 +218043,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "oyRxhiAC9u8",
-      "title": "Why the Future is Human … Plus AI | Esther Perel and Sal Khan",
-      "description": "",
-      "channel_slug": "ted",
-      "channel_name": "TED",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/oyRxhiAC9u8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "RCNO3k4QL5M",
       "title": "How to Use Tech to Outsmart Dictators | Leopoldo López | TED",
       "description": "",
@@ -220703,19 +218095,6 @@
       "is_jewish": false
     },
     {
-      "youtube_id": "Hd8npxrnpuo",
-      "title": "How AI Unleashed (Not Replaced) My Creativity | Kelly A. Boesch | TED",
-      "description": "",
-      "channel_slug": "ted",
-      "channel_name": "TED",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/Hd8npxrnpuo/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
       "youtube_id": "1qmF_znXxrE",
       "title": "The Right to Life, Liberty — and Free Time | Danielle Roberts | TED",
       "description": "",
@@ -220724,19 +218103,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/1qmF_znXxrE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "9Ff4S1FJdRM",
-      "title": "Is AI Turning Us All into the Same Person? | Sandra Matz | TED",
-      "description": "",
-      "channel_slug": "ted",
-      "channel_name": "TED",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/9Ff4S1FJdRM/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -220854,19 +218220,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/G3hXvByzLHs/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": false
-    },
-    {
-      "youtube_id": "z3Y-gsBKChc",
-      "title": "Why are AI data centers using so much electricity? - Sajan Saini",
-      "description": "",
-      "channel_slug": "ted-ed",
-      "channel_name": "TED-Ed",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/z3Y-gsBKChc/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": false
@@ -223506,19 +220859,6 @@
       "category_slug": "torah",
       "category": "Torah & Stories",
       "thumbnail_url": "https://i.ytimg.com/vi/kMaZZVcL5-Y/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "MG3A61DT57k",
-      "title": "Meet mAImonides: the Jewish Virtual Library’s AI Research Assistant",
-      "description": "",
-      "channel_slug": "jewish-virtual-library",
-      "channel_name": "Jewish Virtual Library",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/MG3A61DT57k/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -226592,19 +223932,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "WSAp0zR2VeU",
-      "title": "🚨EXPOSED: Did Israel Build a SECRET AI MACHINE to Target Civilians? (NAZA Controversy)",
-      "description": "",
-      "channel_slug": "the-israel-guys",
-      "channel_name": "The Israel Guys",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/WSAp0zR2VeU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "skxTXxAVBoA",
       "title": "🚨IRAN Just SPRANG A TRAP in the Red Sea Opening NEW FRONT Against the U.S.",
       "description": "",
@@ -228537,32 +225864,6 @@
       "category_slug": "torah",
       "category": "Torah & Stories",
       "thumbnail_url": "https://i.ytimg.com/vi/6mv9sveL6NU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "WnS2zbk-QqA",
-      "title": "AI MERUBAH VIDEO DENGAN WAJAHNYA KITA ATAU ORANG LAIN GRATIS DAN MUDAH | FACE SWAPER AI PREMIUM",
-      "description": "",
-      "channel_slug": "yuk-cari-tahu",
-      "channel_name": "YUK CARI TAHU",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/WnS2zbk-QqA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "qzYW548DDNs",
-      "title": "AI JAWAB SOAL GOOGLE FORMULIR LANGSUNG BENAR | EKSISTENSI JAWAB SOAL GOOGLE FORM SOLVER",
-      "description": "",
-      "channel_slug": "yuk-cari-tahu",
-      "channel_name": "YUK CARI TAHU",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/qzYW548DDNs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -230708,19 +228009,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/kRhVE-SMtS8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "8qoANEKeFaU",
-      "title": "Auditing AI for Antisemitic Bias | Dr. Maya Ackerman & Hannah Geller | Hack the Hate 2026",
-      "description": "",
-      "channel_slug": "world-jewish-congress",
-      "channel_name": "World Jewish Congress",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/8qoANEKeFaU/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -233885,19 +231173,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "1M7BCMU0_xU",
-      "title": "Meet JEMai: AI-Powered Access to the Rebbe’s Wisdom (Promo)",
-      "description": "",
-      "channel_slug": "jewish-educational-media-the-lubavitcher-rebbe",
-      "channel_name": "Jewish Educational Media | The Lubavitcher Rebbe",
-      "category_slug": "torah",
-      "category": "Torah & Stories",
-      "thumbnail_url": "https://i.ytimg.com/vi/1M7BCMU0_xU/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "xmP6aamK_5A",
       "title": "A Purposeful Life Begins with These Seven Laws",
       "description": "",
@@ -235141,19 +232416,6 @@
       "category_slug": "family",
       "category": "Family & Calm",
       "thumbnail_url": "https://i.ytimg.com/vi/Jirza7N9ob8/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "qfiOBJTwdRA",
-      "title": "Bitcoin Crypto Heist, Professor Catches AI Cheats, Spokane Fire Arrest: 8/7/26 | The Wrap Up",
-      "description": "",
-      "channel_slug": "prageru-kids",
-      "channel_name": "PragerU Kids",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/qfiOBJTwdRA/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true
@@ -243024,19 +240286,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "tXxpqd-nsqA",
-      "title": "בינה מלאכותית נגד 124 מדענים: התוצאות שזעזעו את האקדמיה",
-      "description": "",
-      "channel_slug": "channel-2",
-      "channel_name": "פרופ' גד יאיר | אקדמיה, מדע ותרבות",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/tXxpqd-nsqA/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "Ui4sySFnGrs",
       "title": "הסוד המטריד של הרווארד: כך פועלת שיטת הקבלה ששמורה לעשירים",
       "description": "",
@@ -243297,19 +240546,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "PhsQzfW3v9c",
-      "title": "What is Hell? | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/PhsQzfW3v9c/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "l1IN3jvbse4",
       "title": "7 Animated Bible Stories",
       "description": "",
@@ -243336,58 +240572,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "hKfdv2JdYqk",
-      "title": "Top 5 Most Powerful Prophets in the Bible | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/hKfdv2JdYqk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "beJaSKI4sfQ",
-      "title": "What Angels Look Like in The Bible | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/beJaSKI4sfQ/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "qixAMs4Deew",
-      "title": "The Complete Bible In a Nutshell | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/qixAMs4Deew/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "S9HCsjQsUxE",
-      "title": "Moses And The 10 Commandments | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/S9HCsjQsUxE/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "HJVnPUX_F04",
       "title": "10 Animated Bible Stories",
       "description": "",
@@ -243401,19 +240585,6 @@
       "is_jewish": true
     },
     {
-      "youtube_id": "3NNCpnvv1UM",
-      "title": "Jacob and Laban | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/3NNCpnvv1UM/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
       "youtube_id": "shRloh2QQgk",
       "title": "Feel Good Jesus Music",
       "description": "",
@@ -243422,19 +240593,6 @@
       "category_slug": "music",
       "category": "Music",
       "thumbnail_url": "https://i.ytimg.com/vi/shRloh2QQgk/hqdefault.jpg",
-      "embeddable": true,
-      "is_short": false,
-      "is_jewish": true
-    },
-    {
-      "youtube_id": "DnDGPCjcrTs",
-      "title": "Battle of Jericho | AI Animation",
-      "description": "",
-      "channel_slug": "bible-in-a-nutshell",
-      "channel_name": "Bible In a Nutshell",
-      "category_slug": "family",
-      "category": "Family & Calm",
-      "thumbnail_url": "https://i.ytimg.com/vi/DnDGPCjcrTs/hqdefault.jpg",
       "embeddable": true,
       "is_short": false,
       "is_jewish": true

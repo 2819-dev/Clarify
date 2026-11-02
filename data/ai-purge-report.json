@@ -1,0 +1,325 @@
+{
+  "before": {
+    "channels": 656,
+    "videos": 18180
+  },
+  "after": {
+    "channels": 655,
+    "videos": 17962
+  },
+  "removed_channel_slugs": [
+    "code-org"
+  ],
+  "removed_channel_details": [
+    {
+      "name": "Code.org",
+      "slug": "code-org"
+    }
+  ],
+  "removed_videos_seed": 218,
+  "removed_by_channel": [
+    {
+      "name": "CodeAI",
+      "n": 39
+    },
+    {
+      "name": "AI人才方舟計畫推動營運中心",
+      "n": 15
+    },
+    {
+      "name": "Traversy Media",
+      "n": 11
+    },
+    {
+      "name": "thenewboston",
+      "n": 11
+    },
+    {
+      "name": "Fireship",
+      "n": 10
+    },
+    {
+      "name": "freeCodeCamp.org",
+      "n": 10
+    },
+    {
+      "name": "Looking Glass Universe",
+      "n": 8
+    },
+    {
+      "name": "Bible In a Nutshell",
+      "n": 7
+    },
+    {
+      "name": "Stanford Online",
+      "n": 6
+    },
+    {
+      "name": "World Science Festival",
+      "n": 6
+    },
+    {
+      "name": "PragerU",
+      "n": 5
+    },
+    {
+      "name": "PragerU Kids",
+      "n": 5
+    },
+    {
+      "name": "TED",
+      "n": 5
+    },
+    {
+      "name": "Липовый Gamer",
+      "n": 5
+    },
+    {
+      "name": "CS Dojo",
+      "n": 5
+    },
+    {
+      "name": "Programming with Mosh",
+      "n": 5
+    },
+    {
+      "name": "CS50",
+      "n": 4
+    },
+    {
+      "name": "YUK CARI TAHU",
+      "n": 4
+    },
+    {
+      "name": "TEDx Talks",
+      "n": 3
+    },
+    {
+      "name": "3Blue1Brown",
+      "n": 3
+    },
+    {
+      "name": "Bar-Ilan University - אוניברסיטת בר-אילן",
+      "n": 3
+    },
+    {
+      "name": "Hidabroot - Torah & Judaism",
+      "n": 2
+    },
+    {
+      "name": "MinuteEarth",
+      "n": 2
+    },
+    {
+      "name": "פרופ' גד יאיר | אקדמיה, מדע ותרבות",
+      "n": 2
+    },
+    {
+      "name": "World Jewish Congress",
+      "n": 2
+    },
+    {
+      "name": "Sefaria ספריא",
+      "n": 2
+    },
+    {
+      "name": "Jewish Action",
+      "n": 2
+    },
+    {
+      "name": "TAU Courses",
+      "n": 2
+    },
+    {
+      "name": "Nuevo.Pictures",
+      "n": 2
+    },
+    {
+      "name": "Jewish Virtual Library",
+      "n": 2
+    },
+    {
+      "name": "Stand-up Maths",
+      "n": 2
+    },
+    {
+      "name": "Vox",
+      "n": 2
+    },
+    {
+      "name": "Kurzgesagt – In a Nutshell",
+      "n": 2
+    },
+    {
+      "name": "American Jewish University",
+      "n": 2
+    },
+    {
+      "name": "Numberphile",
+      "n": 2
+    },
+    {
+      "name": "SciShow",
+      "n": 1
+    },
+    {
+      "name": "The Jewish Theological Seminary",
+      "n": 1
+    },
+    {
+      "name": "BrainPOP",
+      "n": 1
+    },
+    {
+      "name": "Stephen Wise Free Synagogue",
+      "n": 1
+    },
+    {
+      "name": "בר-דעת | ערוץ הפודקאסטים של אוניברסיטת בר-אילן",
+      "n": 1
+    },
+    {
+      "name": "Scratch Team",
+      "n": 1
+    },
+    {
+      "name": "Age of Learning",
+      "n": 1
+    },
+    {
+      "name": "Jewish Learning Institute",
+      "n": 1
+    },
+    {
+      "name": "Frieda Vizel",
+      "n": 1
+    },
+    {
+      "name": "Haaretz.com",
+      "n": 1
+    },
+    {
+      "name": "Exploratorium",
+      "n": 1
+    },
+    {
+      "name": "Numberphile2",
+      "n": 1
+    },
+    {
+      "name": "Tibees",
+      "n": 1
+    },
+    {
+      "name": "PBS",
+      "n": 1
+    },
+    {
+      "name": "Algemeiner",
+      "n": 1
+    },
+    {
+      "name": "Khan Academy",
+      "n": 1
+    },
+    {
+      "name": "Roblox",
+      "n": 1
+    },
+    {
+      "name": "TED-Ed",
+      "n": 1
+    },
+    {
+      "name": "The Israel Guys",
+      "n": 1
+    },
+    {
+      "name": "Jewish Educational Media | The Lubavitcher Rebbe",
+      "n": 1
+    }
+  ],
+  "sample_titles": [
+    "Who’s to blame for the OpenAI - Hugging Face incident? Learn more in The CS50 Show on YouTube.",
+    "Citizen Journalists Charged, Bolsonaro Flees, AI Evolution",
+    "Citizen Journalists Charged, Bolsonaro Flees, AI Evolution: 10/30/26 | The Wrap Up | PragerU Kids",
+    "How To Pause AI For A Decade",
+    "The AI Ethics Crisis | Robert Castello | TEDxSaint Ignatius College Geelong Youth",
+    "AI FOMO Is Real: Why Leaders Should Be Quick, But Not Hurry",
+    "Just how bad was the outcome of the OpenAI - Hugging Face incident? Learn more in The CS50 Show.",
+    "AI Can Imitate Kindness. But Can It Care? Rabbi Yaakov Asher Sinclair",
+    "Stanford Robotics Seminar ENGR319 | Autumn 2026 | Bridging Rigorous Methods with Machine Learning",
+    "The Biggest Mistake Leaders Make With AI Decisions",
+    "How did the OpenAI agents manage to communicate secretly? Learn more in The CS50 Show on YouTube.",
+    "AI Psychosis Is Killing People. It’s Time to Talk About It",
+    "Should We Slow Down AI? Francis Fukuyama on the China Question",
+    "How did the OpenAI - Hugging Face incident happen? Learn more in The CS50 Show at youtube.com/cs50.",
+    "Everything We Believe Is A Lie! AI Deep State Illuminati NWO Kanye West Tucker Carlson Candace Owens",
+    "This dad tried to get AI to help raise his kids, and it didn’t turn out the way he hoped #TEDTalks",
+    "If/Then: How Experimenting Changed My Life",
+    "How to Tame Your Pet AI Dragon",
+    "The Future of Torah: Jewish Learning in the Age of AI",
+    "למה MIT הפסיקה להשתמש בבינה מלאכותית נגד סטודנטים? #חדשות #AI",
+    "France Riots, Musk's $11 Billion Gift, China's AI Banned: 10/23/26 | The Wrap Up | PragerU Kids",
+    "Stanford CS547 HCI Seminar | Autumn 2026 | Designing AI for Societal Good",
+    "Anthropic Bans Cruelty, Greenland's Rare Race, ICE in Oregon: 10/16/26 | The Wrap Up | PragerU Kids",
+    "On the ground in Dublin: How AI is affecting antisemitism on social media platforms",
+    "Artificial Intelligence | BrainPOP 3-8",
+    "The largest AI incident in history",
+    "The largest AI incident the world has ever seen",
+    "The Real Story Behind What Happened At OpenAI",
+    "Is AI Dangerous, SCOTUS Blocks Mail-in Ballot Rules, Gen Z Investing Big |The Wrap Up | PragerU Kids",
+    "What AI Doesn't know about Sukkot",
+    "AI人才方舟計畫簡介",
+    "2026數位學習國際論壇 Day02 / 2026 International Digital Learning Forum Day02",
+    "2026數位學習國際論壇Day01 / 2026 International Digital Learning Forum Day01",
+    "CodeAI Supports Me As A Teacher",
+    "Empower Students: Teach Them How AI Works",
+    "Your Students Are Already Using AI — Do They Understand It?",
+    "You Don't Have to be an AI Expert to Teach How it Works",
+    "The New Super Power In The Age Of AI Is Critical Thinking",
+    "This Class Builds Problem Solvers",
+    "What Students Really Want From AI: Agency",
+    "Understand, Direct, Question, Create: That's Digital Fluency",
+    "Use AI With Your Brain, Not Instead of It",
+    "Every Student Deserves to Understand, Direct, Question, and Create With AI",
+    "Sierra: Every Student Deserves to Understand AI",
+    "Next in AI Education: The Urgent Need for Teacher Training",
+    "an AI actually went rogue.",
+    "If/Then: How Building Changed My Life",
+    "AI Literacy in Education: System-Level Perspectives and Priorities",
+    "I Unlocked ChatGPT’s Dark Side for $101.40",
+    "איך להשתמש ב-AI מבלי לאבד את הקול שלנו? בינו לבינה מלאכותית - אורי טולידאנו וד״ר גל יעבץ"
+  ],
+  "neon": {
+    "before": {
+      "active_videos": 18217,
+      "active_channels": 656
+    },
+    "after": {
+      "active_videos": 17999,
+      "active_channels": 655,
+      "active_embeddable": 17999
+    },
+    "deactivated_videos": 218,
+    "extra_videos_matched_in_neon": 0,
+    "deactivated_channels": [
+      {
+        "slug": "code-org",
+        "name": "Code.org"
+      }
+    ],
+    "leftover_active_ai_looking": [],
+    "note": "adl channel reactivated (kept non-AI Taiwan curriculum videos); AI人才 videos remain deactivated"
+  },
+  "final": {
+    "seed_channels": 655,
+    "seed_videos": 17962,
+    "neon_active_channels": 655,
+    "neon_active_videos": 17999,
+    "removed_seed_videos": 218,
+    "removed_seed_channels": 1,
+    "neon_videos_deactivated": 218,
+    "neon_channels_deactivated": 1
+  }
+}
