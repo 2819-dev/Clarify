@@ -78,9 +78,15 @@ export default async function CategoryPage({
       />
 
       {videos.length === 0 ? (
-        <p className="empty-state">
-          No videos in this category right now.
-        </p>
+        <div className="empty-state">
+          <p className="empty-state-copy">
+            No videos in this category right now. Try another category or switch
+            content mode.
+          </p>
+          <Link href="/categories" className="btn-secondary">
+            All categories
+          </Link>
+        </div>
       ) : (
         <div
           className={`video-grid ${format === "shorts" ? "shorts-grid" : ""}`}
