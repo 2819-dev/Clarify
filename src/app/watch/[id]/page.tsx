@@ -17,6 +17,7 @@ import {
   listComments,
 } from "@/lib/engagement";
 import { consumerDescription } from "@/lib/description";
+import { COMMENTS_ENABLED } from "@/lib/features";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { getCurrentUser } from "@/lib/user-auth";
 import { getActiveVideo, listRelatedVideos } from "@/lib/videos";
@@ -36,7 +37,7 @@ export default async function WatchPage({
   const user = await getCurrentUser();
   const [likeState, comments, subscribed, related] = await Promise.all([
     getVideoLikeState(video.id, user?.id),
-    listComments(video.id),
+    COMMENTS_ENABLED ? listComments(video.id) : Promise.resolve([]),
     user && video.channel_slug
       ? isSubscribed(user.id, video.channel_slug)
       : Promise.resolve(false),
@@ -254,11 +255,13 @@ export default async function WatchPage({
           ) : null}
         </div>
 
-        <CommentSection
-          videoId={video.id}
-          initialComments={comments}
-          signedIn={Boolean(user)}
-        />
+        {COMMENTS_ENABLED ? (
+          <CommentSection
+            videoId={video.id}
+            initialComments={comments}
+            signedIn={Boolean(user)}
+          />
+        ) : null}
       </div>
 
       <RelatedVideos videos={related} preferShorts={isShort} />

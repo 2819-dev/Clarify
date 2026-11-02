@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { addComment, listComments } from "@/lib/engagement";
+import { COMMENTS_ENABLED } from "@/lib/features";
 import { getCurrentUser } from "@/lib/user-auth";
 
 const postSchema = z.object({
@@ -8,7 +9,18 @@ const postSchema = z.object({
   body: z.string().trim().min(1).max(2000),
 });
 
+const disabledResponse = () =>
+  NextResponse.json(
+    {
+      error: "Comments are temporarily disabled.",
+      code: "comments_disabled",
+    },
+    { status: 403 },
+  );
+
 export async function GET(request: Request) {
+  if (!COMMENTS_ENABLED) return disabledResponse();
+
   const { searchParams } = new URL(request.url);
   const videoId = searchParams.get("videoId");
   if (!videoId) {
@@ -19,6 +31,8 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  if (!COMMENTS_ENABLED) return disabledResponse();
+
   const user = await getCurrentUser();
   if (!user) {
     return NextResponse.json(

@@ -8,6 +8,7 @@ import { ModeratorMenu } from "@/components/ModeratorMenu";
 import { useCanModerate } from "@/components/ModerationContext";
 import { UserAvatar } from "@/components/UserAvatar";
 import type { VideoComment } from "@/lib/engagement";
+import { COMMENTS_ENABLED } from "@/lib/features";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { formatAt } from "@/lib/usernames";
 
@@ -27,6 +28,8 @@ export function CommentSection({
   const [body, setBody] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+
+  if (!COMMENTS_ENABLED) return null;
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
