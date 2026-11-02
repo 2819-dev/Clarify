@@ -341,8 +341,8 @@ a {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.75rem 1.15rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.15rem 1.5rem;
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -4347,9 +4347,9 @@ html.yt-page-watch .watch-page {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  /* YouTube home density: ~3 tiles across on desktop */
+  /* 3 tiles across on desktop — final feed pass may refine gaps */
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.75rem 1.15rem;
+  gap: 2.15rem 1.5rem;
 }
 
 .video-grid {
@@ -4359,11 +4359,6 @@ html.yt-page-watch .watch-page {
 }
 
 @media (max-width: 1200px) {
-  .yt-shelf-grid .video-grid,
-  .video-grid:not(.shorts-grid) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .shorts-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
@@ -5727,5 +5722,119 @@ html.yt-page-watch .watch-page:not(.is-short) {
 
   .yt-shelf.is-shorts .yt-shelf-row {
     grid-auto-columns: minmax(128px, 36%);
+  }
+}
+
+/* ——— Feed layout: 3-up desktop / 1-up phone, breathing room ——— */
+.yt-shelves {
+  gap: 2rem;
+  margin-top: 0.35rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.85rem;
+}
+
+.yt-shelf-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.yt-shelf-more {
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+/* Home / subscriptions / channel / category video grids */
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.15rem 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.video-tile {
+  gap: 0.85rem;
+}
+
+.video-tile-body {
+  gap: 0.75rem;
+}
+
+.video-thumb-wrap {
+  border-radius: 0.8rem;
+}
+
+.video-title {
+  font-size: 0.98rem;
+  font-weight: 650;
+  line-height: 1.35;
+  -webkit-line-clamp: 2;
+}
+
+.video-channel {
+  font-size: 0.84rem;
+}
+
+.video-submeta {
+  font-size: 0.8rem;
+}
+
+/* Horizontal long-form shelves: ~3 cards visible on desktop */
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  grid-auto-columns: minmax(0, calc((100% - 3rem) / 3));
+  gap: 1.5rem;
+  padding-bottom: 0.65rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  grid-auto-columns: minmax(176px, 196px);
+  gap: 0.95rem;
+  padding-bottom: 0.35rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.75rem;
+}
+
+.yt-main-inner:not(:has(.watch-page)) {
+  padding-block: 0.35rem 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .yt-shelves {
+    gap: 1.65rem;
+  }
+
+  .yt-shelf-head {
+    margin-bottom: 0.7rem;
+  }
+
+  .yt-shelf-grid .video-grid,
+  .video-grid:not(.shorts-grid) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.65rem 0;
+  }
+
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    grid-auto-columns: minmax(0, 100%);
+    gap: 1.25rem;
+  }
+
+  .yt-shelf.is-shorts .yt-shelf-row {
+    grid-auto-columns: minmax(148px, 42%);
+    gap: 0.75rem;
+  }
+
+  .yt-main-inner:not(:has(.watch-page)) {
+    padding-inline: 0.85rem;
+    padding-block: 0.25rem 1.25rem;
+  }
+
+  .video-title {
+    font-size: 0.96rem;
   }
 }
