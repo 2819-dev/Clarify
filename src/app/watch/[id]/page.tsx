@@ -44,7 +44,7 @@ export default async function WatchPage({
     listRelatedVideos(video, mode, 18),
   ]);
 
-  const when = video.published_at || video.created_at;
+  const when = video.published_at || null;
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
   const isShort = Boolean(video.is_short);
   const description = consumerDescription(video.description);
@@ -82,6 +82,7 @@ export default async function WatchPage({
   return (
     <article className={`watch-page ${isShort ? "is-short" : ""}`}>
       <WatchActivityTracker
+        videoId={video.id}
         channelSlug={video.channel_slug}
         categorySlug={video.category_slug}
       />
@@ -127,7 +128,10 @@ export default async function WatchPage({
                   </div>
                   {subscribe}
                 </div>
-                <h1 className="shorts-meta-title" title={formatAbsoluteTime(when)}>
+                <h1
+                  className="shorts-meta-title"
+                  title={when ? formatAbsoluteTime(when) : undefined}
+                >
                   {video.title}
                 </h1>
               </div>
@@ -157,11 +161,13 @@ export default async function WatchPage({
           {!isShort ? (
             <>
               <h1 className="watch-title">{video.title}</h1>
-              <p className="watch-title-meta">
-                <time dateTime={when} title={formatAbsoluteTime(when)}>
-                  {formatRelativeTime(when)}
-                </time>
-              </p>
+              {when ? (
+                <p className="watch-title-meta">
+                  <time dateTime={when} title={formatAbsoluteTime(when)}>
+                    {formatRelativeTime(when)}
+                  </time>
+                </p>
+              ) : null}
 
               <div className="watch-owner-row">
                 <div className="watch-owner">

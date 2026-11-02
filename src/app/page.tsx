@@ -1,14 +1,19 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
 import { FormatTabs } from "@/components/FormatTabs";
-import { SearchResultRow } from "@/components/SearchResultRow";
 import { VideoShelf } from "@/components/VideoShelf";
 import { VideoTile } from "@/components/VideoTile";
 import { listCategories } from "@/lib/categories";
 import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
-import { listSubscribedChannelSlugs } from "@/lib/engagement";
-import { getWatchActivity } from "@/lib/preferences-server";
+import {
+  listLikedChannelSlugs,
+  listSubscribedChannelSlugs,
+} from "@/lib/engagement";
+import {
+  getSubscriptionSlugs,
+  getWatchActivity,
+} from "@/lib/preferences-server";
 import { getCurrentUser } from "@/lib/user-auth";
 import {
   countActiveVideos,
@@ -29,34 +34,65 @@ export default async function HomePage({
   const mode = await getContentMode();
   const isSearch = Boolean(q?.trim());
   const user = await getCurrentUser();
-  const [subSlugs, activity] = await Promise.all([
+  const [dbSubs, cookieSubs, likedChannels, activity] = await Promise.all([
     user ? listSubscribedChannelSlugs(user.id) : Promise.resolve([] as string[]),
+    getSubscriptionSlugs(),
+    user ? listLikedChannelSlugs(user.id) : Promise.resolve([] as string[]),
     getWatchActivity(),
   ]);
 
+  const subSlugs = [...new Set([...dbSubs, ...cookieSubs])];
+  const boostChannelSlugs = [
+    ...new Set([
+      ...subSlugs,
+      ...likedChannels,
+      ...activity.channelSlugs,
+    ]),
+  ].slice(0, 40);
+  const boostCategorySlugs = activity.categorySlugs
+    .filter((s) => s !== "music")
+    .slice(0, 12);
+
   // Music belongs in its own section — keep it out of the mixed home Latest grid.
   const homeExcludeMusic = !isSearch ? (["music"] as string[]) : undefined;
+  const homeSort = isSearch ? ("recent" as const) : ("ranked" as const);
 
-  const [categories, total, shortsCount, latest, shorts] = await Promise.all([
-    listCategories(mode),
-    countActiveVideos(mode),
-    countShorts(undefined, mode),
-    listActiveVideos({
-      q,
-      format,
-      mode,
-      limit: isSearch ? 48 : 24,
-      excludeCategorySlugs: homeExcludeMusic,
-    }),
-    format === "all" && !isSearch
-      ? listActiveVideos({
-          format: "shorts",
-          mode,
-          limit: 14,
-          excludeCategorySlugs: ["music"],
-        })
-      : Promise.resolve([]),
-  ]);
+  const [categories, total, shortsCount, latest, shorts, trending] =
+    await Promise.all([
+      listCategories(mode),
+      countActiveVideos(mode),
+      countShorts(undefined, mode),
+      listActiveVideos({
+        q,
+        format,
+        mode,
+        limit: isSearch ? 48 : 24,
+        excludeCategorySlugs: homeExcludeMusic,
+        sort: homeSort,
+        boostChannelSlugs,
+        boostCategorySlugs,
+      }),
+      format === "all" && !isSearch
+        ? listActiveVideos({
+            format: "shorts",
+            mode,
+            limit: 14,
+            excludeCategorySlugs: ["music"],
+            sort: "ranked",
+            boostChannelSlugs,
+            boostCategorySlugs,
+          })
+        : Promise.resolve([]),
+      format === "all" && !isSearch
+        ? listActiveVideos({
+            mode,
+            limit: 12,
+            excludeCategorySlugs: ["music"],
+            format: "videos",
+            sort: "trending",
+          })
+        : Promise.resolve([]),
+    ]);
 
   const showShelves = !isSearch && format === "all";
   const nonMusicCategories = categories.filter((c) => c.slug !== "music");
@@ -71,45 +107,35 @@ export default async function HomePage({
                 mode,
                 limit: 14,
                 excludeCategorySlugs: ["music"],
+                sort: "ranked",
+                boostChannelSlugs,
+                boostCategorySlugs,
               })
             : Promise.resolve([]),
           (async () => {
             if (
               !activity.channelSlugs.length &&
-              !activity.categorySlugs.length
+              !activity.categorySlugs.length &&
+              !likedChannels.length
             ) {
               return [];
             }
-            const [byChannel, byCategory] = await Promise.all([
-              activity.channelSlugs.length
-                ? listActiveVideos({
-                    channelSlugs: activity.channelSlugs.slice(0, 8),
-                    mode,
-                    limit: 14,
-                    excludeCategorySlugs: ["music"],
-                  })
-                : Promise.resolve([]),
-              activity.categorySlugs.length
-                ? listActiveVideos({
-                    categorySlugs: activity.categorySlugs
-                      .filter((s) => s !== "music")
-                      .slice(0, 6),
-                    mode,
-                    limit: 14,
-                    excludeCategorySlugs: ["music"],
-                  })
-                : Promise.resolve([]),
-            ]);
-            const merged: typeof byChannel = [];
-            const ids = new Set<string>();
-            for (const v of [...byChannel, ...byCategory]) {
-              if (ids.has(v.id)) continue;
-              ids.add(v.id);
-              merged.push(v);
-            }
-            return merged;
+            return listActiveVideos({
+              mode,
+              limit: 14,
+              excludeCategorySlugs: ["music"],
+              sort: "ranked",
+              boostChannelSlugs,
+              boostCategorySlugs,
+            });
           })(),
-          listActiveVideos({ category: "music", mode, limit: 12 }),
+          listActiveVideos({
+            category: "music",
+            mode,
+            limit: 12,
+            sort: "ranked",
+            boostChannelSlugs,
+          }),
           Promise.all(
             nonMusicCategories.slice(0, 5).map(async (cat) => ({
               cat,
@@ -117,6 +143,9 @@ export default async function HomePage({
                 category: cat.slug,
                 mode,
                 limit: 8,
+                sort: "ranked",
+                boostChannelSlugs,
+                boostCategorySlugs,
               }),
             })),
           ),
@@ -136,6 +165,7 @@ export default async function HomePage({
     return out;
   }
 
+  const trendingFresh = takeFresh(trending, 9);
   const latestFresh = takeFresh(latest, 24);
   const subsFresh = takeFresh(subscriptionVideos, 8);
   const recommendedFresh = takeFresh(recommendedVideos, 8);
@@ -219,6 +249,10 @@ export default async function HomePage({
             />
           ) : null}
 
+          {trendingFresh.length > 0 ? (
+            <VideoShelf title="Trending" videos={trendingFresh} />
+          ) : null}
+
           {shortsFresh.length > 0 ? (
             <VideoShelf
               title="Shorts"
@@ -228,9 +262,9 @@ export default async function HomePage({
             />
           ) : null}
 
-          <section className="yt-shelf yt-shelf-grid" aria-label="Latest">
+          <section className="yt-shelf yt-shelf-grid" aria-label="For you">
             <div className="yt-shelf-head">
-              <h2 className="yt-shelf-title">Latest</h2>
+              <h2 className="yt-shelf-title">For you</h2>
               <Link href="/?format=videos" className="yt-shelf-more">
                 Show more
               </Link>

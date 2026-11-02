@@ -91,6 +91,67 @@ export async function toggleSubscription(
   return true;
 }
 
+export async function listLikedChannelSlugs(userId: string): Promise<string[]> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT ch.slug
+    FROM video_likes vl
+    INNER JOIN videos v ON v.id = vl.video_id
+    INNER JOIN channels ch ON ch.id = v.channel_id
+    WHERE vl.user_id = ${userId}::uuid
+      AND v.is_active = TRUE
+      AND COALESCE(ch.is_active, TRUE) = TRUE
+    GROUP BY ch.slug
+    ORDER BY MAX(vl.created_at) DESC
+    LIMIT 30
+  `;
+  return (rows as { slug: string }[]).map((r) => r.slug);
+}
+
+export async function recordVideoView(input: {
+  videoId: string;
+  userId?: string | null;
+  anonKey?: string | null;
+}): Promise<void> {
+  const sql = getSql();
+  const videoId = input.videoId;
+  const userId = input.userId || null;
+  const anonKey = input.anonKey?.trim() || null;
+
+  // Deduplicate rapid repeats (same viewer within 30 minutes).
+  if (userId) {
+    const recent = await sql`
+      SELECT 1 FROM video_views
+      WHERE video_id = ${videoId}::uuid
+        AND user_id = ${userId}::uuid
+        AND created_at > NOW() - INTERVAL '30 minutes'
+      LIMIT 1
+    `;
+    if (recent.length) return;
+  } else if (anonKey) {
+    const recent = await sql`
+      SELECT 1 FROM video_views
+      WHERE video_id = ${videoId}::uuid
+        AND anon_key = ${anonKey}
+        AND created_at > NOW() - INTERVAL '30 minutes'
+      LIMIT 1
+    `;
+    if (recent.length) return;
+  }
+
+  if (userId) {
+    await sql`
+      INSERT INTO video_views (video_id, user_id, anon_key)
+      VALUES (${videoId}::uuid, ${userId}::uuid, NULL)
+    `;
+  } else {
+    await sql`
+      INSERT INTO video_views (video_id, user_id, anon_key)
+      VALUES (${videoId}::uuid, NULL, ${anonKey})
+    `;
+  }
+}
+
 export async function getVideoLikeState(videoId: string, userId?: string | null) {
   const sql = getSql();
   const countRows = await sql`
