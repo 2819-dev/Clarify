@@ -3,9 +3,11 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export function AdminLoginForm() {
+export function AdminLoginForm({ needsTotp = false }: { needsTotp?: boolean }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
+  const [totpCode, setTotpCode] = useState("");
+  const [showTotp, setShowTotp] = useState(needsTotp);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
@@ -17,23 +19,27 @@ export function AdminLoginForm() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({
+          password,
+          totpCode: showTotp ? totpCode : undefined,
+        }),
       });
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Login failed");
+        if (data.needsTotp) setShowTotp(true);
+        throw new Error(data.error || "Could not sign in.");
       }
       router.replace("/admin");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      setError(err instanceof Error ? err.message : "Could not sign in.");
       setSaving(false);
     }
   }
 
   return (
     <form className="admin-login-form" onSubmit={onSubmit}>
-      <label htmlFor="admin-password">Password</label>
+      <label htmlFor="admin-password">Admin password</label>
       <input
         id="admin-password"
         type="password"
@@ -44,6 +50,23 @@ export function AdminLoginForm() {
         onChange={(e) => setPassword(e.target.value)}
         disabled={saving}
       />
+      {showTotp ? (
+        <>
+          <label htmlFor="admin-totp">Authenticator code</label>
+          <input
+            id="admin-totp"
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="[0-9 ]*"
+            maxLength={8}
+            required
+            value={totpCode}
+            onChange={(e) => setTotpCode(e.target.value)}
+            disabled={saving}
+          />
+        </>
+      ) : null}
       {error ? <p className="form-error">{error}</p> : null}
       <button type="submit" className="btn-primary" disabled={saving}>
         {saving ? "Signing in…" : "Sign in"}

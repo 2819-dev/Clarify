@@ -2,91 +2,106 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ContentModeToggle } from "@/components/ContentModeToggle";
+import { ShortsIcon } from "@/components/ShortsIcon";
+import type { ContentMode } from "@/lib/content-mode";
 import type { Category, Channel } from "@/lib/db";
-import { PREFS_EVENT } from "@/lib/preferences";
-import {
-  getSubscriptionsClient,
-  hydratePreferencesCookies,
-} from "@/lib/preferences-client";
+
+function NavIcon({ name }: { name: "home" | "shorts" | "subs" | "cats" | "channels" }) {
+  const common = {
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    "aria-hidden": true as const,
+  };
+  if (name === "home") {
+    return (
+      <svg {...common}>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+      </svg>
+    );
+  }
+  if (name === "shorts") {
+    return <ShortsIcon />;
+  }
+  if (name === "subs") {
+    return (
+      <svg {...common}>
+        <path d="M10 18v-6l5 3-5 3zm7-15H7v2h10V3zm3 4H4v2h16V7zm2 4H2v10h20V11z" />
+      </svg>
+    );
+  }
+  if (name === "cats") {
+    return (
+      <svg {...common}>
+        <path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common}>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z" />
+    </svg>
+  );
+}
 
 export function SiteSidebar({
   categories = [],
   subscribedChannels = [],
+  signedIn = false,
+  initialMode = "jewish",
 }: {
   categories?: Pick<Category, "slug" | "name" | "video_count">[];
   subscribedChannels?: Pick<
     Channel,
     "slug" | "name" | "avatar_url" | "video_count"
   >[];
+  signedIn?: boolean;
+  initialMode?: ContentMode;
 }) {
   const pathname = usePathname() || "/";
   const searchParams = useSearchParams();
   const format = searchParams.get("format");
-  const [subSlugs, setSubSlugs] = useState<string[]>(
-    subscribedChannels.map((c) => c.slug),
-  );
 
-  useEffect(() => {
-    hydratePreferencesCookies();
-    const sync = () => setSubSlugs(getSubscriptionsClient());
-    sync();
-    window.addEventListener(PREFS_EVENT, sync);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener(PREFS_EVENT, sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, []);
+  function closeMobileNav() {
+    document.documentElement.classList.remove("yt-nav-open");
+  }
 
   const links = [
     {
       href: "/",
       label: "Home",
       active: pathname === "/" && format !== "shorts",
-      icon: "⌂",
+      icon: "home" as const,
     },
     {
       href: "/?format=shorts",
       label: "Shorts",
       active: pathname === "/" && format === "shorts",
-      icon: "▷",
+      icon: "shorts" as const,
     },
     {
       href: "/subscriptions",
       label: "Subscriptions",
       active: pathname.startsWith("/subscriptions"),
-      icon: "✦",
+      icon: "subs" as const,
     },
     {
       href: "/categories",
       label: "Categories",
       active: pathname.startsWith("/categories"),
-      icon: "▦",
+      icon: "cats" as const,
     },
     {
       href: "/channels",
       label: "Channels",
       active: pathname.startsWith("/channels"),
-      icon: "◎",
+      icon: "channels" as const,
     },
   ];
 
-  const bySlug = new Map(subscribedChannels.map((c) => [c.slug, c]));
-  const visibleSubs = subSlugs.slice(0, 6).map((slug) => {
-    const known = bySlug.get(slug);
-    return (
-      known || {
-        slug,
-        name: slug
-          .split("-")
-          .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-          .join(" "),
-        avatar_url: null as string | null,
-        video_count: undefined as number | undefined,
-      }
-    );
-  });
+  const visibleSubs = subscribedChannels.slice(0, 7);
 
   return (
     <aside className="yt-sidebar" aria-label="Browse">
@@ -97,20 +112,34 @@ export function SiteSidebar({
             href={item.href}
             className={`yt-sidebar-link ${item.active ? "is-active" : ""}`}
             aria-current={item.active ? "page" : undefined}
+            title={item.label}
+            onClick={closeMobileNav}
           >
             <span className="yt-sidebar-icon" aria-hidden>
-              {item.icon}
+              <NavIcon name={item.icon} />
             </span>
-            {item.label}
+            <span className="yt-sidebar-label">{item.label}</span>
           </Link>
         ))}
       </nav>
 
+      <div className="yt-sidebar-section yt-sidebar-mode">
+        <p className="yt-sidebar-heading">Content</p>
+        <ContentModeToggle initialMode={initialMode} />
+      </div>
+
       <div className="yt-sidebar-section">
         <p className="yt-sidebar-heading">Subscriptions</p>
-        {visibleSubs.length === 0 ? (
+        {!signedIn ? (
           <p className="yt-sidebar-empty">
-            Subscribe on a channel page — saved on this device.
+            <Link href={`/signin?next=${encodeURIComponent(pathname)}`}>
+              Sign in
+            </Link>{" "}
+            to see your subscriptions.
+          </p>
+        ) : visibleSubs.length === 0 ? (
+          <p className="yt-sidebar-empty">
+            Subscribe to a channel to keep it here.
           </p>
         ) : (
           <nav className="yt-sidebar-cats" aria-label="Subscriptions">
@@ -124,6 +153,8 @@ export function SiteSidebar({
                     active ? "is-active" : ""
                   }`}
                   aria-current={active ? "page" : undefined}
+                  title={ch.name}
+                  onClick={closeMobileNav}
                 >
                   {ch.avatar_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -133,13 +164,21 @@ export function SiteSidebar({
                       className="yt-sidebar-avatar"
                     />
                   ) : (
-                    <span className="yt-sidebar-avatar placeholder" aria-hidden />
+                    <span className="yt-sidebar-avatar placeholder" aria-hidden>
+                      {(ch.name[0] || "?").toUpperCase()}
+                    </span>
                   )}
-                  <span className="yt-sidebar-cat-name">{ch.name}</span>
+                  <span className="yt-sidebar-label yt-sidebar-cat-name">
+                    {ch.name}
+                  </span>
                 </Link>
               );
             })}
-            <Link href="/subscriptions" className="yt-sidebar-more">
+            <Link
+              href="/subscriptions"
+              className="yt-sidebar-more"
+              onClick={closeMobileNav}
+            >
               All subscriptions
             </Link>
           </nav>
@@ -148,7 +187,7 @@ export function SiteSidebar({
 
       {categories.length > 0 ? (
         <div className="yt-sidebar-section">
-          <p className="yt-sidebar-heading">Categories</p>
+          <p className="yt-sidebar-heading">Explore</p>
           <nav className="yt-sidebar-cats" aria-label="Categories">
             {categories.slice(0, 8).map((cat) => {
               const active = pathname === `/categories/${cat.slug}`;
@@ -158,12 +197,20 @@ export function SiteSidebar({
                   href={`/categories/${cat.slug}`}
                   className={`yt-sidebar-link ${active ? "is-active" : ""}`}
                   aria-current={active ? "page" : undefined}
+                  title={cat.name}
+                  onClick={closeMobileNav}
                 >
-                  <span className="yt-sidebar-cat-name">{cat.name}</span>
+                  <span className="yt-sidebar-label yt-sidebar-cat-name">
+                    {cat.name}
+                  </span>
                 </Link>
               );
             })}
-            <Link href="/categories" className="yt-sidebar-more">
+            <Link
+              href="/categories"
+              className="yt-sidebar-more"
+              onClick={closeMobileNav}
+            >
               All categories
             </Link>
           </nav>
@@ -171,7 +218,6 @@ export function SiteSidebar({
       ) : null}
 
       <p className="yt-sidebar-made">
-        Made by{" "}
         <a href="https://guidelearning.org" rel="noopener noreferrer">
           Guide
         </a>

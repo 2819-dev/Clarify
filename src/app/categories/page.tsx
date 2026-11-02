@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
 import { listCategories } from "@/lib/categories";
-import { contentModeLabel } from "@/lib/content-mode";
+import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 import { listActiveVideos } from "@/lib/videos";
 import { VideoShelf } from "@/components/VideoShelf";
@@ -25,8 +25,7 @@ export default async function CategoriesIndexPage() {
         <div>
           <h1 className="yt-home-title">Categories</h1>
           <p className="yt-home-sub">
-            Browse {contentModeLabel(mode).toLowerCase()} by theme — like
-            YouTube topics, curated for Clarify.
+            Browse {contentModeAdjective(mode)} videos by topic.
           </p>
         </div>
       </div>

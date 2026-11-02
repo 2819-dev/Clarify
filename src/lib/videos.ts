@@ -45,10 +45,13 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
   const rows = await sql`
     SELECT
       v.id, v.youtube_id, v.title, v.description, v.channel_name, v.channel_id,
-      c.slug AS channel_slug, v.category, v.category_slug, cat.name AS category_name,
+      c.slug AS channel_slug, c.username AS channel_username,
+      c.avatar_url AS channel_avatar_url,
+      v.category, v.category_slug, cat.name AS category_name,
       v.thumbnail_url, v.duration_seconds, COALESCE(v.is_short, FALSE) AS is_short,
       COALESCE(v.is_jewish, TRUE) AS is_jewish,
-      v.embeddable, v.is_active, v.created_at
+      v.embeddable, v.is_active, v.created_at,
+      COALESCE(v.published_at, v.created_at) AS published_at
     FROM videos v
     LEFT JOIN channels c ON c.id = v.channel_id
     LEFT JOIN categories cat ON cat.slug = v.category_slug
@@ -81,7 +84,7 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
         OR cat.name ILIKE ${like}
         OR c.name ILIKE ${like}
       )
-    ORDER BY v.created_at DESC
+    ORDER BY COALESCE(v.published_at, v.created_at) DESC
     LIMIT ${limit}
   `;
   return rows as Video[];
@@ -92,10 +95,13 @@ export async function getActiveVideo(id: string): Promise<Video | null> {
   const rows = await sql`
     SELECT
       v.id, v.youtube_id, v.title, v.description, v.channel_name, v.channel_id,
-      c.slug AS channel_slug, v.category, v.category_slug, cat.name AS category_name,
+      c.slug AS channel_slug, c.username AS channel_username,
+      c.avatar_url AS channel_avatar_url,
+      v.category, v.category_slug, cat.name AS category_name,
       v.thumbnail_url, v.duration_seconds, COALESCE(v.is_short, FALSE) AS is_short,
       COALESCE(v.is_jewish, TRUE) AS is_jewish,
-      v.embeddable, v.is_active, v.created_at
+      v.embeddable, v.is_active, v.created_at,
+      COALESCE(v.published_at, v.created_at) AS published_at
     FROM videos v
     LEFT JOIN channels c ON c.id = v.channel_id
     LEFT JOIN categories cat ON cat.slug = v.category_slug
@@ -103,6 +109,49 @@ export async function getActiveVideo(id: string): Promise<Video | null> {
     LIMIT 1
   `;
   return (rows[0] as Video | undefined) ?? null;
+}
+
+/** Related rail: same channel first, then same category, then recent. */
+export async function listRelatedVideos(
+  video: Pick<
+    Video,
+    "id" | "channel_slug" | "category_slug" | "is_short" | "is_jewish"
+  >,
+  mode?: ContentMode,
+  limit = 20,
+): Promise<Video[]> {
+  const sql = getSql();
+  const onlyJewish = jewishOnly(mode);
+  const channelSlug = video.channel_slug || null;
+  const categorySlug = video.category_slug || null;
+  const cap = Math.min(Math.max(limit, 1), 40);
+  const rows = await sql`
+    SELECT
+      v.id, v.youtube_id, v.title, v.description, v.channel_name, v.channel_id,
+      c.slug AS channel_slug, c.username AS channel_username,
+      c.avatar_url AS channel_avatar_url,
+      v.category, v.category_slug, cat.name AS category_name,
+      v.thumbnail_url, v.duration_seconds, COALESCE(v.is_short, FALSE) AS is_short,
+      COALESCE(v.is_jewish, TRUE) AS is_jewish,
+      v.embeddable, v.is_active, v.created_at,
+      COALESCE(v.published_at, v.created_at) AS published_at
+    FROM videos v
+    LEFT JOIN channels c ON c.id = v.channel_id
+    LEFT JOIN categories cat ON cat.slug = v.category_slug
+    WHERE v.is_active = TRUE
+      AND v.id <> ${video.id}::uuid
+      AND (
+        ${!onlyJewish}::boolean
+        OR COALESCE(v.is_jewish, TRUE) = TRUE
+      )
+    ORDER BY
+      CASE WHEN COALESCE(v.is_short, FALSE) = ${Boolean(video.is_short)} THEN 0 ELSE 1 END,
+      CASE WHEN ${channelSlug}::text IS NOT NULL AND c.slug = ${channelSlug} THEN 0 ELSE 1 END,
+      CASE WHEN ${categorySlug}::text IS NOT NULL AND v.category_slug = ${categorySlug} THEN 0 ELSE 1 END,
+      COALESCE(v.published_at, v.created_at) DESC
+    LIMIT ${cap}
+  `;
+  return rows as Video[];
 }
 
 export async function countShorts(

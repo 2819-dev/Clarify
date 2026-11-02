@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShortsIcon } from "@/components/ShortsIcon";
 import { VideoTile } from "@/components/VideoTile";
 import type { Video } from "@/lib/db";
 
@@ -6,19 +7,34 @@ export function VideoShelf({
   title,
   href,
   videos,
-  emptyLabel = "No videos yet.",
+  emptyLabel = "No videos here yet.",
+  variant = "videos",
 }: {
   title: string;
   href?: string;
   videos: Video[];
   emptyLabel?: string;
+  variant?: "videos" | "shorts";
 }) {
   if (videos.length === 0) return null;
+  const isShorts = variant === "shorts";
 
   return (
-    <section className="yt-shelf" aria-label={title}>
+    <section
+      className={`yt-shelf${isShorts ? " is-shorts" : ""}`}
+      aria-label={title}
+    >
       <div className="yt-shelf-head">
-        <h2 className="yt-shelf-title">{title}</h2>
+        <h2 className="yt-shelf-title">
+          {isShorts ? (
+            <span className="yt-shorts-title">
+              <ShortsIcon className="yt-shorts-mark" />
+              {title}
+            </span>
+          ) : (
+            title
+          )}
+        </h2>
         {href ? (
           <Link href={href} className="yt-shelf-more">
             Show more

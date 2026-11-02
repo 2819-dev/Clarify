@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChannelModActions } from "@/components/ChannelModActions";
 import { ChannelTabs, type ChannelTab } from "@/components/ChannelTabs";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { VideoTile } from "@/components/VideoTile";
@@ -10,6 +11,8 @@ import {
   listChannelCategories,
 } from "@/lib/channels";
 import { getContentMode } from "@/lib/content-mode-server";
+import { isSubscribed } from "@/lib/engagement";
+import { getCurrentUser } from "@/lib/user-auth";
 import { countShorts, listActiveVideos } from "@/lib/videos";
 import type { Video } from "@/lib/db";
 
@@ -53,7 +56,7 @@ function ShortsRow({ videos, slug }: { videos: Video[]; slug: string }) {
     <Shelf title="Shorts" href={`/channels/${slug}?tab=shorts`} className="is-shorts">
       <div className="channel-shorts-row">
         {videos.map((video) => (
-          <VideoTile key={video.id} video={video} />
+          <VideoTile key={video.id} video={video} hideChannel dense />
         ))}
       </div>
     </Shelf>
@@ -75,15 +78,18 @@ export default async function ChannelPage({
     notFound();
   }
 
-  const [longVideos, shortVideos, categories, shortsCount] = await Promise.all([
-    listActiveVideos({ channelSlug: slug, format: "videos", limit: 48, mode }),
-    listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24, mode }),
-    listChannelCategories(slug, mode),
-    countShorts(slug, mode),
-  ]);
+  const user = await getCurrentUser();
+  const [longVideos, shortVideos, categories, shortsCount, subscribed] =
+    await Promise.all([
+      listActiveVideos({ channelSlug: slug, format: "videos", limit: 48, mode }),
+      listActiveVideos({ channelSlug: slug, format: "shorts", limit: 24, mode }),
+      listChannelCategories(slug, mode),
+      countShorts(slug, mode),
+      user ? isSubscribed(user.id, slug) : Promise.resolve(false),
+    ]);
 
   const tab = parseTab(tabRaw, shortsCount > 0);
-  const handle = channelHandle(channel.youtube_url, channel.slug);
+  const handle = channelHandle(channel);
   const subs = formatSubscriberCount(channel.subscriber_count);
   const videoLabel = `${channel.video_count} video${
     channel.video_count === 1 ? "" : "s"
@@ -161,6 +167,8 @@ export default async function ChannelPage({
             <SubscribeButton
               channelSlug={channel.slug}
               channelName={channel.name}
+              initialSubscribed={subscribed}
+              signedIn={Boolean(user)}
             />
             {channel.youtube_url ? (
               <a
@@ -169,12 +177,13 @@ export default async function ChannelPage({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                YouTube
+                View on YouTube
               </a>
             ) : null}
-            <Link href="/channels" className="btn-ghost">
-              All channels
-            </Link>
+            <ChannelModActions
+              channelSlug={channel.slug}
+              channelName={channel.name}
+            />
           </div>
         </div>
 
@@ -188,9 +197,14 @@ export default async function ChannelPage({
                   title="Videos"
                   href={`/channels/${slug}?tab=videos`}
                 >
-                  <div className="video-grid">
+                  <div className="channel-videos-row">
                     {longVideos.slice(0, 8).map((video) => (
-                      <VideoTile key={video.id} video={video} />
+                      <VideoTile
+                        key={video.id}
+                        video={video}
+                        hideChannel
+                        dense
+                      />
                     ))}
                   </div>
                 </Shelf>
@@ -205,9 +219,14 @@ export default async function ChannelPage({
                     title={category.name}
                     href={`/channels/${slug}?tab=videos`}
                   >
-                    <div className="video-grid">
+                    <div className="channel-videos-row">
                       {videos.map((video) => (
-                        <VideoTile key={video.id} video={video} />
+                        <VideoTile
+                          key={video.id}
+                          video={video}
+                          hideChannel
+                          dense
+                        />
                       ))}
                     </div>
                   </Shelf>
@@ -218,11 +237,11 @@ export default async function ChannelPage({
 
           {tab === "videos" ? (
             longVideos.length === 0 ? (
-              <p className="empty-state">No long-form videos on this channel yet.</p>
+              <p className="empty-state">No videos on this channel yet.</p>
             ) : (
               <div className="video-grid">
                 {longVideos.map((video) => (
-                  <VideoTile key={video.id} video={video} />
+                  <VideoTile key={video.id} video={video} hideChannel />
                 ))}
               </div>
             )
@@ -234,7 +253,7 @@ export default async function ChannelPage({
             ) : (
               <div className="video-grid shorts-grid">
                 {shortVideos.map((video) => (
-                  <VideoTile key={video.id} video={video} />
+                  <VideoTile key={video.id} video={video} hideChannel />
                 ))}
               </div>
             )
@@ -244,7 +263,7 @@ export default async function ChannelPage({
             <div className="channel-yt-about">
               <h2>Description</h2>
               <p className="channel-yt-about-body">
-                {channel.description || "No description available."}
+                {channel.description || "No description provided."}
               </p>
               <dl className="channel-yt-about-stats">
                 <div>
@@ -258,7 +277,7 @@ export default async function ChannelPage({
                   </div>
                 ) : null}
                 <div>
-                  <dt>Videos on Clarify</dt>
+                  <dt>Videos</dt>
                   <dd>{channel.video_count}</dd>
                 </div>
                 {shortsCount > 0 ? (

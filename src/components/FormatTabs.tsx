@@ -36,7 +36,7 @@ export function FormatTabs({
   ];
 
   return (
-    <div className="format-tabs" role="tablist" aria-label="Format">
+    <div className="format-tabs" role="tablist" aria-label="Video type">
       {tabs.map((tab) => (
         <Link
           key={tab.id}

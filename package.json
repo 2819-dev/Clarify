@@ -10,11 +10,14 @@
     "seed:catalog": "node scripts/seed-catalog.mjs",
     "pages:build": "opennextjs-cloudflare build && node scripts/prepare-pages-out.mjs",
     "pages:deploy": "npm run pages:build && mv wrangler.jsonc wrangler.workers.jsonc && wrangler pages deploy .pages-out --project-name=clarify --branch=main --commit-dirty=true; status=$?; mv wrangler.workers.jsonc wrangler.jsonc; exit $status",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "catalog:expand": "node scripts/expand-iframe-catalog.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
     "next": "16.4.3",
+    "otpauth": "^9.5.2",
+    "qrcode": "^1.5.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "zod": "^4.6.7"
@@ -23,6 +26,7 @@
     "@opennextjs/cloudflare": "^1.20.15",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

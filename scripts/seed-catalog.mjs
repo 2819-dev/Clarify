@@ -39,17 +39,41 @@ for (const [slug, name, description, sort] of cats) {
     ON CONFLICT (slug) DO UPDATE SET name=EXCLUDED.name, description=EXCLUDED.description, sort_order=EXCLUDED.sort_order`;
 }
 
+function usernameFromYoutubeUrl(youtubeUrl, slug) {
+  const at = youtubeUrl?.match(/youtube\.com\/@([^/?#]+)/i)?.[1];
+  if (at) {
+    let raw = at;
+    try {
+      raw = decodeURIComponent(at);
+    } catch {
+      /* keep */
+    }
+    const n = raw
+      .toLowerCase()
+      .replace(/[^a-z0-9._-]/g, "")
+      .replace(/^[-.]+|[-.]+$/g, "")
+      .slice(0, 30);
+    if (n) return n;
+  }
+  return String(slug)
+    .toLowerCase()
+    .replace(/-/g, "")
+    .replace(/[^a-z0-9._-]/g, "")
+    .slice(0, 30);
+}
+
 const channelIdBySlug = {};
 for (const ch of payload.channels) {
   const banner = ch.banner_url ?? null;
   const subs = ch.subscriber_count ?? null;
   const isJewish = ch.is_jewish !== false;
+  const username = usernameFromYoutubeUrl(ch.youtube_url, ch.slug);
   const rows = await sql`
     INSERT INTO channels (
-      slug, name, description, youtube_url, avatar_url, banner_url, subscriber_count, is_jewish
+      slug, name, description, youtube_url, avatar_url, banner_url, subscriber_count, is_jewish, username
     ) VALUES (
       ${ch.slug}, ${ch.name}, ${ch.description}, ${ch.youtube_url}, ${ch.avatar_url},
-      ${banner}, ${subs}, ${isJewish}
+      ${banner}, ${subs}, ${isJewish}, ${username}
     )
     ON CONFLICT (slug) DO UPDATE SET
       name = EXCLUDED.name,
@@ -58,16 +82,18 @@ for (const ch of payload.channels) {
       avatar_url = COALESCE(EXCLUDED.avatar_url, channels.avatar_url),
       banner_url = COALESCE(EXCLUDED.banner_url, channels.banner_url),
       subscriber_count = COALESCE(EXCLUDED.subscriber_count, channels.subscriber_count),
-      is_jewish = EXCLUDED.is_jewish
+      is_jewish = EXCLUDED.is_jewish,
+      username = COALESCE(EXCLUDED.username, channels.username)
     RETURNING id, slug`;
-  if (ch.avatar_url || ch.banner_url || ch.description) {
+  if (ch.avatar_url || ch.banner_url || ch.description || username) {
     await sql`
       UPDATE channels SET
         avatar_url = COALESCE(${ch.avatar_url ?? null}, avatar_url),
         banner_url = COALESCE(${ch.banner_url ?? null}, banner_url),
         description = COALESCE(NULLIF(${ch.description ?? ""}, ''), description),
         subscriber_count = COALESCE(${subs}, subscriber_count),
-        is_jewish = ${isJewish}
+        is_jewish = ${isJewish},
+        username = COALESCE(${username}, username)
       WHERE slug = ${ch.slug}`;
   }
   channelIdBySlug[rows[0].slug] = rows[0].id;
@@ -105,13 +131,8 @@ for (const v of payload.videos) {
   kept.push(rows[0].youtube_id);
 }
 
-const active = await sql`SELECT youtube_id FROM videos WHERE is_active = TRUE`;
-const keep = new Set(kept);
-for (const row of active) {
-  if (!keep.has(row.youtube_id)) {
-    await sql`UPDATE videos SET is_active = FALSE, updated_at = NOW() WHERE youtube_id = ${row.youtube_id}`;
-  }
-}
+// Upsert-only: do not deactivate videos missing from the seed payload.
+// Catalog expansion writes directly to Neon; seed is a snapshot, not a wipe list.
 
 const counts = await sql`SELECT
   (SELECT COUNT(*) FROM videos WHERE is_active) AS videos,
@@ -119,4 +140,4 @@ const counts = await sql`SELECT
   (SELECT COUNT(*) FROM videos WHERE is_active AND NOT is_jewish) AS filtered_only,
   (SELECT COUNT(*) FROM channels) AS channels,
   (SELECT COUNT(*) FROM categories) AS categories`;
-console.log(counts[0]);
+console.log({ upserted_videos: kept.length, ...counts[0] });

@@ -22,16 +22,26 @@ export default async function AdminPage() {
         <div>
           <h1>Report review</h1>
           <p className="lede">
-            Approve removes the video from the catalog. Deny keeps it up.
+            Approve removes the video from Clarify. Deny keeps it available.
+            While signed in as the Guide account you can also use ⋯ menus on
+            videos, channels, and comments across the site.
           </p>
         </div>
         <AdminLogoutButton />
       </div>
 
+      <p className="admin-mod-hint">
+        <Link href="/">Browse Clarify</Link>
+        {" · "}
+        <Link href="/channels">Channels</Link>
+        {" · "}
+        <Link href="/account/security">Security</Link>
+      </p>
+
       {reports.length === 0 ? (
         <p className="empty-state">
           No pending reports.{" "}
-          <Link href="/">Return to catalog</Link>
+          <Link href="/">Return home</Link>
         </p>
       ) : (
         <div className="report-list">
