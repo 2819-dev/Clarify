@@ -314,18 +314,27 @@ const neonDemotedVideos = demoteSlugs.length
     `
   : [];
 
-// Also demote any remaining active Christian-keyword videos missed by seed slug drift
+// Catch leftover Christian outreach titles; do NOT match Jewish "Messianic Era" / Yeshuati liturgy.
 const keywordScan = await sql`
   SELECT youtube_id, title, channel_name
   FROM videos
   WHERE is_active = TRUE
     AND (
-      title ~* '\\m(Jesus|Yeshua|Christianity|Messianic|Holy Spirit|Jews for Jesus|Jesus Music|Christian Kids|Kids Church)\\M'
-      OR title ~* '\\m(Feel Good Jesus|born again|Nativity)\\M'
+      title ~* '\\m(Jesus|Christianity|Holy Spirit|Jews for Jesus|Jesus Music|Christian Kids|Kids Church|Feel Good Jesus|born again|Nativity)\\M'
+      OR title ~* '\\mYeshua\\M'
     )
+    AND title !~* 'Messianic Era'
+    AND title !~* 'Messianic Process'
+    AND title !~* 'Messianic trend'
+    AND title !~* 'Messianic Secret of'
+    AND title !~* 'El Yeshuati'
     AND channel_name NOT ILIKE '%Jews for Judaism%'
     AND channel_name NOT ILIKE '%simpletoremember%'
     AND channel_name NOT ILIKE '%Tovia%'
+    AND channel_name NOT ILIKE '%Torah Thinking%'
+    AND channel_name NOT ILIKE '%JewishPathways%'
+    AND channel_name NOT ILIKE '%Manis Friedman%'
+    AND channel_name NOT ILIKE '%Jewish History%'
 `;
 const extraIds = keywordScan.map((r) => r.youtube_id).filter(Boolean);
 const extraDeactivated = extraIds.length

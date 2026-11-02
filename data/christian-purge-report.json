@@ -651,5 +651,11 @@
     "jewish": "clearly Jewish only",
     "filtered": "includes demoted sleep/nature ambience and secular family",
     "music": "home Latest excludes category music; dedicated Music shelf + /categories/music"
-  }
+  },
+  "final_neon_counts": {
+    "active_videos": 17568,
+    "jewish_videos": 7586,
+    "filtered_only_videos": 9982
+  },
+  "pass2_notes": "Additional demotions for sleep/nature already in pass1; pass2 demoted more secular; restored Jewish false positives (18forty, Jewlicious, Matisyahu, Ohr Somayach, Pardes, Unpacked, etc.); purged NEW JERUSALEM TV (Yesu Christian choir); demoted Little Thinkers Studio etc from Jewish music."
 }
