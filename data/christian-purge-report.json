@@ -1,0 +1,661 @@
+{
+  "policy": "purge Christian/Messianic; Jewish mode strict; sleep/nature + secular → filtered; music section separate on home",
+  "before": {
+    "channels": 656,
+    "videos": 18165,
+    "jewish_videos": 10413,
+    "jewish_channels": 343
+  },
+  "after": {
+    "channels": 632,
+    "videos": 17540,
+    "jewish_videos": 8452,
+    "jewish_channels": 286,
+    "filtered_only_videos": 9088
+  },
+  "removed_videos": 625,
+  "removed_by_reason": {
+    "channel:sergio-rhoda-in-israel": 17,
+    "channel:anointed-messianic-network": 29,
+    "channel:biblefacts": 14,
+    "channel:joshua-paul-bold-follower-of-jesus": 46,
+    "channel:dr-faussy-lala": 41,
+    "channel:teach-torah-to-kids": 33,
+    "channel:119ministries": 33,
+    "christian-keyword": 33,
+    "channel:lynn-kidmin-pathway": 37,
+    "channel:my-first-bible": 46,
+    "channel:bhs-kids-dallas": 31,
+    "channel:ark-party": 42,
+    "channel:messianic-jewish-alliance-of-israel": 37,
+    "channel:congregation-of-israel": 32,
+    "channel:shalom-macon-kids": 28,
+    "channel:bible-in-a-nutshell": 26,
+    "channel:the-kids-action-bible-show": 45,
+    "channel:redefined-tv-kids": 38,
+    "church-keyword": 5,
+    "christmas-christian": 12
+  },
+  "removed_sample": [
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "JkyHT-jiUwk",
+      "title": "2 Samuel 2:1-11 (Man of Shame, Part I)",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:anointed-messianic-network",
+      "youtube_id": "AvtOpGdzAgw",
+      "title": "Adonai Ro'i · Adonai Rofecha | 3 Hours Messianic Hebrew Worship | Names of God Praise",
+      "channel_name": "Anointed Messianic Network",
+      "channel_slug": "anointed-messianic-network"
+    },
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "onIWBrDS_l4",
+      "title": "The CG Prophecy Report (1 November 2026) - When Reality Sinks In",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "xBUisSEjbAM",
+      "title": "Opening Comments - 1 November 2026",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "pSIF9HJhxUw",
+      "title": "The Error of Hyperdispensationalism #shorts",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "kDyVhumdjAk",
+      "title": "One Bible, Two Different Endings — Which One Is True? #shorts",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "CtGKLxJs1JQ",
+      "title": "40 Years in the Desert — Where Did the Wine, Wheat & Oil Come From",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "ENkqAjCfk2c",
+      "title": "God Fed Them for 40 Years… But Who Fed the Sacrificial System? #shorts",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "EBQYuE_UuxE",
+      "title": "People love to say God’s love is greater than ours",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "q13o0GSG17Q",
+      "title": "If God's Love Is Greater Than Ours, Why Eternal Hell? #Shorts",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:anointed-messianic-network",
+      "youtube_id": "0_WCVxErva8",
+      "title": "Pesach Song, You Passed Over Me | Messianic Jewish Worship Song w/ Lyrics | Passover Praise",
+      "channel_name": "Anointed Messianic Network",
+      "channel_slug": "anointed-messianic-network"
+    },
+    {
+      "reason": "channel:joshua-paul-bold-follower-of-jesus",
+      "youtube_id": "kmSd3_aGiWM",
+      "title": "Passover in movies be like… #six13 #passover #seder #jewish #religion #faith #kosher #princeofegypt",
+      "channel_name": "Joshua Paul (Bold Follower Of Jesus)",
+      "channel_slug": "joshua-paul-bold-follower-of-jesus"
+    },
+    {
+      "reason": "channel:dr-faussy-lala",
+      "youtube_id": "OquDzZGCzzw",
+      "title": "Happy Passover song - Faussy Lala",
+      "channel_name": "Dr Faussy Lala",
+      "channel_slug": "dr-faussy-lala"
+    },
+    {
+      "reason": "channel:teach-torah-to-kids",
+      "youtube_id": "n65MSwBj6UA",
+      "title": "Teach Torah To Kids Introduction",
+      "channel_name": "Teach Torah To Kids",
+      "channel_slug": "teach-torah-to-kids"
+    },
+    {
+      "reason": "channel:119ministries",
+      "youtube_id": "yfCkhAk2paE",
+      "title": "Tallit and Kippah  |  Does Scripture command us to wear them?  |  What is their purpose?",
+      "channel_name": "119Ministries",
+      "channel_slug": "119ministries"
+    },
+    {
+      "reason": "christian-keyword",
+      "youtube_id": "1yYUZZ0opWY",
+      "title": "Rabbi Mizrachi On Jews vs Christians",
+      "channel_name": "Matan Show Clips",
+      "channel_slug": "matan-show-clips"
+    },
+    {
+      "reason": "channel:teach-torah-to-kids",
+      "youtube_id": "lQdjjyt2E9I",
+      "title": "Pinchas Torah Portion For Kids",
+      "channel_name": "Teach Torah To Kids",
+      "channel_slug": "teach-torah-to-kids"
+    },
+    {
+      "reason": "channel:lynn-kidmin-pathway",
+      "youtube_id": "dfLSV4ay4A4",
+      "title": "Kindness object lesson for kids",
+      "channel_name": "Lynn KidMin Pathway",
+      "channel_slug": "lynn-kidmin-pathway"
+    },
+    {
+      "reason": "channel:my-first-bible",
+      "youtube_id": "bx5_vZtsKog",
+      "title": "Abraham's Son, Isaac 🔪😢 | Animated Bible Stories | My First Bible | 09",
+      "channel_name": "My First Bible",
+      "channel_slug": "my-first-bible"
+    },
+    {
+      "reason": "channel:bhs-kids-dallas",
+      "youtube_id": "jGqFcRbjhto",
+      "title": "📯🍎🍯 Rosh Hashanah – Feast of Trumpets | Kids Bible Lesson 🍯🍎📯",
+      "channel_name": "BHS Kids Dallas",
+      "channel_slug": "bhs-kids-dallas"
+    },
+    {
+      "reason": "channel:teach-torah-to-kids",
+      "youtube_id": "xeBCO4tLEM0",
+      "title": "Devarim Torah Portion For Kids",
+      "channel_name": "Teach Torah To Kids",
+      "channel_slug": "teach-torah-to-kids"
+    },
+    {
+      "reason": "channel:ark-party",
+      "youtube_id": "Cp-6FcOyPI8",
+      "title": "David and Goliath | Bible History For Kids | Ark Party",
+      "channel_name": "Ark Party",
+      "channel_slug": "ark-party"
+    },
+    {
+      "reason": "channel:ark-party",
+      "youtube_id": "eoTkCLdb6i8",
+      "title": "Jonah and the Whale, Zacchaeus & More! 🐳 | 30 Minutes of Bible Songs for Kids",
+      "channel_name": "Ark Party",
+      "channel_slug": "ark-party"
+    },
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "IZepNnEarlo",
+      "title": "Everything Points to Jesus #shorts",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:joshua-paul-bold-follower-of-jesus",
+      "youtube_id": "PHo0ZkE40C4",
+      "title": "Exodus 26:1-13 Commentary, Bible Study.Ask Pastor Josh (Episode 324)",
+      "channel_name": "Joshua Paul (Bold Follower Of Jesus)",
+      "channel_slug": "joshua-paul-bold-follower-of-jesus"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "ZbEHxLxQSd0",
+      "title": "The Noah Flood Story Wasn't First — Ancient Tablets Reveal What Came Before the Bible 1",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:anointed-messianic-network",
+      "youtube_id": "24E4KrNLMJs",
+      "title": "Shabbat Shalom Worship | 3 Hours Messianic Praise in Hebrew & English | Psalms & Priestly Blessing",
+      "channel_name": "Anointed Messianic Network",
+      "channel_slug": "anointed-messianic-network"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "3qjrFdJhMhY",
+      "title": "The Noah Flood Story Wasn't First — Ancient Tablets Reveal What Came Before the Bible",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "f4VmYq5w2cs",
+      "title": "You've Been Taught WHAT to Believe — Not HOW to Find the Truth",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    },
+    {
+      "reason": "channel:messianic-jewish-alliance-of-israel",
+      "youtube_id": "t7Uk0hflDoY",
+      "title": "Praise to Our God 5 Concert - Oseh Shalom (He Who Makes Peace)",
+      "channel_name": "Messianic Jewish Alliance of Israel",
+      "channel_slug": "messianic-jewish-alliance-of-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "H1fBEzTU7CM",
+      "title": "Aleph Bet Season 1 Episode 02",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "c_DrhnlZyKQ",
+      "title": "Aleph Bet Series 1 Episode 00 INTRODUCTION",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:bhs-kids-dallas",
+      "youtube_id": "PvtNHIQdPY4",
+      "title": "LIVING BY THE RUACH | WHO LIVES IN YOU?",
+      "channel_name": "BHS Kids Dallas",
+      "channel_slug": "bhs-kids-dallas"
+    },
+    {
+      "reason": "channel:joshua-paul-bold-follower-of-jesus",
+      "youtube_id": "eXqGIvnzfWU",
+      "title": "Every Dad Does This At The Store",
+      "channel_name": "Joshua Paul (Bold Follower Of Jesus)",
+      "channel_slug": "joshua-paul-bold-follower-of-jesus"
+    },
+    {
+      "reason": "channel:sergio-rhoda-in-israel",
+      "youtube_id": "JXLWNaogFQ0",
+      "title": "The First Cause #shorts",
+      "channel_name": "The Superior Word",
+      "channel_slug": "sergio-rhoda-in-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "60h9L20azuI",
+      "title": "Lesson 14_ The _A as in Snake_ Vowel and _The Creator_",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "g_yaszEYsMk",
+      "title": "Lesson 13_ Review_ Who, What, and Coming",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "2bOqDBlEWR8",
+      "title": "Lesson 12_ Final Mem and Abraham",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:congregation-of-israel",
+      "youtube_id": "DlQTfYTfat0",
+      "title": "Lesson 11_ Dalet (D), Uncle, and Aunt",
+      "channel_name": "Congregation of Israel",
+      "channel_slug": "congregation-of-israel"
+    },
+    {
+      "reason": "channel:biblefacts",
+      "youtube_id": "d22NzovGbVM",
+      "title": "The Creator Was Already in America — Before Christianity Arrived",
+      "channel_name": "biblefacts",
+      "channel_slug": "biblefacts"
+    }
+  ],
+  "purged_channels": [
+    "119ministries",
+    "bible-in-a-nutshell",
+    "joshua-paul-bold-follower-of-jesus",
+    "messianic-jewish-alliance-of-israel",
+    "anointed-messianic-network",
+    "congregation-of-israel",
+    "the-kids-action-bible-show",
+    "my-first-bible",
+    "biblefacts",
+    "ark-party",
+    "bhs-kids-dallas",
+    "redefined-tv-kids",
+    "teach-torah-to-kids",
+    "shalom-macon-kids",
+    "dr-faussy-lala",
+    "lynn-kidmin-pathway",
+    "the-superior-word",
+    "sergio-rhoda-in-israel"
+  ],
+  "demoted_channels": [
+    {
+      "slug": "adam-witt",
+      "name": "Adam Witt"
+    },
+    {
+      "slug": "chef-singh-cooking",
+      "name": "Chef Singh Cooking"
+    },
+    {
+      "slug": "club-baby-edu",
+      "name": "Club Baby EDU"
+    },
+    {
+      "slug": "comedy-dynamics",
+      "name": "Comedy Dynamics"
+    },
+    {
+      "slug": "cookbook",
+      "name": "Cookbook"
+    },
+    {
+      "slug": "courtneys-sweets",
+      "name": "Courtney's Sweets"
+    },
+    {
+      "slug": "creassun",
+      "name": "Creassun"
+    },
+    {
+      "slug": "diy-life-tech",
+      "name": "DIY Life Tech"
+    },
+    {
+      "slug": "dailygriffins",
+      "name": "DailyGriffins"
+    },
+    {
+      "slug": "deepsleepnature",
+      "name": "DeepSleepNature"
+    },
+    {
+      "slug": "delish",
+      "name": "Delish"
+    },
+    {
+      "slug": "dry-bar-comedy",
+      "name": "Dry Bar Comedy"
+    },
+    {
+      "slug": "famouss-richard",
+      "name": "Famouss Richard"
+    },
+    {
+      "slug": "freedomfriends-podcast",
+      "name": "FreedomFriends Podcast"
+    },
+    {
+      "slug": "geethanjali-cartoons-for-kids",
+      "name": "Geethanjali - Cartoons for Kids"
+    },
+    {
+      "slug": "geethanjali-kids-rhymes-and-stories",
+      "name": "Geethanjali Kids - Rhymes and Stories"
+    },
+    {
+      "slug": "geo-history",
+      "name": "Geo History"
+    },
+    {
+      "slug": "go-chatter-studios",
+      "name": "Go Chatter Studios"
+    },
+    {
+      "slug": "hellthyjunkfood",
+      "name": "HellthyJunkFood"
+    },
+    {
+      "slug": "hiho-kids",
+      "name": "HiHo Kids"
+    },
+    {
+      "slug": "home-cooks-world",
+      "name": "Home Cooks World"
+    },
+    {
+      "slug": "jammin-with-you-kids-songs-family-jams",
+      "name": "Jammin With You | Kids Songs & Family Jams"
+    },
+    {
+      "slug": "kdm",
+      "name": "KDM"
+    },
+    {
+      "slug": "kids-academy",
+      "name": "Kids Academy"
+    },
+    {
+      "slug": "la-biblia-sin-mitos-c-sar-silva",
+      "name": "LA BIBLIA SIN MITOS - César Silva"
+    },
+    {
+      "slug": "learning-with-nonna",
+      "name": "Learning with Nonna"
+    },
+    {
+      "slug": "nature-vibes-escape",
+      "name": "NATURE VIBES ESCAPE"
+    },
+    {
+      "slug": "prageru",
+      "name": "PragerU"
+    },
+    {
+      "slug": "prageru-kids",
+      "name": "PragerU Kids"
+    },
+    {
+      "slug": "relaxation-film",
+      "name": "Relaxation Film"
+    },
+    {
+      "slug": "todd-turner",
+      "name": "Todd Turner"
+    },
+    {
+      "slug": "twinkl-teaching-resources-united-states",
+      "name": "Twinkl Teaching Resources - United States"
+    },
+    {
+      "slug": "versed",
+      "name": "Versed"
+    },
+    {
+      "slug": "yuk-cari-tahu",
+      "name": "YUK CARI TAHU"
+    },
+    {
+      "slug": "youliketravel",
+      "name": "YouLikeTravel"
+    },
+    {
+      "slug": "wocomohumanity",
+      "name": "wocomoHUMANITY"
+    },
+    {
+      "slug": "gamer",
+      "name": "Липовый Gamer"
+    }
+  ],
+  "demoted_videos_seed": 1352,
+  "neon": {
+    "before": {
+      "active_videos": 17577,
+      "jewish_videos": 9841,
+      "filtered_only_videos": 7736,
+      "active_channels": 656,
+      "jewish_channels": 343
+    },
+    "after": {
+      "active_videos": 17570,
+      "jewish_videos": 8482,
+      "filtered_only_videos": 9088,
+      "active_channels": 639,
+      "jewish_channels": 289
+    },
+    "deactivated_videos": 7,
+    "deactivated_channels": 17,
+    "demoted_channels": 37,
+    "demoted_videos": 1352,
+    "extra_keyword_deactivated": [
+      {
+        "youtube_id": "fUHsiWOSWrk",
+        "title": "#Kohanim Facts - #Jewish History - Musa/Moses Are Black Imam Speaks on #Christianity",
+        "channel_name": "Jewish History"
+      },
+      {
+        "youtube_id": "Isj5tFcEScI",
+        "title": "Deed and Creed: Are We Close to the Messianic Era?",
+        "channel_name": "JewishPathways"
+      },
+      {
+        "youtube_id": "_dP4OAyFMNA",
+        "title": "Trumps Huge Mistake: The Messianic Process Continues",
+        "channel_name": "Torah Thinking"
+      },
+      {
+        "youtube_id": "fUuAgSiJ6kg",
+        "title": "The Messianic Secret of the Destruction of Iran",
+        "channel_name": "Torah Thinking"
+      },
+      {
+        "youtube_id": "hoaSPOceBsA",
+        "title": "Jewish Spiritual Dimensions in the Messianic Era - Part 12",
+        "channel_name": "Torah Thinking"
+      },
+      {
+        "youtube_id": "ulpl17EgKDI",
+        "title": "Jewish Spiritual Dimensions in the Messianic Era - Part 11",
+        "channel_name": "Torah Thinking"
+      },
+      {
+        "youtube_id": "bkwoY59HdVs",
+        "title": "The Messianic trend taking shape before our eyes",
+        "channel_name": "Rabbi Manis Friedman"
+      }
+    ],
+    "deactivated_channel_rows": [
+      {
+        "slug": "messianic-jewish-alliance-of-israel",
+        "name": "Messianic Jewish Alliance of Israel"
+      },
+      {
+        "slug": "biblefacts",
+        "name": "biblefacts"
+      },
+      {
+        "slug": "sergio-rhoda-in-israel",
+        "name": "Sergio & Rhoda in Israel"
+      },
+      {
+        "slug": "bible-in-a-nutshell",
+        "name": "Bible In a Nutshell"
+      },
+      {
+        "slug": "redefined-tv-kids",
+        "name": "Redefined TV Kids"
+      },
+      {
+        "slug": "ark-party",
+        "name": "Ark Party"
+      },
+      {
+        "slug": "shalom-macon-kids",
+        "name": "Shalom Macon Kids"
+      },
+      {
+        "slug": "the-kids-action-bible-show",
+        "name": "The Kids Action Bible Show"
+      },
+      {
+        "slug": "teach-torah-to-kids",
+        "name": "Teach Torah To Kids"
+      },
+      {
+        "slug": "my-first-bible",
+        "name": "My First Bible"
+      },
+      {
+        "slug": "bhs-kids-dallas",
+        "name": "BHS Kids Dallas"
+      },
+      {
+        "slug": "lynn-kidmin-pathway",
+        "name": "Lynn KidMin Pathway"
+      },
+      {
+        "slug": "119ministries",
+        "name": "119Ministries"
+      },
+      {
+        "slug": "dr-faussy-lala",
+        "name": "Dr Faussy Lala"
+      },
+      {
+        "slug": "joshua-paul-bold-follower-of-jesus",
+        "name": "Joshua Paul (Bold Follower Of Jesus)"
+      },
+      {
+        "slug": "anointed-messianic-network",
+        "name": "Anointed Messianic Network"
+      },
+      {
+        "slug": "congregation-of-israel",
+        "name": "Congregation of Israel"
+      }
+    ],
+    "after_restored_note": "Reactivated 7 Jewish Messianic-Era / counter-context videos after over-broad Messianic keyword scan"
+  },
+  "false_positive_restored": [
+    {
+      "youtube_id": "fUHsiWOSWrk",
+      "note": "Jewish History mentions Christianity"
+    },
+    {
+      "youtube_id": "Isj5tFcEScI",
+      "note": "Jewish Messianic Era"
+    },
+    {
+      "youtube_id": "_dP4OAyFMNA",
+      "note": "Jewish Messianic Process"
+    },
+    {
+      "youtube_id": "fUuAgSiJ6kg",
+      "note": "Jewish Messianic Secret"
+    },
+    {
+      "youtube_id": "hoaSPOceBsA",
+      "note": "Jewish Messianic Era"
+    },
+    {
+      "youtube_id": "ulpl17EgKDI",
+      "note": "Jewish Messianic Era"
+    },
+    {
+      "youtube_id": "bkwoY59HdVs",
+      "note": "Rabbi Manis Friedman Messianic trend"
+    }
+  ],
+  "mode_rules": {
+    "jewish": "clearly Jewish only",
+    "filtered": "includes demoted sleep/nature ambience and secular family",
+    "music": "home Latest excludes category music; dedicated Music shelf + /categories/music"
+  },
+  "final_neon_counts": {
+    "active_videos": 17568,
+    "jewish_videos": 7586,
+    "filtered_only_videos": 9982
+  },
+  "pass2_notes": "Additional demotions for sleep/nature already in pass1; pass2 demoted more secular; restored Jewish false positives (18forty, Jewlicious, Matisyahu, Ohr Somayach, Pardes, Unpacked, etc.); purged NEW JERUSALEM TV (Yesu Christian choir); demoted Little Thinkers Studio etc from Jewish music."
+}
