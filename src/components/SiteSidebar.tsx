@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ContentModeToggle } from "@/components/ContentModeToggle";
 import { ShortsIcon } from "@/components/ShortsIcon";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import type { ContentMode } from "@/lib/content-mode";
 import type { Category, Channel } from "@/lib/db";
 
@@ -217,11 +218,17 @@ export function SiteSidebar({
         </div>
       ) : null}
 
-      <p className="yt-sidebar-made">
-        <a href="https://guidelearning.org" rel="noopener noreferrer">
-          Guide
-        </a>
-      </p>
+      <div className="yt-sidebar-footer">
+        <div className="yt-sidebar-section yt-sidebar-theme">
+          <p className="yt-sidebar-heading">Theme</p>
+          <ThemeToggle />
+        </div>
+        <p className="yt-sidebar-made">
+          <a href="https://guidelearning.org" rel="noopener noreferrer">
+            Guide
+          </a>
+        </p>
+      </div>
     </aside>
   );
 }

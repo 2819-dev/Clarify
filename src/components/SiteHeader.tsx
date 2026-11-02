@@ -7,7 +7,6 @@ import { CatalogSearch } from "@/components/CatalogSearch";
 import { ClarifyLogo } from "@/components/ClarifyLogo";
 import { ContentModeToggle } from "@/components/ContentModeToggle";
 import { HeaderActions } from "@/components/HeaderActions";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserMenu } from "@/components/UserMenu";
 import type { ContentMode } from "@/lib/content-mode";
 
@@ -119,7 +118,6 @@ export function SiteHeader({
       </div>
       <div className="yt-topbar-right">
         <ContentModeToggle initialMode={initialMode} />
-        <ThemeToggle />
         <HeaderActions signedIn={Boolean(user)} />
         {showAdminKey ? (
           <Link
