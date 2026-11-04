@@ -33,6 +33,11 @@ export function CategoryRail({
             key={cat.slug}
             href={`/categories/${cat.slug}`}
             className={`yt-chip ${activeSlug === cat.slug ? "is-active" : ""}`}
+            title={
+              cat.description
+                ? cat.description
+                : `${cat.name} · ${cat.video_count ?? 0} videos`
+            }
           >
             {cat.name}
           </Link>

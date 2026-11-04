@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
+import { FilterHint } from "@/components/FilterHint";
 import { listCategories } from "@/lib/categories";
 import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
@@ -21,31 +22,45 @@ export default async function CategoriesIndexPage() {
   return (
     <div className="yt-home">
       <CategoryRail categories={categories} />
+      <FilterHint mode={mode} />
       <div className="yt-home-meta">
         <div>
           <h1 className="yt-home-title">Categories</h1>
           <p className="yt-home-sub">
-            Browse {contentModeAdjective(mode)} videos by topic.
+            Browse {contentModeAdjective(mode)} videos by topic. Switch Jewish /
+            Family-Friendly anytime in the header.
           </p>
         </div>
       </div>
 
-      <div className="yt-category-directory">
-        {categories.map((cat) => (
-          <Link
-            key={cat.slug}
-            href={`/categories/${cat.slug}`}
-            className="yt-category-card"
-          >
-            <h2>{cat.name}</h2>
-            <p>{cat.description}</p>
-            <span className="entity-count">
-              {cat.video_count ?? 0} video
-              {(cat.video_count ?? 0) === 1 ? "" : "s"}
-            </span>
+      {categories.length === 0 ? (
+        <div className="empty-state">
+          <p className="empty-state-copy">
+            No categories in this filter yet. Try Family-Friendly mode or check
+            back soon.
+          </p>
+          <Link href="/" className="btn-secondary">
+            Back to home
           </Link>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div className="yt-category-directory">
+          {categories.map((cat) => (
+            <Link
+              key={cat.slug}
+              href={`/categories/${cat.slug}`}
+              className="yt-category-card"
+            >
+              <h2>{cat.name}</h2>
+              <p>{cat.description}</p>
+              <span className="entity-count">
+                {cat.video_count ?? 0} video
+                {(cat.video_count ?? 0) === 1 ? "" : "s"}
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
 
       <div className="yt-shelves">
         {previews.map(({ cat, videos }) => (

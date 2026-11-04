@@ -237,6 +237,10 @@ export function ParentalControlsPanel({
           id={panelId}
         >
           <p className="yt-header-panel-title">Parental controls</p>
+          <p className="yt-header-panel-empty">
+            Link a child’s device with a 5-minute code, disable categories, and
+            set daily time limits. Works with Jewish / Family-Friendly filters.
+          </p>
 
           <div className="parental-tabs" role="tablist">
             <button
