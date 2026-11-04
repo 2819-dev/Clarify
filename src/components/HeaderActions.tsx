@@ -78,8 +78,7 @@ export function HeaderActions({ signedIn = false }: { signedIn?: boolean }) {
           onClose={() => setNotifOpen(false)}
         >
           <p className="yt-header-panel-empty">
-            You’re all caught up. Subscribe to channels to see their latest videos
-            here.
+            You’re all caught up. Subscribe to channels to see new videos here.
           </p>
           <Link
             href="/subscriptions"
