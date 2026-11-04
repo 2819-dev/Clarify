@@ -127,10 +127,6 @@ export function SiteSidebar({
       <div className="yt-sidebar-section yt-sidebar-mode">
         <p className="yt-sidebar-heading">Library</p>
         <ContentModeToggle initialMode={initialMode} />
-        <p className="yt-sidebar-mode-hint">
-          Jewish shows Jewish creators. Family-Friendly adds other suitable
-          channels for home.
-        </p>
       </div>
 
       <div className="yt-sidebar-section">
