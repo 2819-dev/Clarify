@@ -60,7 +60,7 @@ export function ContentModeToggle({
     <div
       className={`content-mode-toggle ${pending ? "is-pending" : ""}`}
       role="group"
-      aria-label="Content filter"
+      aria-label="Library"
     >
       <button
         type="button"

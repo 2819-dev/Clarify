@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     }
     if (pair.child_user_id === parent.id) {
       return NextResponse.json(
-        { error: "Open the people icon on the child’s account to get a code." },
+        { error: "Open Parental controls on the child’s device to get a linking code." },
         { status: 400 },
       );
     }

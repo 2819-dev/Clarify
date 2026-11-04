@@ -24,7 +24,10 @@ export async function POST(request: Request) {
     const parsed = schema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
-        { error: "Enter a valid email, password (8+), and optional @username." },
+        {
+          error:
+            "Enter a valid email and a password with at least 8 characters. A username is optional.",
+        },
         { status: 400 },
       );
     }

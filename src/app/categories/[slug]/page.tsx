@@ -26,13 +26,23 @@ export default async function CategoryPage({
   const user = await getCurrentUser();
   const parental = user ? await getParentalStatus(user.id) : null;
   const disabled = parental?.disabledCategories || [];
+  const [category, categories, videos, shortsCount] = await Promise.all([
+    getCategory(slug, mode),
+    listCategories(mode),
+    listActiveVideos({ category: slug, q, format, mode, limit: 60 }),
+    countShorts(undefined, mode),
+  ]);
+
   if (disabled.includes(slug)) {
+    const categoryName =
+      category?.name ||
+      slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     return (
       <div className="yt-home">
         <div className="yt-category-hero">
           <h1 className="yt-home-title">Category unavailable</h1>
           <p className="yt-home-sub">
-            A parent has disabled the “{slug}” category on this account.
+            A parent has turned off {categoryName} on this account.
           </p>
           <p className="back-row">
             <Link href="/" className="btn-ghost">
@@ -43,12 +53,7 @@ export default async function CategoryPage({
       </div>
     );
   }
-  const [category, categories, videos, shortsCount] = await Promise.all([
-    getCategory(slug, mode),
-    listCategories(mode),
-    listActiveVideos({ category: slug, q, format, mode, limit: 60 }),
-    countShorts(undefined, mode),
-  ]);
+
   if (!category || !(category.video_count && category.video_count > 0)) {
     notFound();
   }
@@ -80,8 +85,8 @@ export default async function CategoryPage({
       {videos.length === 0 ? (
         <div className="empty-state">
           <p className="empty-state-copy">
-            No videos in this category right now. Try another category or switch
-            content mode.
+            No videos in this category right now. Try another category, or switch
+            between Jewish and Family-Friendly.
           </p>
           <Link href="/categories" className="btn-secondary">
             All categories

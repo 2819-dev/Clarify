@@ -175,10 +175,10 @@ export function YoutubePlayer({
       <div className={frameClass} role="status">
         <div className="clarify-unavailable-inner">
           <ClarifyLogo href={null} size="md" variant="on-dark" />
-          <h2>This video is not available on Clarify</h2>
+          <h2>This video can’t play here</h2>
           <p>
-            YouTube isn’t allowing playback here. You can still open the original
-            video on YouTube.
+            Playback isn’t available in Clarify for this video. You can still
+            open it on YouTube.
           </p>
           <a
             className="btn-primary"

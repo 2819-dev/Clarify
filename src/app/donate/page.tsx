@@ -5,7 +5,7 @@ import { ClarifyLogo } from "@/components/ClarifyLogo";
 export const metadata: Metadata = {
   title: "Donate — Clarify",
   description:
-    "Clarify is free forever. Donations (Stripe coming soon) help Guide keep the library curated and family-safe.",
+    "Clarify is free forever. Optional donations help Guide keep the library curated and family-safe.",
 };
 
 export default function DonatePage() {
@@ -16,21 +16,22 @@ export default function DonatePage() {
         <p className="brand-eyebrow">Support Clarify</p>
         <h1 className="brand-title">Donate</h1>
         <p className="brand-lede">
-          We don’t charge for Clarify. Optional donations help Guide keep
-          curation, filtering, and parental tools growing.
+          We don’t charge for Clarify. Optional gifts help Guide keep the
+          library curated, family-safe, and free for everyone.
         </p>
       </header>
 
       <section className="brand-section brand-donate-card">
-        <h2>Stripe checkout coming soon</h2>
+        <h2>Online giving coming soon</h2>
         <p>
-          Online donations aren’t live yet. We’re wiring Stripe so you can give
-          securely in a few clicks. Check back here — or email Guide if you’d
-          like to support sooner.
+          Secure online donations aren’t available yet. Check back here shortly
+          — or reach out to Guide if you’d like to support Clarify sooner.
         </p>
         <div className="brand-donate-placeholder" role="status">
           <p className="brand-donate-amount">Donate</p>
-          <p className="brand-donate-note">Payment form placeholder · Stripe later</p>
+          <p className="brand-donate-note">
+            Secure checkout will appear here when ready
+          </p>
           <button type="button" className="btn-primary" disabled>
             Donate (coming soon)
           </button>
@@ -41,8 +42,8 @@ export default function DonatePage() {
         <h2>What your support helps</h2>
         <ul className="brand-list">
           <li>Keeping Clarify free for every family</li>
-          <li>Catalog curation and safer filtering</li>
-          <li>Parental controls and device linking</li>
+          <li>Thoughtful curation and safer viewing choices</li>
+          <li>Parental controls for homes that need them</li>
         </ul>
         <div className="brand-actions">
           <Link href="/about" className="btn-secondary">

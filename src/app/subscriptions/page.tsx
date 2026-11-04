@@ -46,7 +46,7 @@ export default async function SubscriptionsPage() {
       {!user ? (
         <div className="empty-state">
           <p className="empty-state-copy">
-            Sign in to follow channels and build your subscription feed.
+            Sign in to follow channels and see new videos from them here.
           </p>
           <Link href="/signin?next=%2Fsubscriptions" className="btn-primary">
             Sign in

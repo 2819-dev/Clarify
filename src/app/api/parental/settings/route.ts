@@ -47,7 +47,10 @@ export async function POST(request: Request) {
     };
     const childUserId = body.childUserId?.trim();
     if (!childUserId) {
-      return NextResponse.json({ error: "childUserId required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Choose a child account before saving." },
+        { status: 400 },
+      );
     }
 
     let patch: {
