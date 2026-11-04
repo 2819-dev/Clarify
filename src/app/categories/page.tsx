@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
-import { FilterHint } from "@/components/FilterHint";
 import { listCategories } from "@/lib/categories";
 import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
@@ -22,7 +21,6 @@ export default async function CategoriesIndexPage() {
   return (
     <div className="yt-home">
       <CategoryRail categories={categories} />
-      <FilterHint mode={mode} />
       <div className="yt-home-meta">
         <div>
           <h1 className="yt-home-title">Categories</h1>

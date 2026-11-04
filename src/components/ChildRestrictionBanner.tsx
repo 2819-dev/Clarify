@@ -65,28 +65,30 @@ export function ChildRestrictionBanner({
       className={`child-restriction-banner${status.blocked ? " is-blocked" : ""}`}
       role="status"
     >
-      <strong>Parental limits apply</strong>
-      {status.parentDisplayName ? (
-        <span> Managed by {status.parentDisplayName}.</span>
-      ) : null}
-      {remaining ? <span> {remaining} today.</span> : null}
-      {disabled.length ? (
-        <span>
-          {" "}
-          Some categories are turned off
-          {disabled.length <= 4
-            ? `: ${disabled
-                .map((s) =>
-                  s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-                )
-                .join(", ")}`
-            : ""}
-          .
-        </span>
-      ) : null}
-      {status.blocked && status.blockReason ? (
-        <span> {status.blockReason}</span>
-      ) : null}
+      {status.blocked ? (
+        <>
+          <strong>Watching paused</strong>
+          {status.blockReason ? <span> {status.blockReason}</span> : null}
+        </>
+      ) : (
+        <>
+          <strong>Parental limits</strong>
+          {remaining ? <span> · {remaining}</span> : null}
+          {disabled.length ? (
+            <span>
+              {" "}
+              · {disabled.length} categor
+              {disabled.length === 1 ? "y" : "ies"} off
+            </span>
+          ) : null}
+          {status.parentDisplayName ? (
+            <span className="child-restriction-quiet">
+              {" "}
+              · {status.parentDisplayName}
+            </span>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }
