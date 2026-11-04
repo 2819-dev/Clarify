@@ -5,6 +5,7 @@ import { useEffect, useState, useTransition } from "react";
 import {
   CONTENT_MODE_COOKIE,
   CONTENT_MODE_STORAGE_KEY,
+  contentModeDescription,
   type ContentMode,
   parseContentMode,
 } from "@/lib/content-mode";
@@ -59,12 +60,13 @@ export function ContentModeToggle({
     <div
       className={`content-mode-toggle ${pending ? "is-pending" : ""}`}
       role="group"
-      aria-label="Content"
+      aria-label="Content filter"
     >
       <button
         type="button"
         className={`content-mode-option ${mode === "jewish" ? "is-active" : ""}`}
         aria-pressed={mode === "jewish"}
+        title={contentModeDescription("jewish")}
         onClick={() => select("jewish")}
       >
         Jewish
@@ -73,6 +75,7 @@ export function ContentModeToggle({
         type="button"
         className={`content-mode-option ${mode === "filtered" ? "is-active" : ""}`}
         aria-pressed={mode === "filtered"}
+        title={contentModeDescription("filtered")}
         onClick={() => select("filtered")}
       >
         Family-Friendly

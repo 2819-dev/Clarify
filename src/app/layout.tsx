@@ -74,15 +74,19 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
                 <ChildRestrictionBanner />
                 <main className="yt-main-inner">{children}</main>
                 <footer className="site-footer">
-                  <p>
-                    Clarify by{" "}
+                  <nav className="site-footer-nav" aria-label="About Clarify">
+                    <a href="/about">About</a>
+                    <a href="/donate">Donate</a>
                     <a
                       href="https://guidelearning.org"
                       rel="noopener noreferrer"
                     >
                       Guide
                     </a>
-                    . Report anything that doesn’t belong.
+                  </nav>
+                  <p>
+                    Clarify by Guide — free forever. Report anything that
+                    doesn’t belong.
                   </p>
                 </footer>
               </div>

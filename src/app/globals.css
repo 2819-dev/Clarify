@@ -7632,3 +7632,269 @@ html.yt-sidebar-collapsed .yt-sidebar-link.is-active {
     display: none;
   }
 }
+
+/* ——— Brand + usability 2026-11-03 ——— */
+
+.site-footer {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1.5rem 0 1.85rem;
+}
+
+.site-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.1rem;
+  font-weight: 650;
+  font-size: 0.9rem;
+}
+
+.site-footer-nav a {
+  color: var(--blue-950);
+}
+
+.site-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.yt-sidebar-brand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  padding: 0.15rem 0.75rem 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.yt-sidebar-brand a {
+  color: var(--blue-700);
+}
+
+.yt-sidebar-brand a:hover {
+  text-decoration: underline;
+}
+
+.yt-sidebar-mode-hint {
+  margin: 0.45rem 0.55rem 0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+html.yt-sidebar-collapsed .yt-sidebar-brand,
+html.yt-sidebar-collapsed .yt-sidebar-mode-hint {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  html.yt-nav-open .yt-sidebar-brand {
+    display: flex;
+  }
+}
+
+/* Filter hint strip */
+.filter-hint {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.15rem 0 0.35rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--blue-100) 55%, var(--surface)),
+    var(--paper)
+  );
+  border: 1px solid color-mix(in srgb, var(--line) 70%, var(--blue-100));
+}
+
+.filter-hint.is-compact {
+  padding: 0.55rem 0.8rem;
+  gap: 0.25rem;
+}
+
+.filter-hint-label {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink);
+}
+
+.filter-hint-copy {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 70ch;
+}
+
+.filter-hint-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.45rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.filter-hint-tip {
+  margin: 0;
+}
+
+.filter-hint-link {
+  color: var(--blue-950);
+  font-weight: 650;
+}
+
+.filter-hint-link:hover {
+  text-decoration: underline;
+}
+
+.filter-hint-sep {
+  opacity: 0.55;
+}
+
+.filter-hint-parental {
+  font-weight: 550;
+}
+
+/* Brand pages */
+.brand-page {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 1.25rem 0 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.brand-hero {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+  padding: 0.5rem 0 0.25rem;
+}
+
+.brand-eyebrow {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.brand-title {
+  margin: 0;
+  font-size: clamp(1.85rem, 4vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.brand-lede {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.brand-section {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.brand-section h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
+.brand-section p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.brand-section strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.brand-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.brand-list strong {
+  color: var(--ink);
+}
+
+.brand-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
+.brand-donate-card {
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--line) 75%, var(--blue-100));
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--blue-100) 40%, var(--surface)),
+    var(--paper)
+  );
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.brand-donate-placeholder {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+  margin-top: 0.35rem;
+  padding: 1rem;
+  border-radius: 0.85rem;
+  background: var(--surface);
+  border: 1px dashed color-mix(in srgb, var(--blue-700) 35%, var(--line));
+}
+
+.brand-donate-amount {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+.brand-donate-note {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+.brand-donate-placeholder .btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+html.yt-page-watch .site-footer-nav {
+  display: flex;
+}
+
+@media (max-width: 960px) {
+  .brand-page {
+    padding-inline: 0.15rem;
+  }
+
+  .filter-hint-actions {
+    font-size: 0.74rem;
+  }
+}

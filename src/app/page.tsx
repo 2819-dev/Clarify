@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CategoryRail } from "@/components/CategoryRail";
+import { FilterHint } from "@/components/FilterHint";
 import { FormatTabs } from "@/components/FormatTabs";
 import { VideoShelf } from "@/components/VideoShelf";
 import { VideoTile } from "@/components/VideoTile";
@@ -192,6 +193,7 @@ export default async function HomePage({
   return (
     <div className="yt-home">
       <CategoryRail categories={categories} />
+      {!isSearch && format === "all" ? <FilterHint mode={mode} compact /> : null}
 
       <div className={`yt-home-meta ${!isSearch && format === "all" ? "is-minimal" : ""}`}>
         {isSearch || format !== "all" ? (

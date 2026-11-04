@@ -125,8 +125,12 @@ export function SiteSidebar({
       </nav>
 
       <div className="yt-sidebar-section yt-sidebar-mode">
-        <p className="yt-sidebar-heading">Content</p>
+        <p className="yt-sidebar-heading">Filter</p>
         <ContentModeToggle initialMode={initialMode} />
+        <p className="yt-sidebar-mode-hint">
+          Jewish = Jewish makers. Family-Friendly adds suitable non-Jewish
+          creators.
+        </p>
       </div>
 
       <div className="yt-sidebar-section">
@@ -223,11 +227,21 @@ export function SiteSidebar({
           <p className="yt-sidebar-heading">Theme</p>
           <ThemeToggle />
         </div>
-        <p className="yt-sidebar-made">
-          <a href="https://guidelearning.org" rel="noopener noreferrer">
+        <nav className="yt-sidebar-brand" aria-label="Clarify">
+          <Link href="/about" onClick={closeMobileNav}>
+            About
+          </Link>
+          <Link href="/donate" onClick={closeMobileNav}>
+            Donate
+          </Link>
+          <a
+            href="https://guidelearning.org"
+            rel="noopener noreferrer"
+            onClick={closeMobileNav}
+          >
             Guide
           </a>
-        </p>
+        </nav>
       </div>
     </aside>
   );
