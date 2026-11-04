@@ -44,7 +44,7 @@ export default async function ChannelsIndexPage({
             {filtered.length} {contentModeAdjective(mode)} channel
             {filtered.length === 1 ? "" : "s"}
             {query ? ` matching “${q?.trim()}”` : ""}. Subscribe to keep
-            favorites in your sidebar.
+            favorites close at hand.
           </p>
         </div>
       </div>

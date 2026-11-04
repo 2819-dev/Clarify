@@ -37,6 +37,16 @@ const CATEGORY_OPTIONS = [
   { slug: "holidays", label: "Holidays" },
 ];
 
+function categoryLabels(slugs: string[]) {
+  return slugs
+    .map(
+      (slug) =>
+        CATEGORY_OPTIONS.find((opt) => opt.slug === slug)?.label ||
+        slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    )
+    .join(", ");
+}
+
 function formatRemaining(seconds: number | null) {
   if (seconds == null) return null;
   const m = Math.ceil(seconds / 60);
@@ -78,7 +88,7 @@ export function ParentalControlsPanel({
       }),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || "Could not get code");
+    if (!res.ok) throw new Error(data.error || "Couldn’t create a linking code.");
     setCode(data.code);
     setExpiresIn(data.expiresIn);
     setDeviceKey(data.deviceKey);
@@ -93,7 +103,7 @@ export function ParentalControlsPanel({
     if (!signedIn) return;
     const res = await fetch("/api/parental/settings");
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || "Could not load");
+    if (!res.ok) throw new Error(data.error || "Couldn’t load parental settings.");
     setChildren(data.children || []);
     setOwnStatus(data.ownStatus || null);
     if (!selectedChild && data.children?.[0]?.id) {
@@ -168,13 +178,13 @@ export function ParentalControlsPanel({
         body: JSON.stringify({ code: linkCode }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Link failed");
+      if (!res.ok) throw new Error(data.error || "Couldn’t link this device.");
       setMessage("Child account linked.");
       setLinkCode("");
       await refreshParentData();
       setTab("parent");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Link failed");
+      setError(err instanceof Error ? err.message : "Couldn’t link this device.");
     } finally {
       setBusy(false);
     }
@@ -198,7 +208,7 @@ export function ParentalControlsPanel({
         }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Save failed");
+      if (!res.ok) throw new Error(data.error || "Couldn’t save settings.");
       setMessage(data.assistNote || "Parental settings saved.");
       if (data.settings) {
         setDisabled(data.settings.disabled_categories || []);
@@ -206,7 +216,7 @@ export function ParentalControlsPanel({
       }
       await refreshParentData();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Save failed");
+      setError(err instanceof Error ? err.message : "Couldn’t save settings.");
     } finally {
       setBusy(false);
     }
@@ -238,8 +248,9 @@ export function ParentalControlsPanel({
         >
           <p className="yt-header-panel-title">Parental controls</p>
           <p className="yt-header-panel-empty">
-            Link a child’s device with a 5-minute code, disable categories, and
-            set daily time limits. Works with Jewish / Family-Friendly filters.
+            Link a child’s device with a code that refreshes every 5 minutes,
+            turn off categories, and set daily time limits — alongside the
+            Jewish or Family-Friendly library.
           </p>
 
           <div className="parental-tabs" role="tablist">
@@ -287,7 +298,7 @@ export function ParentalControlsPanel({
                     ? ` ${formatRemaining(ownStatus.totalSecondsRemaining)}.`
                     : ""}
                   {ownStatus.disabledCategories.length
-                    ? ` Disabled: ${ownStatus.disabledCategories.join(", ")}.`
+                    ? ` Categories turned off: ${categoryLabels(ownStatus.disabledCategories)}.`
                     : ""}
                 </p>
               ) : null}
@@ -336,7 +347,7 @@ export function ParentalControlsPanel({
                       </label>
 
                       <label className="parental-label">
-                        Child’s age (AI assist)
+                        Child’s age (suggested limits)
                         <div className="parental-row">
                           <input
                             type="number"
@@ -350,7 +361,7 @@ export function ParentalControlsPanel({
                             disabled={busy}
                             onClick={() => void saveSettings(true)}
                           >
-                            Apply age rules
+                            Suggest limits
                           </button>
                         </div>
                       </label>

@@ -27,8 +27,7 @@ export default async function CategoriesIndexPage() {
         <div>
           <h1 className="yt-home-title">Categories</h1>
           <p className="yt-home-sub">
-            Browse {contentModeAdjective(mode)} videos by topic. Switch Jewish /
-            Family-Friendly anytime in the header.
+            Browse {contentModeAdjective(mode)} videos by topic.
           </p>
         </div>
       </div>
@@ -36,8 +35,8 @@ export default async function CategoriesIndexPage() {
       {categories.length === 0 ? (
         <div className="empty-state">
           <p className="empty-state-copy">
-            No categories in this filter yet. Try Family-Friendly mode or check
-            back soon.
+            No categories are available in the Jewish library right now. Try
+            Family-Friendly, or check back soon.
           </p>
           <Link href="/" className="btn-secondary">
             Back to home

@@ -228,7 +228,7 @@ export default async function HomePage({
         latest.length === 0 ? (
           <div className="empty-state">
             <p className="empty-state-copy">
-              No videos matched your search. Try different words or browse
+              No videos matched your search. Try different words, or browse
               categories.
             </p>
             <Link href="/categories" className="btn-secondary">
@@ -246,7 +246,7 @@ export default async function HomePage({
         latest.length === 0 ? (
           <div className="empty-state">
             <p className="empty-state-copy">
-              No videos to show for this view. Try another filter or browse
+              Nothing to show here yet. Try Shorts, Videos, or browse
               categories.
             </p>
             <Link href="/categories" className="btn-secondary">

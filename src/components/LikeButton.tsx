@@ -120,9 +120,7 @@ export function LikeButton({
             <span className="shorts-action-icon">
               <ThumbDownIcon />
             </span>
-            <span className="shorts-action-label">
-              {disliked ? "Noted" : "Dislike"}
-            </span>
+            <span className="shorts-action-label">Dislike</span>
           </button>
         ) : (
           <Link

@@ -18,6 +18,6 @@ export function contentModeAdjective(mode: ContentMode): string {
 
 export function contentModeDescription(mode: ContentMode): string {
   return mode === "filtered"
-    ? "Family-friendly library including Jewish makers plus suitable non-Jewish creators (nature, kids, about-Jews topics, and more)."
-    : "Videos from Jewish creators and makers — educators, musicians, Jewish orgs — not merely topics about Jews.";
+    ? "A wider family-friendly library: Jewish creators plus other suitable channels such as nature and kids learning."
+    : "Videos from Jewish creators — educators, musicians, organizations, and more.";
 }

@@ -19,11 +19,11 @@ export function FilterHint({
   return (
     <aside
       className={`filter-hint${compact ? " is-compact" : ""}`}
-      aria-label="Content filters"
+      aria-label="What you’re watching"
     >
       <div className="filter-hint-main">
         <p className="filter-hint-label">
-          Viewing <strong>{label}</strong>
+          Showing <strong>{label}</strong> videos
         </p>
         {!compact ? (
           <p className="filter-hint-copy">{contentModeDescription(mode)}</p>
@@ -31,9 +31,9 @@ export function FilterHint({
       </div>
       <div className="filter-hint-actions">
         <p className="filter-hint-tip">
-          Switch modes in the header
-          {compact ? "" : " (or sidebar on phone)"}. Prefer{" "}
-          <strong>{otherLabel}</strong>? Use the toggle.
+          Prefer <strong>{otherLabel}</strong>? Switch with the Jewish /
+          Family-Friendly control in the header
+          {compact ? "" : " (or menu on phone)"}.
         </p>
         <Link href="/categories" className="filter-hint-link">
           Browse categories
@@ -42,7 +42,7 @@ export function FilterHint({
           ·
         </span>
         <span className="filter-hint-parental">
-          Parental limits: people icon
+          Need limits? Open Parental controls
         </span>
       </div>
     </aside>

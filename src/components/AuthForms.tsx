@@ -216,7 +216,7 @@ export function SignUpForm({ nextPath = "/" }: { nextPath?: string }) {
       />
       <p className="auth-hint">
         Use at least 8 characters. You can turn on two-factor authentication
-        later from Settings → Security.
+        later in Security settings.
       </p>
       {error ? <p className="form-error">{error}</p> : null}
       <div className="auth-actions">

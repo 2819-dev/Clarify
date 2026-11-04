@@ -19,7 +19,7 @@ export default async function SignInPage({
     <section className="auth-shell">
       <h1 className="yt-home-title">Sign in</h1>
       <p className="yt-home-sub">
-        Sign in to subscribe, like videos, and join the conversation.
+        Sign in to subscribe to channels and like videos.
       </p>
       <SignInForm nextPath={nextPath} />
       <p className="auth-foot">

@@ -125,11 +125,11 @@ export function SiteSidebar({
       </nav>
 
       <div className="yt-sidebar-section yt-sidebar-mode">
-        <p className="yt-sidebar-heading">Filter</p>
+        <p className="yt-sidebar-heading">Library</p>
         <ContentModeToggle initialMode={initialMode} />
         <p className="yt-sidebar-mode-hint">
-          Jewish = Jewish makers. Family-Friendly adds suitable non-Jewish
-          creators.
+          Jewish shows Jewish creators. Family-Friendly adds other suitable
+          channels for home.
         </p>
       </div>
 
@@ -144,7 +144,7 @@ export function SiteSidebar({
           </p>
         ) : visibleSubs.length === 0 ? (
           <p className="yt-sidebar-empty">
-            Subscribe to channels to pin them here.
+            Subscribe to channels to see them here.
           </p>
         ) : (
           <nav className="yt-sidebar-cats" aria-label="Subscriptions">

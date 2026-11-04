@@ -263,7 +263,7 @@ export default async function ChannelPage({
             <div className="channel-yt-about">
               <h2>Description</h2>
               <p className="channel-yt-about-body">
-                {channel.description || "No description provided."}
+                {channel.description || "This channel hasn’t added a description yet."}
               </p>
               <dl className="channel-yt-about-stats">
                 <div>

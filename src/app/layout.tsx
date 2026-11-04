@@ -22,9 +22,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clarify.guidelearning.org"),
-  title: "Clarify — Safe videos for Jewish & family viewing",
+  title: "Clarify — Jewish and family-friendly videos",
   description:
-    "A carefully selected video library for Jewish and family-friendly viewing. Built by Guide. Report anything that doesn’t belong.",
+    "A free video library for Jewish and family-friendly viewing. Built by Guide.",
   icons: {
     icon: [{ url: "/clarify-mark.svg", type: "image/svg+xml" }],
   },
@@ -84,10 +84,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
                       Guide
                     </a>
                   </nav>
-                  <p>
-                    Clarify by Guide — free forever. Report anything that
-                    doesn’t belong.
-                  </p>
+                  <p>Clarify by Guide — free forever for every family.</p>
                 </footer>
               </div>
             </div>
