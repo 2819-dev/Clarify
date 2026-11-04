@@ -8874,3 +8874,416 @@ html[data-theme="dark"] .yt-chip.is-active {
     transform: none !important;
   }
 }
+
+/* ——— Make better 3 — 2026-11-04b: tighter YT, usability ——— */
+
+@keyframes yt-press {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.97);
+  }
+}
+
+/* Quieter page wash — tighter / less “glow poster” */
+body {
+  background:
+    radial-gradient(
+      720px 320px at 18% -12%,
+      color-mix(in srgb, var(--blue-100) 32%, transparent),
+      transparent 58%
+    ),
+    var(--surface-glow),
+    var(--surface);
+}
+
+/* Keyboard usability */
+.yt-chip:focus-visible,
+.yt-sidebar-link:focus-visible,
+.yt-icon-btn:focus-visible,
+.yt-search-btn:focus-visible,
+.video-menu-trigger:focus-visible,
+.mod-menu-trigger:focus-visible,
+.btn-subscribe:focus-visible,
+.btn-share:focus-visible,
+.btn-report:focus-visible,
+.btn-like:focus-visible,
+.btn-dislike:focus-visible,
+.content-mode-option:focus-visible,
+.theme-toggle-option:focus-visible,
+.format-tab:focus-visible,
+.clarify-logo-link:focus-visible {
+  outline: 2px solid var(--blue-700);
+  outline-offset: 2px;
+}
+
+.yt-topbar-search .catalog-search input:focus-visible {
+  outline: none;
+}
+
+/* Sticky chip rail — solid when scrolling, YT edge fades */
+.yt-chip-rail {
+  top: 56px;
+  z-index: 25;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  padding: 0.45rem 0 0.4rem;
+  margin: 0 -0.15rem;
+  padding-inline: 0.15rem;
+}
+
+.yt-chip-rail-track {
+  gap: 0.45rem;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 0.75rem,
+    #000 calc(100% - 0.75rem),
+    transparent 100%
+  );
+}
+
+.yt-chip {
+  padding: 0.34rem 0.72rem;
+  font-size: 0.86rem;
+  line-height: 1.2;
+}
+
+.yt-chip:active,
+.format-tab:active {
+  animation: yt-press 0.12s var(--ease-out);
+}
+
+.format-tabs {
+  gap: 0.4rem;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.format-tab {
+  border-radius: var(--yt-chip-radius);
+  padding: 0.34rem 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 550;
+  background: var(--paper);
+  border: none;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
+}
+
+.format-tab:hover {
+  background: var(--paper-deep);
+}
+
+.format-tab.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Home density — closer to YT shelf rhythm */
+.yt-main-inner:not(:has(.watch-page)) {
+  padding-block: 0.2rem 1.75rem;
+  padding-inline: 1.35rem;
+}
+
+.yt-shelves {
+  gap: 1.65rem;
+  margin-top: 0.35rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.7rem;
+}
+
+.yt-shelf-title {
+  font-size: 1.05rem;
+  letter-spacing: -0.025em;
+}
+
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid),
+.yt-shelf-longform-grid,
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  gap: 1.65rem 0.95rem !important;
+}
+
+.video-tile {
+  gap: 0.6rem;
+}
+
+.video-title {
+  font-size: 0.9rem;
+  line-height: 1.32;
+}
+
+.video-channel,
+.video-submeta {
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.video-tile-avatar {
+  width: 34px;
+  height: 34px;
+}
+
+.video-duration {
+  right: 0.35rem;
+  bottom: 0.35rem;
+  font-size: 0.7rem;
+  padding: 0.08rem 0.28rem;
+}
+
+/* ⋯ quieter until hover / focus (still always hittable) */
+.video-tile .video-menu-trigger,
+.video-tile .mod-menu-trigger {
+  opacity: 0.55;
+  transition: opacity 0.15s var(--ease-out), background 0.15s var(--ease-out);
+}
+
+.video-tile:hover .video-menu-trigger,
+.video-tile:hover .mod-menu-trigger,
+.video-tile:focus-within .video-menu-trigger,
+.video-tile:focus-within .mod-menu-trigger,
+.video-menu-trigger[aria-expanded="true"],
+.mod-menu-trigger[aria-expanded="true"] {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .video-tile .video-menu-trigger,
+  .video-tile .mod-menu-trigger {
+    opacity: 1;
+  }
+}
+
+/* Watch — tighter YT packing */
+.yt-main-inner:has(.watch-page) {
+  padding-top: 0.55rem;
+  padding-inline: 1.25rem 1.5rem;
+}
+
+.watch-page {
+  gap: 1rem 1.35rem;
+}
+
+.watch-title {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+}
+
+.watch-owner-row {
+  margin: 0.35rem 0 0.55rem;
+  gap: 0.55rem 0.85rem;
+}
+
+.watch-below {
+  gap: 0.45rem 0.75rem;
+  margin-top: 0.1rem;
+}
+
+.btn-subscribe,
+.btn-like-group,
+.btn-share,
+.btn-report,
+.btn-like,
+.btn-dislike {
+  height: 34px;
+}
+
+.btn-subscribe {
+  padding-inline: 0.9rem;
+  font-size: 0.875rem;
+}
+
+.btn-subscribe:active,
+.btn-share:active,
+.btn-like:active,
+.btn-dislike:active {
+  transform: scale(0.97);
+}
+
+.watch-desc-card {
+  margin-top: 0.2rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+}
+
+.watch-desc-card .desc {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.watch-related {
+  top: 64px;
+  max-height: calc(100vh - 72px);
+  padding-right: 0.1rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink-soft) 45%, transparent) transparent;
+}
+
+.watch-related-heading {
+  font-size: 0.95rem;
+  margin: 0 0 0.45rem;
+}
+
+.watch-related-list {
+  gap: 0.4rem;
+}
+
+.watch-related-row {
+  gap: 0.05rem;
+  border-radius: 10px;
+  padding: 0.15rem;
+  margin: 0 -0.15rem;
+  transition: background 0.15s var(--ease-out);
+}
+
+.watch-related-row:hover,
+.watch-related-row:focus-within {
+  background: var(--paper);
+}
+
+.watch-related-item {
+  grid-template-columns: 156px minmax(0, 1fr);
+  gap: 0.45rem;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.watch-related-item:hover {
+  background: transparent;
+}
+
+.watch-related-thumb {
+  border-radius: 8px;
+}
+
+.watch-related-title {
+  font-size: 0.84rem;
+  font-weight: 650;
+  -webkit-line-clamp: 2;
+}
+
+.watch-related-meta {
+  font-size: 0.74rem;
+  margin-top: 0.15rem;
+}
+
+.watch-related-menu .video-menu-trigger {
+  opacity: 0.5;
+}
+
+.watch-related-row:hover .video-menu-trigger,
+.watch-related-row:focus-within .video-menu-trigger,
+.watch-related-menu .video-menu-trigger[aria-expanded="true"] {
+  opacity: 1;
+}
+
+.player-frame:not(.is-short) {
+  border-radius: 12px;
+  box-shadow:
+    0 1px 2px rgba(15, 15, 15, 0.05),
+    0 12px 28px rgba(15, 15, 15, 0.08);
+}
+
+/* Sidebar — denser YT rows */
+.yt-sidebar {
+  padding: 0.5rem 0.45rem 1rem;
+  gap: 0.65rem;
+}
+
+.yt-sidebar-link {
+  padding: 0.48rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 10px;
+}
+
+.yt-sidebar-heading {
+  margin: 0.05rem 0.7rem 0.25rem;
+}
+
+.yt-sidebar-footer {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+/* Empty states — clearer, less card-heavy */
+.empty-state {
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  background: var(--paper);
+  padding: 1.25rem 1.1rem;
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.empty-state-copy {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  max-width: 36rem;
+}
+
+/* Shorts shelf tighter */
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.55rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  gap: 0.75rem;
+  padding-bottom: 0.2rem;
+}
+
+@media (max-width: 960px) {
+  .yt-main-inner:not(:has(.watch-page)) {
+    padding-inline: 0.75rem;
+  }
+
+  .yt-main-inner:has(.watch-page) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+  .yt-chip-rail {
+    margin: 0;
+    padding-inline: 0.75rem;
+  }
+
+  .yt-chip-rail-track {
+    mask-image: none;
+  }
+
+  .yt-shelves {
+    gap: 1.25rem;
+  }
+
+  .yt-shelf-grid .video-grid,
+  .video-grid:not(.shorts-grid),
+  .yt-shelf-longform-grid,
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    gap: 1.15rem 0 !important;
+  }
+
+  .watch-related-item {
+    grid-template-columns: 140px minmax(0, 1fr);
+  }
+
+  .watch-related-menu .video-menu-trigger {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yt-chip:active,
+  .format-tab:active,
+  .btn-subscribe:active,
+  .btn-share:active,
+  .btn-like:active,
+  .btn-dislike:active {
+    animation: none !important;
+    transform: none !important;
+  }
+}
