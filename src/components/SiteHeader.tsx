@@ -117,21 +117,25 @@ export function SiteHeader({
         </Suspense>
       </div>
       <div className="yt-topbar-right">
-        <ContentModeToggle initialMode={initialMode} />
-        <HeaderActions signedIn={Boolean(user)} />
-        {showAdminKey ? (
-          <Link
-            href="/admin/login"
-            className={`admin-key-link ${
-              pathname.startsWith("/admin") ? "is-active" : ""
-            }`}
-            title="Admin"
-            aria-label="Admin"
-          >
-            <KeyIcon />
-          </Link>
-        ) : null}
-        <UserMenu user={user} />
+        <div className="yt-topbar-mode">
+          <ContentModeToggle initialMode={initialMode} />
+        </div>
+        <div className="yt-topbar-actions">
+          <HeaderActions signedIn={Boolean(user)} />
+          {showAdminKey ? (
+            <Link
+              href="/admin/login"
+              className={`admin-key-link ${
+                pathname.startsWith("/admin") ? "is-active" : ""
+              }`}
+              title="Admin"
+              aria-label="Admin"
+            >
+              <KeyIcon />
+            </Link>
+          ) : null}
+          <UserMenu user={user} />
+        </div>
       </div>
       <button
         type="button"
