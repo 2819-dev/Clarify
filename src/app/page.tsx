@@ -7,10 +7,13 @@ import { listCategories } from "@/lib/categories";
 import { contentModeAdjective } from "@/lib/content-mode";
 import { getContentMode } from "@/lib/content-mode-server";
 import {
+  listFeedPrefChannelSlugs,
   listLikedChannelSlugs,
   listSubscribedChannelSlugs,
 } from "@/lib/engagement";
 import {
+  getAffinityPrefs,
+  getHiddenChannelSlugs,
   getSubscriptionSlugs,
   getWatchActivity,
 } from "@/lib/preferences-server";
@@ -36,15 +39,39 @@ export default async function HomePage({
   const mode = await getContentMode();
   const isSearch = Boolean(q?.trim());
   const user = await getCurrentUser();
-  const [dbSubs, cookieSubs, likedChannels, activity, parental] =
-    await Promise.all([
-      user ? listSubscribedChannelSlugs(user.id) : Promise.resolve([] as string[]),
-      getSubscriptionSlugs(),
-      user ? listLikedChannelSlugs(user.id) : Promise.resolve([] as string[]),
-      getWatchActivity(),
-      user ? getParentalStatus(user.id) : Promise.resolve(null),
-    ]);
+  const [
+    dbSubs,
+    cookieSubs,
+    likedChannels,
+    activity,
+    parental,
+    cookieAffinity,
+    cookieHidden,
+    dbMore,
+    dbHidden,
+  ] = await Promise.all([
+    user ? listSubscribedChannelSlugs(user.id) : Promise.resolve([] as string[]),
+    getSubscriptionSlugs(),
+    user ? listLikedChannelSlugs(user.id) : Promise.resolve([] as string[]),
+    getWatchActivity(),
+    user ? getParentalStatus(user.id) : Promise.resolve(null),
+    getAffinityPrefs(),
+    getHiddenChannelSlugs(),
+    user ? listFeedPrefChannelSlugs(user.id, "more") : Promise.resolve([] as string[]),
+    user ? listFeedPrefChannelSlugs(user.id, "hide") : Promise.resolve([] as string[]),
+  ]);
   const parentalDisabled = parental?.disabledCategories || [];
+
+  const excludeChannelSlugs = [...new Set([...cookieHidden, ...dbHidden])];
+  const hiddenSet = new Set(excludeChannelSlugs);
+  const affinityChannelSlugs = [
+    ...new Set([...cookieAffinity.channelSlugs, ...dbMore]),
+  ]
+    .filter((s) => !hiddenSet.has(s))
+    .slice(0, 30);
+  const affinityCategorySlugs = cookieAffinity.categorySlugs
+    .filter((s) => s !== "music" && s !== "news")
+    .slice(0, 12);
 
   const subSlugs = [...new Set([...dbSubs, ...cookieSubs])];
   const boostChannelSlugs = [
@@ -52,9 +79,14 @@ export default async function HomePage({
       ...subSlugs,
       ...likedChannels,
       ...activity.channelSlugs,
+      ...affinityChannelSlugs,
     ]),
-  ].slice(0, 40);
-  const boostCategorySlugs = activity.categorySlugs
+  ]
+    .filter((s) => !hiddenSet.has(s))
+    .slice(0, 40);
+  const boostCategorySlugs = [
+    ...new Set([...activity.categorySlugs, ...affinityCategorySlugs]),
+  ]
     .filter((s) => s !== "music" && s !== "news")
     .slice(0, 12);
 
@@ -76,9 +108,12 @@ export default async function HomePage({
         mode,
         limit: isSearch ? 48 : 24,
         excludeCategorySlugs: homeExclude,
+        excludeChannelSlugs: isSearch ? undefined : excludeChannelSlugs,
         sort: homeSort,
         boostChannelSlugs,
         boostCategorySlugs,
+        affinityChannelSlugs,
+        affinityCategorySlugs,
       }),
       format === "all" && !isSearch
         ? listActiveVideos({
@@ -86,9 +121,12 @@ export default async function HomePage({
             mode,
             limit: 14,
             excludeCategorySlugs: ["music", "news"],
+            excludeChannelSlugs,
             sort: "ranked",
             boostChannelSlugs,
             boostCategorySlugs,
+            affinityChannelSlugs,
+            affinityCategorySlugs,
           })
         : Promise.resolve([]),
       format === "all" && !isSearch
@@ -96,6 +134,7 @@ export default async function HomePage({
             mode,
             limit: 12,
             excludeCategorySlugs: ["music", "news"],
+            excludeChannelSlugs,
             format: "videos",
             sort: "trending",
           })
@@ -121,13 +160,17 @@ export default async function HomePage({
                 sort: "ranked",
                 boostChannelSlugs,
                 boostCategorySlugs,
+                affinityChannelSlugs,
+                affinityCategorySlugs,
               })
             : Promise.resolve([]),
           (async () => {
             if (
               !activity.channelSlugs.length &&
               !activity.categorySlugs.length &&
-              !likedChannels.length
+              !likedChannels.length &&
+              !affinityChannelSlugs.length &&
+              !affinityCategorySlugs.length
             ) {
               return [];
             }
@@ -135,24 +178,33 @@ export default async function HomePage({
               mode,
               limit: 14,
               excludeCategorySlugs: ["music", "news"],
+              excludeChannelSlugs,
               sort: "ranked",
               boostChannelSlugs,
               boostCategorySlugs,
+              affinityChannelSlugs,
+              affinityCategorySlugs,
             });
           })(),
           listActiveVideos({
             category: "music",
             mode,
             limit: 12,
+            excludeChannelSlugs,
             sort: "ranked",
             boostChannelSlugs,
+            affinityChannelSlugs,
+            affinityCategorySlugs,
           }),
           listActiveVideos({
             category: "news",
             mode,
             limit: 12,
+            excludeChannelSlugs,
             sort: "ranked",
             boostChannelSlugs,
+            affinityChannelSlugs,
+            affinityCategorySlugs,
           }),
           Promise.all(
             nonMusicCategories.slice(0, 5).map(async (cat) => ({
@@ -161,9 +213,12 @@ export default async function HomePage({
                 category: cat.slug,
                 mode,
                 limit: 8,
+                excludeChannelSlugs,
                 sort: "ranked",
                 boostChannelSlugs,
                 boostCategorySlugs,
+                affinityChannelSlugs,
+                affinityCategorySlugs,
               }),
             })),
           ),

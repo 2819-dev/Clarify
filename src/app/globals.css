@@ -374,6 +374,7 @@ a {
   display: grid;
   gap: 0.7rem;
   transition: none;
+  overflow: visible;
 }
 
 .video-tile:hover {
@@ -2623,6 +2624,10 @@ html[data-theme="dark"] .theme-toggle-option.is-active {
 .yt-shelf {
   min-width: 0;
   max-width: 100%;
+  overflow: visible;
+}
+
+.yt-shelf.is-shorts {
   overflow: hidden;
 }
 
@@ -3507,6 +3512,132 @@ html[data-theme="dark"] .theme-toggle-option.is-active {
   border-radius: 0.45rem;
   background: var(--paper);
   border: 1px solid var(--line);
+}
+
+/* Consumer video ⋯ menu (recommend / don’t recommend) */
+.video-tile-menus {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.1rem;
+  flex: 0 0 auto;
+}
+
+.video-menu {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.video-menu-trigger {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-menu-trigger:hover,
+.video-menu-trigger[aria-expanded="true"] {
+  background: var(--paper-deep);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.video-menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.25rem);
+  z-index: 40;
+  min-width: 14.5rem;
+  padding: 0.35rem;
+  border-radius: 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(11, 42, 87, 0.12);
+  display: grid;
+  gap: 0.15rem;
+}
+
+.video-menu-item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.video-menu-item:hover:not(:disabled) {
+  background: var(--paper-deep);
+}
+
+.video-menu-item:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.video-menu-toast {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.35rem);
+  z-index: 41;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--ink) 92%, transparent);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(11, 42, 87, 0.18);
+}
+
+.watch-related-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem;
+  align-items: start;
+}
+
+.watch-related-row .watch-related-item {
+  min-width: 0;
+}
+
+.watch-related-menu {
+  padding-top: 0.1rem;
+}
+
+.watch-related-menu .video-menu-trigger {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 1.1rem;
+}
+
+html.theme-dark .video-menu-panel,
+html[data-theme="dark"] .video-menu-panel {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+html.theme-dark .video-menu-toast,
+html[data-theme="dark"] .video-menu-toast {
+  background: color-mix(in srgb, var(--ink) 88%, #fff 12%);
 }
 
 /* Moderator three-dot menus (Guide admin account only) */
