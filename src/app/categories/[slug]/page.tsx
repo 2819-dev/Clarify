@@ -5,7 +5,9 @@ import { FormatTabs } from "@/components/FormatTabs";
 import { VideoTile } from "@/components/VideoTile";
 import { getCategory, listCategories } from "@/lib/categories";
 import { getContentMode } from "@/lib/content-mode-server";
+import { listFeedPrefChannelSlugs } from "@/lib/engagement";
 import { getParentalStatus } from "@/lib/parental";
+import { getHiddenChannelSlugs } from "@/lib/preferences-server";
 import { getCurrentUser } from "@/lib/user-auth";
 import { countShorts, listActiveVideos } from "@/lib/videos";
 
@@ -26,12 +28,25 @@ export default async function CategoryPage({
   const user = await getCurrentUser();
   const parental = user ? await getParentalStatus(user.id) : null;
   const disabled = parental?.disabledCategories || [];
-  const [category, categories, videos, shortsCount] = await Promise.all([
-    getCategory(slug, mode),
-    listCategories(mode),
-    listActiveVideos({ category: slug, q, format, mode, limit: 60 }),
-    countShorts(undefined, mode),
-  ]);
+  const [category, categories, cookieHidden, dbHidden, shortsCount] =
+    await Promise.all([
+      getCategory(slug, mode),
+      listCategories(mode),
+      getHiddenChannelSlugs(),
+      user
+        ? listFeedPrefChannelSlugs(user.id, "hide")
+        : Promise.resolve([] as string[]),
+      countShorts(undefined, mode),
+    ]);
+  const excludeChannelSlugs = [...new Set([...cookieHidden, ...dbHidden])];
+  const videos = await listActiveVideos({
+    category: slug,
+    q,
+    format,
+    mode,
+    limit: 60,
+    excludeChannelSlugs,
+  });
 
   if (disabled.includes(slug)) {
     const categoryName =

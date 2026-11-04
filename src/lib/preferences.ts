@@ -4,8 +4,42 @@ export const SUBS_COOKIE = "clarify_subs";
 export const SUBS_STORAGE_KEY = "clarify_subs";
 export const ACTIVITY_COOKIE = "clarify_activity";
 export const ACTIVITY_STORAGE_KEY = "clarify_activity";
+/** Channels the viewer asked to see more of (⋯ → Show more like this). */
+export const AFFINITY_COOKIE = "clarify_affinity";
+export const AFFINITY_STORAGE_KEY = "clarify_affinity";
+/** Channels to stop recommending in ranked / related feeds. */
+export const HIDE_CHANNELS_COOKIE = "clarify_hide_channels";
+export const HIDE_CHANNELS_STORAGE_KEY = "clarify_hide_channels";
 
 export const PREFS_EVENT = "clarify-prefs-changed";
+
+export type AffinityPrefs = {
+  channelSlugs: string[];
+  categorySlugs: string[];
+};
+
+export function parseAffinity(raw: string | null | undefined): AffinityPrefs {
+  if (!raw) return { channelSlugs: [], categorySlugs: [] };
+  try {
+    if (raw.trim().startsWith("{")) {
+      const data = JSON.parse(raw) as Partial<AffinityPrefs>;
+      return {
+        channelSlugs: parseSlugList((data.channelSlugs || []).join(","), 30),
+        categorySlugs: parseSlugList((data.categorySlugs || []).join(","), 20),
+      };
+    }
+  } catch {
+    /* fall through */
+  }
+  return { channelSlugs: parseSlugList(raw, 30), categorySlugs: [] };
+}
+
+export function serializeAffinity(prefs: AffinityPrefs): string {
+  return JSON.stringify({
+    channelSlugs: parseSlugList(prefs.channelSlugs.join(","), 30),
+    categorySlugs: parseSlugList(prefs.categorySlugs.join(","), 20),
+  });
+}
 
 export function parseSlugList(raw: string | null | undefined, max = 40): string[] {
   if (!raw) return [];

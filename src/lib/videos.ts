@@ -13,6 +13,8 @@ export type VideoQuery = {
   categorySlugs?: string[];
   /** Exclude these category slugs (e.g. keep music/news off the mixed home feed). */
   excludeCategorySlugs?: string[];
+  /** Exclude these channel slugs (⋯ → Don’t recommend this channel). */
+  excludeChannelSlugs?: string[];
   /** all | videos | shorts */
   format?: "all" | "videos" | "shorts";
   /** jewish = Jewish-only; filtered = Jewish + family-safe */
@@ -23,6 +25,10 @@ export type VideoQuery = {
   boostChannelSlugs?: string[];
   /** Category slugs to boost for ranked sort. */
   boostCategorySlugs?: string[];
+  /** Stronger channel boost from ⋯ → Show more content like this. */
+  affinityChannelSlugs?: string[];
+  /** Stronger category boost from the same action. */
+  affinityCategorySlugs?: string[];
   limit?: number;
 };
 
@@ -58,6 +64,10 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean)
     .slice(0, 20);
+  const excludeChannelSlugs = (query.excludeChannelSlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 40);
   const boostChannelSlugs = (query.boostChannelSlugs || [])
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean)
@@ -66,11 +76,22 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean)
     .slice(0, 20);
+  const affinityChannelSlugs = (query.affinityChannelSlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 30);
+  const affinityCategorySlugs = (query.affinityCategorySlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 20);
   const hasChannelSlugs = channelSlugs.length > 0;
   const hasCategorySlugs = categorySlugs.length > 0;
   const hasExcludeCategories = excludeCategorySlugs.length > 0;
+  const hasExcludeChannels = excludeChannelSlugs.length > 0;
   const hasBoostChannels = boostChannelSlugs.length > 0;
   const hasBoostCategories = boostCategorySlugs.length > 0;
+  const hasAffinityChannels = affinityChannelSlugs.length > 0;
+  const hasAffinityCategories = affinityCategorySlugs.length > 0;
   const format = query.format || "all";
   const shortsOnly = format === "shorts";
   const longOnly = format === "videos";
@@ -140,6 +161,11 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
           OR NOT (v.category_slug = ANY(${excludeCategorySlugs}))
         )
         AND (
+          ${!hasExcludeChannels}::boolean
+          OR c.slug IS NULL
+          OR NOT (c.slug = ANY(${excludeChannelSlugs}))
+        )
+        AND (
           ${!onlyJewish}::boolean
           OR COALESCE(v.is_jewish, TRUE) = TRUE
         )
@@ -176,10 +202,12 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
         v.published_at,
         (
           CASE
+            WHEN ${hasAffinityChannels}::boolean AND c.slug = ANY(${affinityChannelSlugs}) THEN 80
             WHEN ${hasBoostChannels}::boolean AND c.slug = ANY(${boostChannelSlugs}) THEN 48
             ELSE 0
           END
           + CASE
+            WHEN ${hasAffinityCategories}::boolean AND v.category_slug = ANY(${affinityCategorySlugs}) THEN 28
             WHEN ${hasBoostCategories}::boolean AND v.category_slug = ANY(${boostCategorySlugs}) THEN 18
             ELSE 0
           END
@@ -228,6 +256,11 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
           ${!hasExcludeCategories}::boolean
           OR v.category_slug IS NULL
           OR NOT (v.category_slug = ANY(${excludeCategorySlugs}))
+        )
+        AND (
+          ${!hasExcludeChannels}::boolean
+          OR c.slug IS NULL
+          OR NOT (c.slug = ANY(${excludeChannelSlugs}))
         )
         AND (
           ${!onlyJewish}::boolean
@@ -281,6 +314,11 @@ export async function listActiveVideos(query: VideoQuery = {}): Promise<Video[]>
         ${!hasExcludeCategories}::boolean
         OR v.category_slug IS NULL
         OR NOT (v.category_slug = ANY(${excludeCategorySlugs}))
+      )
+      AND (
+        ${!hasExcludeChannels}::boolean
+        OR c.slug IS NULL
+        OR NOT (c.slug = ANY(${excludeChannelSlugs}))
       )
       AND (
         ${!onlyJewish}::boolean
@@ -337,11 +375,31 @@ export async function listRelatedVideos(
   >,
   mode?: ContentMode,
   limit = 20,
+  options?: {
+    excludeChannelSlugs?: string[];
+    affinityChannelSlugs?: string[];
+    affinityCategorySlugs?: string[];
+  },
 ): Promise<Video[]> {
   const sql = getSql();
   const onlyJewish = jewishOnly(mode);
   const channelSlug = video.channel_slug || null;
   const categorySlug = video.category_slug || null;
+  const excludeChannelSlugs = (options?.excludeChannelSlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 40);
+  const affinityChannelSlugs = (options?.affinityChannelSlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 30);
+  const affinityCategorySlugs = (options?.affinityCategorySlugs || [])
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .slice(0, 20);
+  const hasExcludeChannels = excludeChannelSlugs.length > 0;
+  const hasAffinityChannels = affinityChannelSlugs.length > 0;
+  const hasAffinityCategories = affinityCategorySlugs.length > 0;
   const cap = Math.min(Math.max(limit, 1), 40);
   const rows = await sql`
     SELECT
@@ -362,10 +420,23 @@ export async function listRelatedVideos(
         ${!onlyJewish}::boolean
         OR COALESCE(v.is_jewish, TRUE) = TRUE
       )
+      AND (
+        ${!hasExcludeChannels}::boolean
+        OR c.slug IS NULL
+        OR NOT (c.slug = ANY(${excludeChannelSlugs}))
+      )
     ORDER BY
       CASE WHEN COALESCE(v.is_short, FALSE) = ${Boolean(video.is_short)} THEN 0 ELSE 1 END,
       CASE WHEN ${channelSlug}::text IS NOT NULL AND c.slug = ${channelSlug} THEN 0 ELSE 1 END,
+      CASE
+        WHEN ${hasAffinityChannels}::boolean AND c.slug = ANY(${affinityChannelSlugs}) THEN 0
+        ELSE 1
+      END,
       CASE WHEN ${categorySlug}::text IS NOT NULL AND v.category_slug = ${categorySlug} THEN 0 ELSE 1 END,
+      CASE
+        WHEN ${hasAffinityCategories}::boolean AND v.category_slug = ANY(${affinityCategorySlugs}) THEN 0
+        ELSE 1
+      END,
       COALESCE(v.published_at, v.created_at) DESC
     LIMIT ${cap}
   `;

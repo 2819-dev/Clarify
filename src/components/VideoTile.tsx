@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { ModeratorMenu } from "@/components/ModeratorMenu";
+import { RecommendMenu } from "@/components/RecommendMenu";
 import { useCanModerate } from "@/components/ModerationContext";
 import type { Video } from "@/lib/db";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
@@ -28,6 +30,7 @@ export function VideoTile({
   hideChannel?: boolean;
 }) {
   const canModerate = useCanModerate();
+  const [dismissed, setDismissed] = useState(false);
   const duration = formatDuration(video.duration_seconds);
   const isShort = Boolean(video.is_short);
   const showChannel = !hideChannel && !isShort;
@@ -49,6 +52,8 @@ export function VideoTile({
   const relative = when ? formatRelativeTime(when) : null;
   const absolute = when ? formatAbsoluteTime(when) : "";
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();
+
+  if (dismissed) return null;
 
   return (
     <article
@@ -110,13 +115,21 @@ export function VideoTile({
                 {video.title}
               </h3>
             </Link>
-            {canModerate ? (
-              <ModeratorMenu
-                target="video"
-                videoId={video.id}
+            <div className="video-tile-menus">
+              <RecommendMenu
+                channelSlug={video.channel_slug}
+                categorySlug={video.category_slug}
                 label={video.title}
+                onHidden={() => setDismissed(true)}
               />
-            ) : null}
+              {canModerate ? (
+                <ModeratorMenu
+                  target="video"
+                  videoId={video.id}
+                  label={video.title}
+                />
+              ) : null}
+            </div>
           </div>
           <div className="video-meta">
             {showChannel ? (

@@ -15,9 +15,14 @@ import {
   getVideoLikeState,
   isSubscribed,
   listComments,
+  listFeedPrefChannelSlugs,
 } from "@/lib/engagement";
 import { consumerDescription } from "@/lib/description";
 import { COMMENTS_ENABLED } from "@/lib/features";
+import {
+  getAffinityPrefs,
+  getHiddenChannelSlugs,
+} from "@/lib/preferences-server";
 import { formatAbsoluteTime, formatRelativeTime } from "@/lib/time";
 import { getCurrentUser } from "@/lib/user-auth";
 import { getActiveVideo, listRelatedVideos } from "@/lib/videos";
@@ -35,14 +40,35 @@ export default async function WatchPage({
 
   const mode = await getContentMode();
   const user = await getCurrentUser();
-  const [likeState, comments, subscribed, related] = await Promise.all([
-    getVideoLikeState(video.id, user?.id),
-    COMMENTS_ENABLED ? listComments(video.id) : Promise.resolve([]),
-    user && video.channel_slug
-      ? isSubscribed(user.id, video.channel_slug)
-      : Promise.resolve(false),
-    listRelatedVideos(video, mode, 18),
-  ]);
+  const [likeState, comments, subscribed, cookieAffinity, cookieHidden, dbMore, dbHidden] =
+    await Promise.all([
+      getVideoLikeState(video.id, user?.id),
+      COMMENTS_ENABLED ? listComments(video.id) : Promise.resolve([]),
+      user && video.channel_slug
+        ? isSubscribed(user.id, video.channel_slug)
+        : Promise.resolve(false),
+      getAffinityPrefs(),
+      getHiddenChannelSlugs(),
+      user
+        ? listFeedPrefChannelSlugs(user.id, "more")
+        : Promise.resolve([] as string[]),
+      user
+        ? listFeedPrefChannelSlugs(user.id, "hide")
+        : Promise.resolve([] as string[]),
+    ]);
+  const excludeChannelSlugs = [...new Set([...cookieHidden, ...dbHidden])];
+  const hiddenSet = new Set(excludeChannelSlugs);
+  const affinityChannelSlugs = [
+    ...new Set([...cookieAffinity.channelSlugs, ...dbMore]),
+  ]
+    .filter((s) => !hiddenSet.has(s))
+    .slice(0, 30);
+  const affinityCategorySlugs = cookieAffinity.categorySlugs.slice(0, 12);
+  const related = await listRelatedVideos(video, mode, 18, {
+    excludeChannelSlugs,
+    affinityChannelSlugs,
+    affinityCategorySlugs,
+  });
 
   const when = video.published_at || null;
   const initial = (video.channel_name.trim()[0] || "?").toUpperCase();

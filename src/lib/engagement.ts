@@ -298,3 +298,59 @@ export async function addComment(
     username: u.username,
   };
 }
+
+export type ChannelFeedPreference = "more" | "hide";
+
+export async function listFeedPrefChannelSlugs(
+  userId: string,
+  preference: ChannelFeedPreference,
+): Promise<string[]> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT ch.slug
+    FROM channel_feed_prefs p
+    INNER JOIN channels ch ON ch.id = p.channel_id
+    WHERE p.user_id = ${userId}::uuid
+      AND p.preference = ${preference}
+      AND COALESCE(ch.is_active, TRUE) = TRUE
+    ORDER BY p.updated_at DESC
+    LIMIT 40
+  `;
+  return (rows as { slug: string }[]).map((r) => r.slug);
+}
+
+export async function setChannelFeedPref(
+  userId: string,
+  channelSlug: string,
+  preference: ChannelFeedPreference,
+): Promise<ChannelFeedPreference> {
+  const sql = getSql();
+  const channels = await sql`
+    SELECT id FROM channels WHERE slug = ${channelSlug} LIMIT 1
+  `;
+  const channelId = (channels[0] as { id: string } | undefined)?.id;
+  if (!channelId) throw new Error("Channel not found");
+
+  await sql`
+    INSERT INTO channel_feed_prefs (user_id, channel_id, preference, updated_at)
+    VALUES (${userId}::uuid, ${channelId}::uuid, ${preference}, NOW())
+    ON CONFLICT (user_id, channel_id) DO UPDATE
+      SET preference = EXCLUDED.preference,
+          updated_at = NOW()
+  `;
+  return preference;
+}
+
+export async function clearChannelFeedPref(
+  userId: string,
+  channelSlug: string,
+): Promise<void> {
+  const sql = getSql();
+  await sql`
+    DELETE FROM channel_feed_prefs p
+    USING channels ch
+    WHERE p.user_id = ${userId}::uuid
+      AND p.channel_id = ch.id
+      AND ch.slug = ${channelSlug}
+  `;
+}
