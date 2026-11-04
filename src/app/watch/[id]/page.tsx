@@ -161,15 +161,9 @@ export default async function WatchPage({
           {!isShort ? (
             <>
               <h1 className="watch-title">{video.title}</h1>
-              {when ? (
-                <p className="watch-title-meta">
-                  <time dateTime={when} title={formatAbsoluteTime(when)}>
-                    {formatRelativeTime(when)}
-                  </time>
-                </p>
-              ) : null}
 
-              <div className="watch-owner-row">
+              {/* YouTube pattern: channel+Subscribe left · Like/Share/Report right */}
+              <div className="watch-below">
                 <div className="watch-owner">
                   {video.channel_slug ? (
                     <Link
@@ -206,7 +200,7 @@ export default async function WatchPage({
                   {subscribe}
                 </div>
 
-                <div className="watch-engage">
+                <div className="watch-engage" aria-label="Video actions">
                   <LikeButton
                     videoId={video.id}
                     initialLiked={likeState.liked}
@@ -221,7 +215,7 @@ export default async function WatchPage({
                     channelName={video.channel_name}
                   />
                   <div className="watch-report-inline">
-                    <ReportForm videoId={video.id} />
+                    <ReportForm videoId={video.id} variant="pill" />
                   </div>
                 </div>
               </div>
@@ -235,7 +229,7 @@ export default async function WatchPage({
                 channelName={video.channel_name}
               />
               <div className="watch-report-inline">
-                <ReportForm videoId={video.id} />
+                <ReportForm videoId={video.id} variant="pill" />
               </div>
             </div>
           )}
@@ -244,7 +238,17 @@ export default async function WatchPage({
             <WatchDescription
               text={description}
               meta={
-                <div className="watch-tags">
+                <div className="watch-desc-meta">
+                  {when ? (
+                    <time dateTime={when} title={formatAbsoluteTime(when)}>
+                      {formatRelativeTime(when)}
+                    </time>
+                  ) : null}
+                  {when && video.category_slug ? (
+                    <span className="watch-desc-dot" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
                   {video.category_slug ? (
                     <Link
                       href={`/categories/${video.category_slug}`}

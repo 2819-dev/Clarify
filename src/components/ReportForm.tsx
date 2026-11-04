@@ -2,7 +2,22 @@
 
 import { FormEvent, useState } from "react";
 
-export function ReportForm({ videoId }: { videoId: string }) {
+function FlagIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M14.4 6 14 4H5v17h2v-7h5.6l.4 2H19V6h-4.6z" />
+    </svg>
+  );
+}
+
+export function ReportForm({
+  videoId,
+  variant = "ghost",
+}: {
+  videoId: string;
+  /** Match Share/Like pills on the watch engage row. */
+  variant?: "ghost" | "pill";
+}) {
   const [open, setOpen] = useState(false);
   const [reason, setReason] = useState("");
   const [status, setStatus] = useState<"idle" | "saving" | "done" | "error">(
@@ -36,8 +51,14 @@ export function ReportForm({ videoId }: { videoId: string }) {
 
   if (!open) {
     return (
-      <button type="button" className="btn-ghost" onClick={() => setOpen(true)}>
-        Report
+      <button
+        type="button"
+        className={variant === "pill" ? "btn-share btn-report" : "btn-ghost"}
+        onClick={() => setOpen(true)}
+        aria-label="Report"
+      >
+        {variant === "pill" ? <FlagIcon /> : null}
+        <span>Report</span>
       </button>
     );
   }
