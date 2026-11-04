@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ModerationProvider } from "@/components/ModerationContext";
 import { ChildRestrictionBanner } from "@/components/ChildRestrictionBanner";
 import { PrefsHydrator } from "@/components/PrefsHydrator";
@@ -14,16 +14,10 @@ import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import { getCurrentUser } from "@/lib/user-auth";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
-  weight: ["600", "700"],
-});
-
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -52,7 +46,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

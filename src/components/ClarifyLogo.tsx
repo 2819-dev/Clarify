@@ -30,8 +30,8 @@ export function ClarifyMark({
   const uid = useId().replace(/:/g, "");
   const haloId = `clarifyHalo-${uid}`;
   const sparkId = `clarifySpark-${uid}`;
-  const blue = variant === "default" ? "#3B82C4" : "#F4F8FE";
-  const blueDeep = variant === "default" ? "#2563A8" : "#D7E6FA";
+  const blue = variant === "default" ? "#1A73E8" : "#F4F8FE";
+  const blueDeep = variant === "default" ? "#1557B0" : "#D7E6FA";
   const gold = "#E4B45A";
   const goldDeep = "#C9842A";
 
