@@ -10485,10 +10485,25 @@ html[data-theme="dark"] .yt-chip.is-active {
 }
 
 @media (max-width: 960px) {
+  /* Beat desktop watch mini-rail rule (incl. :not(.yt-sidebar-collapsed)) */
   .yt-body,
   html.yt-sidebar-collapsed .yt-body,
-  html.yt-page-watch .yt-body {
-    grid-template-columns: minmax(0, 1fr);
+  html.yt-page-watch .yt-body,
+  html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .yt-main,
+  .yt-main-inner,
+  .watch-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .watch-page,
+  html.yt-page-watch .watch-page {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   .yt-main-inner:not(:has(.watch-page)) {
