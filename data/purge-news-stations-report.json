@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-06T03:42:07.773Z",
+  "followup_note": "Restored false-positive uscj-lost-in-tha-sauce-podcast (sports podcast matched 'breaking news' in description). Heuristic tightened.",
+  "purged_channel_slugs": [
+    "wxyz-tv-detroit-channel-7",
+    "ap-archive",
+    "associated-press",
+    "12",
+    "vox"
+  ],
+  "neon": {
+    "deactivated_videos": 149,
+    "deactivated_channels": 5,
+    "after": {
+      "videos_active": 16979,
+      "channels_active": 620,
+      "news_station_videos_still_active": 0,
+      "news_station_channels_still_active": 0,
+      "wxyz_still_active": 0
+    }
+  },
+  "seed": {
+    "after": {
+      "channels": 612,
+      "videos": 16903
+    }
+  }
+}
