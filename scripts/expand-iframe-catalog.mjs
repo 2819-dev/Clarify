@@ -595,7 +595,159 @@ const NEW_CHANNELS = [
   ["gettymuseum", false, "history"],
   ["nga", false, "history"],
   ["nationalgallery", false, "history"],
+  // Round 4 — 2026-11-06 more Jewish makers (probed @handles)
+  ["RabbiSacks", true, "torah"],
+  ["ManisFriedman", true, "torah"],
+  ["MeaningfulMinute", true, "community"],
+  ["OpenDorMedia", true, "learning"],
+  ["UnpackedMedia", true, "learning"],
+  ["JewishBookCouncil", true, "stories"],
+  ["KarBenPublishing", true, "stories"],
+  ["BehrmanHouse", true, "learning"],
+  ["TorahAura", true, "learning"],
+  ["HadarInstitute", true, "torah"],
+  ["DrishaInstitute", true, "torah"],
+  ["MDAIsrael", true, "community"],
+  ["JewishMuseumBerlin", true, "history"],
+  ["israelmuseum", true, "history"],
+  ["jewishmuseumlondon", true, "history"],
+  ["jewishfoodsociety", true, "cooking"],
+  ["MayimBialik", true, "community"],
+  ["IshayRiboOfficial", true, "music"],
+  ["GadElbazOfficial", true, "music"],
+  ["NissimBlackOfficial", true, "music"],
+  ["MosheYess", true, "music"],
+  ["yitzjordan", true, "music"],
+  ["HebrewPod101", true, "hebrew"],
+  ["streetwisehebrew", true, "hebrew"],
+  ["PJLibraryOfficial", true, "learning"],
+  ["HillelInternational", true, "community"],
+  ["MasaIsraelJourney", true, "community"],
+  ["OnwardIsrael", true, "community"],
+  ["92ndStreetY", true, "community"],
+  ["jewishedproject", true, "learning"],
+  ["tanachstudy", true, "torah"],
+  ["LeahCooksKosher", true, "cooking"],
+  ["jewishwomensarchive", true, "history"],
+  // Round 4 — more Family-Friendly (probed; no news / AI-gen)
+  ["Vsauce3", false, "science"],
+  ["Vsauce2Official", false, "science"],
+  ["vsauce", false, "science"],
+  ["vsauce2", false, "science"],
+  ["ScishowKids", false, "science"],
+  ["CrashCourseKids", false, "learning"],
+  ["BrainPop", false, "learning"],
+  ["BrainPOPJr", false, "learning"],
+  ["NatGeoKids", false, "nature"],
+  ["NatGeoAnimals", false, "nature"],
+  ["BBCEarthKids", false, "nature"],
+  ["SesameStreetOfficial", false, "learning"],
+  ["BlueyOfficialChannel", false, "family"],
+  ["BlueyCartoon", false, "family"],
+  ["MisterRogersNeighborhood", false, "learning"],
+  ["StorylineOnline", false, "stories"],
+  ["BrightlyStorytime", false, "stories"],
+  ["CosmicKidsYoga", false, "sports"],
+  ["PinkfongBabyShark", false, "music"],
+  ["SuperSimpleSongs", false, "music"],
+  ["LittleAngelNursery", false, "music"],
+  ["ArtForKidsHub", false, "crafts"],
+  ["RedTedArt", false, "crafts"],
+  ["EasyPeasyAndFun", false, "crafts"],
+  ["MarkRober", false, "science"],
+  ["SmarterEveryDay", false, "science"],
+  ["VeritasiumOfficial", false, "science"],
+  ["Numberphile2", false, "science"],
+  ["standupmaths", false, "science"],
+  ["TomScottGo", false, "learning"],
+  ["RealEngineering", false, "science"],
+  ["WendoverProductions", false, "learning"],
+  ["KurzgesagtInANutshell", false, "science"],
+  ["GenerationGenius", false, "science"],
+  ["SmithsonianChannel", false, "history"],
+  ["NASAKennedy", false, "science"],
+  ["ScratchTeamOfficial", false, "learning"],
+  ["KhanAcademyKids", false, "learning"],
+  ["Duolingo", false, "learning"],
+  ["ArduinoOfficial", false, "learning"],
+  ["RaspberryPiFoundation", false, "learning"],
+  ["legoeducation", false, "learning"],
+  ["microbit", false, "learning"],
+  ["NationalParkService", false, "nature"],
+  ["nps", false, "nature"],
+  ["MetMuseum", false, "history"],
+  ["TheMuseumOfModernArt", false, "history"],
+  ["RoyalInstitution", false, "science"],
+  ["Makezine", false, "crafts"],
+  ["ElectromakerIO", false, "science"],
+  ["instructables", false, "crafts"],
+  ["HowRidiculousOfficial", false, "sports"],
+  ["MindYourDecisions", false, "science"],
+  ["mathantics", false, "learning"],
+  ["KidsAcademyOfficial", false, "learning"],
+  ["kidsacademy", false, "learning"],
+  ["BlippiOfficial", false, "learning"],
+  ["blippi", false, "learning"],
+  ["MsRachel", false, "learning"],
+  ["MsRachelForKids", false, "learning"],
+  ["tested", false, "science"],
+  ["blenderguru", false, "crafts"],
+  ["epicgardening", false, "nature"],
+  ["howridiculous", false, "sports"],
+  ["webbtelescope", false, "science"],
+  ["seattleaquarium", false, "nature"],
+  ["detroitzoo", false, "nature"],
+  ["folkways", false, "music"],
+  ["smithsonianfolkways", false, "music"],
+  ["arduino", false, "learning"],
+  ["raspberrypi", false, "learning"],
 ];
+
+/** News stations / wire / broadcast — never import (even if listed above historically). */
+const NEWS_HANDLES = new Set(
+  [
+    "vox",
+    "voxdotcom",
+    "nowthis",
+    "mako",
+    "keshet12",
+    "israelhayom",
+    "kan11",
+    "kannemania",
+    "glztv",
+    "jtaorg",
+    "jewishtelegraphicagency",
+    "tabletmag",
+    "tabletmagvideo",
+    "forward",
+    "memri",
+    "memritv",
+    "reuters",
+    "bloomberg",
+    "cnn",
+    "msnbc",
+    "foxnews",
+    "cnbc",
+    "abcnews",
+    "nbcnews",
+    "cbsnews",
+    "bbcnews",
+    "skynews",
+    "aljazeera",
+    "i24news",
+    "i24newsenglish",
+    "associatedpress",
+    "aparchive",
+    "wxyztvdetroit",
+    "pix11news",
+    "whyy",
+    "iltvisraelnews",
+    "allisraelnewscom",
+    "timesofisrael",
+    "haaretzcom",
+    "thejerusalempost",
+  ].map((h) => h.toLowerCase()),
+);
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -842,6 +994,10 @@ async function ensureNewChannels() {
   let failed = 0;
   for (const [handle, isJewish, hint] of NEW_CHANNELS) {
     const key = handle.toLowerCase();
+    if (NEWS_HANDLES.has(key)) {
+      skipped++;
+      continue;
+    }
     if (byHandle.has(key)) {
       skipped++;
       continue;
@@ -1154,12 +1310,51 @@ console.log("=== before ===");
 const before = await counts();
 console.log(JSON.stringify(before, null, 2));
 
+console.log("=== deactivate news-handle channels (policy: no News) ===");
+const newsDeactivated = await sql`
+  UPDATE channels
+  SET is_active = FALSE
+  WHERE COALESCE(is_active, TRUE) = TRUE
+    AND (
+      lower(COALESCE(username, '')) = ANY(${[...NEWS_HANDLES]})
+      OR lower(slug) = ANY(${[
+        "vox",
+        "12",
+        "associated-press",
+        "ap-archive",
+        "wxyz-tv-detroit-channel-7",
+        "i24news-english",
+        "11",
+        "mako",
+        "kanisrael",
+      ]})
+    )
+  RETURNING slug, username
+`;
+if (newsDeactivated.length) {
+  await sql`
+    UPDATE videos
+    SET is_active = FALSE, updated_at = NOW()
+    WHERE is_active = TRUE
+      AND channel_id IN (
+        SELECT id FROM channels WHERE slug = ANY(${newsDeactivated.map((r) => r.slug)})
+      )
+  `;
+}
+console.log(
+  JSON.stringify(
+    { deactivated: newsDeactivated.map((r) => r.slug) },
+    null,
+    2,
+  ),
+);
+
 console.log("=== add curated @handle channels ===");
 const chSummary = await ensureNewChannels();
 console.log(JSON.stringify(chSummary, null, 2));
 
 console.log("=== expand iframe-verified uploads (thin channels first) ===");
-const expandSummary = await expandVideos({ channelLimit: 420, perChannel: 36 });
+const expandSummary = await expandVideos({ channelLimit: 480, perChannel: 40 });
 console.log(JSON.stringify(expandSummary, null, 2));
 
 console.log("=== after ===");
