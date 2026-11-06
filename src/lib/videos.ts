@@ -400,6 +400,9 @@ export async function listRelatedVideos(
   const hasExcludeChannels = excludeChannelSlugs.length > 0;
   const hasAffinityChannels = affinityChannelSlugs.length > 0;
   const hasAffinityCategories = affinityCategorySlugs.length > 0;
+  // News never surfaces as related while browsing in Jewish mode.
+  const excludeNews =
+    onlyJewish && (video.category_slug || "").toLowerCase() !== "news";
   const cap = Math.min(Math.max(limit, 1), 40);
   const rows = await sql`
     SELECT
@@ -419,6 +422,11 @@ export async function listRelatedVideos(
       AND (
         ${!onlyJewish}::boolean
         OR COALESCE(v.is_jewish, TRUE) = TRUE
+      )
+      AND (
+        ${!excludeNews}::boolean
+        OR v.category_slug IS NULL
+        OR v.category_slug <> 'news'
       )
       AND (
         ${!hasExcludeChannels}::boolean

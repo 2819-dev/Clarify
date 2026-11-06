@@ -44,8 +44,9 @@ export default function AboutPage() {
             suitable channels such as nature and kids learning.
           </li>
           <li>
-            <strong>Categories</strong> — browse by topic. Music and News stay
-            in their own sections on the home page.
+            <strong>Categories</strong> — browse by topic. Music has its own
+            home section; News appears in Family-Friendly (and the News
+            category), not in Jewish mode.
           </li>
           <li>
             <strong>Parental controls</strong> — open Parental controls in the

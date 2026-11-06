@@ -60,6 +60,7 @@ const NEW_CHANNELS = [
   ["chabadoncampus", true, "community"],
   ["moishiehellman", true, "music"],
   ["berelweiss", true, "music"],
+  ["Jacobsyechiel", true, "comedy"],
   // Family-friendly
   ["storybots", false, "learning"],
   ["thedadlab", false, "science"],

@@ -90,12 +90,17 @@ export default async function HomePage({
     .filter((s) => s !== "music" && s !== "news")
     .slice(0, 12);
 
-  // Music + News belong in their own sections — not the mixed For you grid.
+  // Music stays shelved separately; News is Family-Friendly only (never Jewish mode).
+  const baseExclude = [
+    ...(!isSearch ? (["music", "news"] as const) : []),
+    ...(mode !== "filtered" ? (["news"] as const) : []),
+  ];
   const homeExclude = withParentalExcludes(
-    !isSearch ? ["music", "news"] : undefined,
+    baseExclude.length ? [...new Set(baseExclude)] : undefined,
     parentalDisabled,
   );
   const homeSort = isSearch ? ("recent" as const) : ("ranked" as const);
+  const showNewsShelf = mode === "filtered";
 
   const [categories, total, shortsCount, latest, shorts, trending] =
     await Promise.all([
@@ -196,16 +201,18 @@ export default async function HomePage({
             affinityChannelSlugs,
             affinityCategorySlugs,
           }),
-          listActiveVideos({
-            category: "news",
-            mode,
-            limit: 12,
-            excludeChannelSlugs,
-            sort: "ranked",
-            boostChannelSlugs,
-            affinityChannelSlugs,
-            affinityCategorySlugs,
-          }),
+          showNewsShelf
+            ? listActiveVideos({
+                category: "news",
+                mode: "filtered",
+                limit: 12,
+                excludeChannelSlugs,
+                sort: "ranked",
+                boostChannelSlugs,
+                affinityChannelSlugs,
+                affinityCategorySlugs,
+              })
+            : Promise.resolve([]),
           Promise.all(
             nonMusicCategories.slice(0, 5).map(async (cat) => ({
               cat,
