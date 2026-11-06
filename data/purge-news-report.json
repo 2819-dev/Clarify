@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-06T03:36:55.985Z",
+  "neon": {
+    "before": {
+      "videos_active": 17128,
+      "news_videos_active": 0,
+      "channels_active": 625,
+      "news_category": 1
+    },
+    "deactivated_videos": 0,
+    "deactivated_channels": [],
+    "deleted_category": [
+      "news"
+    ],
+    "after": {
+      "videos_active": 17128,
+      "videos_jewish": 7014,
+      "videos_filtered_only": 10114,
+      "news_videos_active": 0,
+      "news_videos_rows": 0,
+      "channels_active": 625,
+      "channels_jewish": 233,
+      "news_category": 0
+    }
+  },
+  "seed": {
+    "before": {
+      "channels": 631,
+      "videos": 17531,
+      "news_videos": 479,
+      "news_channels": 14
+    },
+    "after": {
+      "channels": 617,
+      "videos": 17052,
+      "news_videos": 0,
+      "removed_channels": 14,
+      "removed_videos": 479
+    }
+  }
+}

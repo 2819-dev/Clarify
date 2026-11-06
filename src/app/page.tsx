@@ -70,7 +70,7 @@ export default async function HomePage({
     .filter((s) => !hiddenSet.has(s))
     .slice(0, 30);
   const affinityCategorySlugs = cookieAffinity.categorySlugs
-    .filter((s) => s !== "music" && s !== "news")
+    .filter((s) => s !== "music" && s !== "news") // ignore legacy news affinity
     .slice(0, 12);
 
   const subSlugs = [...new Set([...dbSubs, ...cookieSubs])];
@@ -90,17 +90,12 @@ export default async function HomePage({
     .filter((s) => s !== "music" && s !== "news")
     .slice(0, 12);
 
-  // Music stays shelved separately; News is Family-Friendly only (never Jewish mode).
-  const baseExclude = [
-    ...(!isSearch ? (["music", "news"] as const) : []),
-    ...(mode !== "filtered" ? (["news"] as const) : []),
-  ];
+  // Music stays in its own home shelf — keep it out of the mixed For you grid.
   const homeExclude = withParentalExcludes(
-    baseExclude.length ? [...new Set(baseExclude)] : undefined,
+    !isSearch ? ["music"] : undefined,
     parentalDisabled,
   );
   const homeSort = isSearch ? ("recent" as const) : ("ranked" as const);
-  const showNewsShelf = mode === "filtered";
 
   const [categories, total, shortsCount, latest, shorts, trending] =
     await Promise.all([
@@ -125,7 +120,7 @@ export default async function HomePage({
             format: "shorts",
             mode,
             limit: 14,
-            excludeCategorySlugs: ["music", "news"],
+            excludeCategorySlugs: ["music"],
             excludeChannelSlugs,
             sort: "ranked",
             boostChannelSlugs,
@@ -138,7 +133,7 @@ export default async function HomePage({
         ? listActiveVideos({
             mode,
             limit: 12,
-            excludeCategorySlugs: ["music", "news"],
+            excludeCategorySlugs: ["music"],
             excludeChannelSlugs,
             format: "videos",
             sort: "trending",
@@ -147,13 +142,10 @@ export default async function HomePage({
     ]);
 
   const showShelves = !isSearch && format === "all";
-  const newsCategory = categories.find((c) => c.slug === "news");
   const musicCategory = categories.find((c) => c.slug === "music");
-  const nonMusicCategories = categories.filter(
-    (c) => c.slug !== "music" && c.slug !== "news",
-  );
+  const nonMusicCategories = categories.filter((c) => c.slug !== "music");
 
-  const [subscriptionVideos, recommendedVideos, musicVideos, newsVideos, shelfRows] =
+  const [subscriptionVideos, recommendedVideos, musicVideos, shelfRows] =
     showShelves
       ? await Promise.all([
           subSlugs.length
@@ -161,7 +153,7 @@ export default async function HomePage({
                 channelSlugs: subSlugs,
                 mode,
                 limit: 14,
-                excludeCategorySlugs: ["music", "news"],
+                excludeCategorySlugs: ["music"],
                 sort: "ranked",
                 boostChannelSlugs,
                 boostCategorySlugs,
@@ -182,7 +174,7 @@ export default async function HomePage({
             return listActiveVideos({
               mode,
               limit: 14,
-              excludeCategorySlugs: ["music", "news"],
+              excludeCategorySlugs: ["music"],
               excludeChannelSlugs,
               sort: "ranked",
               boostChannelSlugs,
@@ -201,18 +193,6 @@ export default async function HomePage({
             affinityChannelSlugs,
             affinityCategorySlugs,
           }),
-          showNewsShelf
-            ? listActiveVideos({
-                category: "news",
-                mode: "filtered",
-                limit: 12,
-                excludeChannelSlugs,
-                sort: "ranked",
-                boostChannelSlugs,
-                affinityChannelSlugs,
-                affinityCategorySlugs,
-              })
-            : Promise.resolve([]),
           Promise.all(
             nonMusicCategories.slice(0, 5).map(async (cat) => ({
               cat,
@@ -230,7 +210,7 @@ export default async function HomePage({
             })),
           ),
         ])
-      : [[], [], [], [], []];
+      : [[], [], [], []];
 
   // Avoid duplicating the same video across top shelves when possible
   const seen = new Set<string>();
@@ -365,14 +345,6 @@ export default async function HomePage({
               ))}
             </div>
           </section>
-
-          {newsVideos.length > 0 ? (
-            <VideoShelf
-              title={newsCategory?.name || "News"}
-              videos={takeFresh(newsVideos, 10)}
-              href="/categories/news"
-            />
-          ) : null}
 
           {musicVideos.length > 0 ? (
             <VideoShelf

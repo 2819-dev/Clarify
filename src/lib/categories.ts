@@ -8,8 +8,6 @@ function jewishOnly(mode?: ContentMode): boolean {
 export async function listCategories(mode?: ContentMode): Promise<Category[]> {
   const sql = getSql();
   const onlyJewish = jewishOnly(mode);
-  // Policy: News is Family-Friendly / News-tab only — never listed in Jewish mode.
-  const hideNews = onlyJewish;
   const rows = await sql`
     SELECT cat.slug, cat.name, cat.description, cat.sort_order,
            COUNT(v.id)::int AS video_count
@@ -21,10 +19,7 @@ export async function listCategories(mode?: ContentMode): Promise<Category[]> {
        ${!onlyJewish}::boolean
        OR COALESCE(v.is_jewish, TRUE) = TRUE
      )
-    WHERE (
-      ${!hideNews}::boolean
-      OR cat.slug <> 'news'
-    )
+    WHERE cat.slug <> 'news'
     GROUP BY cat.slug, cat.name, cat.description, cat.sort_order
     HAVING COUNT(v.id) > 0
     ORDER BY cat.sort_order ASC, cat.name ASC

@@ -27,7 +27,6 @@ type OwnStatus = {
 } | null;
 
 const CATEGORY_OPTIONS = [
-  { slug: "news", label: "News" },
   { slug: "music", label: "Music" },
   { slug: "comedy", label: "Comedy" },
   { slug: "gaming", label: "Gaming" },
