@@ -9865,3 +9865,683 @@ html[data-theme="dark"] .yt-search-btn:hover {
     transition: none !important;
   }
 }
+
+/* ——— Make better 4 — 2026-11-06: hierarchy, guide width, quiet chrome ——— */
+
+:root {
+  --yt-guide-width: 240px;
+  --yt-guide-mini: 72px;
+  --yt-thumb-radius: 12px;
+  --yt-chip-radius: 8px;
+  --yt-control-height: 36px;
+  --yt-gap-row: 1.35rem;
+  --yt-gap-col: 1rem;
+  --line-soft: color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+/* App shell — roomier YT guide */
+.yt-body {
+  grid-template-columns: var(--yt-guide-width) minmax(0, 1fr);
+}
+
+html.yt-sidebar-collapsed .yt-body {
+  grid-template-columns: var(--yt-guide-mini) minmax(0, 1fr);
+}
+
+html.yt-page-watch .yt-body,
+html.yt-page-watch:not(.yt-sidebar-collapsed) .yt-body {
+  grid-template-columns: var(--yt-guide-mini) minmax(0, 1fr);
+}
+
+/* Masthead — crisp, no residual glass */
+.yt-topbar {
+  min-height: 56px;
+  padding: 0 1rem 0 0.85rem;
+  gap: 0.75rem;
+  background: var(--surface) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid var(--line-soft);
+  box-shadow: none;
+}
+
+.yt-topbar-left {
+  gap: 0.35rem;
+  padding-left: 0.15rem;
+}
+
+.yt-guide-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.clarify-wordmark {
+  font-size: 1.2rem;
+  letter-spacing: -0.045em;
+  font-weight: 750;
+}
+
+.yt-topbar-search {
+  width: min(640px, 100%);
+}
+
+.yt-topbar-search .catalog-search input,
+.yt-search.catalog-search input {
+  height: 40px;
+  border-radius: 40px 0 0 40px;
+  border: 1px solid #ccc;
+  border-right: none;
+  background: var(--white);
+  font-size: 1rem;
+  padding-inline: 1.05rem 2.4rem;
+}
+
+.yt-search-btn,
+.yt-topbar-search .catalog-search .btn-primary {
+  height: 40px;
+  min-width: 64px;
+  border-radius: 0 40px 40px 0;
+  border: 1px solid #d3d3d3;
+  background: #f8f8f8;
+  color: #0f0f0f;
+}
+
+.yt-search-btn:hover,
+.yt-topbar-search .catalog-search .btn-primary:hover {
+  background: #f0f0f0;
+  color: #0f0f0f;
+}
+
+html.theme-dark .yt-topbar-search .catalog-search input,
+html[data-theme="dark"] .yt-topbar-search .catalog-search input {
+  border-color: #303030;
+  background: #121212;
+}
+
+html.theme-dark .yt-search-btn,
+html.theme-dark .yt-topbar-search .catalog-search .btn-primary,
+html[data-theme="dark"] .yt-search-btn,
+html[data-theme="dark"] .yt-topbar-search .catalog-search .btn-primary {
+  border-color: #303030;
+  background: #222;
+  color: #f1f1f1;
+}
+
+.yt-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--ink);
+}
+
+.yt-icon-btn:hover,
+.yt-icon-btn[aria-expanded="true"] {
+  background: var(--paper);
+  transform: none;
+}
+
+.yt-topbar-mode .content-mode-toggle {
+  height: 36px;
+  padding: 0.12rem;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+}
+
+.yt-topbar-mode .content-mode-option {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.32rem 0.7rem;
+  letter-spacing: 0;
+}
+
+.yt-signin-chip {
+  height: 36px;
+  margin-left: 0.15rem;
+  padding: 0 0.95rem 0 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--blue-700) 45%, var(--line));
+  color: var(--blue-950);
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.yt-signin-chip:hover {
+  background: color-mix(in srgb, var(--blue-100) 70%, var(--surface));
+  box-shadow: none;
+}
+
+/* Guide / sidebar — denser YT rows, quieter chrome */
+.yt-sidebar {
+  width: auto;
+  padding: 0.5rem 0.7rem 1rem;
+  gap: 0.7rem;
+  background: var(--surface);
+  border-right: none;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink-soft) 35%, transparent) transparent;
+}
+
+.yt-sidebar-nav {
+  gap: 0.05rem;
+}
+
+.yt-sidebar-link {
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  gap: 1rem;
+}
+
+.yt-sidebar-link:hover {
+  background: var(--paper);
+}
+
+.yt-sidebar-link.is-active {
+  background: var(--paper-deep);
+  font-weight: 600;
+}
+
+.yt-sidebar-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  opacity: 0.92;
+}
+
+.yt-sidebar-heading {
+  margin: 0.35rem 0.75rem 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.95;
+}
+
+.yt-sidebar-section {
+  gap: 0.08rem;
+  padding-top: 0.15rem;
+}
+
+.yt-sidebar-empty {
+  margin: 0.15rem 0.55rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  background: var(--paper);
+  border: none;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.yt-sidebar-more {
+  margin: 0.15rem 0.55rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue-950);
+}
+
+.theme-toggle {
+  margin: 0.15rem 0.4rem 0;
+  padding: 0.18rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.12rem;
+}
+
+.theme-toggle-option {
+  min-height: 30px;
+  padding: 0.28rem 0.2rem;
+  border-radius: 9px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.theme-toggle-option.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+html.theme-dark .theme-toggle-option.is-active,
+html[data-theme="dark"] .theme-toggle-option.is-active {
+  background: #f1f1f1;
+  color: #0f0f0f;
+}
+
+.yt-sidebar-footer {
+  margin-top: auto;
+  padding: 0.55rem 0.55rem 0.15rem;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+}
+
+.yt-sidebar-footer a {
+  font-size: 0.75rem;
+  font-weight: 550;
+  color: var(--ink-soft);
+}
+
+.yt-sidebar-footer a:hover {
+  color: var(--ink);
+}
+
+/* Chip rail — sticky YT filter bar with soft edge */
+.yt-chip-rail {
+  top: 56px;
+  z-index: 25;
+  background: var(--surface);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0.45rem 0 0.55rem;
+  margin: 0;
+  border-bottom: 1px solid transparent;
+}
+
+.yt-chip-rail-track {
+  gap: 0.45rem;
+  padding-bottom: 0.05rem;
+}
+
+.yt-chip {
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--yt-chip-radius);
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  background: var(--paper);
+  border: none;
+  box-shadow: none;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+}
+
+.yt-chip:hover {
+  background: var(--paper-deep);
+  transform: none;
+}
+
+.yt-chip.is-active {
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 550;
+}
+
+html.theme-dark .yt-chip.is-active,
+html[data-theme="dark"] .yt-chip.is-active {
+  background: #f1f1f1;
+  color: #0f0f0f;
+}
+
+/* Home shelves — clearer hierarchy, denser rhythm */
+.yt-main-inner:not(:has(.watch-page)) {
+  padding-block: 0.15rem 1.75rem;
+  padding-inline: 1.5rem;
+}
+
+.yt-shelves {
+  gap: 1.5rem;
+  margin-top: 0.35rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.65rem;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.yt-shelf-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.yt-shelf-more {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--blue-950);
+}
+
+.yt-shelf-more:hover {
+  color: var(--blue-700);
+}
+
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid),
+.yt-shelf-longform-grid,
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  gap: var(--yt-gap-row) var(--yt-gap-col) !important;
+}
+
+/* Tiles — quieter modern YT metadata */
+.video-tile {
+  gap: 0.6rem;
+}
+
+.video-thumb-wrap {
+  border-radius: var(--yt-thumb-radius);
+  background: #000;
+  overflow: hidden;
+}
+
+.video-tile:hover .video-thumb-wrap {
+  transform: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-tile:hover .video-thumb {
+  transform: none;
+  filter: none;
+}
+
+.video-tile-body {
+  gap: 0.7rem;
+  padding-inline: 0 0.2rem;
+  align-items: flex-start;
+}
+
+.video-tile-avatar {
+  width: 36px;
+  height: 36px;
+  margin-top: 0.1rem;
+}
+
+.video-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.video-meta {
+  display: grid;
+  gap: 0.05rem;
+  margin-top: 0.15rem;
+}
+
+.video-channel,
+.video-submeta {
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: var(--ink-soft);
+  font-weight: 450;
+}
+
+.video-channel:hover {
+  color: var(--ink);
+}
+
+.video-duration {
+  right: 0.4rem;
+  bottom: 0.4rem;
+  padding: 0.12rem 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.01em;
+}
+
+.video-tile .video-menu-trigger,
+.video-tile .mod-menu-trigger {
+  opacity: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.video-tile:hover .video-menu-trigger,
+.video-tile:hover .mod-menu-trigger,
+.video-tile:focus-within .video-menu-trigger,
+.video-tile:focus-within .mod-menu-trigger,
+.video-menu-trigger[aria-expanded="true"],
+.mod-menu-trigger[aria-expanded="true"] {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .video-tile .video-menu-trigger,
+  .video-tile .mod-menu-trigger {
+    opacity: 1;
+  }
+}
+
+/* Shorts shelf */
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.5rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  gap: 0.7rem;
+  padding-bottom: 0.15rem;
+}
+
+.yt-shelf.is-shorts .video-thumb-wrap,
+.yt-shelf.is-shorts .video-tile:hover .video-thumb-wrap {
+  border-radius: 12px;
+}
+
+/* Watch — calmer player + denser related */
+.yt-main-inner:has(.watch-page) {
+  padding-top: 1.15rem;
+  padding-inline: 1.5rem 1.75rem;
+}
+
+.watch-page {
+  gap: 1rem 1.6rem;
+}
+
+.player-frame:not(.is-short) {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+  background: #000;
+}
+
+.watch-title {
+  margin: 0.85rem 0 0;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.watch-owner-row {
+  margin: 0.55rem 0 0.4rem;
+  gap: 0.55rem 0.85rem;
+  align-items: center;
+}
+
+.watch-below {
+  gap: 0.4rem 0.5rem;
+  margin-top: 0;
+}
+
+.btn-subscribe,
+.btn-like-group,
+.btn-share,
+.btn-report,
+.btn-like,
+.btn-dislike {
+  height: var(--yt-control-height);
+  border-radius: 999px;
+}
+
+.btn-subscribe {
+  padding-inline: 1rem;
+  font-weight: 600;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.btn-subscribe.is-subscribed {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-subscribe:hover,
+.btn-share:hover,
+.btn-like:hover,
+.btn-dislike:hover {
+  transform: none !important;
+}
+
+.watch-desc-card {
+  margin-top: 0.55rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 12px;
+  background: var(--paper);
+  border: none;
+}
+
+.watch-related {
+  top: 72px;
+  max-height: calc(100vh - 80px);
+  padding-right: 0.15rem;
+}
+
+.watch-related-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.02em;
+}
+
+.watch-related-list {
+  gap: 0.45rem;
+}
+
+.watch-related-item {
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 0.55rem;
+}
+
+.watch-related-thumb {
+  border-radius: 8px;
+}
+
+.watch-related-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.watch-related-meta {
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+  color: var(--ink-soft);
+}
+
+/* Footer — de-emphasize under the feed */
+.yt-app .site-footer,
+.site-footer {
+  margin-top: 0.5rem;
+  padding: 1.1rem 1.5rem 1.6rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.site-footer-nav {
+  gap: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.site-footer-nav a {
+  font-weight: 550;
+  color: var(--ink-soft);
+}
+
+.site-footer-nav a:hover {
+  color: var(--ink);
+}
+
+.site-footer p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.empty-state {
+  border: none;
+  border-radius: 12px;
+  background: var(--paper);
+  padding: 1.2rem 1.05rem;
+}
+
+@media (max-width: 960px) {
+  .yt-body,
+  html.yt-sidebar-collapsed .yt-body,
+  html.yt-page-watch .yt-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .yt-main-inner:not(:has(.watch-page)) {
+    padding-inline: 0.75rem;
+    padding-block: 0.05rem 1.35rem;
+  }
+
+  .yt-main-inner:has(.watch-page) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+  .yt-chip-rail {
+    padding-inline: 0.75rem;
+  }
+
+  .yt-shelves {
+    gap: 1.2rem;
+  }
+
+  .yt-shelf-grid .video-grid,
+  .video-grid:not(.shorts-grid),
+  .yt-shelf-longform-grid,
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    gap: 1.15rem 0 !important;
+  }
+
+  .video-tile:hover .video-thumb-wrap {
+    border-radius: var(--yt-thumb-radius);
+  }
+
+  .yt-shelf-title {
+    font-size: 1.05rem;
+  }
+
+  .watch-related-item {
+    grid-template-columns: 148px minmax(0, 1fr);
+  }
+
+  .player-frame:not(.is-short) {
+    border-radius: 0;
+  }
+
+  .site-footer {
+    padding-inline: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yt-chip,
+  .yt-sidebar-link,
+  .yt-icon-btn,
+  .video-thumb-wrap {
+    transition: none !important;
+  }
+}
