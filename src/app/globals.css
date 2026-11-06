@@ -9287,3 +9287,581 @@ body {
     transform: none !important;
   }
 }
+
+/* ——— Refine design 2026-11-06: tighter YT surfaces / spacing / chrome ——— */
+
+:root {
+  --yt-thumb-radius: 12px;
+  --yt-chip-radius: 8px;
+  --yt-control-height: 36px;
+  --yt-gap-row: 1.25rem;
+  --yt-gap-col: 1rem;
+  --shadow-elevated: 0 1px 2px rgba(15, 15, 15, 0.05),
+    0 8px 20px rgba(15, 15, 15, 0.07);
+}
+
+html.theme-dark,
+html[data-theme="dark"] {
+  --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Flatter page — YT is nearly solid surface, not a glow poster */
+body {
+  background: var(--surface);
+}
+
+.yt-app {
+  background: var(--surface);
+}
+
+/* Topbar — solid masthead, crisp search capsule */
+.yt-topbar {
+  min-height: 56px;
+  padding: 0 1rem;
+  gap: 0.85rem;
+  background: var(--surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.yt-topbar-search {
+  width: min(640px, 100%);
+}
+
+.yt-topbar-search .catalog-search {
+  max-width: 640px;
+}
+
+.yt-topbar-search .catalog-search input,
+.yt-search.catalog-search input {
+  height: 40px;
+  border-radius: 40px 0 0 40px;
+  border: 1px solid #ccc;
+  border-right: none;
+  background: var(--white);
+  box-shadow: none;
+  font-size: 1rem;
+  padding-inline: 1rem 0.75rem;
+}
+
+html.theme-dark .yt-topbar-search .catalog-search input,
+html.theme-dark .yt-search.catalog-search input,
+html[data-theme="dark"] .yt-topbar-search .catalog-search input,
+html[data-theme="dark"] .yt-search.catalog-search input {
+  border-color: #303030;
+  background: #121212;
+}
+
+.yt-topbar-search .catalog-search input:focus,
+.yt-search.catalog-search input:focus {
+  border-color: #1c62b9;
+  box-shadow: inset 0 0 0 1px #1c62b9;
+}
+
+.yt-topbar-search .catalog-search .btn-primary,
+.yt-search.catalog-search .btn-primary,
+.yt-search-btn {
+  height: 40px;
+  min-width: 64px;
+  border-radius: 0 40px 40px 0;
+  border: 1px solid #d3d3d3;
+  border-left: 1px solid #d3d3d3;
+  background: #f8f8f8;
+  color: var(--ink-soft);
+  box-shadow: none;
+  filter: none;
+}
+
+.yt-topbar-search .catalog-search .btn-primary:hover,
+.yt-search.catalog-search .btn-primary:hover,
+.yt-search-btn:hover {
+  background: #f0f0f0;
+  filter: none;
+  box-shadow: none;
+}
+
+html.theme-dark .yt-topbar-search .catalog-search .btn-primary,
+html.theme-dark .yt-search.catalog-search .btn-primary,
+html.theme-dark .yt-search-btn,
+html[data-theme="dark"] .yt-topbar-search .catalog-search .btn-primary,
+html[data-theme="dark"] .yt-search.catalog-search .btn-primary,
+html[data-theme="dark"] .yt-search-btn {
+  border-color: #303030;
+  background: #222;
+  color: #aaa;
+}
+
+html.theme-dark .yt-topbar-search .catalog-search .btn-primary:hover,
+html.theme-dark .yt-search.catalog-search .btn-primary:hover,
+html.theme-dark .yt-search-btn:hover,
+html[data-theme="dark"] .yt-topbar-search .catalog-search .btn-primary:hover,
+html[data-theme="dark"] .yt-search.catalog-search .btn-primary:hover,
+html[data-theme="dark"] .yt-search-btn:hover {
+  background: #2a2a2a;
+}
+
+.yt-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.yt-icon-btn:hover,
+.yt-icon-btn[aria-expanded="true"] {
+  background: var(--paper);
+  transform: none;
+  box-shadow: none;
+}
+
+.yt-topbar-right {
+  gap: 0.35rem;
+}
+
+.yt-topbar-mode .content-mode-toggle {
+  height: 36px;
+}
+
+.content-mode-option {
+  padding: 0.3rem 0.62rem;
+  font-size: 0.72rem;
+}
+
+/* Sidebar — flat guide, denser rows */
+.yt-sidebar {
+  background: var(--surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-right: none;
+  padding: 0.45rem 0.5rem 0.9rem;
+  gap: 0.55rem;
+}
+
+.yt-sidebar-link {
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 450;
+  gap: 0.7rem;
+  transition: background 0.12s ease;
+}
+
+.yt-sidebar-link:hover {
+  background: var(--paper);
+  transform: none;
+}
+
+.yt-sidebar-link.is-active {
+  background: var(--paper-deep);
+  font-weight: 550;
+}
+
+.yt-sidebar-heading {
+  margin: 0.15rem 0.7rem 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.yt-sidebar-section {
+  gap: 0.1rem;
+}
+
+.theme-toggle {
+  margin-inline: 0.2rem;
+  border-radius: 10px;
+  padding: 0.15rem;
+}
+
+.theme-toggle-option {
+  padding: 0.28rem 0.45rem;
+  font-size: 0.72rem;
+  border-radius: 8px;
+}
+
+/* Chip rail — flush sticky YT filter bar */
+.yt-chip-rail {
+  top: 56px;
+  z-index: 25;
+  background: var(--surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  padding: 0.35rem 0 0.45rem;
+  margin: 0;
+}
+
+.yt-chip-rail-track {
+  gap: 0.4rem;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 0.6rem,
+    #000 calc(100% - 0.6rem),
+    transparent 100%
+  );
+}
+
+.yt-chip {
+  border-radius: var(--yt-chip-radius);
+  padding: 0.32rem 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  background: var(--paper);
+  border: none;
+  box-shadow: none;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.yt-chip:hover {
+  background: var(--paper-deep);
+  transform: none;
+}
+
+.yt-chip.is-active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Home density — YT shelf rhythm */
+.yt-main-inner:not(:has(.watch-page)) {
+  padding-block: 0.1rem 1.5rem;
+  padding-inline: 1.5rem;
+}
+
+.yt-home {
+  gap: 0;
+}
+
+.yt-shelves {
+  gap: 1.35rem;
+  margin-top: 0.2rem;
+}
+
+.yt-shelf-head {
+  margin-bottom: 0.55rem;
+}
+
+.yt-shelf-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.yt-shelf-more {
+  font-size: 0.875rem;
+  font-weight: 550;
+}
+
+/* Keep 3-col; tighten gaps toward YT (~16px) */
+.yt-shelf-grid .video-grid,
+.video-grid:not(.shorts-grid),
+.yt-shelf-longform-grid,
+.yt-shelf:not(.is-shorts) .yt-shelf-row {
+  gap: var(--yt-gap-row) var(--yt-gap-col) !important;
+}
+
+.video-tile {
+  gap: 0.55rem;
+}
+
+.video-thumb-wrap {
+  border-radius: var(--yt-thumb-radius);
+  box-shadow: none;
+  transition: border-radius 0.2s ease;
+}
+
+.video-thumb-wrap::after {
+  display: none;
+}
+
+.video-thumb {
+  transition: transform 0.25s ease;
+}
+
+/* Modern YT: soft radius change on hover, no float card */
+.video-tile:hover .video-thumb-wrap {
+  transform: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-tile:hover .video-thumb {
+  transform: none;
+  filter: none;
+}
+
+.video-tile:hover .video-thumb-wrap::after {
+  display: none;
+}
+
+.video-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.video-tile:hover .video-title {
+  color: var(--ink);
+}
+
+.video-channel,
+.video-submeta {
+  font-size: 0.78rem;
+  line-height: 1.25;
+  color: var(--ink-soft);
+}
+
+.video-tile-body {
+  gap: 0.55rem;
+  padding-inline: 0.05rem 0.15rem;
+}
+
+.video-tile-avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.video-tile:hover .video-tile-avatar {
+  transform: none;
+}
+
+.video-duration {
+  right: 0.35rem;
+  bottom: 0.35rem;
+  padding: 0.1rem 0.28rem;
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.video-tile .video-menu-trigger,
+.video-tile .mod-menu-trigger {
+  opacity: 0;
+}
+
+.video-tile:hover .video-menu-trigger,
+.video-tile:hover .mod-menu-trigger,
+.video-tile:focus-within .video-menu-trigger,
+.video-tile:focus-within .mod-menu-trigger,
+.video-menu-trigger[aria-expanded="true"],
+.mod-menu-trigger[aria-expanded="true"] {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .video-tile .video-menu-trigger,
+  .video-tile .mod-menu-trigger {
+    opacity: 1;
+  }
+}
+
+/* Shorts shelf */
+.yt-shelf.is-shorts .yt-shelf-head {
+  margin-bottom: 0.45rem;
+}
+
+.yt-shelf.is-shorts .yt-shelf-row {
+  gap: 0.65rem;
+}
+
+.yt-shelf.is-shorts .video-thumb-wrap {
+  border-radius: 12px;
+}
+
+.yt-shelf.is-shorts .video-tile:hover .video-thumb-wrap {
+  transform: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Watch — quieter chrome, denser related */
+.yt-main-inner:has(.watch-page) {
+  padding-top: 1rem;
+  padding-inline: 1.5rem 1.5rem;
+}
+
+.watch-page {
+  gap: 0.85rem 1.5rem;
+}
+
+.player-frame:not(.is-short) {
+  border-radius: 12px;
+  box-shadow: none;
+  background: #000;
+}
+
+.watch-title {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.watch-owner-row {
+  margin: 0.5rem 0 0.35rem;
+  gap: 0.5rem 0.75rem;
+}
+
+.watch-below {
+  gap: 0.4rem 0.55rem;
+  margin-top: 0;
+}
+
+.btn-subscribe,
+.btn-like-group,
+.btn-share,
+.btn-report,
+.btn-like,
+.btn-dislike {
+  height: var(--yt-control-height);
+}
+
+.btn-subscribe,
+.btn-share,
+.btn-report,
+.btn-like,
+.btn-dislike {
+  transform: none !important;
+}
+
+.btn-subscribe:hover,
+.btn-share:hover,
+.btn-like:hover,
+.btn-dislike:hover {
+  transform: none !important;
+}
+
+.watch-desc-card {
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.watch-related {
+  top: 68px;
+  max-height: calc(100vh - 76px);
+}
+
+.watch-related-heading {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+}
+
+.watch-related-list {
+  gap: 0.35rem;
+}
+
+.watch-related-row {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.watch-related-row:hover,
+.watch-related-row:focus-within {
+  background: transparent;
+}
+
+.watch-related-item {
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.watch-related-thumb {
+  border-radius: 8px;
+  transition: none;
+}
+
+.watch-related-item:hover .watch-related-thumb {
+  transform: none;
+}
+
+.watch-related-title {
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.watch-related-meta {
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+/* Empty / footer quieter */
+.empty-state {
+  border-radius: 12px;
+  border: none;
+  background: var(--paper);
+  padding: 1.15rem 1rem;
+}
+
+.site-footer {
+  padding: 1.25rem 1.5rem 1.75rem;
+  border-top: 1px solid var(--line);
+  opacity: 0.92;
+}
+
+@media (max-width: 960px) {
+  .yt-main-inner:not(:has(.watch-page)) {
+    padding-inline: 0.75rem;
+    padding-block: 0.05rem 1.25rem;
+  }
+
+  .yt-main-inner:has(.watch-page) {
+    padding-inline: 0;
+    padding-top: 0;
+  }
+
+  .yt-chip-rail {
+    padding-inline: 0.75rem;
+  }
+
+  .yt-chip-rail-track {
+    mask-image: none;
+  }
+
+  .yt-shelves {
+    gap: 1.15rem;
+  }
+
+  .yt-shelf-grid .video-grid,
+  .video-grid:not(.shorts-grid),
+  .yt-shelf-longform-grid,
+  .yt-shelf:not(.is-shorts) .yt-shelf-row {
+    gap: 1.1rem 0 !important;
+  }
+
+  .video-tile:hover .video-thumb-wrap {
+    border-radius: var(--yt-thumb-radius);
+  }
+
+  .watch-related-item {
+    grid-template-columns: 148px minmax(0, 1fr);
+  }
+
+  .player-frame:not(.is-short) {
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-thumb,
+  .yt-chip,
+  .yt-sidebar-link,
+  .yt-icon-btn {
+    transition: none !important;
+  }
+}
