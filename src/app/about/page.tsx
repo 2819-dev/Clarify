@@ -45,8 +45,7 @@ export default function AboutPage() {
           </li>
           <li>
             <strong>Categories</strong> — browse by topic. Music has its own
-            home section; News appears in Family-Friendly (and the News
-            category), not in Jewish mode.
+            section on the home page.
           </li>
           <li>
             <strong>Parental controls</strong> — open Parental controls in the

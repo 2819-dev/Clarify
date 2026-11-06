@@ -188,14 +188,6 @@ const NEW_CHANNELS = [
   ["bluefringemusic", true, "music"],
   ["thejewishstar", true, "community"],
   ["jewishtimes", true, "community"],
-  ["algemeiner", true, "community"],
-  ["jpost", true, "community"],
-  ["jerusalempost", true, "community"],
-  ["timesofisrael", true, "community"],
-  ["haaretz", true, "community"],
-  ["i24news", true, "community"],
-  ["kanisrael", true, "community"],
-  ["jewishnews", true, "community"],
   ["jtaorg", true, "community"],
   ["jewishtelegraphicagency", true, "community"],
   // Round 2 — more family-friendly
@@ -431,7 +423,6 @@ const NEW_CHANNELS = [
   ["glztv", true, "community"],
   ["israelhayom", true, "community"],
   ["mako", true, "community"],
-  ["n12news", true, "community"],
   ["keshet12", true, "community"],
   // Round 3 — more family-friendly
   ["pbsdigitalstudios", false, "learning"],

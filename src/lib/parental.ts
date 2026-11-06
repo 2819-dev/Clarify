@@ -78,33 +78,33 @@ export function ageBasedDefaults(age: number): {
 } {
   if (age <= 6) {
     return {
-      disabledCategories: ["news", "comedy", "gaming", "sports", "community"],
+      disabledCategories: ["comedy", "gaming", "sports", "community"],
       totalLimitMinutes: 45,
       categoryLimits: { music: 20, stories: 30, holidays: 30, hebrew: 20 },
-      note: "Suggested for ages 1–6: shorter days; News, Comedy, and Gaming turned off; focus on Stories, Holidays, and Hebrew.",
+      note: "Suggested for ages 1–6: shorter days; Comedy and Gaming turned off; focus on Stories, Holidays, and Hebrew.",
     };
   }
   if (age <= 10) {
     return {
-      disabledCategories: ["news", "comedy"],
+      disabledCategories: ["comedy"],
       totalLimitMinutes: 75,
       categoryLimits: { music: 30, gaming: 20, sports: 20 },
-      note: "Suggested for ages 7–10: News and Comedy turned off; lighter Music and Gaming; about 75 minutes a day.",
+      note: "Suggested for ages 7–10: Comedy turned off; lighter Music and Gaming; about 75 minutes a day.",
     };
   }
   if (age <= 13) {
     return {
       disabledCategories: [],
       totalLimitMinutes: 120,
-      categoryLimits: { news: 20, gaming: 40 },
-      note: "Suggested for ages 11–13: News up to 20 minutes, Gaming up to 40 minutes, about 2 hours a day total.",
+      categoryLimits: { gaming: 40 },
+      note: "Suggested for ages 11–13: Gaming up to 40 minutes, about 2 hours a day total.",
     };
   }
   return {
     disabledCategories: [],
     totalLimitMinutes: 180,
-    categoryLimits: { news: 40 },
-    note: "Suggested for ages 14–17: a light News limit and about 3 hours a day total. Adjust as needed.",
+    categoryLimits: {},
+    note: "Suggested for ages 14–17: about 3 hours a day total. Adjust as needed.",
   };
 }
 

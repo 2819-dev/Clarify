@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { CategoryRail } from "@/components/CategoryRail";
 import { FormatTabs } from "@/components/FormatTabs";
 import { VideoTile } from "@/components/VideoTile";
@@ -21,34 +21,32 @@ export default async function CategoryPage({
   searchParams: Promise<{ q?: string; format?: string }>;
 }) {
   const { slug } = await params;
+  if (slug === "news") {
+    redirect("/categories");
+  }
   const { q, format: formatRaw } = await searchParams;
   const format =
     formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
   const mode = await getContentMode();
-  // News tab always lists the full News catalog (Family-Friendly scope),
-  // even if the viewer is currently in Jewish browsing mode.
-  const isNewsTab = slug === "news";
-  const listMode = isNewsTab ? "filtered" : mode;
-  const railMode = isNewsTab ? "filtered" : mode;
   const user = await getCurrentUser();
   const parental = user ? await getParentalStatus(user.id) : null;
   const disabled = parental?.disabledCategories || [];
   const [category, categories, cookieHidden, dbHidden, shortsCount] =
     await Promise.all([
-      getCategory(slug, listMode),
-      listCategories(railMode),
+      getCategory(slug, mode),
+      listCategories(mode),
       getHiddenChannelSlugs(),
       user
         ? listFeedPrefChannelSlugs(user.id, "hide")
         : Promise.resolve([] as string[]),
-      countShorts(undefined, listMode),
+      countShorts(undefined, mode),
     ]);
   const excludeChannelSlugs = [...new Set([...cookieHidden, ...dbHidden])];
   const videos = await listActiveVideos({
     category: slug,
     q,
     format,
-    mode: listMode,
+    mode,
     limit: 60,
     excludeChannelSlugs,
   });
