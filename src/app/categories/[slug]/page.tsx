@@ -25,25 +25,30 @@ export default async function CategoryPage({
   const format =
     formatRaw === "shorts" || formatRaw === "videos" ? formatRaw : "all";
   const mode = await getContentMode();
+  // News tab always lists the full News catalog (Family-Friendly scope),
+  // even if the viewer is currently in Jewish browsing mode.
+  const isNewsTab = slug === "news";
+  const listMode = isNewsTab ? "filtered" : mode;
+  const railMode = isNewsTab ? "filtered" : mode;
   const user = await getCurrentUser();
   const parental = user ? await getParentalStatus(user.id) : null;
   const disabled = parental?.disabledCategories || [];
   const [category, categories, cookieHidden, dbHidden, shortsCount] =
     await Promise.all([
-      getCategory(slug, mode),
-      listCategories(mode),
+      getCategory(slug, listMode),
+      listCategories(railMode),
       getHiddenChannelSlugs(),
       user
         ? listFeedPrefChannelSlugs(user.id, "hide")
         : Promise.resolve([] as string[]),
-      countShorts(undefined, mode),
+      countShorts(undefined, listMode),
     ]);
   const excludeChannelSlugs = [...new Set([...cookieHidden, ...dbHidden])];
   const videos = await listActiveVideos({
     category: slug,
     q,
     format,
-    mode,
+    mode: listMode,
     limit: 60,
     excludeChannelSlugs,
   });
